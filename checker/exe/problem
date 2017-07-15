@@ -1,0 +1,150 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "checker"
+require 'open-uri'
+require 'optparse'
+require 'nokogiri'
+require "ansi"
+require 'rdoc'
+require 'pry'
+require 'pandoc-ruby'
+require 'rouge'
+
+class ProblemTool
+  def initialize
+    # datadir holds languages.yml and problems.yml
+    @datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
+
+    # problemdir holds all the markdown files for the problems
+    @problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
+
+    # which editor to use
+    @editor = ENV['EDITOR'] || "vim"
+
+    # determine if we do syntax highlighting or not
+    @syntax = true
+
+    # parse command line arguments
+    @opts = OptionParser.new do |opt|
+      opt.banner =  "Usage: #{opt.program_name} [options] [view] PROBLEM\n"
+      opt.banner << "       #{opt.program_name} [options] edit PROBLEM\n"
+      opt.banner << "       #{opt.program_name} [options] info PROBLEM\n"
+      opt.banner << "       #{opt.program_name} [options] move PROBLEM NEW-SLUG\n"
+
+      opt.on('--datadir DATADIR', "The location of the directory containing the problems.yml file") do |o|
+        @datadir = o
+      end
+
+      opt.on('--problemsdir PROBLEMSDIR', "The location of the directory containing the problems") do |o|
+        @problemdir = o
+      end
+
+      opt.on('-e EDITOR', '--editor EDITOR', "The editor to use when editing the problem") do |o|
+        @editor = o
+      end
+
+      opt.on('-s', '--no-syntax', "Don't do syntax highlighting when viewing the problem") do |o|
+        @syntax = false
+      end
+    end
+  end
+
+  # parse command line options
+  def parse_opts
+    @opts.parse!
+
+    # show help text if no command specified
+    if ARGV.empty?
+      help @opts
+    end
+  end
+
+  # prints an error (formatted in red)
+  def error(n)
+    STDERR.puts ANSI.red {"Error: #{n}"}
+    exit(-1)
+  end
+
+  # prints a warning (formatted in yellow)
+  def warn(n)
+    STDOUT.puts ANSI.yellow {"Warning: #{n}"}
+  end
+
+  # prints help and quits
+  def help(opts)
+    puts @opts.help
+    exit 0
+  end
+
+  # prints info statement
+  def info(n)
+    STDOUT.puts "#{ANSI.blue{'==>'}} #{n}"
+  end
+
+  # prints step statement
+  def step(n)
+    STDOUT.puts "#{ANSI.green{'==>'}} #{n}"
+  end
+
+  def load_problems
+    Checker::Problems.load(File.join(@datadir, 'problems.yml'))
+  end
+
+  def load_problem(problem_p)
+    problems = load_problems
+
+    problem = problems[problem_p.to_i]
+    error "Invalid problem specified: #{problem_p}" if !problem.exists?
+
+    problem
+  end
+
+  def load_languages
+    info "Loading languages"
+    Checker::Languages.load(File.join(@datadir, 'languages.yml'))
+  end
+
+  def load_solutions(problems, languages)
+    info "Loading solutions"
+    solutions = Checker::Solutions.new(problems, languages)
+    solutions.load_all(@solutiondir)
+    solutions
+  end
+
+  def view problem
+    problem = load_problem(problem)
+
+    path = File.join(@problemdir, problem.make_path('md'))
+    data = ""
+
+    begin
+      file = File.open(path, 'r')
+      data = file.read
+      file.close
+    rescue
+      error "Error while reading problem!"
+    end
+
+    if @syntax
+      formatter = Rouge::Formatters::Terminal256.new
+      lexer = Rouge::Lexers::Markdown.new
+      puts formatter.format(lexer.lex(data))
+    else
+      puts data
+    end
+  end
+end
+
+tool = ProblemTool.new
+tool.parse_opts
+
+if ARGV.length == 1 && ARGV[0].to_i != 0
+  ARGV.unshift("view")
+end
+
+# figure out what to do
+case ARGV[0]
+when "view"
+  tool.error "Too many arguments provided." unless ARGV.length == 2
+  tool.view(ARGV[1])
+end
