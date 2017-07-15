@@ -128,15 +128,40 @@ class ProblemTool
     if @syntax
       formatter = Rouge::Formatters::Terminal256.new
       lexer = Rouge::Lexers::Markdown.new
-      puts formatter.format(lexer.lex(data))
+      print formatter.format(lexer.lex(data))
     else
       puts data
     end
+  end
+
+  def edit problem
+    problem = load_problem(problem)
+
+    path = File.join(@problemdir, problem.make_path('md'))
+
+    error "Problem file not found: #{path}" unless File.exists? path
+
+    exec(@editor, path)
+  end
+
+  def about problem
+    info "Loading problem"
+    problem = load_problem(problem)
+
+    step "Information about problem #{problem.number.to_s.rjust(3, '0')}"
+    path = File.join(@problemdir, problem.make_path('md'))
+    puts "     #{ANSI.yellow{'link'}} https://projecteuler.net/problem=#{problem.number}"
+    puts "     #{ANSI.yellow{'name'}} #{problem.name}"
+    puts "     #{ANSI.yellow{'slug'}} #{problem.slug}"
+    puts "     #{ANSI.yellow{'file'}} #{path}"
+    puts " #{ANSI.yellow{'solution'}} #{if problem.solution then ANSI.green{'yes'} else ANSI.red{'no'} end}"
   end
 end
 
 tool = ProblemTool.new
 tool.parse_opts
+
+puts ARGV.inspect
 
 if ARGV.length == 1 && ARGV[0].to_i != 0
   ARGV.unshift("view")
@@ -147,4 +172,10 @@ case ARGV[0]
 when "view"
   tool.error "Too many arguments provided." unless ARGV.length == 2
   tool.view(ARGV[1])
+when "edit"
+  tool.error "Too many arguments provided." unless ARGV.length == 2
+  tool.edit(ARGV[1])
+when "info"
+  tool.error "Too many arguments provided." unless ARGV.length == 2
+  tool.about(ARGV[1])
 end
