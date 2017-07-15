@@ -143,7 +143,7 @@ def save_problems()
 
   pages.each do |page|
     problem = page['problem']
-    path = File.join($problemdir, "#{problem.number.to_s.rjust(3, '0')}-#{problem.slug}.md")
+    path = File.join($problemdir, problem.make_path('md'))
     file = File.open(path, 'w')
     file.puts "# Problem #{problem.number}: #{problem.name}"
     file.puts page['content']
