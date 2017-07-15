@@ -18,7 +18,7 @@ module Checker
         return false
       else
         # copy skeleton files over
-        Dir[File.join(skeleton, '*')].each{ |f| FileUtils.cp(f, @path) }
+        FileUtils.cp_r(File.join(skeleton, '.'), @path)
       end
 
       true
