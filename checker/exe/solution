@@ -34,13 +34,14 @@ def error(n)
 end
 
 # get request from user
-method = ARGV[0] || help()
-problem_num = ARGV[1].to_i || error("No problem specified.")
-solution = ARGV[2] || error("No solution specified.")
+method = ARGV[-3] || help()
+problem_num = ARGV[-2].to_i || error("No problem specified.")
+solution = ARGV[-1] || error("No solution specified.")
 
 # load current problems
-puts "#{ANSI.blue{'==>'}} Loading problem list from #{ANSI.bold{File.join($datadir,'/problems.yml')}}"
-problems = Checker::Problems.load("#{$datadir}/problems.yml")
+problem_list = File.join($datadir, "problems.yml")
+puts "#{ANSI.blue{'==>'}} Loading problem list from #{ANSI.bold{problem_list}}"
+problems = Checker::Problems.load(problem_list)
 
 def solution_add(problem, solution)
   unless $force
