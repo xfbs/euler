@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pandoc-ruby"
   spec.add_dependency "bcrypt"
   spec.add_dependency "ansi"
+  spec.add_dependency "rouge"
 end
