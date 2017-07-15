@@ -9,7 +9,7 @@ $datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../d
 $force = false
 
 # parse command line arguments
-options = OptionParser.new do |opt|
+$options = OptionParser.new do |opt|
   opt.banner = "Usage: #{opt.program_name} [options] add|check problem_num solution"
   opt.on('--datadir DATADIR', "The directory where the problems.yml is stored") do |o|
     $datadir = o
@@ -21,10 +21,10 @@ options = OptionParser.new do |opt|
 end
 
 # parse options
-options.parse!
+$options.parse(ARGV[0..-3])
 
 def help()
-  puts options.help
+  puts $options.help
   exit 0
 end
 
