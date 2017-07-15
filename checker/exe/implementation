@@ -80,9 +80,8 @@ def load_problems
 end
 
 def add_implementation(problem_p, language_p)
-  info "Loading languages..."
+  info "Loading languages"
   languages = Checker::Languages.load(File.join($datadir, 'languages.yml'))
-  puts languages.inspect
 
   language = languages.find do |ext, lang| 
     lang['name'] == language_p || lang['ext'] == language_p
@@ -90,12 +89,12 @@ def add_implementation(problem_p, language_p)
   error "Invalid language specified: #{language_p}" unless language
   language = language[0]
 
-  info "Loading problems..."
+  info "Loading problems"
   problems = Checker::Problems.load(File.join($datadir, 'problems.yml'))
   problem = problems[problem_p.to_i]
   error "Invalid problem specified: #{problem_p}" unless problem.exists?
 
-  info "Loading solutions..."
+  info "Loading solutions"
   solutions = Checker::Solutions.new(problems, languages)
   solutions.load_all($solutiondir)
 
@@ -108,7 +107,7 @@ def add_implementation(problem_p, language_p)
   end
 
   if $skeletons
-    info "Copying skeletons to implementation..."
+    info "Copying skeletons to implementation"
     unless solutions[problem][language].create $solutiondir
       error "No skeleton found for language #{languages[language]['name']}"
     end
@@ -130,5 +129,3 @@ when "add"
 when "list"
   list_implementations(ARGV[1])
 end
-
-# list or add implementations of a solution
