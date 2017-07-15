@@ -77,5 +77,11 @@ module Checker
 
       @implementations[ext]
     end
+
+    def each
+      @implementations.values.each do |impl|
+        yield impl
+      end
+    end
   end
 end
