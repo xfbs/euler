@@ -1,0 +1,148 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "checker"
+require 'open-uri'
+require 'optparse'
+require 'nokogiri'
+require "ansi"
+require 'rdoc'
+require 'pry'
+require 'pandoc-ruby'
+
+# settings
+$datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
+$problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
+$force = false
+
+# parse command line arguments
+OptionParser.new do |opt|
+  opt.banner = "Usage: #{opt.program_name} [options] [problem]"
+
+  opt.on('-d', '--datadir', "The location of the directory containing the problems.yml file") do |o| 
+    $datadir = o
+  end
+
+  opt.on('-p', '--problemsdir', "The location of the directory containing the problems") do |o|
+    $problemsdir = o
+  end
+
+  opt.on('-f', '--force', "Overwrite existing documentation") do |o|
+    $force = true
+  end
+end.parse!
+
+def error(n)
+  STDERR.puts ANSI.red {"Error: #{n}"}
+  exit(-1)
+end
+
+def warn(n)
+  STDOUT.puts ANSI.yellow {"Warning: #{n}"}
+end
+
+def has_documentation(problem)
+  Dir[File.join($problemdir, problem.number.to_s.rjust(3, '0')+"-*.md")].length > 0
+end
+
+# load current problems
+def load_problems()
+  problem_list = File.join($datadir, "problems.yml")
+  puts "#{ANSI.blue{'==>'}} Loading problem list from #{ANSI.bold{problem_list}}"
+  Checker::Problems.load(problem_list)
+end
+
+# find out which problems we have to find
+def find_targets(problems)
+  targets = []
+
+  if ARGV[-1].to_i != 0
+    targets << problems[ARGV[-1].to_i]
+
+    if !targets[0].exists?
+      error "No record of this problem..."
+    end
+
+    if !$force && has_documentation(targets[0])
+      error "Problem is already downloaded. Use --force to overwrite."
+    end
+  else
+    if $force
+      problems.each do |problem|
+        targets << problem
+      end
+    else
+      has_warned = false
+      problems.each do |problem|
+        if !has_documentation(problem)
+          targets << problem
+        else
+          if !has_warned
+            has_warned = true
+            warn "Ignoring some problems that have already been downloaded. Use --force to overwrite."
+          end
+        end
+      end
+    end
+  end
+
+  targets
+end
+
+$problems = load_problems()
+$targets =  find_targets($problems)
+
+# extract a given problem page from project euler
+def get_problem_page(problem=1)
+  open("https://projecteuler.net/problem=#{problem}").read
+end
+
+# get all problem pages
+def get_problem_pages()
+  print "#{ANSI.blue{'==>'}} Loading problem pages"
+  i = 0.0
+  r = $targets.map do |target|
+    i = i + 1
+    if i > ($targets.length/30)
+      print '.'
+      i=0
+    end
+    #sleep 0.15
+    [target, get_problem_page(target.number)]
+  end
+
+  puts
+  r
+end
+
+def extract_problems()
+  pages = get_problem_pages()
+
+  puts "#{ANSI.blue{'==>'}} Converting problem pages to markdown.."
+
+  # load into nokogiri
+  pages.each{|page| page[1] = Nokogiri::HTML(page[1])}
+
+  pages = pages.map do |page|
+    name = page[1].css('div#content').css('h2').text
+    content = PandocRuby.convert(page[1].css('div#content').css('div.problem_content').text, :from => :html, :to => :markdown)
+    {'problem' => page[0], 'name' => name, 'content' => content}
+  end
+end
+
+def save_problems()
+  pages = extract_problems()
+
+  puts "#{ANSI.green{'==>'}} Writing downloaded pages to #{$problemdir}"
+
+  pages.each do |page|
+    problem = page['problem']
+    path = File.join($problemdir, "#{problem.number.to_s.rjust(3, '0')}-#{problem.slug}.md")
+    file = File.open(path, 'w')
+    file.puts "# Problem #{problem.number}: #{problem.name}"
+    file.puts page['content']
+    file.close
+  end
+end
+
+save_problems()
+puts "#{ANSI.green{'==>'}} All done."

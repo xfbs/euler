@@ -76,5 +76,13 @@ module Checker
     def solution
       @solution.to_s if @solution
     end
+
+    def slug
+      @name.downcase.gsub(/[^0-9a-z ]/, '').gsub(' ', '-') if @name
+    end
+
+    def exists?
+      @name
+    end
   end
 end
