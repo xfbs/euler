@@ -1,13 +1,8 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
 require "checker"
-require 'open-uri'
 require 'optparse'
-require 'nokogiri'
 require "ansi"
-require 'rdoc'
-require 'pry'
-require 'pandoc-ruby'
 
 $datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
 $problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
@@ -36,17 +31,8 @@ opts = OptionParser.new do |opt|
     $skeletons = false
   end
 
-  # initialisation (with make init) is not implemented yet.
-  #opt.on('--no-initialize', "Don't initialize skeleton when adding implementation") do |o|
-  #  $inits = false
-  #end
-  
   opt.on('-s', '--summary', "Only prodide a summary (don't list individual solutions)") do |o|
     $summary = true
-  end
-
-  opt.on('-f', '--force', "Overwrite existing documentation") do |o|
-    $force = true
   end
 end
 opts.parse!
