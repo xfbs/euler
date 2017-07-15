@@ -1,13 +1,8 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
 require "checker"
-require 'open-uri'
 require 'optparse'
-require 'nokogiri'
 require "ansi"
-require 'rdoc'
-require 'pry'
-require 'pandoc-ruby'
 require 'rouge'
 
 class ProblemTool
