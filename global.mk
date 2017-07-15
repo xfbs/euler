@@ -1,0 +1,5 @@
+DATADIR		= "$(CURDIR)/data"
+CHECKERDIR	= "$(CURDIR)/checker"
+CACHEDIR	= "$(CURDIR)/.cache"
+PROBLEMDIR 	= "$(CURDIR)/problems"
+SOLUTIONDIR	= "$(CURDIR)/solutions"

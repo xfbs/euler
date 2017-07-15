@@ -1,8 +1,4 @@
-DATADIR		= "$(CURDIR)/data"
-CHECKERDIR	= "$(CURDIR)/checker"
-CACHEDIR	= "$(CURDIR)/.cache"
-PROBLEMDIR 	= "$(CURDIR)/problems"
-SOLUTIONDIR	= "$(CURDIR)/solutions"
+include global.mk
 PROBLEMS	= all
 LANGUAGES	= all
 BUNDLE		= bundle
@@ -26,6 +22,6 @@ setup-checker: setup
 	$(BUNDLE) install --path="$(CACHEDIR)/ruby" --gemfile="$(CHECKERDIR)/Gemfile"
 
 check: setup build
-	$(RUBY) $(CHECKERDIR)/checker.rb check --langs="$(LANGUAGES)" --problems="$(PROBLEMS)"
+	cd $(CHECKERDIR) && $(BUNDLE) exec exe/check
 
-.PHONY: build setup clean check
+.PHONY: build setup setup-checker clean check
