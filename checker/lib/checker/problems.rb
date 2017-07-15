@@ -14,7 +14,8 @@ module Checker
       problems_raw.each do |number, props|
         name = props['name']
         solution = props['solution']
-        problems[number.to_i] = Problem.new(number.to_i, name, solution)
+        slug = props['slug']
+        problems[number.to_i] = Problem.new(number.to_i, name, solution, slug)
       end
       Problems.new(problems, :file => file)
     end
@@ -27,6 +28,9 @@ module Checker
           data[number] = {"name" => problem.name}
           if problem.solution
             data[number]['solution'] = problem.solution.to_s
+          end
+          if problem.custom_slug?
+            data[number]['slug'] = problem.slug
           end
         end
       end
@@ -59,9 +63,10 @@ module Checker
     attr_reader :number
     attr_accessor :name
 
-    def initialize(number, name, solution=nil)
+    def initialize(number, name, solution=nil, slug=nil)
       @number = number
       @name = name
+      @slug = slug
       @solution = BCrypt::Password.new(solution) if solution
     end
 
@@ -77,8 +82,18 @@ module Checker
       @solution.to_s if @solution
     end
 
+    def custom_slug?
+      @slug != nil
+    end
+
     def slug
-      @name.downcase.gsub(/[^0-9a-z ]/, '').gsub(' ', '-') if @name
+      return @slug if @slug
+      return @name.downcase.gsub(/[^0-9a-z ]/, '').gsub(' ', '-') if @name
+      nil
+    end
+
+    def slug= slug
+      @slug = slug
     end
 
     def exists?
@@ -89,8 +104,12 @@ module Checker
       @number <=> other.number
     end
 
+    def self.make_path num, slug, ext
+      "#{num.to_s.rjust(3, '0')}-#{slug}.#{ext}"
+    end
+
     def make_path ext
-      "#{@number.to_s.rjust(3, '0')}-#{slug}.#{ext}"
+      self.class.make_path(@number, slug, ext)
     end
   end
 end

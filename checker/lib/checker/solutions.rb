@@ -83,5 +83,23 @@ module Checker
         yield impl
       end
     end
+
+    def move new_slug
+      saved = nil
+
+      @implementations.values.each do |implementation|
+        path = implementation.path
+        ext = implementation.lang['ext']
+        newpath = File.join(@solutions_dir, Problem.make_path(@problem.number, new_slug, ext))
+        begin
+          File.rename(path, newpath)
+        rescue e
+          saved = e
+        end
+      end
+
+      raise saved if saved
+      true
+    end
   end
 end

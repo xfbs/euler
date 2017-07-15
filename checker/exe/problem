@@ -18,6 +18,9 @@ class ProblemTool
     # problemdir holds all the markdown files for the problems
     @problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
 
+    # solutiondir holds all solutions
+    @solutiondir = ENV['SOLUTIONDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../solutions")
+
     # which editor to use
     @editor = ENV['EDITOR'] || "vim"
 
@@ -37,6 +40,10 @@ class ProblemTool
 
       opt.on('--problemsdir PROBLEMSDIR', "The location of the directory containing the problems") do |o|
         @problemdir = o
+      end
+
+      opt.on('--solutionsdir SOLUTIONSDIR', "The location of the directory containing the solutions") do |o|
+        @solutiondir = o
       end
 
       opt.on('-e EDITOR', '--editor EDITOR', "The editor to use when editing the problem") do |o|
@@ -100,12 +107,10 @@ class ProblemTool
   end
 
   def load_languages
-    info "Loading languages"
     Checker::Languages.load(File.join(@datadir, 'languages.yml'))
   end
 
   def load_solutions(problems, languages)
-    info "Loading solutions"
     solutions = Checker::Solutions.new(problems, languages)
     solutions.load_all(@solutiondir)
     solutions
@@ -138,7 +143,6 @@ class ProblemTool
     problem = load_problem(problem)
 
     path = File.join(@problemdir, problem.make_path('md'))
-
     error "Problem file not found: #{path}" unless File.exists? path
 
     exec(@editor, path)
@@ -156,12 +160,55 @@ class ProblemTool
     puts "     #{ANSI.yellow{'file'}} #{path}"
     puts " #{ANSI.yellow{'solution'}} #{if problem.solution then ANSI.green{'yes'} else ANSI.red{'no'} end}"
   end
+
+  def move problem_p, slug
+    info "Loading problems"
+    problems = load_problems
+
+    problem = problems[problem_p.to_i]
+    error "Invalid problem specified: #{problem_p}" if !problem.exists?
+
+    info "Loading languages"
+    languages = load_languages
+
+    info "Loading solutions"
+    solutions = load_solutions(problems, languages)
+
+    if problem.slug == slug
+      error "New slug is identical with the old one: #{slug}"
+    end
+
+    if /[^a-z0-9-]/.match slug
+      error "New slug contains illegal characters (can only contain lowercase alphanumeric and dashes)"
+    end
+
+    step "Setting slug to #{slug}"
+    info "Moving problem file"
+    path = File.join(@problemdir, problem.make_path('md'))
+    if File.exists? path
+      newpath = File.join(@problemdir, Checker::Problem.make_path(problem.number, slug, 'md'))
+
+      begin
+        File.rename(path, newpath)
+      rescue
+        error "Error occured while moving problem file"
+      end
+    end
+
+    begin
+      solutions[problem].move slug
+    rescue e
+      warn "Error occured while moving solutions: #{e.message}"
+    end
+
+    info "Saving updated slug"
+    problem.slug = slug
+    problems.save
+  end
 end
 
 tool = ProblemTool.new
 tool.parse_opts
-
-puts ARGV.inspect
 
 if ARGV.length == 1 && ARGV[0].to_i != 0
   ARGV.unshift("view")
@@ -170,12 +217,20 @@ end
 # figure out what to do
 case ARGV[0]
 when "view"
+  tool.error "No problem specified." unless ARGV[1]
   tool.error "Too many arguments provided." unless ARGV.length == 2
   tool.view(ARGV[1])
 when "edit"
+  tool.error "No problem specified." unless ARGV[1]
   tool.error "Too many arguments provided." unless ARGV.length == 2
   tool.edit(ARGV[1])
 when "info"
+  tool.error "No problem specified." unless ARGV[1]
   tool.error "Too many arguments provided." unless ARGV.length == 2
   tool.about(ARGV[1])
+when "move"
+  tool.error "No problem specified." unless ARGV[1]
+  tool.error "No slug specified." unless ARGV[2]
+  tool.error "Too many arguments provided." unless ARGV.length == 3
+  tool.move(ARGV[1], ARGV[2])
 end
