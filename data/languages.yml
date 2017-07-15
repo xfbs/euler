@@ -1,0 +1,9 @@
+---
+rb:
+    name: ruby
+py:
+    name: python
+c:
+    name: c
+rs:
+    name: rust

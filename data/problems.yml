@@ -1,0 +1,1203 @@
+---
+34:
+  name: Digit factorials
+1:
+  name: Multiples of 3 and 5
+2:
+  name: Even Fibonacci numbers
+3:
+  name: Largest prime factor
+4:
+  name: Largest palindrome product
+5:
+  name: Smallest multiple
+6:
+  name: Sum square difference
+7:
+  name: 10001st prime
+8:
+  name: Largest product in a series
+9:
+  name: Special Pythagorean triplet
+10:
+  name: Summation of primes
+11:
+  name: Largest product in a grid
+12:
+  name: Highly divisible triangular number
+13:
+  name: Large sum
+14:
+  name: Longest Collatz sequence
+15:
+  name: Lattice paths
+16:
+  name: Power digit sum
+17:
+  name: Number letter counts
+18:
+  name: Maximum path sum I
+19:
+  name: Counting Sundays
+20:
+  name: Factorial digit sum
+21:
+  name: Amicable numbers
+22:
+  name: Names scores
+23:
+  name: Non-abundant sums
+24:
+  name: Lexicographic permutations
+25:
+  name: 1000-digit Fibonacci number
+26:
+  name: Reciprocal cycles
+27:
+  name: Quadratic primes
+28:
+  name: Number spiral diagonals
+29:
+  name: Distinct powers
+30:
+  name: Digit fifth powers
+31:
+  name: Coin sums
+32:
+  name: Pandigital products
+33:
+  name: Digit cancelling fractions
+35:
+  name: Circular primes
+36:
+  name: Double-base palindromes
+37:
+  name: Truncatable primes
+38:
+  name: Pandigital multiples
+39:
+  name: Integer right triangles
+40:
+  name: Champernowne's constant
+41:
+  name: Pandigital prime
+42:
+  name: Coded triangle numbers
+43:
+  name: Sub-string divisibility
+44:
+  name: Pentagon numbers
+45:
+  name: Triangular, pentagonal, and hexagonal
+46:
+  name: Goldbach's other conjecture
+47:
+  name: Distinct primes factors
+48:
+  name: Self powers
+49:
+  name: Prime permutations
+50:
+  name: Consecutive prime sum
+51:
+  name: Prime digit replacements
+52:
+  name: Permuted multiples
+53:
+  name: Combinatoric selections
+54:
+  name: Poker hands
+55:
+  name: Lychrel numbers
+56:
+  name: Powerful digit sum
+57:
+  name: Square root convergents
+58:
+  name: Spiral primes
+59:
+  name: XOR decryption
+60:
+  name: Prime pair sets
+61:
+  name: Cyclical figurate numbers
+62:
+  name: Cubic permutations
+63:
+  name: Powerful digit counts
+64:
+  name: Odd period square roots
+65:
+  name: Convergents of e
+66:
+  name: Diophantine equation
+67:
+  name: Maximum path sum II
+68:
+  name: Magic 5-gon ring
+69:
+  name: Totient maximum
+70:
+  name: Totient permutation
+71:
+  name: Ordered fractions
+72:
+  name: Counting fractions
+73:
+  name: Counting fractions in a range
+74:
+  name: Digit factorial chains
+75:
+  name: Singular integer right triangles
+76:
+  name: Counting summations
+77:
+  name: Prime summations
+78:
+  name: Coin partitions
+79:
+  name: Passcode derivation
+80:
+  name: Square root digital expansion
+81:
+  name: 'Path sum: two ways'
+82:
+  name: 'Path sum: three ways'
+83:
+  name: 'Path sum: four ways'
+84:
+  name: Monopoly odds
+85:
+  name: Counting rectangles
+86:
+  name: Cuboid route
+87:
+  name: Prime power triples
+88:
+  name: Product-sum numbers
+89:
+  name: Roman numerals
+90:
+  name: Cube digit pairs
+91:
+  name: Right triangles with integer coordinates
+92:
+  name: Square digit chains
+93:
+  name: Arithmetic expressions
+94:
+  name: Almost equilateral triangles
+95:
+  name: Amicable chains
+96:
+  name: Su Doku
+97:
+  name: Large non-Mersenne prime
+98:
+  name: Anagramic squares
+99:
+  name: Largest exponential
+100:
+  name: Arranged probability
+101:
+  name: Optimum polynomial
+102:
+  name: Triangle containment
+103:
+  name: 'Special subset sums: optimum'
+104:
+  name: Pandigital Fibonacci ends
+105:
+  name: 'Special subset sums: testing'
+106:
+  name: 'Special subset sums: meta-testing'
+107:
+  name: Minimal network
+108:
+  name: Diophantine reciprocals I
+109:
+  name: Darts
+110:
+  name: Diophantine reciprocals II
+111:
+  name: Primes with runs
+112:
+  name: Bouncy numbers
+113:
+  name: Non-bouncy numbers
+114:
+  name: Counting block combinations I
+115:
+  name: Counting block combinations II
+116:
+  name: Red, green or blue tiles
+117:
+  name: Red, green, and blue tiles
+118:
+  name: Pandigital prime sets
+119:
+  name: Digit power sum
+120:
+  name: Square remainders
+121:
+  name: Disc game prize fund
+122:
+  name: Efficient exponentiation
+123:
+  name: Prime square remainders
+124:
+  name: Ordered radicals
+125:
+  name: Palindromic sums
+126:
+  name: Cuboid layers
+127:
+  name: abc-hits
+128:
+  name: Hexagonal tile differences
+129:
+  name: Repunit divisibility
+130:
+  name: Composites with prime repunit property
+131:
+  name: Prime cube partnership
+132:
+  name: Large repunit factors
+133:
+  name: Repunit nonfactors
+134:
+  name: Prime pair connection
+135:
+  name: Same differences
+136:
+  name: Singleton difference
+137:
+  name: Fibonacci golden nuggets
+138:
+  name: Special isosceles triangles
+139:
+  name: Pythagorean tiles
+140:
+  name: Modified Fibonacci golden nuggets
+141:
+  name: Investigating progressive numbers, n, which are also square
+142:
+  name: Perfect Square Collection
+143:
+  name: Investigating the Torricelli point of a triangle
+144:
+  name: Investigating multiple reflections of a laser beam
+145:
+  name: How many reversible numbers are there below one-billion?
+146:
+  name: 'Investigating a Prime Pattern '
+147:
+  name: Rectangles in cross-hatched grids
+148:
+  name: Exploring Pascal's triangle
+149:
+  name: Searching for a maximum-sum subsequence
+150:
+  name: Searching a triangular array for a sub-triangle having minimum-sum
+151:
+  name: 'Paper sheets of standard sizes: an expected-value problem'
+152:
+  name: Writing 1/2 as a sum of inverse squares
+153:
+  name: Investigating Gaussian Integers
+154:
+  name: Exploring Pascal's pyramid
+155:
+  name: Counting Capacitor Circuits
+156:
+  name: Counting Digits
+157:
+  name: Solving the diophantine equation 1/a+1/b= p/10n
+158:
+  name: Exploring strings for which only one character comes lexicographically after
+    its neighbour to the left
+159:
+  name: Digital root sums of factorisations
+160:
+  name: Factorial trailing digits
+161:
+  name: Triominoes
+162:
+  name: Hexadecimal numbers
+163:
+  name: Cross-hatched triangles
+164:
+  name: Numbers for which no three consecutive digits have a sum greater than a given
+    value
+165:
+  name: Intersections
+166:
+  name: Criss Cross
+167:
+  name: Investigating Ulam sequences
+168:
+  name: Number Rotations
+169:
+  name: Exploring the number of different ways a number can be expressed as a sum
+    of powers of 2
+170:
+  name: Find the largest 0 to 9 pandigital that can be formed by concatenating products
+171:
+  name: Finding numbers for which the sum of the squares of the digits is a square
+172:
+  name: Investigating numbers with few repeated digits
+173:
+  name: Using up to one million tiles how many different "hollow" square laminae can
+    be formed?
+174:
+  name: Counting the number of "hollow" square laminae that can form one, two, three,
+    ... distinct arrangements
+175:
+  name: Fractions involving the number of different ways a number can be expressed
+    as a sum of powers of 2
+176:
+  name: Right-angled triangles that share a cathetus
+177:
+  name: Integer angled Quadrilaterals
+178:
+  name: Step Numbers
+179:
+  name: Consecutive positive divisors
+180:
+  name: Rational zeros of a function of three variables
+181:
+  name: Investigating in how many ways objects of two different colours can be grouped
+182:
+  name: RSA encryption
+183:
+  name: Maximum product of parts
+184:
+  name: Triangles containing the origin
+185:
+  name: Number Mind
+186:
+  name: Connectedness of a network
+187:
+  name: Semiprimes
+188:
+  name: The hyperexponentiation of a number
+189:
+  name: Tri-colouring a triangular grid
+190:
+  name: Maximising a weighted product
+191:
+  name: Prize Strings
+192:
+  name: Best Approximations
+193:
+  name: Squarefree Numbers
+194:
+  name: Coloured Configurations
+195:
+  name: Inscribed circles of triangles with one angle of 60 degrees
+196:
+  name: Prime triplets
+197:
+  name: Investigating the behaviour of a recursively defined sequence
+198:
+  name: Ambiguous Numbers
+199:
+  name: Iterative Circle Packing
+200:
+  name: Find the 200th prime-proof sqube containing the contiguous sub-string "200"
+201:
+  name: Subsets with a unique sum
+202:
+  name: Laserbeam
+203:
+  name: Squarefree Binomial Coefficients
+204:
+  name: Generalised Hamming Numbers
+205:
+  name: Dice Game
+206:
+  name: Concealed Square
+207:
+  name: Integer partition equations
+208:
+  name: Robot Walks
+209:
+  name: Circular Logic
+210:
+  name: Obtuse Angled Triangles
+211:
+  name: Divisor Square Sum
+212:
+  name: Combined Volume of Cuboids
+213:
+  name: Flea Circus
+214:
+  name: Totient Chains
+215:
+  name: Crack-free Walls
+216:
+  name: Investigating the primality of numbers of the form 2n2-1
+217:
+  name: Balanced Numbers
+218:
+  name: Perfect right-angled triangles
+219:
+  name: Skew-cost coding
+220:
+  name: Heighway Dragon
+221:
+  name: Alexandrian Integers
+222:
+  name: Sphere Packing
+223:
+  name: Almost right-angled triangles I
+224:
+  name: Almost right-angled triangles II
+225:
+  name: Tribonacci non-divisors
+226:
+  name: A Scoop of Blancmange
+227:
+  name: The Chase
+228:
+  name: Minkowski Sums
+229:
+  name: Four Representations using Squares
+230:
+  name: Fibonacci Words
+231:
+  name: The prime factorisation of binomial coefficients
+232:
+  name: The Race
+233:
+  name: Lattice points on a circle
+234:
+  name: Semidivisible numbers
+235:
+  name: An Arithmetic Geometric sequence
+236:
+  name: Luxury Hampers
+237:
+  name: Tours on a 4 x n playing board
+238:
+  name: Infinite string tour
+239:
+  name: Twenty-two Foolish Primes
+240:
+  name: Top Dice
+241:
+  name: Perfection Quotients
+242:
+  name: Odd Triplets
+243:
+  name: Resilience
+244:
+  name: Sliders
+245:
+  name: Coresilience
+246:
+  name: Tangents to an ellipse
+247:
+  name: Squares under a hyperbola
+248:
+  name: Numbers for which Euler’s totient function equals 13!
+249:
+  name: Prime Subset Sums
+250:
+  name: '250250'
+251:
+  name: Cardano Triplets
+252:
+  name: Convex Holes
+253:
+  name: Tidying up
+254:
+  name: Sums of Digit Factorials
+255:
+  name: Rounded Square Roots
+256:
+  name: Tatami-Free Rooms
+257:
+  name: Angular Bisectors
+258:
+  name: A lagged Fibonacci sequence
+259:
+  name: Reachable Numbers
+260:
+  name: Stone Game
+261:
+  name: Pivotal Square Sums
+262:
+  name: Mountain Range
+263:
+  name: An engineers' dream come true
+264:
+  name: Triangle Centres
+265:
+  name: Binary Circles
+266:
+  name: Pseudo Square Root
+267:
+  name: Billionaire
+268:
+  name: Counting numbers with at least four distinct prime factors less than 100
+269:
+  name: Polynomials with at least one integer root
+270:
+  name: Cutting Squares
+271:
+  name: Modular Cubes, part 1
+272:
+  name: Modular Cubes, part 2
+273:
+  name: Sum of Squares
+274:
+  name: Divisibility Multipliers
+275:
+  name: Balanced Sculptures
+276:
+  name: Primitive Triangles
+277:
+  name: A Modified Collatz sequence
+278:
+  name: Linear Combinations of Semiprimes
+279:
+  name: 'Triangles with integral sides and an integral angle '
+280:
+  name: Ant and seeds
+281:
+  name: Pizza Toppings
+282:
+  name: The Ackermann function
+283:
+  name: Integer sided triangles for which the  area/perimeter ratio is integral
+284:
+  name: Steady Squares
+285:
+  name: Pythagorean odds
+286:
+  name: Scoring probabilities
+287:
+  name: Quadtree encoding (a simple compression algorithm)
+288:
+  name: An enormous factorial
+289:
+  name: Eulerian Cycles
+290:
+  name: Digital Signature
+291:
+  name: Panaitopol Primes
+292:
+  name: Pythagorean Polygons
+293:
+  name: Pseudo-Fortunate Numbers
+294:
+  name: 'Sum of digits - experience #23'
+295:
+  name: Lenticular holes
+296:
+  name: Angular Bisector and Tangent
+297:
+  name: Zeckendorf Representation
+298:
+  name: Selective Amnesia
+299:
+  name: Three similar triangles
+300:
+  name: Protein folding
+301:
+  name: Nim
+302:
+  name: Strong Achilles Numbers
+303:
+  name: Multiples with small digits
+304:
+  name: Primonacci
+305:
+  name: Reflexive Position
+306:
+  name: Paper-strip Game
+307:
+  name: Chip Defects
+308:
+  name: An amazing Prime-generating Automaton
+309:
+  name: Integer Ladders
+310:
+  name: Nim Square
+311:
+  name: Biclinic Integral Quadrilaterals
+312:
+  name: Cyclic paths on Sierpiński graphs
+313:
+  name: Sliding game
+314:
+  name: The Mouse on the Moon
+315:
+  name: Digital root clocks
+316:
+  name: Numbers in decimal expansions
+317:
+  name: Firecracker
+318:
+  name: 2011 nines
+319:
+  name: Bounded Sequences
+320:
+  name: Factorials divisible by a huge integer
+321:
+  name: Swapping Counters
+322:
+  name: Binomial coefficients divisible by 10
+323:
+  name: Bitwise-OR operations on random integers
+324:
+  name: Building a tower
+325:
+  name: Stone Game II
+326:
+  name: Modulo Summations
+327:
+  name: Rooms of Doom
+328:
+  name: Lowest-cost Search
+329:
+  name: Prime Frog
+330:
+  name: Euler's Number
+331:
+  name: Cross flips
+332:
+  name: Spherical triangles
+333:
+  name: Special partitions
+334:
+  name: Spilling the beans
+335:
+  name: Gathering the beans
+336:
+  name: Maximix Arrangements
+337:
+  name: Totient Stairstep Sequences
+338:
+  name: Cutting Rectangular Grid Paper
+339:
+  name: Peredur fab Efrawg
+340:
+  name: Crazy Function
+341:
+  name: Golomb's self-describing sequence
+342:
+  name: The totient of a square is a cube
+343:
+  name: Fractional Sequences
+344:
+  name: Silver dollar game
+345:
+  name: Matrix Sum
+346:
+  name: Strong Repunits
+347:
+  name: Largest integer divisible by two primes
+348:
+  name: Sum of a square and a cube
+349:
+  name: Langton's ant
+350:
+  name: Constraining the least greatest and the greatest least
+351:
+  name: Hexagonal orchards
+352:
+  name: Blood tests
+353:
+  name: Risky moon
+354:
+  name: 'Distances in a bee''s honeycomb '
+355:
+  name: Maximal coprime subset
+356:
+  name: Largest roots of cubic polynomials
+357:
+  name: Prime generating integers
+358:
+  name: Cyclic numbers
+359:
+  name: Hilbert's New Hotel
+360:
+  name: Scary Sphere
+361:
+  name: Subsequence of Thue-Morse sequence
+362:
+  name: Squarefree factors
+363:
+  name: Bézier Curves
+364:
+  name: Comfortable distance
+365:
+  name: A huge binomial coefficient
+366:
+  name: Stone Game III
+367:
+  name: Bozo sort
+368:
+  name: A Kempner-like series
+369:
+  name: Badugi
+370:
+  name: Geometric triangles
+371:
+  name: Licence plates
+372:
+  name: Pencils of rays
+373:
+  name: Circumscribed Circles
+374:
+  name: Maximum Integer Partition Product
+375:
+  name: Minimum of subsequences
+376:
+  name: Nontransitive sets of dice
+377:
+  name: Sum of digits, experience 13
+378:
+  name: Triangle Triples
+379:
+  name: Least common multiple count
+380:
+  name: Amazing Mazes!
+381:
+  name: "(prime-k) factorial"
+382:
+  name: Generating polygons
+383:
+  name: Divisibility comparison between factorials
+384:
+  name: Rudin-Shapiro sequence
+385:
+  name: Ellipses inside triangles
+386:
+  name: Maximum length of an antichain
+387:
+  name: Harshad Numbers
+388:
+  name: Distinct Lines
+389:
+  name: Platonic Dice
+390:
+  name: Triangles with non rational sides and integral area
+391:
+  name: Hopping Game
+392:
+  name: Enmeshed unit circle
+393:
+  name: Migrating ants
+394:
+  name: Eating pie
+395:
+  name: Pythagorean tree
+396:
+  name: Weak Goodstein sequence
+397:
+  name: Triangle on parabola
+398:
+  name: Cutting rope
+399:
+  name: Squarefree Fibonacci Numbers
+400:
+  name: Fibonacci tree game
+401:
+  name: Sum of squares of divisors
+402:
+  name: Integer-valued polynomials
+403:
+  name: Lattice points enclosed by parabola and line
+404:
+  name: Crisscross Ellipses
+405:
+  name: A rectangular tiling
+406:
+  name: Guessing Game
+407:
+  name: Idempotents
+408:
+  name: Admissible paths through a grid
+409:
+  name: Nim Extreme
+410:
+  name: Circle and tangent line
+411:
+  name: Uphill paths
+412:
+  name: Gnomon numbering
+413:
+  name: One-child Numbers
+414:
+  name: Kaprekar constant
+415:
+  name: Titanic sets
+416:
+  name: A frog's trip
+417:
+  name: Reciprocal cycles II
+418:
+  name: Factorisation triples
+419:
+  name: Look and say sequence
+420:
+  name: 2x2 positive integer matrix
+421:
+  name: Prime factors of n15+1
+422:
+  name: Sequence of points on a hyperbola
+423:
+  name: Consecutive die throws
+424:
+  name: Kakuro
+425:
+  name: Prime connection
+426:
+  name: Box-ball system
+427:
+  name: n-sequences
+428:
+  name: Necklace of circles
+429:
+  name: Sum of squares of unitary divisors
+430:
+  name: Range flips
+431:
+  name: Square Space Silo
+432:
+  name: Totient sum
+433:
+  name: Steps in Euclid's algorithm
+434:
+  name: Rigid graphs
+435:
+  name: Polynomials of Fibonacci numbers
+436:
+  name: Unfair wager
+437:
+  name: Fibonacci primitive roots
+438:
+  name: Integer part of polynomial equation's solutions
+439:
+  name: Sum of sum of divisors
+440:
+  name: GCD and Tiling
+441:
+  name: The inverse summation of coprime couples
+442:
+  name: Eleven-free integers
+443:
+  name: GCD sequence
+444:
+  name: The Roundtable Lottery
+445:
+  name: Retractions A
+446:
+  name: Retractions B
+447:
+  name: Retractions C
+448:
+  name: Average least common multiple
+449:
+  name: Chocolate covered candy
+450:
+  name: Hypocycloid and Lattice points
+451:
+  name: Modular inverses
+452:
+  name: Long Products
+453:
+  name: Lattice Quadrilaterals
+454:
+  name: Diophantine reciprocals III
+455:
+  name: Powers With Trailing Digits
+456:
+  name: Triangles containing the origin II
+457:
+  name: A polynomial modulo the square of a prime
+458:
+  name: Permutations of Project
+459:
+  name: Flipping game
+460:
+  name: An ant on the move
+461:
+  name: Almost Pi
+462:
+  name: Permutation of 3-smooth numbers
+463:
+  name: A weird recurrence relation
+464:
+  name: Möbius function and intervals
+465:
+  name: Polar polygons
+466:
+  name: Distinct terms in a multiplication table
+467:
+  name: Superinteger
+468:
+  name: Smooth divisors of binomial coefficients
+469:
+  name: Empty chairs
+470:
+  name: Super Ramvok
+471:
+  name: Triangle inscribed in ellipse
+472:
+  name: Comfortable Distance II
+473:
+  name: Phigital number base
+474:
+  name: Last digits of divisors
+475:
+  name: Music festival
+476:
+  name: Circle Packing II
+477:
+  name: Number Sequence Game
+478:
+  name: Mixtures
+479:
+  name: Roots on the Rise
+480:
+  name: The Last Question
+481:
+  name: Chef Showdown
+482:
+  name: The incenter of a triangle
+483:
+  name: Repeated permutation
+484:
+  name: Arithmetic Derivative
+485:
+  name: Maximum number of divisors
+486:
+  name: Palindrome-containing strings
+487:
+  name: Sums of power sums
+488:
+  name: Unbalanced Nim
+489:
+  name: Common factors between two sequences
+490:
+  name: Jumping frog
+491:
+  name: Double pandigital number divisible by 11
+492:
+  name: Exploding sequence
+493:
+  name: Under The Rainbow
+494:
+  name: Collatz prefix families
+495:
+  name: Writing n as the product of k distinct positive integers
+496:
+  name: Incenter and circumcenter of triangle
+497:
+  name: Drunken Tower of Hanoi
+498:
+  name: Remainder of polynomial division
+499:
+  name: St. Petersburg Lottery
+500:
+  name: Problem 500!!!
+501:
+  name: Eight Divisors
+502:
+  name: Counting Castles
+503:
+  name: Compromise or persist
+504:
+  name: Square on the Inside
+505:
+  name: Bidirectional Recurrence
+506:
+  name: Clock sequence
+507:
+  name: Shortest Lattice Vector
+508:
+  name: Integers in base i-1
+509:
+  name: Divisor Nim
+510:
+  name: Tangent Circles
+511:
+  name: Sequences with nice divisibility properties
+512:
+  name: Sums of totients of powers
+513:
+  name: Integral median
+514:
+  name: Geoboard Shapes
+515:
+  name: Dissonant Numbers
+516:
+  name: 5-smooth totients
+517:
+  name: A real recursion
+518:
+  name: Prime triples and geometric sequences
+519:
+  name: Tricolored Coin Fountains
+520:
+  name: Simbers
+521:
+  name: Smallest prime factor
+522:
+  name: Hilbert's Blackout
+523:
+  name: First Sort I
+524:
+  name: First Sort II
+525:
+  name: Rolling Ellipse
+526:
+  name: Largest prime factors of consecutive numbers
+527:
+  name: Randomized Binary Search
+528:
+  name: Constrained Sums
+529:
+  name: 10-substrings
+530:
+  name: GCD of Divisors
+531:
+  name: Chinese leftovers
+532:
+  name: Nanobots on Geodesics
+533:
+  name: Minimum values of the Carmichael function
+534:
+  name: Weak Queens
+535:
+  name: Fractal Sequence
+536:
+  name: 'Modulo power identity '
+537:
+  name: Counting tuples
+538:
+  name: Maximum quadrilaterals
+539:
+  name: Odd elimination
+540:
+  name: Counting primitive Pythagorean triples
+541:
+  name: Divisibility of Harmonic Number Denominators
+542:
+  name: Geometric Progression with Maximum Sum
+543:
+  name: Prime-Sum Numbers
+544:
+  name: Chromatic Conundrum
+545:
+  name: Faulhaber's Formulas
+546:
+  name: The Floor's Revenge
+547:
+  name: Distance of random points within hollow square laminae
+548:
+  name: Gozinta Chains
+549:
+  name: Divisibility of factorials
+550:
+  name: Divisor game
+551:
+  name: Sum of digits sequence
+552:
+  name: Chinese leftovers II
+553:
+  name: Power sets of power sets
+554:
+  name: Centaurs on a chess board
+555:
+  name: McCarthy 91 function
+556:
+  name: Squarefree Gaussian Integers
+557:
+  name: Cutting triangles
+558:
+  name: Irrational base
+559:
+  name: Permuted Matrices
+560:
+  name: Coprime Nim
+561:
+  name: Divisor Pairs
+562:
+  name: Maximal perimeter
+563:
+  name: Robot Welders
+564:
+  name: Maximal polygons
+565:
+  name: Divisibility of sum of divisors
+566:
+  name: Cake Icing Puzzle
+567:
+  name: Reciprocal games I
+568:
+  name: Reciprocal games II
+569:
+  name: Prime Mountain Range
+570:
+  name: Snowflakes
+571:
+  name: Super Pandigital Numbers
+572:
+  name: Idempotent matrices
+573:
+  name: Unfair race
+574:
+  name: Verifying Primes
+575:
+  name: Wandering Robots
+576:
+  name: Irrational jumps
+577:
+  name: Counting hexagons
+578:
+  name: Integers with decreasing prime powers
+579:
+  name: Lattice points in lattice cubes
+580:
+  name: Squarefree Hilbert numbers
+581:
+  name: 47-smooth triangular numbers
+582:
+  name: Nearly isosceles 120 degree triangles
+583:
+  name: Heron Envelopes
+584:
+  name: Birthday Problem Revisited
+585:
+  name: Nested square roots
+586:
+  name: Binary Quadratic Form
+587:
+  name: Concave triangle
+588:
+  name: Quintinomial coefficients
+589:
+  name: Poohsticks Marathon
+590:
+  name: Sets with a given Least Common Multiple
+591:
+  name: Best Approximations by Quadratic Integers
+592:
+  name: Factorial trailing digits 2
+593:
+  name: Fleeting Medians
+594:
+  name: Rhombus Tilings
+595:
+  name: Incremental Random Sort
+596:
+  name: Number of lattice points in a hyperball
+597:
+  name: Torpids
+598:
+  name: Split Divisibilities
