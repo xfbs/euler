@@ -1,7 +1,7 @@
 import unittest
 import solution
 
-class TestStringMethods(unittest.TestCase):
+class TestSolution(unittest.TestCase):
     # test the solution function
     def test_solution(self):
         self.assertEqual(solution.solve(0), 0)

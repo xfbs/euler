@@ -13,11 +13,11 @@ build:
 
 # run solution.py
 solve:
-	$(PYTHON) $(SOLUTIONPY)
+	@$(PYTHON) $(SOLUTIONPY)
 
 # run test.pi
 test:
-	$(PYTHON) $(TESTPY)
+	@$(PYTHON) $(TESTPY)
 
 # nothing to clean up
 clean:
