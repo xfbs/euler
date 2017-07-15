@@ -1,0 +1,113 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "checker"
+require 'optparse'
+require "ansi"
+
+class CheckTool
+  def initialize
+    # datadir holds languages.yml and problems.yml
+    @datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
+
+    # solutiondir holds all solutions
+    @solutiondir = ENV['SOLUTIONDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../solutions")
+
+    @languages = []
+
+    # parse command line arguments
+    @opts = OptionParser.new do |opt|
+      opt.banner =  "Usage: #{opt.program_name} [options] [PROBLEM]"
+
+      opt.on('--datadir DATADIR', "The location of the directory containing the problems.yml file") do |o|
+        @datadir = o
+      end
+
+      opt.on('--solutionsdir SOLUTIONSDIR', "The location of the directory containing the solutions") do |o|
+        @solutiondir = o
+      end
+
+      opt.on('-l LANG', '--language', "Check only solutions in given language (can be given multiple times)") do |o|
+        @languages << o
+      end
+    end
+  end
+
+  # parse command line options
+  def parse_opts
+    @opts.parse!
+
+    # show help text if no command specified
+    if ARGV.empty?
+      help @opts
+    end
+  end
+
+  # prints an error (formatted in red)
+  def error(n)
+    STDERR.puts ANSI.red {"Error: #{n}"}
+    exit(-1)
+  end
+
+  # prints a warning (formatted in yellow)
+  def warn(n)
+    STDOUT.puts ANSI.yellow {"Warning: #{n}"}
+  end
+
+  # prints help and quits
+  def help(opts)
+    puts @opts.help
+    exit 0
+  end
+
+  # prints info statement
+  def info(n)
+    STDOUT.puts "#{ANSI.blue{'==>'}} #{n}"
+  end
+
+  # prints step statement
+  def step(n)
+    STDOUT.puts "#{ANSI.green{'==>'}} #{n}"
+  end
+
+  def load_problems
+    Checker::Problems.load(File.join(@datadir, 'problems.yml'))
+  end
+
+  def load_problem(problem_p)
+    problems = load_problems
+
+    problem = problems[problem_p.to_i]
+    error "Invalid problem specified: #{problem_p}" if !problem.exists?
+
+    problem
+  end
+
+  def load_languages
+    Checker::Languages.load(File.join(@datadir, 'languages.yml'))
+  end
+
+  def load_solutions(problems, languages)
+    solutions = Checker::Solutions.new(problems, languages)
+    solutions.load_all(@solutiondir)
+    solutions
+  end
+
+  def check problem_p
+    info "Loading problems"
+    problems = load_problems
+
+    problem = problems[problem_p.to_i]
+    error "Invalid problem specified: #{problem_p}" if !problem.exists?
+
+    info "Loading languages"
+    languages = load_languages
+
+    info "Loading solutions"
+    solutions = load_solutions(problems, languages)
+  end
+end
+
+tool = CheckTool.new
+tool.parse_opts
+tool.error "Too many arguments provided." if ARGV.length > 1
+tool.check ARGV[0]
