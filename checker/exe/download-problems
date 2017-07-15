@@ -13,21 +13,26 @@ require 'pandoc-ruby'
 $datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
 $problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
 $force = false
+$limit = nil
 
 # parse command line arguments
 OptionParser.new do |opt|
   opt.banner = "Usage: #{opt.program_name} [options] [problem]"
 
-  opt.on('-d', '--datadir', "The location of the directory containing the problems.yml file") do |o| 
+  opt.on('--datadir DATADIR', "The location of the directory containing the problems.yml file") do |o| 
     $datadir = o
   end
 
-  opt.on('-p', '--problemsdir', "The location of the directory containing the problems") do |o|
+  opt.on('--problemsdir PROBLEMSDIR', "The location of the directory containing the problems") do |o|
     $problemsdir = o
   end
 
   opt.on('-f', '--force', "Overwrite existing documentation") do |o|
     $force = true
+  end
+
+  opt.on('--limit AMOUNT', "Limit the amout of problems to download") do |o|
+    $limit = o.to_i
   end
 end.parse!
 
@@ -84,6 +89,8 @@ def find_targets(problems)
       end
     end
   end
+
+  targets = targets.take($limit) if $limit
 
   targets
 end
