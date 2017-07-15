@@ -754,6 +754,7 @@
   name: Scoring probabilities
 287:
   name: Quadtree encoding (a simple compression algorithm)
+  slug: quadtree-encoding-compression
 288:
   name: An enormous factorial
 289:
