@@ -84,5 +84,13 @@ module Checker
     def exists?
       @name
     end
+
+    def <=> other
+      @number <=> other.number
+    end
+
+    def make_path ext
+      "#{@number.to_s.rjust(3, '0')}-#{slug}.#{ext}"
+    end
   end
 end
