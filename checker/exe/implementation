@@ -1,0 +1,134 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "checker"
+require 'open-uri'
+require 'optparse'
+require 'nokogiri'
+require "ansi"
+require 'rdoc'
+require 'pry'
+require 'pandoc-ruby'
+
+$datadir = ENV['DATADIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../data")
+$problemdir = ENV['PROBLEMDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../problems")
+$solutiondir = ENV['SOLUTIONDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../solutions")
+$skeletons = true
+$inits = false
+
+# parse command line arguments
+opts = OptionParser.new do |opt|
+  opt.banner = "Usage: #{opt.program_name} [options] add PROBLEM LANGUAGE\n#{' '*7}#{opt.program_name} [options] list [PROBLEM]"
+
+  opt.on('--datadir DATADIR', "The location of the directory containing the problems.yml file") do |o| 
+    $datadir = o
+  end
+
+  opt.on('--problemsdir PROBLEMSDIR', "The location of the directory containing the problems") do |o|
+    $problemsdir = o
+  end
+
+  opt.on('--solutionsdir SOLUTIONSDIR', "The location of the directory containing the solutions") do |o|
+    $solutiondir = o
+  end
+
+  opt.on('--no-skeletons', "Don't copy over skeleton for language or initialize") do |o|
+    $skeletons = false
+  end
+
+  opt.on('--no-initialize', "Don't initialize skeleton when adding implementation") do |o|
+    $inits = false
+  end
+
+  opt.on('-f', '--force', "Overwrite existing documentation") do |o|
+    $force = true
+  end
+end
+opts.parse!
+
+def error(n)
+  STDERR.puts ANSI.red {"Error: #{n}"}
+  exit(-1)
+end
+
+def warn(n)
+  STDOUT.puts ANSI.yellow {"Warning: #{n}"}
+end
+
+def help(opts)
+  puts opts.help
+  exit 0
+end
+
+def info(n)
+  STDOUT.puts "#{ANSI.blue{'==>'}} #{n}"
+end
+
+def step(n)
+  STDOUT.puts "#{ANSI.green{'==>'}} #{n}"
+end
+
+# show help text if no command specified
+if ARGV.empty?
+  help opts
+end
+
+def load_problems
+  problems = Checker::Problems.load(File.join($datadir, 'problems.yml'))
+  languages = Checker::Languages.load(File.join($datadir, 'languages.yml'))
+  solutions = Checker::Solutions.new(problems, languages)
+  solutions.load_all($solutiondir)
+end
+
+def add_implementation(problem_p, language_p)
+  info "Loading languages..."
+  languages = Checker::Languages.load(File.join($datadir, 'languages.yml'))
+  puts languages.inspect
+
+  language = languages.find do |ext, lang| 
+    lang['name'] == language_p || lang['ext'] == language_p
+  end
+  error "Invalid language specified: #{language_p}" unless language
+  language = language[0]
+
+  info "Loading problems..."
+  problems = Checker::Problems.load(File.join($datadir, 'problems.yml'))
+  problem = problems[problem_p.to_i]
+  error "Invalid problem specified: #{problem_p}" unless problem.exists?
+
+  info "Loading solutions..."
+  solutions = Checker::Solutions.new(problems, languages)
+  solutions.load_all($solutiondir)
+
+  step "Adding #{languages[language]['name']} solution to problem ##{problem.number}"
+  error "Solution already exists." if solutions[problem][language]
+  begin
+    solutions[problem].create_implementation language
+  rescue e
+    error e.message
+  end
+
+  if $skeletons
+    info "Copying skeletons to implementation..."
+    unless solutions[problem][language].create $solutiondir
+      error "No skeleton found for language #{languages[language]['name']}"
+    end
+  else
+    warn "Skipping skeletons."
+    return
+  end
+end
+
+def list_implementations(problem)
+end
+
+
+case ARGV[0]
+when "add"
+  error "No problem specified" unless ARGV[1]
+  error "No language specified" unless ARGV[2]
+  add_implementation(ARGV[1], ARGV[2])
+when "list"
+  list_implementations(ARGV[1])
+end
+
+# list or add implementations of a solution
