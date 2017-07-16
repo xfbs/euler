@@ -14,6 +14,7 @@ class CheckTool
 
     @languages = []
     @threads = 4
+    @timeout = 1
 
     # parse command line arguments
     @opts = OptionParser.new do |opt|
@@ -35,6 +36,10 @@ class CheckTool
       opt.on('-j NUM', '--threads NUM', "How many worker threads to run to solve the problems (default 4)") do |o|
         @threads = o.to_i
         @threads = 1 if @threads < 1
+      end
+
+      opt.on('-t SEC', '--timeout SEC', "Change how many seconds until timeout") do |o|
+        @timeout = o.to_f
       end
     end
   end
@@ -133,7 +138,7 @@ class CheckTool
   end
 
   def check_single(problem, solution)
-    step "Checking problem #{problem.number}"
+    step "Checking problem #{problem.number} with #{@threads} threads"
 
     threads = []
     tasks = []
@@ -191,9 +196,10 @@ class CheckTool
     end
 
     queue_filled = true
+    new_task = true
     while  threads.any?{|thread| thread.alive?} || queue_filled
       queue_filled = false
-      sleep 0.2
+      sleep 0.1
       cur = nil
 
       output.synchronize do
@@ -211,7 +217,7 @@ class CheckTool
         result = cur[:result]
         reason = nil
 
-        if(time > 1)
+        if(time > @timeout)
           result = false
           reason = 'timeout'
         end
@@ -221,11 +227,19 @@ class CheckTool
           reason = 'error'
         end
 
-        print result_detail_line(languages_len, cur[:task].lang['name'], time, result, reason)
-        print "\r"
-        print "\n" if cur[:end]
+        line = result_detail_line(languages_len, cur[:task].lang['name'], time, result, reason)
+
+        if new_task
+          puts line
+          new_task = false unless cur[:end]
+        else
+          reprint line
+          new_task = true if cur[:end]
+        end
       end
     end
+
+    print ANSI.cursor_show
   end
 
   def result_detail_line(languages_len, language, time, result_r, reason)
@@ -250,6 +264,14 @@ class CheckTool
     end
 
     " #{ANSI.yellow{language.rjust(languages_len, ' ')}} #{time} #{result}#{reason}"
+  end
+
+  def reprint s
+    print ANSI.cursor_hide
+    print ANSI.up(1)
+    print ANSI.clear_line
+    puts s
+    print ANSI.cursor_show
   end
 end
 
