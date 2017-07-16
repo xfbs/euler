@@ -13,10 +13,12 @@ class CheckTool
     @solutiondir = ENV['SOLUTIONDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../solutions")
 
     @languages = []
+    @threads = 4
 
     # parse command line arguments
     @opts = OptionParser.new do |opt|
-      opt.banner =  "Usage: #{opt.program_name} [options] [PROBLEM]"
+      opt.banner =  "Usage: #{opt.program_name} [options] all\n"
+      opt.banner =  "       #{opt.program_name} [options] PROBLEM"
 
       opt.on('--datadir DATADIR', "The location of the directory containing the problems.yml file") do |o|
         @datadir = o
@@ -28,6 +30,11 @@ class CheckTool
 
       opt.on('-l LANG', '--language', "Check only solutions in given language (can be given multiple times)") do |o|
         @languages << o
+      end
+
+      opt.on('-j NUM', '--threads NUM', "How many worker threads to run to solve the problems (default 4)") do |o|
+        @threads = o.to_i
+        @threads = 1 if @threads < 1
       end
     end
   end
@@ -92,22 +99,166 @@ class CheckTool
     solutions
   end
 
-  def check problem_p
+  def check problem_p=nil
     info "Loading problems"
     problems = load_problems
 
-    problem = problems[problem_p.to_i]
-    error "Invalid problem specified: #{problem_p}" if !problem.exists?
+    problem = nil
+    if problem_p
+      problem = problems[problem_p.to_i]
+      error "Invalid problem specified: #{problem_p}" if !problem.exists?
+    end
 
     info "Loading languages"
     languages = load_languages
 
     info "Loading solutions"
     solutions = load_solutions(problems, languages)
+
+    if problem
+      check_single(problem, solutions[problem])
+    else
+      check_all(problems, solutions)
+    end
+  end
+
+  def check_all(problems, solutions)
+    solutions.each do |solution|
+      puts solution
+      solution.each do |implementation|
+        puts implementation
+        puts implementation.check
+      end
+    end
+  end
+
+  def check_single(problem, solution)
+    step "Checking problem #{problem.number}"
+
+    threads = []
+    tasks = []
+    thread_out = []
+    output = Mutex.new
+    languages_len = 0
+
+    # find all tasks
+    solution.each do |impl|
+      tasks << impl
+    end
+
+    # filter by language
+    if @languages.length != 0
+      tasks = tasks.keep_if do |task|
+        @languages.include?(task.lang['ext']) || @languages.include?(task.lang['name'])
+      end
+    end
+
+    # find length of languages
+    tasks.each do |task|
+      languages_len = [languages_len, task.lang['name'].length].max
+    end
+
+    # start worker threads to run the solvers in the background
+    @threads.times do
+      threads << Thread.new do
+        loop do
+          out = {}
+          task = nil
+
+          output.synchronize do
+            task = tasks.shift
+            Thread.exit unless task
+            thread_out << out
+            out[:task] = task
+            out[:start] = Time.now
+          end
+
+          res = false
+          error = false
+          begin
+            res = task.check
+          rescue Exception => _
+            error = true
+          end
+
+          output.synchronize do
+            out[:end] = Time.now
+            out[:result] = res
+            out[:error] = error
+          end
+        end
+      end
+    end
+
+    queue_filled = true
+    while  threads.any?{|thread| thread.alive?} || queue_filled
+      queue_filled = false
+      sleep 0.2
+      cur = nil
+
+      output.synchronize do
+        if thread_out[0]
+          queue_filled = true
+          cur = thread_out[0].dup
+          thread_out.shift if thread_out[0][:end]
+        end
+      end
+
+      if cur
+        puts "error" if cur == nil
+        time = (cur[:end] || Time.now) - cur[:start]
+
+        result = cur[:result]
+        reason = nil
+
+        if(time > 1)
+          result = false
+          reason = 'timeout'
+        end
+
+        if cur[:error]
+          result = false
+          reason = 'error'
+        end
+
+        print result_detail_line(languages_len, cur[:task].lang['name'], time, result, reason)
+        print "\r"
+        print "\n" if cur[:end]
+      end
+    end
+  end
+
+  def result_detail_line(languages_len, language, time, result_r, reason)
+    if time < 1
+      time = "#{(time*1000).to_i}ms".rjust(6, ' ')
+    else
+      time = "#{time.round(2)}s".rjust(6, ' ')
+    end
+
+    result = {
+      true  => ANSI.green{'✔ '},
+      false => ANSI.red{'✗ '},
+      nil   => '   '}[result_r]
+
+    if reason
+      reason = {
+        true  => "(#{ANSI.green{reason}}) ",
+        false => "(#{ANSI.red{reason}}) ",
+        nil   => "(#{reason}) "}[result_r]
+    else
+      reason = ''
+    end
+
+    " #{ANSI.yellow{language.rjust(languages_len, ' ')}} #{time} #{result}#{reason}"
   end
 end
 
 tool = CheckTool.new
 tool.parse_opts
 tool.error "Too many arguments provided." if ARGV.length > 1
-tool.check ARGV[0]
+if ARGV[0] == 'all'
+  tool.check
+else
+  tool.check ARGV[0]
+end
+
