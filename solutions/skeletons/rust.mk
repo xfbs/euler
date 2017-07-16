@@ -1,13 +1,20 @@
-CARGO=cargo
+CARGO = cargo
+CONFIG  = Cargo.toml
+SOURCES = src/lib.rs src/test.rs src/bin/solve.rs
 
-build:
+build: target/release/solve
+
+target/debug/solve: $(CONFIG) $(SOURCES)
 	$(CARGO) build
 
-test: build
+target/release/solve: $(CONFIG) $(SOURCES)
+	$(CARGO) build --release
+
+test: $(CONFIG) $(SOURCES)
 	$(CARGO) test
 
-solve: build
-	$(CARGO) run solve
+solve: target/release/solve
+	@$(CARGO) run --release -q solve
 
 clean:
 	$(CARGO) clean
