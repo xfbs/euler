@@ -1,7 +1,4 @@
 ---
-34:
-  name: Digit factorials
-  solution: "$2a$10$WOFN4nUyXMZckyVV3isFyeBVh3cAJ1m9lTx5Nri8qJMUGHT8C6N9a"
 1:
   name: Multiples of 3 and 5
   solution: "$2a$10$X84IpLPosVRrF3dKombQOuq5axndNs.gqIpwT32jqaIF9AMB.Iw2S"
@@ -68,6 +65,7 @@
 22:
   name: Names scores
   solution: "$2a$10$3Umt3dZdpBb6rktK/z5uqeOCCEvVmrSeuKRIXLGgMHAy/Hw8WVnD2"
+  data: names.txt
 23:
   name: Non-abundant sums
   solution: "$2a$10$gITPiyefvTOV6LaXqIugLeV2uxca9ed4jLap0mVLFMBAlPdrLJ.Ay"
@@ -101,6 +99,9 @@
 33:
   name: Digit cancelling fractions
   solution: "$2a$10$zIGtn/svi1tRx4YBm5Ep/.vQj1fcqWiT.oCTh0awgw65rDuMnrBNm"
+34:
+  name: Digit factorials
+  solution: "$2a$10$WOFN4nUyXMZckyVV3isFyeBVh3cAJ1m9lTx5Nri8qJMUGHT8C6N9a"
 35:
   name: Circular primes
   solution: "$2a$10$XDvQwqMiybLsvSI2WktbU.HFYDfBig.8vkf09ZRc4rLiTXgvAiZFC"
@@ -125,6 +126,7 @@
 42:
   name: Coded triangle numbers
   solution: "$2a$10$OiDfBBovTdXeXb94/GVtH.pYfUrsGg6ifpRgv2Ya9zCvmMM8RrCWe"
+  data: words.txt
 43:
   name: Sub-string divisibility
   solution: "$2a$10$HpF7v4G2RQZ02KHbTO8OFeOtpq1DNNgcc0GuH8d906JrMkL1f8kmW"
@@ -161,6 +163,7 @@
 54:
   name: Poker hands
   solution: "$2a$10$9GCfh4BLQzdCchPd/cg8/.uNVUXwNVd7.qTMc9Z6cVKnW9X3pqxxO"
+  data: poker.txt
 55:
   name: Lychrel numbers
   solution: "$2a$10$L4nBchpP.tfJ3XoqIFQz0OtJFaquEAYAwmNtPbZ.DhjlexPc2yoVe"
@@ -176,6 +179,7 @@
 59:
   name: XOR decryption
   solution: "$2a$10$45FauidFDxs2KcQK0kfVfOM5p4U5hsRGggYMii7UqOIM.kpW4WS0O"
+  data: cipher.txt
 60:
   name: Prime pair sets
   solution: "$2a$10$WxB36npIVhy3zqvogQy5wujdYQbdPQmtYMtlbjVicfEv.6f2LsxMu"
@@ -200,6 +204,7 @@
 67:
   name: Maximum path sum II
   solution: "$2a$10$uTE4nuNVRXCPv0JMVBXTheh6M/0bafggMR66YLYv.W2s8KcUuVF4S"
+  data: triangle.txt
 68:
   name: Magic 5-gon ring
   solution: "$2a$10$0rGnu2ZkscJ3P59vFyC6XOGDWeiOs1ZJ5KMPDuNKy9IdDS1Ck4AeG"
@@ -236,18 +241,22 @@
 79:
   name: Passcode derivation
   solution: "$2a$10$T04GJarE4crvCx8H1IRz0ODrUA7jnmCF58apKk6vz6Fp3SJRMhGAq"
+  data: keylog.txt
 80:
   name: Square root digital expansion
   solution: "$2a$10$R79CLFDctQY3jub28VdNQuyuoUmKbBN19iYBlbAqQ3dX7x5L372ri"
 81:
   name: 'Path sum: two ways'
   solution: "$2a$10$Eb9RyKhUzTxYzVQNuDeKH.foQZGMneAAXnqbh/1ialwv13nYg/w4."
+  data: matrix.txt
 82:
   name: 'Path sum: three ways'
   solution: "$2a$10$w8ov3yj/tHf8LynmtBgpfeReg5rsSOa6niZrOM7BNiAec0tBS/cQ6"
+  data: matrix.txt
 83:
   name: 'Path sum: four ways'
   solution: "$2a$10$Egy5NOwLMielj47raaFbV.vQZZL4dQP1V77iO/0CRFU1ffd8WwUbK"
+  data: matrix.txt
 84:
   name: Monopoly odds
   solution: "$2a$10$k4Fn6L4v5rqq/YGQUpmmGuY5jvVuI1tfJxvx4/bhkJpjaNhd.EkKa"
@@ -266,6 +275,7 @@
 89:
   name: Roman numerals
   solution: "$2a$10$MRl8Q8G3Dsfo1GtgNelAiu5J9E1NXS5G5WS4xjx.SH.ffBO7nKIoW"
+  data: roman.txt
 90:
   name: Cube digit pairs
   solution: "$2a$10$w/AIh5Yn47b8usYNxB9NWOCzbio51JzOhpgp5ZURorbRlnk6ZZfpy"
@@ -287,15 +297,18 @@
 96:
   name: Su Doku
   solution: "$2a$10$0MG6Q/2GSW/JqS89zyHJFOQV79Ddhk6c/Y4wH4l3bR6sSTcqNVqXi"
+  data: sudoku.txt
 97:
   name: Large non-Mersenne prime
   solution: "$2a$10$XlzSlKuiByr8N2fia4l57..FEi1qBVflUVASjjym0ecbkVf9uEqdC"
 98:
   name: Anagramic squares
   solution: "$2a$10$0QXArmTiehVPfr6os02QpuW3.pPD/OnOPFZ5aKSnilikTgv5Uy4pu"
+  data: words.txt
 99:
   name: Largest exponential
   solution: "$2a$10$NgbOch.hyS4z2hSZQjbFWeHhnodSUqKNFZzey9Ms1YK4FaTJhgjZG"
+  data: base_exp.txt
 100:
   name: Arranged probability
   solution: "$2a$10$y8z2QLhbUUovd4tc63414e.H2czfnQsdvsUYAuCJ9sJoTyLVtKkOu"
@@ -305,6 +318,7 @@
 102:
   name: Triangle containment
   solution: "$2a$10$ygrn1ymAotboVO.NTeBVm.MjWisGWYtDKUK5voiYwB6r5XxuroKmS"
+  data: triangles.txt
 103:
   name: 'Special subset sums: optimum'
 104:
@@ -313,11 +327,13 @@
 105:
   name: 'Special subset sums: testing'
   solution: "$2a$10$s17iSdsAqKeMFLne5aer.u05qqV2jTbOEUcUYSHAYkf9Hm/mVk3.m"
+  data: sets.txt
 106:
   name: 'Special subset sums: meta-testing'
 107:
   name: Minimal network
   solution: "$2a$10$Xf5JjXzfOmtbnPcOq6vTd.vkC9mxBJ7ZB8IJtgy9NbDxBW4TOKHzm"
+  data: network.txt
 108:
   name: Diophantine reciprocals I
   solution: "$2a$10$hxeVMmNdI0cT6/UhIyjSLei6Zocjaw9xPAUjw6psTXriCvEbEMJ4u"
@@ -1045,6 +1061,7 @@
   name: Consecutive die throws
 424:
   name: Kakuro
+  data: kakuro200.txt
 425:
   name: Prime connection
   solution: "$2a$10$HiCygdPmUeKi89HgovuVJ.YNkZKKLvlRrO8knH15CKzYZiiyOnV12"
