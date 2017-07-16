@@ -144,9 +144,22 @@ class CheckTool
       end
 
       # TODO: filter by language
+      unordered_tasks = []
       solution.each do |implementation|
-        solution_tasks << implementation
+        requirements = [
+          @languages.empty?,
+          @languages.include?(implementation.lang['ext']),
+          @languages.include?(implementation.lang['name'])]
+
+        if requirements.any?
+          unordered_tasks << implementation
+        end
       end
+
+      # sort by language
+      ordered_tasks = unordered_tasks.sort_by{|impl| impl.lang['name']}
+
+      solution_tasks.concat(ordered_tasks)
     end
 
     # find the length of the language with the longest name (pretty outputting)
