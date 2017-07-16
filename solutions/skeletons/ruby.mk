@@ -13,7 +13,7 @@ test: $(CONFIG) $(SOURCES)
 	$(RAKE) test
 
 solve: $(CONFIG) $(SOURCES) $(SOLVER)
-	$(BUNDLER) exec $(SOLVER)
+	@$(BUNDLER) exec $(SOLVER)
 
 clean:
 
