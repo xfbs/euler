@@ -1,8 +1,12 @@
 include ../global.mk
 
-build:
-	echo "$(CACHEDIR)"
-	env
+SOLUTIONS=$(wildcard ???-*.*)
+TARGETS=build test clean
 
-clean:
+$(TARGETS): $(SOLUTIONS)
 
+$(SOLUTIONS):
+	@echo Running 'make $(MAKECMDGOALS)' for $@
+	@$(MAKE) -C $@ $(MAKECMDGOALS)
+
+.PHONY: $(TARGETS) $(SOLUTIONS)
