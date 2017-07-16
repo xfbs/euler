@@ -12,8 +12,13 @@ class CheckTool
     # solutiondir holds all solutions
     @solutiondir = ENV['SOLUTIONDIR'] || File.expand_path("#{File.dirname(__FILE__)}/../../solutions")
 
+    # which languages to filter when checking (empty for all)
     @languages = []
+
+    # how many threads to use
     @threads = 4
+
+    # how long to wait until calling it a timeout (in seconds)
     @timeout = 1
 
     # parse command line arguments
@@ -81,29 +86,24 @@ class CheckTool
     STDOUT.puts "#{ANSI.green{'==>'}} #{n}"
   end
 
+  # load the problems database
   def load_problems
     Checker::Problems.load(File.join(@datadir, 'problems.yml'))
   end
 
-  def load_problem(problem_p)
-    problems = load_problems
-
-    problem = problems[problem_p.to_i]
-    error "Invalid problem specified: #{problem_p}" if !problem.exists?
-
-    problem
-  end
-
+  # load the languages database
   def load_languages
     Checker::Languages.load(File.join(@datadir, 'languages.yml'))
   end
 
+  # load the solutions database
   def load_solutions(problems, languages)
     solutions = Checker::Solutions.new(problems, languages)
     solutions.load_all(@solutiondir)
     solutions
   end
 
+  # check the solution implementations of the given problem
   def check problem_p=nil
     info "Loading problems"
     problems = load_problems
@@ -241,10 +241,10 @@ class CheckTool
         if new_problem
           info "Checking problem #{cur_problem.number.to_s.rjust(3, '0')}"
           puts line
-          new_problem = false unless cur[:end]
+          new_problem = false unless cur.all?{|lang, task| task[:end]}
         else
           reprint line
-          new_problem = true if cur[:end]
+          new_problem = true if cur.all?{|lang, task| task[:end]}
         end
       end
     end
@@ -404,6 +404,8 @@ class CheckTool
     " #{ANSI.yellow{language.rjust(languages_len, ' ')}} #{time} #{result}#{reason}"
   end
 
+  # replace the last printed line in the console with the
+  # given one
   def reprint s
     print ANSI.cursor_hide
     print ANSI.up(1)
