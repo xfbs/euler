@@ -47,7 +47,9 @@ module Checker
     end
 
     def solve
-      `cd #{path} && #{@solve}`
+      Bundler.with_clean_env do
+        `cd #{path} && #{@solve}`
+      end
     end
 
     def check
