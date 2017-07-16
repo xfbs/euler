@@ -128,13 +128,132 @@ class CheckTool
   end
 
   def check_all(problems, solutions)
+    step "Checking problems with #{@threads} threads"
+
+    ordered_problems = []
+    solution_tasks = []
+    thread_output = {}
+    mutex = Mutex.new
+    threads = []
+
+    # fill up our ordered list of problems
+    # and the solution tasks for the threads
     solutions.each do |solution|
-      puts solution
+      if solution.implemented?
+        ordered_problems << solution.problem
+      end
+
+      # TODO: filter by language
       solution.each do |implementation|
-        puts implementation
-        puts implementation.check
+        solution_tasks << implementation
       end
     end
+
+    # find the length of the language with the longest name (pretty outputting)
+    languages_len = 0
+    solution_tasks.each do |task|
+      languages_len = [languages_len, task.lang['name'].length].max
+    end
+
+    # start worker threads to run the solvers in the background
+    @threads.times do
+      threads << Thread.new do
+        loop do
+          # can't access out or thread_output unless inside a
+          # mutex.synchronize block
+          out = {}
+          task = nil
+
+          mutex.synchronize do
+            task = solution_tasks.shift
+
+            # parté when we don't have any tasks left
+            Thread.exit unless task
+
+            # make our results accessible
+            thread_output[task.problem] ||= {}
+            thread_output[task.problem][task.lang['name']] = out
+
+            # set our current task and save the time
+            out[:task] = task
+            out[:start] = Time.now
+          end
+
+          # run task
+          res = false
+          error = false
+          begin
+            res = task.check
+          rescue Exception => _
+            error = true
+          end
+
+          # we're done, save time and result so we can
+          # move on to the next task
+          mutex.synchronize do
+            out[:end] = Time.now
+            out[:result] = res
+            out[:error] = error
+          end
+        end
+      end
+    end
+
+    queue_filled = true
+    new_problem = true
+    while  threads.any?{|thread| thread.alive?} || queue_filled
+      queue_filled = false
+      sleep 0.1
+      cur = nil
+
+      if ordered_problems[0]
+        cur_problem = ordered_problems[0]
+        queue_filled = true
+
+        mutex.synchronize do
+          if thread_output[cur_problem]
+            cur = thread_output[cur_problem].dup
+          end
+        end
+
+        if cur.all?{|lang, task| task[:end]}
+          ordered_problems.shift
+        end
+      end
+
+      if cur
+        # TODO
+        puts "error" if cur == nil
+        time = (cur[:end] || Time.now) - cur[:start]
+
+        result = cur[:result]
+        reason = nil
+
+        if(time > @timeout)
+          result = false
+          reason = 'timeout'
+        end
+
+        if cur[:error]
+          result = false
+          reason = 'error'
+        end
+
+        line = result_detail_line(languages_len, cur[:task].lang['name'], time, result, reason)
+
+        if new_problem
+          puts line
+          new_problem = false unless cur[:end]
+        else
+          reprint line
+          new_problem = true if cur[:end]
+        end
+      end
+    end
+  end
+
+  def result_summary_line(languages_len, language, langs)
+    # TODO
   end
 
   def check_single(problem, solution)
@@ -211,7 +330,6 @@ class CheckTool
       end
 
       if cur
-        puts "error" if cur == nil
         time = (cur[:end] || Time.now) - cur[:start]
 
         result = cur[:result]
@@ -238,8 +356,6 @@ class CheckTool
         end
       end
     end
-
-    print ANSI.cursor_show
   end
 
   def result_detail_line(languages_len, language, time, result_r, reason)
