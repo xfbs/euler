@@ -1,0 +1,8 @@
+[package]
+name = "solution"
+version = "0.1.0"
+authors = ["Patrick Elsen <pelsen@xfbs.net>"]
+
+[dependencies]
+"bit-vec" = "0.4.4"
+
