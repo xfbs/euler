@@ -9,7 +9,7 @@ TESTPY			= test.py
 
 # install requirements
 build:
-	$(PIP) install -r $(REQUIREMENTS)
+	$(PIP) install -q -r $(REQUIREMENTS)
 
 # run solution.py
 solve:
