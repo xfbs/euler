@@ -18,6 +18,9 @@ class ImplementationTool
     # when listing solutions, do we just display a summary?
     @summary = false
 
+    # should we link datafile in?
+    @datafile = true
+
     # parse command line arguments
     @opts = OptionParser.new do |opt|
       opt.banner = "Usage: #{opt.program_name} [options] add PROBLEM LANGUAGE\n#{' '*7}#{opt.program_name} [options] list [PROBLEM]"
@@ -36,6 +39,10 @@ class ImplementationTool
 
       opt.on('-s', '--summary', "Only prodide a summary (don't list individual solutions)") do |o|
         @summary = true
+      end
+
+      opt.on('--no-datafile', "Don't link datafile(s) into the implementation") do |o|
+        @datafile = false
       end
     end
   end
@@ -114,11 +121,17 @@ class ImplementationTool
     if @skeletons
       info "Copying skeletons to implementation"
       unless solutions[problem][language].create @solutiondir
-        error "No skeleton found for language #{languages[language]['name']}"
+        warn "No skeleton found for language #{languages[language]['name']}"
       end
     else
       warn "Skipping skeletons."
-      return
+    end
+
+    if @datafile && problem.data
+      info "Linking datafile into the implementation"
+      unless solutions[problem][language].link_data_file @solutiondir, @datadir
+        warn "Error linking the data file"
+      end
     end
   end
 

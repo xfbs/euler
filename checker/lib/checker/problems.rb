@@ -15,7 +15,8 @@ module Checker
         name = props['name']
         solution = props['solution']
         slug = props['slug']
-        problems[number.to_i] = Problem.new(number.to_i, name, solution, slug)
+        data = props['data']
+        problems[number.to_i] = Problem.new(number.to_i, name, :solution => solution, :slug => slug, :data => data)
       end
       Problems.new(problems, :file => file)
     end
@@ -32,6 +33,9 @@ module Checker
           if problem.custom_slug?
             data[number]['slug'] = problem.slug
           end
+          if problem.data
+            data[number]['data'] = problem.data
+          end
         end
       end
 
@@ -46,28 +50,29 @@ module Checker
 
     def [] n
       unless @problems[n]
-        @problems[n] = Problem.new(n, nil, nil)
+        @problems[n] = Problem.new(n, nil)
       end
 
       @problems[n]
     end
 
     def each
-      @problems.each_value do |problem|
-        yield problem
+      @problems.keys.sort.each do |number|
+        yield @problems[number]
       end
     end
   end
 
   class Problem
     attr_reader :number
-    attr_accessor :name
+    attr_accessor :name, :data
 
-    def initialize(number, name, solution=nil, slug=nil)
+    def initialize(number, name, opts={})
       @number = number
       @name = name
-      @slug = slug
-      @solution = BCrypt::Password.new(solution) if solution
+      @slug = opts[:slug]
+      @solution = BCrypt::Password.new(opts[:solution]) if opts[:solution]
+      @data = opts[:data]
     end
 
     def check(solution)
