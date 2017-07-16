@@ -12,16 +12,16 @@ build: setup
 	cd $(SOLUTIONDIR) && $(MAKE) $@
 
 setup:
-	$(MKDIR) $(CACHEDIR)
+	#$(MKDIR) $(CACHEDIR)
 
 clean:
 	cd $(SOLUTIONDIR) && $(MAKE) $@
 	$(RM) $(CACHEDIR)
 
 setup-checker: setup
-	$(BUNDLE) install --path="$(CACHEDIR)/ruby" --gemfile="$(CHECKERDIR)/Gemfile"
+	@cd $(CHECKERDIR) && $(BUNDLE) install
 
 check: setup build
-	cd $(CHECKERDIR) && $(BUNDLE) exec exe/check
+	@cd $(CHECKERDIR) && $(BUNDLE) exec exe/check
 
 .PHONY: build setup setup-checker clean check
