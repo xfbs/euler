@@ -201,10 +201,11 @@ class CheckTool
 
     queue_filled = true
     new_problem = true
-    while  threads.any?{|thread| thread.alive?} || queue_filled
+    while threads.any?{|thread| thread.alive?} || queue_filled
       queue_filled = false
       sleep 0.1
       cur = nil
+      cur_problem = nil
 
       if ordered_problems[0]
         cur_problem = ordered_problems[0]
@@ -212,36 +213,20 @@ class CheckTool
 
         mutex.synchronize do
           if thread_output[cur_problem]
-            cur = thread_output[cur_problem].dup
+            cur = thread_output[cur_problem].map{|l, t| [l, t.dup]}.to_h
           end
         end
 
-        if cur.all?{|lang, task| task[:end]}
+        if cur && cur.all?{|lang, task| task[:end]}
           ordered_problems.shift
         end
       end
 
       if cur
-        # TODO
-        puts "error" if cur == nil
-        time = (cur[:end] || Time.now) - cur[:start]
-
-        result = cur[:result]
-        reason = nil
-
-        if(time > @timeout)
-          result = false
-          reason = 'timeout'
-        end
-
-        if cur[:error]
-          result = false
-          reason = 'error'
-        end
-
-        line = result_detail_line(languages_len, cur[:task].lang['name'], time, result, reason)
+        line = result_summary_line(languages_len, cur_problem, cur)
 
         if new_problem
+          info "Checking problem #{cur_problem.number.to_s.rjust(3, '0')}"
           puts line
           new_problem = false unless cur[:end]
         else
@@ -252,8 +237,32 @@ class CheckTool
     end
   end
 
-  def result_summary_line(languages_len, language, langs)
-    # TODO
+  def result_summary_line(languages_len, cur_problem, cur)
+    cur.keys.sort.map do |lang|
+      impl = cur[lang]
+      result = impl[:result]
+      status = {
+        true  => ANSI.green{'✔'},
+        false => ANSI.red{'✗'}}[result]
+
+      if ((impl[:end]||Time.now) - impl[:start]) > @timeout
+        if impl[:end]
+          status = ANSI.red('T')
+        else
+          status = ANSI.red{cur_progress_icon(15)}
+        end
+      end
+
+      status = cur_progress_icon(15) unless status
+      status = ANSI.red('E') if impl[:error]
+
+      "#{ANSI.yellow{lang}} #{status}  "
+    end.join
+  end
+
+  def cur_progress_icon(speed=10, tokens=['◐', '◓', '◑', '◒'])
+    cur = (Time.now.to_f * speed) % tokens.length
+    tokens[cur]
   end
 
   def check_single(problem, solution)

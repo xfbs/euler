@@ -1,6 +1,7 @@
 module Checker
   class Implementation
-    attr_reader :path, :lang
+    attr_reader :path, :lang, :problem
+
     def initialize problem, path, lang
       @problem = problem
       @path = path
