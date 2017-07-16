@@ -49,7 +49,7 @@ module Checker
       @languages.each do |ext, lang|
         path = File.join(solutions_dir, @problem.make_path(ext))
         if Dir.exists? path
-          @implementations[ext] = Implementation.new(path, lang)
+          @implementations[ext] = Implementation.new(@problem, path, lang)
         end
       end
     end
@@ -72,7 +72,7 @@ module Checker
       else
         # create directory for implementation
         Dir.mkdir path
-        @implementations[ext] = Implementation.new(path, @languages[ext])
+        @implementations[ext] = Implementation.new(@problem, path, @languages[ext])
       end
 
       @implementations[ext]

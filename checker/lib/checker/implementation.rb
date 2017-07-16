@@ -1,7 +1,8 @@
 module Checker
   class Implementation
     attr_reader :path, :lang
-    def initialize path, lang
+    def initialize problem, path, lang
+      @problem = problem
       @path = path
       @lang = lang
 
@@ -22,6 +23,14 @@ module Checker
       end
 
       true
+    end
+
+    def solve
+      `cd #{path} && #{@solve}`
+    end
+
+    def check
+      @problem.check(solve.chomp)
     end
   end
 end
