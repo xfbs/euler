@@ -1,4 +1,4 @@
-#include <math.h>
+#include "solution.h"
 
 int solve(int input)
 {

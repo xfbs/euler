@@ -19,3 +19,11 @@ clean:
 	$(RM) $(TESTS:%.c=%)
 	$(RM) $(BINARIES:%.c=%.o)
 	$(RM) $(BINARIES:%.c=%)
+
+test: $(TESTS:%.c=%)
+	@./test/test
+
+solve: $(BINARIES:%.c=%)
+	@./bin/solve
+
+.PHONY: build test clean solve
