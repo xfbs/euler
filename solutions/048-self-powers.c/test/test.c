@@ -2,28 +2,23 @@
 #include <assert.h>
 #include <stdio.h>
 
-void test_solution();
 void test_shift_mod();
 void test_mult_mod();
 void test_pow_mod();
 void test_sum_mod();
+void test_solve();
 
 int main(int argc, char *argv[])
 {
     printf("Testing solution...\n");
-    test_solution();
     test_shift_mod();
     test_mult_mod();
     test_pow_mod();
     test_sum_mod();
+    test_solve();
     printf("done.\n");
 
     return 0;
-}
-
-void test_solution()
-{
-    //assert(solve(1, 1) == 1);
 }
 
 void test_shift_mod()
@@ -105,3 +100,8 @@ void test_sum_mod()
     assert(0x128732b41fe55bc6 == sum_mod(data, 10, 0x16d9dee3ef3911d8));
 }
 
+void test_solve() {
+    assert(10405071317 == solve(10, 11));
+    assert(405071317 == solve(10, 10));
+    assert(71317 == solve(10, 5));
+}
