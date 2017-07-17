@@ -33,4 +33,10 @@ class SolutionTest < MiniTest::Test
     assert_equal matrix.get(3, 4).down.cell, 331
     assert_equal matrix.get(4, 1).right.cell, 524
   end
+
+  def test_solve
+    matrix = Solution::Matrix.new SAMPLE_MATRIX
+
+    assert_equal matrix.get(0, 0).min_path_sum, 2427
+  end
 end
