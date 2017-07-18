@@ -1,5 +1,6 @@
-DATADIR		= "$(CURDIR)/data"
-CHECKERDIR	= "$(CURDIR)/checker"
-CACHEDIR	= "$(CURDIR)/.cache"
-PROBLEMDIR 	= "$(CURDIR)/problems"
-SOLUTIONDIR	= "$(CURDIR)/solutions"
+ROOTDIR		= $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+DATADIR		= $(ROOTDIR)data
+CHECKERDIR	= $(ROOTDIR)checker
+CACHEDIR	= $(ROOTDIR).cache
+PROBLEMDIR 	= $(ROOTDIR)problems
+SOLUTIONDIR	= $(ROOTDIR)solutions
