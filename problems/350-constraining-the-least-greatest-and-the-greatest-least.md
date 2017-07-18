@@ -1,4 +1,7 @@
 # Problem 350: Constraining the least greatest and the greatest least
+
+![p350](img/350.gif)
+
 A list of size n is a sequence of n natural numbers. Examples are
 (2,4,6), (2,6,4), (10,6,15,6), and (11). The greatest common divisor, or
 gcd, of a list is the largest natural number that divides all entries of

@@ -1,4 +1,7 @@
 # Problem 590: Sets with a given Least Common Multiple
+
+![p590](img/590.gif)
+
 Let H(n) denote the number of sets of positive integers such that the
 least common multiple of the integers in the set equals n. E.g.: The
 integers in the following ten sets all have a least common multiple of

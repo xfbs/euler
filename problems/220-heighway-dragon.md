@@ -1,4 +1,7 @@
 # Problem 220: Heighway Dragon
+
+![p220](img/220.gif)
+
 Let D0 be the two-letter string "Fa". For n≥1, derive Dn from Dn-1 by
 the string-rewriting rules: "a" → "aRbFR" "b" → "LFaLb" Thus, D0 = "Fa",
 D1 = "FaRbFR", D2 = "FaRbFRRLFaLbFR", and so on. These strings can be

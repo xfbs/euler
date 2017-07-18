@@ -1,4 +1,7 @@
 # Problem 64: Odd period square roots
+
+![p364](img/064.gif)
+
 All square roots are periodic when written as continued fractions and
 can be written in the form: √N = a0 + 1   a1 + 1     a2 + 1       a3 +
 ... For example, let us consider √23: √23 = 4 + √23 — 4 = 4 +  1  = 4 + 

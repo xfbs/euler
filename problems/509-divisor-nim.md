@@ -1,4 +1,7 @@
 # Problem 509: Divisor Nim
+
+![p509](img/509.gif)
+
 Anton and Bertrand love to play three pile Nim. However, after a lot of
 games of Nim they got bored and changed the rules somewhat. They may
 only take a number of stones from a pile that is a proper divisor of the

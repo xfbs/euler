@@ -1,4 +1,7 @@
 # Problem 117: Red, green, and blue tiles
+
+![p117](img/117.gif)
+
 Using a combination of black square tiles and oblong tiles chosen from:
 red tiles measuring two units, green tiles measuring three units, and
 blue tiles measuring four units, it is possible to tile a row measuring

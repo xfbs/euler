@@ -1,4 +1,7 @@
 # Problem 229: Four Representations using Squares
+
+![p229](img/229.gif)
+
 Consider the number 3600. It is very special, because 3600 = 482 +   
  362 3600 = 202 + 2×402 3600 = 302 + 3×302 3600 = 452 + 7×152 Similarly,
 we find that 88201 = 992 + 2802 = 2872 + 2×542 = 2832 + 3×522 = 1972 +

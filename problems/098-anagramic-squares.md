@@ -1,4 +1,7 @@
 # Problem 98: Anagramic squares
+
+![p398](img/098.gif)
+
 By replacing each of the letters in the word CARE with 1, 2, 9, and 6
 respectively, we form a square number: 1296 = 362. What is remarkable is
 that, by using the same digital substitutions, the anagram, RACE, also

@@ -1,4 +1,7 @@
 # Problem 54: Poker hands
+
+![p354](img/054.gif)
+
 In the card game poker, a hand consists of five cards and are ranked,
 from lowest to highest, in the following way: High Card: Highest value
 card. One Pair: Two cards of the same value. Two Pairs: Two different

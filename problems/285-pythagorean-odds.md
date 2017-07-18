@@ -1,4 +1,7 @@
 # Problem 285: Pythagorean odds
+
+![p285](img/285.gif)
+
 Albert chooses a positive integer k, then two real numbers a, b are
 randomly chosen in the interval \[0,1\] with uniform distribution. The
 square root of the sum (k·a+1)2 + (k·b+1)2 is then computed and rounded

@@ -1,4 +1,7 @@
 # Problem 257: Angular Bisectors
+
+![p257](img/257.gif)
+
 Given is an integer sided triangle ABC with sides a ≤ b ≤ c. (AB = c, BC
 = a and AC = b). The angular bisectors of the triangle intersect the
 sides at points E, F and G (see picture below). The segments EF, EG and

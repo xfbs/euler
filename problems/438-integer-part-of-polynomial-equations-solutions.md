@@ -1,4 +1,7 @@
 # Problem 438: Integer part of polynomial equation's solutions
+
+![p438](img/438.gif)
+
 For an n-tuple of integers t = (a1, ..., an), let (x1, ..., xn) be the
 solutions of the polynomial equation xn + a1xn-1 + a2xn-2 + ... + an-1x
 + an = 0. Consider the following two conditions: x1, ..., xn are all

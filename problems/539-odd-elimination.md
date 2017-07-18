@@ -1,4 +1,7 @@
 # Problem 539: Odd elimination
+
+![p539](img/539.gif)
+
 Start from an ordered list of all integers from 1 to n. Going from left
 to right, remove the first number and every other number afterward until
 the end of the list. Repeat the procedure from right to left, removing

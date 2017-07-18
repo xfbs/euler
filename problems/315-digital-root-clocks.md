@@ -1,4 +1,7 @@
 # Problem 315: Digital root clocks
+
+![p315](img/315.gif)
+
 Sam and Max are asked to transform two digital clocks into two "digital
 root" clocks. A digital root clock is a digital clock that calculates
 digital roots step by step. When a clock is fed a number, it will show

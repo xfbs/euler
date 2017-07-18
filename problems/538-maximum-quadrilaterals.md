@@ -1,4 +1,7 @@
 # Problem 538: Maximum quadrilaterals
+
+![p538](img/538.gif)
+
 Consider a positive integer sequence S = (s1, s2, ..., sn). Let f(S) be
 the perimeter of the maximum-area quadrilateral whose side lengths are 4
 elements (si, sj, sk, sl) of S (all i, j, k, l distinct). If there are

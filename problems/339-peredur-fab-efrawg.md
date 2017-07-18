@@ -1,4 +1,7 @@
 # Problem 339: Peredur fab Efrawg
+
+![p339](img/339.gif)
+
 "And he came towards a valley, through which ran a river; and the
 borders of the valley were wooded, and on each side of the river were
 level meadows. And on one side of the river he saw a flock of white

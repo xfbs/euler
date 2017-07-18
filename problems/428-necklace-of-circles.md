@@ -1,4 +1,7 @@
 # Problem 428: Necklace of circles
+
+![p428](img/428.gif)
+
 Let a, b and c be positive numbers. Let W, X, Y, Z be four collinear
 points where |WX| = a, |XY| = b, |YZ| = c and |WZ| = a + b + c. Let Cin
 be the circle having the diameter XY. Let Cout be the circle having the

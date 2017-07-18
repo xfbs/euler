@@ -1,4 +1,7 @@
 # Problem 537: Counting tuples
+
+![p537](img/537.gif)
+
 Let π(x) be the prime counting function, i.e. the number of prime
 numbers less than or equal to x. For example, π(1)=0, π(2)=1, π(100)=25.
 Let T(n,k) be the number of k-tuples (x1,…,xk) which satisfy: 1. every

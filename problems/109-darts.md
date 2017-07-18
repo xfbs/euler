@@ -1,4 +1,7 @@
 # Problem 109: Darts
+
+![p109](img/109.gif)
+
 In the game of darts a player throws three darts at a target board which
 is split into twenty equal sized sections numbered one to twenty. The
 score of a dart is determined by the number of the region that the dart

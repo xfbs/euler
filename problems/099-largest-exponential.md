@@ -1,4 +1,7 @@
 # Problem 99: Largest exponential
+
+![p399](img/099.gif)
+
 Comparing two numbers written in index form like 211 and 37 is not
 difficult, as any calculator would confirm that 211 = 2048 &lt; 37 =
 2187. However, confirming that 632382518061 &gt; 519432525806 would be

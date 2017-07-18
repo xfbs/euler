@@ -1,4 +1,7 @@
 # Problem 337: Totient Stairstep Sequences
+
+![p337](img/337.gif)
+
 Let {a1, a2,..., an} be an integer sequence of length n such that: a1 =
 6 for all 1 ≤ i &lt; n : φ(ai) &lt; φ(ai+1) &lt; ai &lt; ai+11 Let S(N)
 be the number of such sequences with an ≤ N. For example, S(10) = 4:

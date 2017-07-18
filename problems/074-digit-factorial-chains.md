@@ -1,4 +1,7 @@
 # Problem 74: Digit factorial chains
+
+![p374](img/074.gif)
+
 The number 145 is well known for the property that the sum of the
 factorial of its digits is equal to 145: 1! + 4! + 5! = 1 + 24 + 120 =
 145 Perhaps less well known is 169, in that it produces the longest

@@ -1,4 +1,7 @@
 # Problem 218: Perfect right-angled triangles
+
+![p218](img/218.gif)
+
 Consider the right angled triangle with sides a=7, b=24 and c=25. The
 area of this triangle is 84, which is divisible by the perfect numbers 6
 and 28. Moreover it is a primitive right angled triangle as gcd(a,b)=1

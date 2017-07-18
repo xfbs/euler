@@ -1,4 +1,7 @@
 # Problem 390: Triangles with non rational sides and integral area
+
+![p390](img/390.gif)
+
 Consider the triangle with sides √5, √65 and √68. It can be shown that
 this triangle has area 9. S(n) is the sum of the areas of all triangles
 with sides √(1+b2), √(1+c2) and √(b2+c2) (for positive integers b and c

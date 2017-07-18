@@ -1,4 +1,7 @@
 # Problem 234: Semidivisible numbers
+
+![p234](img/234.gif)
+
 For an integer n ≥ 4, we define the lower prime square root of n,
 denoted by lps(n), as the largest prime ≤ √n and the upper prime square
 root of n, ups(n), as the smallest prime ≥ √n. So, for example, lps(4) =

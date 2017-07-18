@@ -1,4 +1,7 @@
 # Problem 102: Triangle containment
+
+![p102](img/102.gif)
+
 Three distinct points are plotted at random on a Cartesian plane, for
 which -1000 ≤ x, y ≤ 1000, such that a triangle is formed. Consider the
 following two triangles: A(-340,495), B(-153,-910), C(835,-947)

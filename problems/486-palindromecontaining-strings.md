@@ -1,4 +1,7 @@
 # Problem 486: Palindrome-containing strings
+
+![p486](img/486.gif)
+
 Let F5(n) be the number of strings s such that: s consists only of '0's
 and '1's, s has length at most n, and s contains a palindromic substring
 of length at least 5. For example, F5(4) = 0, F5(5) = 8, F5(6) = 42 and

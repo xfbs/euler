@@ -1,4 +1,7 @@
 # Problem 286: Scoring probabilities
+
+![p286](img/286.gif)
+
 Barbara is a mathematician and a basketball player. She has found that
 the probability of scoring a point when shooting from a distance x is
 exactly (1 - x/q), where q is a real constant greater than 50. During

@@ -1,4 +1,7 @@
 # Problem 338: Cutting Rectangular Grid Paper
+
+![p338](img/338.gif)
+
 A rectangular sheet of grid paper with integer dimensions w × h is
 given. Its grid spacing is 1. When we cut the sheet along the grid lines
 into two pieces and rearrange those pieces without overlap, we can make

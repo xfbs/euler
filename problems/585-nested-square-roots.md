@@ -1,4 +1,7 @@
 # Problem 585: Nested square roots
+
+![p585](img/585.gif)
+
 Consider the term \$\\small \\sqrt{x+\\sqrt{y}+\\sqrt{z}}\$ that is
 representing a nested square root. \$x\$, \$y\$ and \$z\$ are positive
 integers and \$y\$ and \$z\$ are not allowed to be perfect squares, so

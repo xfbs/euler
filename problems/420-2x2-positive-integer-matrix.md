@@ -1,4 +1,7 @@
 # Problem 420: 2x2 positive integer matrix
+
+![p420](img/420.gif)
+
 A positive integer matrix is a matrix whose elements are all positive
 integers. Some positive integer matrices can be expressed as a square of
 a positive integer matrix in two different ways. Here is an example: We

@@ -1,4 +1,7 @@
 # Problem 113: Non-bouncy numbers
+
+![p113](img/113.gif)
+
 Working from left-to-right if no digit is exceeded by the digit to its
 left it is called an increasing number; for example, 134468. Similarly
 if no digit is exceeded by the digit to its right it is called a

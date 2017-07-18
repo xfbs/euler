@@ -1,4 +1,7 @@
 # Problem 386: Maximum length of an antichain
+
+![p386](img/386.gif)
+
 Let n be an integer and S(n) be the set of factors of n. A subset A of
 S(n) is called an antichain of S(n) if A contains only one element or if
 none of the elements of A divides any of the other elements of A. For

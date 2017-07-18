@@ -1,4 +1,7 @@
 # Problem 511: Sequences with nice divisibility properties
+
+![p511](img/511.gif)
+
 Let Seq(n,k) be the number of positive-integer sequences {ai}1≤i≤n of
 length n such that: n is divisible by ai for 1 ≤ i ≤ n, and n + a1 + a2
 + ... + an is divisible by k. Examples: Seq(3,4) = 4, and the 4

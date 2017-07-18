@@ -1,4 +1,7 @@
 # Problem 91: Right triangles with integer coordinates
+
+![p391](img/091.gif)
+
 The points P (x1, y1) and Q (x2, y2) are plotted at integer co-ordinates
 and are joined to the origin, O(0,0), to form ΔOPQ. There are exactly
 fourteen triangles containing a right angle that can be formed when each

@@ -1,4 +1,7 @@
 # Problem 217: Balanced Numbers
+
+![p217](img/217.gif)
+
 A positive integer with k (decimal) digits is called balanced if its
 first ⌈k/2⌉ digits sum to the same value as its last ⌈k/2⌉ digits, where
 ⌈x⌉, pronounced ceiling of x, is the smallest integer ≥ x, thus ⌈π⌉ = 4

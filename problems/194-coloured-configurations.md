@@ -1,4 +1,7 @@
 # Problem 194: Coloured Configurations
+
+![p194](img/194.gif)
+
 Consider graphs built with the units A: and B: , where the units are
 glued along the vertical edges as in the graph . A configuration of type
 (a,b,c) is a graph thus built of a units A and b units B, where the

@@ -1,4 +1,7 @@
 # Problem 263: An engineers' dream come true
+
+![p263](img/263.gif)
+
 Consider the number 6. The divisors of 6 are: 1,2,3 and 6. Every number
 from 1 up to and including 6 can be written as a sum of distinct
 divisors of 6: 1=1, 2=2, 3=1+2, 4=1+3, 5=2+3, 6=6. A number n is called

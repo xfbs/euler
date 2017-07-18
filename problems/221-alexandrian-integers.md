@@ -1,4 +1,7 @@
 # Problem 221: Alexandrian Integers
+
+![p221](img/221.gif)
+
 We shall call a positive integer A an "Alexandrian integer", if there
 exist integers p, q, r such that: A = p · q · r    and   1A = 1p + 1q +
 1r For example, 630 is an Alexandrian integer (p = 5, q = −7, r = −18).

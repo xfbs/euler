@@ -1,4 +1,7 @@
 # Problem 550: Divisor game
+
+![p550](img/550.gif)
+
 Two players are playing a game. There are k piles of stones. When it is
 his turn a player has to choose a pile and replace it by two piles of
 stones under the following two conditions: Both new piles must have a

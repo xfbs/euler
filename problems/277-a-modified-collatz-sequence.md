@@ -1,4 +1,7 @@
 # Problem 277: A Modified Collatz sequence
+
+![p277](img/277.gif)
+
 A modified Collatz sequence of integers is obtained from a starting
 value a1 in the following way: an+1 = an/3 if an is divisible by 3. We
 shall denote this as a large downward step, "D". an+1 = (4an + 2)/3 if

@@ -1,4 +1,7 @@
 # Problem 344: Silver dollar game
+
+![p344](img/344.gif)
+
 One variant of N.G. de Bruijn's silver dollar game can be described as
 follows: On a strip of squares a number of coins are placed, at most one
 coin per square. Only one coin, called the silver dollar, has any value.

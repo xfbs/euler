@@ -1,4 +1,7 @@
 # Problem 174: Counting the number of "hollow" square laminae that can form one, two, three, ... distinct arrangements
+
+![p174](img/174.gif)
+
 We shall define a square lamina to be a square outline with a square
 "hole" so that the shape possesses vertical and horizontal symmetry.
 Given eight tiles it is possible to form a lamina in only one way: 3x3

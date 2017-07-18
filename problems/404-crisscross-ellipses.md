@@ -1,4 +1,7 @@
 # Problem 404: Crisscross Ellipses
+
+![p404](img/404.gif)
+
 Ea is an ellipse with an equation of the form x2 + 4y2 = 4a2. Ea' is the
 rotated image of Ea by θ degrees counterclockwise around the origin O(0,
 0) for 0° &lt; θ &lt; 90°. b is the distance to the origin of the two

@@ -1,4 +1,7 @@
 # Problem 363: Bézier Curves
+
+![p363](img/363.gif)
+
 A cubic Bézier curve is defined by four points: P0, P1, P2 and P3. The
 curve is constructed as follows: On the segments P0P1, P1P2 and P2P3 the
 points Q0,Q1 and Q2 are drawn such that P0Q0 / P0P1 = P1Q1 / P1P2 = P2Q2

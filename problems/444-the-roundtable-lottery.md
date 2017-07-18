@@ -1,4 +1,7 @@
 # Problem 444: The Roundtable Lottery
+
+![p444](img/444.gif)
+
 A group of p people decide to sit down at a round table and play a
 lottery-ticket trading game. Each person starts off with a
 randomly-assigned, unscratched lottery ticket. Each ticket, when

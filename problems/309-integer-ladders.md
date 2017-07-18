@@ -1,4 +1,7 @@
 # Problem 309: Integer Ladders
+
+![p309](img/309.gif)
+
 In the classic "Crossing Ladders" problem, we are given the lengths x
 and y of two ladders resting on the opposite walls of a narrow, level
 street. We are also given the height h above the street where the two

@@ -1,4 +1,7 @@
 # Problem 520: Simbers
+
+![p520](img/520.gif)
+
 We define a simber to be a positive integer in which any odd digit, if
 present, occurs an odd number of times, and any even digit, if present,
 occurs an even number of times. For example, 141221242 is a 9-digit

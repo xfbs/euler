@@ -1,4 +1,7 @@
 # Problem 326: Modulo Summations
+
+![p326](img/326.gif)
+
 Let an be a sequence recursively defined by: . So the first 10 elements
 of an are: 1,1,0,3,0,3,5,4,1,9. Let f(N,M) represent the number of pairs
 (p,q) such that: It can be seen that f(10,10)=4 with the pairs (3,3),

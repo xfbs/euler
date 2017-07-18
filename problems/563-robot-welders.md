@@ -1,4 +1,7 @@
 # Problem 563: Robot Welders
+
+![p563](img/563.gif)
+
 A company specialises in producing large rectangular metal sheets,
 starting from unit square metal plates. The welding is performed by a
 range of robots of increasing size. Unfortunately, the programming

@@ -1,4 +1,7 @@
 # Problem 207: Integer partition equations
+
+![p207](img/207.gif)
+
 For some positive integers k, there exists an integer partition of the
 form   4t = 2t + k, where 4t, 2t, and k are all positive integers and t
 is a real number. The first two such partitions are 41 = 21 + 2 and

@@ -1,4 +1,7 @@
 # Problem 280: Ant and seeds
+
+![p280](img/280.gif)
+
 A laborious ant walks randomly on a 5x5 grid. The walk starts from the
 central square. At each step, the ant moves to an adjacent square at
 random, without leaving the grid; thus there are 2, 3 or 4 possible

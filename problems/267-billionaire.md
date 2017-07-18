@@ -1,4 +1,7 @@
 # Problem 267: Billionaire
+
+![p267](img/267.gif)
+
 You are given a unique investment opportunity. Starting with £1 of
 capital, you can choose a fixed proportion, f, of your capital to bet on
 a fair coin toss repeatedly for 1000 tosses. Your return is double your

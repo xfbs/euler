@@ -1,4 +1,7 @@
 # Problem 66: Diophantine equation
+
+![p366](img/066.gif)
+
 Consider quadratic Diophantine equations of the form: x2 – Dy2 = 1 For
 example, when D=13, the minimal solution in x is 6492 – 13×1802 = 1. It
 can be assumed that there are no solutions in positive integers when D
