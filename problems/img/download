@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+require 'open-uri'
+
+max_problems = 600
+
+(1..max_problems).each do |num|
+  begin
+    f = open("https://projecteuler.net/project/images/p#{num.to_s.rjust(3, '0')}.gif")
+    c = f.read
+    s = File.open("#{num.to_s.rjust(3, '0')}.gif", 'w')
+    s.write(c)
+    s.close
+
+    puts "problem #{num}: got image, saved to #{s.path}"
+  rescue Exception => e
+    puts "problem #{num}: #{e.message}"
+  end
+
+  sleep 0.1
+end
