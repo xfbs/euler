@@ -1,7 +1,7 @@
 require 'pathname'
 require 'fileutils'
 
-module Checker
+module Euler
   class Implementation
     attr_reader :path, :lang, :problem
 

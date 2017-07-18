@@ -1,8 +1,8 @@
-require 'checker/problems'
-require 'checker/implementation'
+require 'euler/problems'
+require 'euler/implementation'
 require 'yaml'
 
-module Checker
+module Euler
   class Solutions
     attr_accessor :problems, :languages
     def initialize problems, languages, solutions_dir=nil

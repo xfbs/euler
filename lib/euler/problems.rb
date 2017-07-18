@@ -1,7 +1,7 @@
 require 'bcrypt'
 require 'yaml'
 
-module Checker
+module Euler
   class Problems
     def initialize(problems, opts={})
       @problems = problems

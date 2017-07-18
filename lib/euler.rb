@@ -1,10 +1,10 @@
-require "checker/version"
-require "checker/problems"
-require "checker/implementation"
-require "checker/solutions"
+require "euler/version"
+require "euler/problems"
+require "euler/implementation"
+require "euler/solutions"
 require 'yaml'
 
-module Checker
+module Euler
   module Languages
     def self.load file
       f = File.open(file, 'r')
