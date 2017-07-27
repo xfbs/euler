@@ -11,28 +11,71 @@ require 'yaml'
 module Euler
   class DB
     def initialize file
-      @db_file = file
+      @file = file
     end
 
     def read
       raise "db read already" if @db
 
       # read in database
-      File.open(file, 'r') do |fh|
+      File.open(@file, 'r') do |fh|
         # parse database
-        @db = YAML.load(db)
+        @db = YAML.load(fh)
       end
 
-      @db['langs'] ||= {}
-      @db['probs'] ||= {}
+      @db['probs'].map! do |num, prop|
+        prop['name'] ||= "Unknown"
+        prop['number'] = num
+        Problem.new prop
+      end
+
+      @db['langs'].map! do |ext, lang|
+        lang['ext'] = ext
+      end
 
       true
     end
 
-    def language lang={}
-      return @db['langs'] if @db['langs'][lang]
+    def save!(to: @file)
+      File.open(to, 'w').write(to_yaml)
     end
 
+    def lang param={}
+      @db['langs'].find do |ext, lang|
+        param.all? do |key, value|
+          lang[key] == value
+        end
+      end
+    end
+
+    def path name=nil
+      if name
+        @db['paths'][name]
+      else
+        @db['paths']
+      end
+    end
+
+    def problem query={}
+      @db['probs'].find do |num, prob|
+        {
+          'number' => prob.number,
+          'name' => prob.name,
+          'slug' => prob.slug,
+          'data' => prob.data
+        }.map do |p, val|
+           val == query[p] if query[p]
+        end.compact.all?
+      end
+    end
+
+    def to_yaml
+    end
+
+    def init_with
+    end
 
   end
 end
+
+Psych.add_tag('!euler.xfbs.net/db', Euler::DB)
