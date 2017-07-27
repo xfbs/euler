@@ -67,12 +67,12 @@ module Euler
     attr_reader :number
     attr_accessor :name, :data
 
-    def initialize(number, name, opts={})
+    def initialize(number:, name:, slug: nil, data: nil, solution: nil)
       @number = number
       @name = name
-      @slug = opts[:slug]
+      @slug = slug
       @solution = BCrypt::Password.new(opts[:solution]) if opts[:solution]
-      @data = opts[:data]
+      @data = data
     end
 
     def check(solution)
