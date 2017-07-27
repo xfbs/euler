@@ -1,4 +1,9 @@
 ---
+paths:
+  solutions: solutions
+  data: data
+  problems: problems
+  explanations: explanations
 langs:
   rb:
     name: ruby
