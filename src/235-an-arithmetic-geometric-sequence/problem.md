@@ -1,6 +1,6 @@
 # Problem 235: An Arithmetic Geometric sequence
 
-![p235](img/235.gif)
+![problem](problem.gif)
 
 Given is the arithmetic-geometric sequence u(k) = (900-3k)rk-1. Let s(n)
 = Σk=1...nu(k). Find the value of r for which s(5000) =

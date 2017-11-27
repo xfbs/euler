@@ -1,6 +1,6 @@
 # Problem 509: Divisor Nim
 
-![p509](img/509.gif)
+![problem](problem.gif)
 
 Anton and Bertrand love to play three pile Nim. However, after a lot of
 games of Nim they got bored and changed the rules somewhat. They may

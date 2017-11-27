@@ -1,6 +1,6 @@
 # Problem 191: Prize Strings
 
-![p191](img/191.gif)
+![problem](problem.gif)
 
 A particular school offers cash rewards to children with good attendance
 and punctuality. If they are absent for three consecutive days or late

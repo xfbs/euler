@@ -1,6 +1,6 @@
 # Problem 428: Necklace of circles
 
-![p428](img/428.gif)
+![problem](problem.gif)
 
 Let a, b and c be positive numbers. Let W, X, Y, Z be four collinear
 points where |WX| = a, |XY| = b, |YZ| = c and |WZ| = a + b + c. Let Cin

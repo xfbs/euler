@@ -1,6 +1,6 @@
 # Problem 197: Investigating the behaviour of a recursively defined sequence
 
-![p197](img/197.gif)
+![problem](problem.gif)
 
 Given is the function f(x) = ⌊230.403243784-x2⌋ × 10-9 ( ⌊ ⌋ is the
 floor-function), the sequence un is defined by u0 = -1 and un+1 = f(un).

@@ -1,6 +1,6 @@
 # Problem 285: Pythagorean odds
 
-![p285](img/285.gif)
+![problem](problem.gif)
 
 Albert chooses a positive integer k, then two real numbers a, b are
 randomly chosen in the interval \[0,1\] with uniform distribution. The

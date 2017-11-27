@@ -1,6 +1,6 @@
 # Problem 184: Triangles containing the origin
 
-![p184](img/184.gif)
+![problem](problem.gif)
 
 Consider the set Ir of points (x,y) with integer co-ordinates in the
 interior of the circle with radius r, centered at the origin, i.e. x2 +

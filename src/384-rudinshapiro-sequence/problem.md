@@ -1,6 +1,6 @@
 # Problem 384: Rudin-Shapiro sequence
 
-![p384](img/384.gif)
+![problem](problem.gif)
 
 Define the sequence a(n) as the number of adjacent pairs of ones in the
 binary expansion of n (possibly overlapping). E.g.: a(5) = a(1012) = 0,

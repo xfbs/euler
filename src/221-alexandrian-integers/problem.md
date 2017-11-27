@@ -1,6 +1,6 @@
 # Problem 221: Alexandrian Integers
 
-![p221](img/221.gif)
+![problem](problem.gif)
 
 We shall call a positive integer A an "Alexandrian integer", if there
 exist integers p, q, r such that: A = p · q · r    and   1A = 1p + 1q +

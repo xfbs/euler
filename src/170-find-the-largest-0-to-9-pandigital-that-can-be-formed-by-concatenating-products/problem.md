@@ -1,6 +1,6 @@
 # Problem 170: Find the largest 0 to 9 pandigital that can be formed by concatenating products
 
-![p170](img/170.gif)
+![problem](problem.gif)
 
 Take the number 6 and multiply it by each of 1273 and 9854: 6 × 1273 =
 7638 6 × 9854 = 59124 By concatenating these products we get the 1 to 9

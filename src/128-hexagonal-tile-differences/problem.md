@@ -1,6 +1,6 @@
 # Problem 128: Hexagonal tile differences
 
-![p128](img/128.gif)
+![problem](problem.gif)
 
 A hexagonal tile with number 1 is surrounded by a ring of six hexagonal
 tiles, starting at "12 o'clock" and numbering the tiles 2 to 7 in an

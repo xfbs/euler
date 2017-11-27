@@ -1,6 +1,6 @@
 # Problem 550: Divisor game
 
-![p550](img/550.gif)
+![problem](problem.gif)
 
 Two players are playing a game. There are k piles of stones. When it is
 his turn a player has to choose a pile and replace it by two piles of

@@ -1,6 +1,6 @@
 # Problem 202: Laserbeam
 
-![p202](img/202.gif)
+![problem](problem.gif)
 
 Three mirrors are arranged in the shape of an equilateral triangle, with
 their reflective surfaces pointing inwards. There is an infinitesimal

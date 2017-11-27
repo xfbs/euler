@@ -1,6 +1,6 @@
 # Problem 510: Tangent Circles
 
-![p510](img/510.gif)
+![problem](problem.gif)
 
 Circles A and B are tangent to each other and to line L at three
 distinct points. Circle C is inside the space between A, B and L, and

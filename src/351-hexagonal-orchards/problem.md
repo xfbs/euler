@@ -1,6 +1,6 @@
 # Problem 351: Hexagonal orchards
 
-![p351](img/351.gif)
+![problem](problem.gif)
 
 A hexagonal orchard of order n is a triangular lattice made up of points
 within a regular hexagon with side n. The following is an example of a

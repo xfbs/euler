@@ -1,6 +1,6 @@
 # Problem 251: Cardano Triplets
 
-![p251](img/251.gif)
+![problem](problem.gif)
 
 A triplet of positive integers (a,b,c) is called a Cardano Triplet if it
 satisfies the condition: For example, (2,1,5) is a Cardano Triplet.

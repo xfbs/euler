@@ -1,6 +1,6 @@
 # Problem 115: Counting block combinations II
 
-![p115](img/115.gif)
+![problem](problem.gif)
 
 NOTE: This is a more difficult version of Problem 114. A row measuring n
 units in length has red blocks with a minimum length of m units placed

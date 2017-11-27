@@ -1,6 +1,6 @@
 # Problem 196: Prime triplets
 
-![p196](img/196.gif)
+![problem](problem.gif)
 
 Build a triangle from all positive integers in the following way:  1  2 
 3  4  5  6  7  8  9 1011 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27

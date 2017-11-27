@@ -1,6 +1,6 @@
 # Problem 237: Tours on a 4 x n playing board
 
-![p237](img/237.gif)
+![problem](problem.gif)
 
 Let T(n) be the number of tours over a 4 × n playing board such that:
 The tour starts in the top left corner. The tour consists of moves that

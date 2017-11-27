@@ -1,6 +1,6 @@
 # Problem 485: Maximum number of divisors
 
-![p485](img/485.gif)
+![problem](problem.gif)
 
 Let d(n) be the number of divisors of n. Let M(n,k) be the maximum value
 of d(j) for n ≤ j ≤ n+k-1. Let S(u,k) be the sum of M(n,k) for 1 ≤ n ≤

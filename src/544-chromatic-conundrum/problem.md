@@ -1,6 +1,6 @@
 # Problem 544: Chromatic Conundrum
 
-![p544](img/544.gif)
+![problem](problem.gif)
 
 Let F(r,c,n) be the number of ways to color a rectangular grid with r
 rows and c columns using at most n colors such that no two adjacent

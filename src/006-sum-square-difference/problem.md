@@ -1,6 +1,6 @@
 # Problem 6: Sum square difference
 
-![p336](img/006.gif)
+![problem](problem.gif)
 
 The sum of the squares of the first ten natural numbers is, 12 + 22 +
 ... + 102 = 385 The square of the sum of the first ten natural numbers

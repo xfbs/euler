@@ -1,6 +1,6 @@
 # Problem 210: Obtuse Angled Triangles
 
-![p210](img/210.gif)
+![problem](problem.gif)
 
 Consider the set S(r) of points (x,y) with integer coordinates
 satisfying |x| + |y| ≤ r. Let O be the point (0,0) and C the point

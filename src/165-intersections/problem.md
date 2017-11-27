@@ -1,6 +1,6 @@
 # Problem 165: Intersections
 
-![p165](img/165.gif)
+![problem](problem.gif)
 
 A segment is uniquely defined by its two endpoints. By considering two
 line segments in plane geometry there are three possibilities: the

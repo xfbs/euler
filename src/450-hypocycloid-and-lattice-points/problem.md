@@ -1,6 +1,6 @@
 # Problem 450: Hypocycloid and Lattice points
 
-![p450](img/450.gif)
+![problem](problem.gif)
 
 A hypocycloid is the curve drawn by a point on a small circle rolling
 inside a larger circle. The parametric equations of a hypocycloid

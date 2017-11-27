@@ -1,6 +1,6 @@
 # Problem 270: Cutting Squares
 
-![p270](img/270.gif)
+![problem](problem.gif)
 
 A square piece of paper with integer dimensions N×N is placed with a
 corner at the origin and two of its sides along the x- and y-axes. Then,

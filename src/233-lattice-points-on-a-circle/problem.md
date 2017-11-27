@@ -1,6 +1,6 @@
 # Problem 233: Lattice points on a circle
 
-![p233](img/233.gif)
+![problem](problem.gif)
 
 Let f(N) be the number of points with integer coordinates that are on a
 circle passing through (0,0), (N,0),(0,N), and (N,N). It can be shown

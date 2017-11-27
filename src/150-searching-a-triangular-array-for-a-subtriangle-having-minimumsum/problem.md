@@ -1,6 +1,6 @@
 # Problem 150: Searching a triangular array for a sub-triangle having minimum-sum
 
-![p150](img/150.gif)
+![problem](problem.gif)
 
 In a triangular array of positive and negative integers, we wish to find
 a sub-triangle such that the sum of the numbers it contains is the

@@ -1,6 +1,6 @@
 # Problem 528: Constrained Sums
 
-![p528](img/528.gif)
+![problem](problem.gif)
 
 Let S(n,k,b) represent the number of valid solutions to x1 + x2 + ... +
 xk ≤ n, where 0 ≤ xm ≤ bm for all 1 ≤ m ≤ k. For example, S(14,3,2) =

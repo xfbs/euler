@@ -1,6 +1,6 @@
 # Problem 328: Lowest-cost Search
 
-![p328](img/328.gif)
+![problem](problem.gif)
 
 We are trying to find a hidden number selected from the set of integers
 {1, 2, ..., n} by asking questions. Each number (question) we ask, has a

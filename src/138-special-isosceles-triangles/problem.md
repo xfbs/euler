@@ -1,6 +1,6 @@
 # Problem 138: Special isosceles triangles
 
-![p138](img/138.gif)
+![problem](problem.gif)
 
 Consider the isosceles triangle with base length, b = 16, and legs, L =
 17. By using the Pythagorean theorem it can be seen that the height of

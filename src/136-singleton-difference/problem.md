@@ -1,6 +1,6 @@
 # Problem 136: Singleton difference
 
-![p136](img/136.gif)
+![problem](problem.gif)
 
 The positive integers, x, y, and z, are consecutive terms of an
 arithmetic progression. Given that n is a positive integer, the

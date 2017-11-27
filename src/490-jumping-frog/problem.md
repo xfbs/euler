@@ -1,6 +1,6 @@
 # Problem 490: Jumping frog
 
-![p490](img/490.gif)
+![problem](problem.gif)
 
 There are n stones in a pond, numbered 1 to n. Consecutive stones are
 spaced one unit apart. A frog sits on stone 1. He wishes to visit each

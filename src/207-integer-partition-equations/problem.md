@@ -1,6 +1,6 @@
 # Problem 207: Integer partition equations
 
-![p207](img/207.gif)
+![problem](problem.gif)
 
 For some positive integers k, there exists an integer partition of the
 form   4t = 2t + k, where 4t, 2t, and k are all positive integers and t

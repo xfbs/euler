@@ -1,6 +1,6 @@
 # Problem 451: Modular inverses
 
-![p451](img/451.gif)
+![problem](problem.gif)
 
 Consider the number 15. There are eight positive numbers less than 15
 which are coprime to 15: 1, 2, 4, 7, 8, 11, 13, 14. The modular inverses

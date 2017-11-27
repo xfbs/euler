@@ -1,6 +1,6 @@
 # Problem 117: Red, green, and blue tiles
 
-![p117](img/117.gif)
+![problem](problem.gif)
 
 Using a combination of black square tiles and oblong tiles chosen from:
 red tiles measuring two units, green tiles measuring three units, and
