@@ -1,1 +1,0 @@
-include ../skeletons/ruby.mk
