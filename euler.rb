@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
-
-require 'pathname'
-require 'open3'
-require 'bcrypt'
+require 'optparse'
 
 class Problem
   BASEDIR = "src"
@@ -88,17 +85,121 @@ class Implementation
   end
 end
 
-Implementation.all.each do |impl|
-  result = impl.check
-
-  if result.nil?
-    print "error "
-  elsif result
-    print "right "
-  else
-    print "wrong "
+class ActionCheck
+  def initialize
+    require 'pathname'
+    require 'open3'
+    require 'bcrypt'
   end
 
-  puts impl.path
+  def run
+    Implementation.all.each do |impl|
+      result = impl.check
+
+      if result.nil?
+        print "error "
+      elsif result
+        print "right "
+      else
+        print "wrong "
+      end
+
+      puts impl.path
+    end
+  end
 end
 
+class ActionBuild
+  def initialize
+    require 'pathname'
+    require 'open3'
+  end
+
+  def run
+    Implementation.all.each do |impl|
+      result = impl.build
+
+      if !result
+        print "error "
+      else
+        print "built "
+      end
+
+      puts impl.path
+    end
+  end
+end
+
+class ActionClean
+  def initialize
+    require 'pathname'
+    require 'open3'
+  end
+
+  def run
+    Implementation.all.each do |impl|
+      result = impl.clean
+
+      if !result
+        print "error "
+      else
+        print "cleaned "
+      end
+
+      puts impl.path
+    end
+  end
+end
+
+class ActionTest
+  def initialize
+    require 'pathname'
+    require 'open3'
+  end
+
+  def run
+    Implementation.all.each do |impl|
+      result = impl.test
+
+      if !result
+        print "error "
+      else
+        print "tested "
+      end
+
+      puts impl.path
+    end
+  end
+end
+
+def find_command
+  OptionParser.new do |opts|
+    opts.banner = "Usage: euler.rb [command] [options]"
+    opts.version = "1.0.0"
+    opts.separator ""
+    opts.separator <<HELP
+Commonly used commands are:
+  build:  builds all solutions
+  check:  checks the solutions
+  clean:  cleans the build cache
+   test:  runs tests for all solutions
+
+See 'euler.rb COMMAND --help' for more information.
+HELP
+  end.order!
+  ARGV.shift
+end
+
+actions = {
+  'check' => ActionCheck,
+  'build' => ActionBuild,
+  'clean' => ActionClean,
+  'test' => ActionTest
+}
+
+command = find_command
+begin
+  actions[command].new.run
+rescue
+  puts "error while executing the command"
+end
