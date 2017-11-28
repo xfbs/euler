@@ -11,4 +11,6 @@ solve:
 clean:
 	$(RM) *.o test main
 
+build: main
+
 .PHONY: build test clean
