@@ -1,7 +1,7 @@
 main: main.o lib.o
 	$(CC) -o $@ $^
 
-test: test.o solution.o
+test: test.o lib.o
 	$(CC) -o $@ $^
 	@./test
 

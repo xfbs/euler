@@ -1,4 +1,4 @@
-#include "solution.h"
+#include "lib.h"
 #include <assert.h>
 #include <stdio.h>
 
