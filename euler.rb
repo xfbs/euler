@@ -66,7 +66,23 @@ class Implementation
     stdout.chomp
   end
 
+  def build
+    _, _, status = Open3.capture3("cd \"#{@path}\" && make")
+    status == 0
+  end
+
+  def test
+    _, _, status = Open3.capture3("cd \"#{@path}\" && make test")
+    status == 0
+  end
+
+  def clean
+    _, _, status = Open3.capture3("cd \"#{@path}\" && make clean")
+    status == 0
+  end
+
   def check
+    build
     solution = solve
     @problem.check_solution solution if solution
   end
