@@ -6,3 +6,6 @@ build:
 
 test:
 	ruby euler.rb test
+
+clean:
+	ruby euler.rb clean
