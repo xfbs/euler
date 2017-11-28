@@ -1,29 +1,14 @@
-SOURCES=$(wildcard src/*.c)
-HEADERS=$(wildcard src/*.h)
-TESTS=$(wildcard test/*.c)
-BINARIES=$(wildcard bin/*.c)
+main: main.o lib.o
+	$(CC) -o $@ $^
 
-CFLAGS += -Isrc/
+test: test.o lib.o
+	$(CC) -o $@ $^
+	@./test
 
-build: $(BINARIES:%.c=%) $(TESTS:%.c=%)
-
-$(BINARIES:%.c=%): $(BINARIES:%.c=%.o) $(SOURCES:%.c=%.o)
-	$(CC) $(LDFLAGS) -o $@ $^
-
-$(TESTS:%.c=%): $(TESTS:%.c=%.o) $(SOURCES:%.c=%.o)
-	$(CC) $(LDFLAGS) -o $@ $^
+solve:
+	@./main
 
 clean:
-	$(RM) $(SOURCES:%.c=%.o)
-	$(RM) $(TESTS:%.c=%.o)
-	$(RM) $(TESTS:%.c=%)
-	$(RM) $(BINARIES:%.c=%.o)
-	$(RM) $(BINARIES:%.c=%)
+	$(RM) *.o test main
 
-test: $(TESTS:%.c=%)
-	@./test/test
-
-solve: $(BINARIES:%.c=%)
-	@./bin/solve
-
-.PHONY: build test clean solve
+.PHONY: build test clean
