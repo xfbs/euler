@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 
 void test_solve()
 {
+    assert(solve(90) == 44);
+    assert(solve(700) == 798);
 }
 
 void test_fibos()
