@@ -72,4 +72,5 @@ fn solve_works() {
     assert!(solve(50, (25, 10)) == 175);
     assert!(solve(55, (10, 25)) == 175);
     assert!(solve(55, (25, 10)) == 175);
+    assert!(solve(9, (3, 5)) == 23);
 }
