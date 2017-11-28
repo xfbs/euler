@@ -3,18 +3,21 @@ require 'optparse'
 
 class Problem
   BASEDIR = "src"
-  attr_accessor :path
+  attr_accessor :path, :num, :slug
 
   def self.all
     Pathname.new(BASEDIR).children
       .select{|entry| File.directory? entry}
       .map{|entry| Problem.new entry.to_s}
+      .sort
   end
 
   def initialize p
     p = Dir["#{BASEDIR}/#{p}*"][0] unless p.class == String
     throw "invalid problem" unless File.exists?(File.join(p, "problem.md"))
     @path = p
+    @slug = File.basename(p)
+    @num = @slug.scan(/(\d\d\d).*/)[0][0]
   end
 
   def implementations
@@ -33,10 +36,14 @@ class Problem
     p = BCrypt::Password.new(hash)
     p.is_password? sol
   end
+
+  def <=> other
+    num <=> other.num
+  end
 end
 
 class Implementation
-  attr_accessor :path
+  attr_accessor :path, :problem, :lang
 
   def self.all
     impls = []
@@ -47,12 +54,13 @@ class Implementation
       end
     end
 
-    impls
+    impls.sort
   end
 
   def initialize path
     @path = path
     @problem = Problem.new File.dirname(@path)
+    @lang = File.basename(@path)
   end
 
   def solve
@@ -82,6 +90,16 @@ class Implementation
     build
     solution = solve
     @problem.check_solution solution if solution
+  end
+
+  def <=> other
+    rough = problem <=> other.problem
+
+    if rough == 0
+      lang <=> other.lang
+    else
+      rough
+    end
   end
 end
 
