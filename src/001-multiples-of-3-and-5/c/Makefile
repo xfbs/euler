@@ -1,14 +1,14 @@
-solve: solve.o solution.o
-	$(CC) -o solve $^
+main: main.o lib.o
+	$(CC) -o $@ $^
 
 test: test.o solution.o
-	$(CC) -o test $^
-	./test
+	$(CC) -o $@ $^
+	@./test
 
-run: solve
-	@./solve
+solve:
+	@./main
 
-clean: 
-	$(RM) *.o test solve
+clean:
+	$(RM) *.o test main
 
 .PHONY: build test clean
