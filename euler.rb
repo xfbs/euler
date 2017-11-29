@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
+# yes, this script is what you would call ugly. it's a mess. but it's not meant
+# to be seen, or to win any beauty contests — it's supposed to kinda do it's
+# job while still being flexible enough so that you can change it around and
+# hack something together if you need to. if you proceed from here... you have
+# been warned.
+
 require 'optparse'
+
 
 class Problem
   BASEDIR = "src"
@@ -104,26 +111,106 @@ class Implementation
 end
 
 class ActionCheck
+  class Formatter
+    def initialize
+    end
+
+    def verbose
+      @verbose = true
+    end
+
+    def color
+      @color = true
+    end
+
+    def setup
+    end
+
+    def result _, _
+    end
+
+    def done
+    end
+  end
+
+  class Standard < Formatter
+    def initialize
+      super
+    end
+
+    def setup
+      puts "checking euler solutions"
+    end
+
+    def result impl, result
+      if result.nil?
+        print "error "
+      elsif !result
+        print "wrong "
+      else
+        print "right "
+      end
+
+      puts impl.path
+    end
+  end
+
+  class Summary < Formatter
+    def initialize
+      super
+    end
+
+    def setup
+      ps = Problem.all.each_slice(20).to_a
+      ps.each do |line|
+        line.each do |p|
+          print "#{p.num} "
+        end
+        puts
+      end
+    end
+  end
+
   def initialize
     require 'pathname'
     require 'open3'
     require 'bcrypt'
   end
 
+  def setup
+    OptionParser.new do |opts|
+      opts.banner = "Usage: #{__FILE__} build [options]"
+      opts.version = "1.0.0"
+      opts.on('-v', 'verbose') do |o|
+        @verbose = true
+      end
+      opts.on('-s', 'summary') do |o|
+        @summary = true
+      end
+      opts.on('-c', 'color') do |o|
+        @color = true
+      end
+    end.parse!
+
+    if @summary
+      @formatter = Summary.new
+    else
+      @formatter = Standard.new
+    end
+
+    @formatter.color if @color
+    @formatter.verbose if @verbose
+
+    self
+  end
+
   def run
+    @formatter.setup
     Implementation.all.each do |impl|
       result = impl.check
-
-      if result.nil?
-        print "error "
-      elsif result
-        print "right "
-      else
-        print "wrong "
-      end
-
-      puts impl.path
+      @formatter.result(impl, result)
     end
+    @formatter.done
   end
 end
 
@@ -131,6 +218,9 @@ class ActionBuild
   def initialize
     require 'pathname'
     require 'open3'
+  end
+
+  def setup
   end
 
   def run
@@ -154,6 +244,10 @@ class ActionClean
     require 'open3'
   end
 
+  def setup
+    self
+  end
+
   def run
     Implementation.all.each do |impl|
       result = impl.clean
@@ -173,6 +267,10 @@ class ActionTest
   def initialize
     require 'pathname'
     require 'open3'
+  end
+
+  def setup
+    self
   end
 
   def run
@@ -217,7 +315,9 @@ actions = {
 
 command = find_command
 begin
-  actions[command].new.run
-rescue
+  actions[command].new.setup.run
+rescue Exception => e
   puts "error while executing the command"
+  puts e
+  puts e.backtrace
 end
