@@ -6,5 +6,4 @@
 #pragma once
 
 uint32_t solve(uint32_t n);
-uint32_t square_of_sums(uint32_t n);
-uint32_t sum_of_squares(uint32_t n);
+uint32_t is_pythagorean_triplet(uint32_t a, uint32_t b, uint32_t c);

@@ -1,16 +1,22 @@
 #include "lib.h"
 
-uint32_t solve(uint32_t n)
-{
-    return square_of_sums(n) - sum_of_squares(n);
+uint32_t solve(uint32_t n) {
+    for(uint32_t c = (n-3)/3; c < (n-1); c++) {
+        for(uint32_t b = (n-c-1)/2; (c < n-c) ? (b < c) : (b < (n-c)); b++) {
+            uint32_t a = n - c - b;
+            if(is_pythagorean_triplet(a, b, c)) {
+                return a*b*c;
+            }
+        }
+    }
+
+    return 0;
 }
 
-uint32_t square_of_sums(uint32_t n)
+uint32_t is_pythagorean_triplet(uint32_t a, uint32_t b, uint32_t c)
 {
-    return (n*n) * ((n + 1) * (n + 1)) / 4;
-}
-
-uint32_t sum_of_squares(uint32_t n)
-{
-    return n * (n + 1) * (2 * n + 1) / 6;
+    if(a > b) return false;
+    if(b > c) return false;
+    if((a*a + b*b) != (c*c)) return false;
+    return true;
 }
