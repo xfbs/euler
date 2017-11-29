@@ -24,7 +24,7 @@ class Problem
     throw "invalid problem" unless File.exists?(File.join(p, "problem.md"))
     @path = p
     @slug = File.basename(p)
-    @num = @slug.scan(/(\d\d\d).*/)[0][0]
+    @num = @slug.scan(/(\d\d\d).*/)[0][0].to_i
   end
 
   def implementations
@@ -46,6 +46,10 @@ class Problem
 
   def <=> other
     num <=> other.num
+  end
+
+  def == other
+    num == other.num
   end
 end
 
@@ -129,6 +133,61 @@ class ActionCheck
     def result _, _
     end
 
+    def style text, color={}
+      fg = {
+        :red => 31,
+        :green => 32,
+        :yellow => 33,
+        :blue => 34,
+        :magenta => 35,
+        :cyan => 36,
+        :white => 37,
+      }
+
+      bg = {
+        :red => 41,
+        :green => 42,
+        :yellow => 43,
+        :blue => 44,
+        :magenta => 45,
+        :cyan => 46,
+        :white => 47,
+      }
+
+      at = {
+        :reset => 0,
+        :bold => 1,
+        :underscore => 4,
+        :blink => 5,
+        :reverse => 7,
+        :conceal => 8
+      }
+
+      mode = []
+      mode << fg[color[:fg]] if color[:fg]
+      mode << bg[color[:bg]] if color[:bg]
+      mode << at[color[:at]] if color[:at]
+
+      if @color
+        print "\e[#{mode.join(';')}m#{text}\e[0m"
+      else
+        print text
+      end
+    end
+
+    def cursor action, arg=nil
+      codes = {
+        :save => 's',
+        :restore => 'u',
+        :up => 'A',
+        :down => 'B',
+        :forward => 'C',
+        :backward => 'D'
+      }
+
+      print "\e[#{arg||''}#{codes[action]}"
+    end
+
     def done
     end
   end
@@ -144,11 +203,11 @@ class ActionCheck
 
     def result impl, result
       if result.nil?
-        print "error "
+        style "error ", fg: :red
       elsif !result
-        print "wrong "
+        style "wrong ", fg: :yellow
       else
-        print "right "
+        style "right ", fg: :green
       end
 
       puts impl.path
@@ -158,16 +217,53 @@ class ActionCheck
   class Summary < Formatter
     def initialize
       super
+      @good = []
     end
 
     def setup
-      ps = Problem.all.each_slice(20).to_a
-      ps.each do |line|
+      # print list of all problems
+      @ps = Problem.all.each_slice(20).to_a
+      @ps.each do |line|
         line.each do |p|
-          print "#{p.num} "
+          print "#{p.num.to_s.rjust(3, '0')} "
         end
         puts
       end
+
+      puts
+      print "  "
+      style "  ", bg: :green
+      print ": all solutions work   "
+      style "  ", bg: :yellow
+      print ": some solutions work   "
+      style "  ", bg: :red
+      puts ": no solutions work"
+    end
+
+    def result impl, result
+      # find location of the problem of the implementation
+      p = impl.problem
+
+      x = @ps.index{|r| r.find{|e| e == p}}
+      y = @ps[x].index{|e| e == p}
+
+      cursor :save
+      print "\r"
+      cursor :up, (@ps.length - x + 2)
+      cursor :forward, 4*y if y > 0
+
+      if(result)
+        style p.num.to_s.rjust(3, '0'), fg: :green
+      elsif @good.find{|e| e == p}
+        style p.num.to_s.rjust(3, '0'), fg: :yellow
+      else
+        style p.num.to_s.rjust(3, '0'), fg: :red
+      end
+
+      print "\r"
+      cursor :restore
+
+      @good << p
     end
   end
 
