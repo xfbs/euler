@@ -248,7 +248,6 @@ class ActionCheck
       y = @ps[x].index{|e| e == p}
 
       cursor :save
-      print "\r"
       cursor :up, (@ps.length - x + 2)
       cursor :forward, 4*y if y > 0
 
@@ -261,7 +260,8 @@ class ActionCheck
       end
 
       print "\r"
-      cursor :restore
+      #cursor :restore
+      cursor :down, (@ps.length - x + 2)
 
       @good << p
     end
