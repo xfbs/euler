@@ -1,17 +1,15 @@
 DATAFILE = ../numbers.txt
 
-main: main.o lib.o
+main: main.o
 	$(CC) -o $@ $^
 
-test: test.o lib.o
-	$(CC) -o $@ $^
-	@./test
+test:
 
 solve:
 	@./main $(DATAFILE)
 
 clean:
-	$(RM) *.o test main
+	$(RM) *.o main
 
 build: main
 
