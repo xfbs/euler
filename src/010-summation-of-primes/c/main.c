@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    printf("%u\n", solve(1000));
+    printf("%llu\n", solve(2000000));
 
     return 0;
 }

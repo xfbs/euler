@@ -3,4 +3,4 @@
 #include <simple_prime.h>
 #pragma once
 
-uint32_t solve(uint32_t n);
+uint64_t solve(uint64_t n);
