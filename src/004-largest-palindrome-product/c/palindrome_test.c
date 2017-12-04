@@ -1,24 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_solve();
-void test_palin();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_palin();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
-
-void test_solve()
-{
-    //...
-}
+#include <test.h>
+#include "solve.h"
 
 void test_palin()
 {
@@ -36,3 +17,6 @@ void test_palin()
     assert(is_palindrome(123454321) == true);
 }
 
+TESTS() {
+    RUN(test_palin);
+}
