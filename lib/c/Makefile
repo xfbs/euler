@@ -1,4 +1,4 @@
-LIBS = bitvec simple_prime
+LIBS = gcd_lcm bitvec simple_prime
 
 build: $(LIBS:%=%.a)
 
@@ -10,6 +10,7 @@ build: $(LIBS:%=%.a)
 	@$(CC) $(LDFLAGS) -o $@ $^
 
 test: $(LIBS:%=%_test)
+	@./gcd_lcm_test
 	@./bitvec_test
 	@./simple_prime_test
 
