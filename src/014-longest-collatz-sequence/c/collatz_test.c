@@ -1,19 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_collatz();
-void test_solve();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_collatz();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_collatz()
 {
@@ -26,8 +12,6 @@ void test_collatz()
     free(cache.table);
 }
 
-void test_solve()
-{
-    assert(9 == solve(10));
+TESTS() {
+    RUN(test_collatz);
 }
-
