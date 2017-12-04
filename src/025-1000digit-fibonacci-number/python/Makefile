@@ -1,25 +1,14 @@
-# commands
 PYTHON	= python
-PIP		= pip
 
-# files
-REQUIREMENTS	= requirements.txt
-SOLUTIONPY		= solution.py
-TESTPY			= test.py
-
-# install requirements
 build:
-	$(PIP) install -q -r $(REQUIREMENTS)
 
-# run solution.py
 solve:
-	@$(PYTHON) $(SOLUTIONPY)
+	@$(PYTHON) solve.py
 
-# run test.pi
 test:
-	@$(PYTHON) $(TESTPY)
+	@$(PYTHON) test.py
 
-# nothing to clean up
 clean:
+	$(RM) -rf *.pyc
 
 .PHONY: build solve test clean
