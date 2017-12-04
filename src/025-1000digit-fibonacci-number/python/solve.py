@@ -1,17 +1,20 @@
 # fibonacci class - generates fibonacci sequence numbers
 class Fibonacci():
    def __init__(self):
-      self.fibo = [1, 1]
+      self.fibo_a = 0
+      self.fibo_b = 1
 
    def next(self):
-      self.fibo.append(self.fibo[-2] + self.fibo[-1])
-      return self.fibo[-1]
+      t = self.fibo_a
+      self.fibo_a = self.fibo_b
+      self.fibo_b = self.fibo_b + t
+      return self.fibo_b
 
 # solution
 def solve(length):
    fibo = Fibonacci()
    do = True
-   counter = 2
+   counter = 1
    while do:
       cur = fibo.next()
       counter += 1
