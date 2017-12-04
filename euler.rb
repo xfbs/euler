@@ -271,20 +271,28 @@ class ActionCheck
     require 'pathname'
     require 'open3'
     require 'bcrypt'
+    @lang = []
+    @prob = []
   end
 
   def setup
     OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} build [options]"
       opts.version = "1.0.0"
-      opts.on('-v', 'verbose') do |o|
+      opts.on('-v', '--verbose') do |o|
         @verbose = true
       end
-      opts.on('-s', 'summary') do |o|
+      opts.on('-s', '--summary') do |o|
         @summary = true
       end
-      opts.on('-c', 'color') do |o|
+      opts.on('-c', '--color') do |o|
         @color = true
+      end
+      opts.on('-l', '--language MANDATORY') do |o|
+        @lang << o
+      end
+      opts.on('-p', '--problem MANDATORY') do |o|
+        @prob << o.to_i
       end
     end.parse!
 
@@ -302,7 +310,11 @@ class ActionCheck
 
   def run
     @formatter.setup
-    Implementation.all.each do |impl|
+    Implementation.all.select do |i|
+      if !@lang.empty? then @lang.include? i.lang else true end
+    end.select do |i|
+      if !@prob.empty? then @prob.include? i.problem.num else true end
+    end.each do |impl|
       result = impl.check
       @formatter.result(impl, result)
     end
