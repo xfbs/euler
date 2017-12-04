@@ -13,6 +13,10 @@ prime_t prime_new()
     return p;
 }
 
+void prime_free(prime_t *p) {
+    free(p->primes);
+}
+
 uint32_t prime_nth(prime_t *p, size_t n) {
     while(n >= p->len) {
         if(p->len == p->cap) {
@@ -52,12 +56,4 @@ size_t prime_which(prime_t *p, uint32_t pr)
     uint32_t *r = bsearch(&pr, p->primes, p->len, sizeof(uint32_t), equal);
     if(r) return r - p->primes;
     return SIZE_MAX;
-}
-
-size_t primes_below(prime_t *p, uint32_t n)
-{
-    size_t i = 10;
-    while(prime_nth(p, i) < n) i += 10;
-    while(prime_nth(p, i) > n) i--;
-    return i+1;
 }

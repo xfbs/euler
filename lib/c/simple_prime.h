@@ -8,7 +8,6 @@ typedef struct {
 } prime_t;
 
 prime_t prime_new();
+void prime_free(prime_t *p);
 uint32_t prime_nth(prime_t *p, size_t n);
 size_t prime_which(prime_t *p, uint32_t pr);
-size_t primes_below(prime_t *p, uint32_t n);
-
