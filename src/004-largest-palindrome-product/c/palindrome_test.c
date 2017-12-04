@@ -1,5 +1,5 @@
-#include <test.h>
-#include "solve.h"
+#include "test.h"
+#include "palindrome.h"
 
 void test_palin()
 {
