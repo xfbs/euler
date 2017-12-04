@@ -1,21 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_solve();
-void test_square_of_sums();
-void test_sum_of_squares();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_square_of_sums();
-    test_sum_of_squares();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_solve()
 {
@@ -40,4 +24,10 @@ void test_sum_of_squares()
     assert(30 == sum_of_squares(4));
     assert(55 == sum_of_squares(5));
     assert(385 == sum_of_squares(10));
+}
+
+TESTS() {
+    RUN(test_solve);
+    RUN(test_square_of_sums);
+    RUN(test_sum_of_squares);
 }
