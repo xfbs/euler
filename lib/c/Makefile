@@ -8,9 +8,10 @@ build: $(LIBS:%=%.a)
 
 %_test: %.o %_test.o
 	@$(CC) $(LDFLAGS) -o $@ $^
-	@./$@
 
 test: $(LIBS:%=%_test)
+	@./bitvec_test
+	@./simple_prime_test
 
 clean:
 	$(RM) -rf *.o
