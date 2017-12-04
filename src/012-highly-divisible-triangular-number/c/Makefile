@@ -1,15 +1,26 @@
-main: main.o lib.o
+CFLAGS += -Ilib
+
+lib/%.a: lib/%.h lib/%.c
+	cd lib && make $(notdir $@)
+
+main: main.o solve.o simple_prime.o
 	$(CC) -o $@ $^
 
-test: test.o lib.o
+%_test: %.o %_test.o
+	@$(CC) $(LDFLAGS) -o $@ $^
+
+solve_test: solve_test.o solve.o simple_prime.o
 	$(CC) -o $@ $^
-	@./test
+
+test: simple_prime_test solve_test
+	@./simple_prime_test
+	@./solve_test
 
 solve:
 	@./main
 
 clean:
-	$(RM) *.o test main
+	$(RM) *.o *_test main
 
 build: main
 
