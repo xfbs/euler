@@ -1,19 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_prime();
-void test_solve();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_solve();
-    test_prime();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_solve()
 {
@@ -32,4 +18,9 @@ void test_prime()
     assert(shitty_primality_test(8) == false);
     assert(shitty_primality_test(9) == false);
     assert(shitty_primality_test(10) == false);
+}
+
+TESTS() {
+    RUN(test_solve);
+    RUN(test_prime);
 }

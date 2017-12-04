@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 #define prime(x) shitty_primality_test(x)
 
 uint64_t solve(uint64_t num) {
