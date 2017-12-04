@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 
 int solve(int max, int div1, int div2)
 {
@@ -14,21 +14,4 @@ int sum_divisible(int max, int divisor)
     int bound = max - (max % divisor);
 
     return (bound * ((bound / divisor) + 1)) / 2;
-}
-
-int gcd(int a, int b)
-{
-    while(b != 0) {
-        int t = b;
-        b = a % b;
-        a = t;
-    }
-
-    return a;
-}
-
-int lcm(int a, int b)
-{
-    if(b > a) return lcm(b, a);
-    return a / gcd(a, b) * b;
 }
