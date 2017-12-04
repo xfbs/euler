@@ -1,9 +1,9 @@
-#include "lib.h"
+#include "solve.h"
 
 int solve(int max)
 {
-    double cur = 2;
-    double sum = 0;
+    uint64_t cur = 2;
+    uint64_t sum = 0;
 
     while(cur < max) {
         sum += cur;
@@ -13,7 +13,3 @@ int solve(int max)
     return (int)sum;
 }
 
-double next_even_fibonacci(double fibo)
-{
-    return round(fibo * PHI3);
-}

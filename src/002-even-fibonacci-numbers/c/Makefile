@@ -1,15 +1,25 @@
-main: main.o lib.o
+CFLAGS += -Ilib
+LIBS =
+DEPS = $(LIBS:%=lib/%.a) solve.o even_fibonacci.o
+
+lib/%.a: lib/%.h lib/%.c
+	cd lib && make $(notdir $@)
+
+main: main.o $(DEPS)
 	$(CC) -o $@ $^
 
-test: test.o lib.o
-	$(CC) -o $@ $^
-	@./test
+%_test: %_test.o $(DEPS)
+	@$(CC) $(LDFLAGS) -o $@ $^
+
+test: solve_test even_fibonacci_test
+	@./even_fibonacci_test
+	@./solve_test
 
 solve:
 	@./main
 
 clean:
-	$(RM) *.o test main
+	$(RM) *.o *_test main
 
 build: main
 
