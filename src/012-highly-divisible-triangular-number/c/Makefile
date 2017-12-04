@@ -1,16 +1,15 @@
 CFLAGS += -Ilib
+LIBS =
+DEPS = $(LIBS:%=lib/%.a) solve.o simple_prime.o
 
 lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
 
-main: main.o solve.o simple_prime.o
+main: main.o $(DEPS)
 	$(CC) -o $@ $^
 
-%_test: %.o %_test.o
+%_test: %_test.o $(DEPS)
 	@$(CC) $(LDFLAGS) -o $@ $^
-
-solve_test: solve_test.o solve.o simple_prime.o
-	$(CC) -o $@ $^
 
 test: simple_prime_test solve_test
 	@./simple_prime_test
