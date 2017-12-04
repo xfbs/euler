@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 
 uint32_t solve(uint32_t n) {
     for(uint32_t c = (n-3)/3; c < (n-1); c++) {
@@ -13,7 +13,7 @@ uint32_t solve(uint32_t n) {
     return 0;
 }
 
-uint32_t is_pythagorean_triplet(uint32_t a, uint32_t b, uint32_t c)
+bool is_pythagorean_triplet(uint32_t a, uint32_t b, uint32_t c)
 {
     if(a > b) return false;
     if(b > c) return false;
