@@ -1,6 +1,6 @@
 # Problem 68: Magic 5-gon ring
 
-![p368](img/068.gif)
+![graphic](img068.gif)
 
 Consider the following "magic" 3-gon ring, filled with the numbers 1 to
 6, and each line adding to nine. Working clockwise, and starting from

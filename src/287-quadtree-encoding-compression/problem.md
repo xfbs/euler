@@ -1,6 +1,6 @@
 # Problem 287: Quadtree encoding (a simple compression algorithm)
 
-![problem](problem.gif)
+![graphic](img287.gif)
 
 The quadtree encoding allows us to describe a 2N×2N black and white
 image as a sequence of bits (0 and 1). Those sequences are to be read

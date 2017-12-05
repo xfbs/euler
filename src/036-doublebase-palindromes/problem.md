@@ -1,6 +1,6 @@
 # Problem 36: Double-base palindromes
 
-![problem](problem.gif)
+![graphic](img036.gif)
 
 The decimal number, 585 = 10010010012 (binary), is palindromic in both
 bases. Find the sum of all numbers, less than one million, which are

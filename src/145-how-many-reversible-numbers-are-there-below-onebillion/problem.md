@@ -1,6 +1,6 @@
 # Problem 145: How many reversible numbers are there below one-billion?
 
-![problem](problem.gif)
+![graphic](img145.gif)
 
 Some positive integers n have the property that the sum \[ n +
 reverse(n) \] consists entirely of odd (decimal) digits. For instance,

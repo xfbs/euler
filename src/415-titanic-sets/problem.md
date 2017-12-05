@@ -1,6 +1,6 @@
 # Problem 415: Titanic sets
 
-![problem](problem.gif)
+![graphic](img415.gif)
 
 A set of lattice points S is called a titanic set if there exists a line
 passing through exactly two points in S. An example of a titanic set is

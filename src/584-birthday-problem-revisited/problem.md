@@ -1,6 +1,6 @@
 # Problem 584: Birthday Problem Revisited
 
-![problem](problem.gif)
+![graphic](img584.gif)
 
 A long long time ago in a galaxy far far away, the Wimwians, inhabitants
 of planet WimWi, discovered an unmanned drone that had landed on their

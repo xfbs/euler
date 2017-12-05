@@ -1,6 +1,6 @@
 # Problem 209: Circular Logic
 
-![problem](problem.gif)
+![graphic](img209.gif)
 
 A k-input binary truth table is a map from k input bits (binary digits,
 0 \[false\] or 1 \[true\]) to 1 output bit. For example, the 2-input

@@ -1,6 +1,6 @@
 # Problem 111: Primes with runs
 
-![problem](problem.gif)
+![graphic](img111.gif)
 
 Considering 4-digit primes containing repeated digits it is clear that
 they cannot all be the same: 1111 is divisible by 11, 2222 is divisible

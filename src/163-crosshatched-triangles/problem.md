@@ -1,6 +1,6 @@
 # Problem 163: Cross-hatched triangles
 
-![problem](problem.gif)
+![graphic](img163.gif)
 
 Consider an equilateral triangle in which straight lines are drawn from
 each vertex to the middle of the opposite side, such as in the size 1

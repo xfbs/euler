@@ -1,6 +1,6 @@
 # Problem 177: Integer angled Quadrilaterals
 
-![problem](problem.gif)
+![graphic](img177.gif)
 
 Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each
 vertex the diagonal makes an angle with each of the two sides, creating

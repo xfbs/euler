@@ -1,6 +1,6 @@
 # Problem 139: Pythagorean tiles
 
-![problem](problem.gif)
+![graphic](img139.gif)
 
 Let (a, b, c) represent the three sides of a right angle triangle with
 integral length sides. It is possible to place four such triangles

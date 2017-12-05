@@ -1,6 +1,6 @@
 # Problem 148: Exploring Pascal's triangle
 
-![problem](problem.gif)
+![graphic](img148.gif)
 
 We can easily verify that none of the entries in the first seven rows of
 Pascal's triangle are divisible by 7:              1            1    1  

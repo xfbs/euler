@@ -1,6 +1,6 @@
 # Problem 90: Cube digit pairs
 
-![p390](img/090.gif)
+![graphic](img090.gif)
 
 Each of the six faces on a cube has a different digit (0 to 9) written
 on it; the same is done to a second cube. By placing the two cubes

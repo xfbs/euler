@@ -1,6 +1,6 @@
 # Problem 586: Binary Quadratic Form
 
-![problem](problem.gif)
+![graphic](img586.gif)
 
 The number 209 can be expressed as \$a\^2 + 3ab + b\^2\$ in two distinct
 ways: \$ \\qquad 209 = 8\^2 + 3\\cdot 8\\cdot 5 + 5\^2\$ \$ \\qquad 209

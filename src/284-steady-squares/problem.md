@@ -1,6 +1,6 @@
 # Problem 284: Steady Squares
 
-![problem](problem.gif)
+![graphic](img284.gif)
 
 The 3-digit number 376 in the decimal numbering system is an example of
 numbers with the special property that its square ends with the same

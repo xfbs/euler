@@ -1,6 +1,6 @@
 # Problem 86: Cuboid route
 
-![p386](img/086.gif)
+![graphic](img086.gif)
 
 A spider, S, sits in one corner of a cuboid room, measuring 6 by 5 by 3,
 and a fly, F, sits in the opposite corner. By travelling on the surfaces

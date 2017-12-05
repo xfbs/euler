@@ -1,6 +1,6 @@
 # Problem 515: Dissonant Numbers
 
-![problem](problem.gif)
+![graphic](img515.gif)
 
 Let d(p,n,0) be the multiplicative inverse of n modulo prime p, defined
 as n × d(p,n,0) = 1 mod p. Let d(p,n,k) = \$\\sum\_{i=1}\^n\$d(p,i,k−1)

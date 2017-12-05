@@ -1,6 +1,6 @@
 # Problem 13: Large sum
 
-![problem](problem.gif)
+![graphic](img013.gif)
 
 Work out the first ten digits of the sum of the following one-hundred
 50-digit numbers. 

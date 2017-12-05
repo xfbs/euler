@@ -1,6 +1,6 @@
 # Problem 385: Ellipses inside triangles
 
-![problem](problem.gif)
+![graphic](img385.gif)
 
 For any triangle T in the plane, it can be shown that there is a unique
 ellipse with largest area that is completely inside T. For a given n,

@@ -1,6 +1,6 @@
 # Problem 263: An engineers' dream come true
 
-![problem](problem.gif)
+![graphic](img263.gif)
 
 Consider the number 6. The divisors of 6 are: 1,2,3 and 6. Every number
 from 1 up to and including 6 can be written as a sum of distinct

@@ -1,6 +1,6 @@
 # Problem 109: Darts
 
-![problem](problem.gif)
+![graphic](img109.gif)
 
 In the game of darts a player throws three darts at a target board which
 is split into twenty equal sized sections numbered one to twenty. The

@@ -1,6 +1,6 @@
 # Problem 537: Counting tuples
 
-![problem](problem.gif)
+![graphic](img537.gif)
 
 Let π(x) be the prime counting function, i.e. the number of prime
 numbers less than or equal to x. For example, π(1)=0, π(2)=1, π(100)=25.

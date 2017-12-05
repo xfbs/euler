@@ -1,6 +1,6 @@
 # Problem 318: 2011 nines
 
-![problem](problem.gif)
+![graphic](img318.gif)
 
 Consider the real number √2+√3. When we calculate the even powers of
 √2+√3 we get: (√2+√3)2 = 9.898979485566356... (√2+√3)4 =

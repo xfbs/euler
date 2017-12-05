@@ -1,6 +1,6 @@
 # Problem 17: Number letter counts
 
-![problem](problem.gif)
+![graphic](img017.gif)
 
 If the numbers 1 to 5 are written out in words:
 

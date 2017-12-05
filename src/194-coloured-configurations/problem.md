@@ -1,6 +1,6 @@
 # Problem 194: Coloured Configurations
 
-![problem](problem.gif)
+![graphic](img194.gif)
 
 Consider graphs built with the units A: and B: , where the units are
 glued along the vertical edges as in the graph . A configuration of type

@@ -1,6 +1,6 @@
 # Problem 11: Largest product in a grid
 
-![p311](img/011.gif)
+![graphic](img011.gif)
 
 In the 20×20 grid below, four numbers along a diagonal line have been
 marked in red. 

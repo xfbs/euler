@@ -1,6 +1,6 @@
 # Problem 286: Scoring probabilities
 
-![problem](problem.gif)
+![graphic](img286.gif)
 
 Barbara is a mathematician and a basketball player. She has found that
 the probability of scoring a point when shooting from a distance x is

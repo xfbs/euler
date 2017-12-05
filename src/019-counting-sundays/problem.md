@@ -1,6 +1,6 @@
 # Problem 19: Counting Sundays
 
-![problem](problem.gif)
+![graphic](img019.gif)
 
 You are given the following information, but you may prefer to do some
 research for yourself. 

@@ -1,6 +1,6 @@
 # Problem 232: The Race
 
-![problem](problem.gif)
+![graphic](img232.gif)
 
 Two players share an unbiased coin and take it in turns to play "The
 Race". On Player 1's turn, he tosses the coin once: if it comes up

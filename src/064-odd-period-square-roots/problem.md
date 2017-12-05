@@ -1,6 +1,6 @@
 # Problem 64: Odd period square roots
 
-![p364](img/064.gif)
+![graphic](img064.gif)
 
 All square roots are periodic when written as continued fractions and
 can be written in the form: √N = a0 + 1   a1 + 1     a2 + 1       a3 +

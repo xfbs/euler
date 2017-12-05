@@ -1,6 +1,6 @@
 # Problem 240: Top Dice
 
-![problem](problem.gif)
+![graphic](img240.gif)
 
 There are 1111 ways in which five 6-sided dice (sides numbered 1 to 6)
 can be rolled so that the top three sum to 15. Some examples are:

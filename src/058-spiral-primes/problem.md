@@ -1,6 +1,6 @@
 # Problem 58: Spiral primes
 
-![p358](img/058.gif)
+![graphic](img058.gif)
 
 Starting with 1 and spiralling anticlockwise in the following way, a
 square spiral with side length 7 is formed. 37 36 35 34 33 32 31 38 17

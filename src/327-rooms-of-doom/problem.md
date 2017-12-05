@@ -1,6 +1,6 @@
 # Problem 327: Rooms of Doom
 
-![problem](problem.gif)
+![graphic](img327.gif)
 
 A series of three rooms are connected to each other by automatic doors.
 Each door is operated by a security card. Once you enter a room the door

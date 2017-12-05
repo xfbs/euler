@@ -1,6 +1,6 @@
 # Problem 273: Sum of Squares
 
-![problem](problem.gif)
+![graphic](img273.gif)
 
 Consider equations of the form: a2 + b2 = N, 0 ≤ a ≤ b, a, b and N
 integer. For N=65 there are two solutions: a=1, b=8 and a=4, b=7. We

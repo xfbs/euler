@@ -1,6 +1,6 @@
 # Problem 437: Fibonacci primitive roots
 
-![problem](problem.gif)
+![graphic](img437.gif)
 
 When we calculate 8n modulo 11 for n=0 to 9 we get: 1, 8, 9, 6, 4, 10,
 3, 2, 5, 7. As we see all possible values from 1 to 10 occur. So 8 is a

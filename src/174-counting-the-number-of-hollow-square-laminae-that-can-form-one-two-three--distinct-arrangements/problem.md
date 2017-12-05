@@ -1,6 +1,6 @@
 # Problem 174: Counting the number of "hollow" square laminae that can form one, two, three, ... distinct arrangements
 
-![problem](problem.gif)
+![graphic](img174.gif)
 
 We shall define a square lamina to be a square outline with a square
 "hole" so that the shape possesses vertical and horizontal symmetry.

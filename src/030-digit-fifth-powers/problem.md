@@ -1,6 +1,6 @@
 # Problem 30: Digit fifth powers
 
-![problem](problem.gif)
+![graphic](img030.gif)
 
 Surprisingly there are only three numbers that can be written as the sum of 
 fourth powers of their digits:

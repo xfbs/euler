@@ -1,6 +1,6 @@
 # Problem 217: Balanced Numbers
 
-![problem](problem.gif)
+![graphic](img217.gif)
 
 A positive integer with k (decimal) digits is called balanced if its
 first ⌈k/2⌉ digits sum to the same value as its last ⌈k/2⌉ digits, where

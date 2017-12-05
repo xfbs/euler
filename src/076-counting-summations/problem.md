@@ -1,6 +1,6 @@
 # Problem 76: Counting summations
 
-![p376](img/076.gif)
+![graphic](img076.gif)
 
 It is possible to write five as a sum in exactly six different ways: 4 +
 1 3 + 2 3 + 1 + 1 2 + 2 + 1 2 + 1 + 1 + 1 1 + 1 + 1 + 1 + 1 How many

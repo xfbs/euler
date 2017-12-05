@@ -1,6 +1,6 @@
 # Problem 260: Stone Game
 
-![problem](problem.gif)
+![graphic](img260.gif)
 
 A game is played with three piles of stones and two players. At her
 turn, a player removes one or more stones from the piles. However, if

@@ -1,6 +1,6 @@
 # Problem 222: Sphere Packing
 
-![problem](problem.gif)
+![graphic](img222.gif)
 
 What is the length of the shortest pipe, of internal radius 50mm, that
 can fully contain 21 balls of radii 30mm, 31mm, ..., 50mm? Give your

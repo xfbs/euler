@@ -1,6 +1,6 @@
 # Problem 92: Square digit chains
 
-![p392](img/092.gif)
+![graphic](img092.gif)
 
 A number chain is created by continuously adding the square of the
 digits in a number to form a new number until it has been seen before.

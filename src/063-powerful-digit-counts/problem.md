@@ -1,6 +1,6 @@
 # Problem 63: Powerful digit counts
 
-![p363](img/063.gif)
+![graphic](img063.gif)
 
 The 5-digit number, 16807=75, is also a fifth power. Similarly, the
 9-digit number, 134217728=89, is a ninth power. How many n-digit

@@ -1,6 +1,6 @@
 # Problem 267: Billionaire
 
-![problem](problem.gif)
+![graphic](img267.gif)
 
 You are given a unique investment opportunity. Starting with £1 of
 capital, you can choose a fixed proportion, f, of your capital to bet on

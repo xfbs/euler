@@ -1,6 +1,6 @@
 # Problem 585: Nested square roots
 
-![problem](problem.gif)
+![graphic](img585.gif)
 
 Consider the term \$\\small \\sqrt{x+\\sqrt{y}+\\sqrt{z}}\$ that is
 representing a nested square root. \$x\$, \$y\$ and \$z\$ are positive

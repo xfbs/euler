@@ -1,6 +1,6 @@
 # Problem 484: Arithmetic Derivative
 
-![problem](problem.gif)
+![graphic](img484.gif)
 
 The arithmetic derivative is defined by p' = 1 for any prime p (ab)' =
 a'b + ab' for all integers a, b (Leibniz rule) For example, 20' = 24

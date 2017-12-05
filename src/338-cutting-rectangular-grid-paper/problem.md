@@ -1,6 +1,6 @@
 # Problem 338: Cutting Rectangular Grid Paper
 
-![problem](problem.gif)
+![graphic](img338.gif)
 
 A rectangular sheet of grid paper with integer dimensions w × h is
 given. Its grid spacing is 1. When we cut the sheet along the grid lines

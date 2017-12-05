@@ -1,6 +1,6 @@
 # Problem 171: Finding numbers for which the sum of the squares of the digits is a square
 
-![problem](problem.gif)
+![graphic](img171.gif)
 
 For a positive integer n, let f(n) be the sum of the squares of the
 digits (in base 10) of n, e.g. f(3) = 32 = 9, f(25) = 22 + 52 = 4 + 25 =

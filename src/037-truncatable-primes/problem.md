@@ -1,6 +1,6 @@
 # Problem 37: Truncatable primes
 
-![problem](problem.gif)
+![graphic](img037.gif)
 
 The number 3797 has an interesting property. Being prime itself, it is
 possible to continuously remove digits from left to right, and remain

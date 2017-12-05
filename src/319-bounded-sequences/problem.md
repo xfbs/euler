@@ -1,6 +1,6 @@
 # Problem 319: Bounded Sequences
 
-![problem](problem.gif)
+![graphic](img319.gif)
 
 Let x1, x2,..., xn be a sequence of length n such that: x1 = 2 for all 1
 &lt; i ≤ n : xi-1 &lt; xi for all i and j with 1 ≤ i, j ≤ n : (xi) j

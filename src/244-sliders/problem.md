@@ -1,6 +1,6 @@
 # Problem 244: Sliders
 
-![problem](problem.gif)
+![graphic](img244.gif)
 
 You probably know the game Fifteen Puzzle. Here, instead of numbered
 tiles, we have seven red tiles and eight blue tiles. A move is denoted

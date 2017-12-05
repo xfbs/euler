@@ -1,6 +1,6 @@
 # Problem 426: Box-ball system
 
-![problem](problem.gif)
+![graphic](img426.gif)
 
 Consider an infinite row of boxes. Some of the boxes contain a ball. For
 example, an initial configuration of 2 consecutive occupied boxes

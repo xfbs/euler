@@ -1,6 +1,6 @@
 # Problem 309: Integer Ladders
 
-![problem](problem.gif)
+![graphic](img309.gif)
 
 In the classic "Crossing Ladders" problem, we are given the lengths x
 and y of two ladders resting on the opposite walls of a narrow, level

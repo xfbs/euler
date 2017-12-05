@@ -1,6 +1,6 @@
 # Problem 218: Perfect right-angled triangles
 
-![problem](problem.gif)
+![graphic](img218.gif)
 
 Consider the right angled triangle with sides a=7, b=24 and c=25. The
 area of this triangle is 84, which is divisible by the perfect numbers 6

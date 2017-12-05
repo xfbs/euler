@@ -1,6 +1,6 @@
 # Problem 236: Luxury Hampers
 
-![problem](problem.gif)
+![graphic](img236.gif)
 
 Suppliers 'A' and 'B' provided the following numbers of products for the
 luxury hamper market: Product'A''B'Beluga Caviar5248640Christmas

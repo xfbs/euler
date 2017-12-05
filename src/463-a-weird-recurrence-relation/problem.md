@@ -1,6 +1,6 @@
 # Problem 463: A weird recurrence relation
 
-![problem](problem.gif)
+![graphic](img463.gif)
 
 The function \$f\$ is defined for all positive integers as follows:
 \$f(1)=1\$ \$f(3)=3\$ \$f(2n)=f(n)\$ \$f(4n + 1)=2f(2n + 1) - f(n)\$

@@ -1,6 +1,6 @@
 # Problem 409: Nim Extreme
 
-![problem](problem.gif)
+![graphic](img409.gif)
 
 Let n be a positive integer. Consider nim positions where:There are n
 non-empty piles. Each pile has size less than 2n. No two piles have the

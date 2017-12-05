@@ -1,6 +1,6 @@
 # Problem 110: Diophantine reciprocals II
 
-![problem](problem.gif)
+![graphic](img110.gif)
 
 In the following equation x, y, and n are positive integers. 1x + 1y =
 1n It can be verified that when n = 1260 there are 113 distinct

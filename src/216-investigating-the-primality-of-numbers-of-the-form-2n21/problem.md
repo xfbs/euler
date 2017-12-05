@@ -1,6 +1,6 @@
 # Problem 216: Investigating the primality of numbers of the form 2n2-1
 
-![problem](problem.gif)
+![graphic](img216.gif)
 
 Consider numbers t(n) of the form t(n) = 2n2-1 with n &gt; 1. The first
 such numbers are 7, 17, 31, 49, 71, 97, 127 and 161. It turns out that

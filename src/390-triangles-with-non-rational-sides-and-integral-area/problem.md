@@ -1,6 +1,6 @@
 # Problem 390: Triangles with non rational sides and integral area
 
-![problem](problem.gif)
+![graphic](img390.gif)
 
 Consider the triangle with sides √5, √65 and √68. It can be shown that
 this triangle has area 9. S(n) is the sum of the areas of all triangles

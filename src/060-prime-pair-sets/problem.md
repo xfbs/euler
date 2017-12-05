@@ -1,6 +1,6 @@
 # Problem 60: Prime pair sets
 
-![p360](img/060.gif)
+![graphic](img060.gif)
 
 The primes 3, 7, 109, and 673, are quite remarkable. By taking any two
 primes and concatenating them in any order the result will always be
