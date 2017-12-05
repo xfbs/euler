@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # yes, this script is what you would call ugly. it's a mess. but it's not meant
-# to be seen, or to win any beauty contests — it's supposed to kinda do it's
+# to be seen, or to win any beauty contests — it's supposed to kinda do its
 # job while still being flexible enough so that you can change it around and
 # hack something together if you need to. if you proceed from here... you have
 # been warned.
@@ -294,6 +294,9 @@ class ActionCheck
       opts.on('-p', '--problem MANDATORY') do |o|
         @prob << o.to_i
       end
+      opts.on('-t', '--threads MANDATORY') do |o|
+        @threads = o.to_i
+      end
     end.parse!
 
     if @summary
@@ -310,15 +313,50 @@ class ActionCheck
 
   def run
     @formatter.setup
-    Implementation.all.select do |i|
+    to_check = Implementation.all.select do |i|
       if !@lang.empty? then @lang.include? i.lang else true end
     end.select do |i|
       if !@prob.empty? then @prob.include? i.problem.num else true end
-    end.each do |impl|
+    end
+
+    if !@threads
+      check_single to_check
+    else
+      check_threaded to_check, @threads
+    end
+    @formatter.done
+  end
+
+  def check_single to_check
+    to_check.each do |impl|
       result = impl.check
       @formatter.result(impl, result)
     end
-    @formatter.done
+  end
+
+  def check_threaded to_check, num
+    # add all jobs to a queue
+    q = Queue.new
+    m = Mutex.new
+    to_check.each{|i| q << i}
+
+    (0..num).map do
+      Thread.new do
+        while true
+          begin
+            job = q.pop(true)
+          rescue Exception => _
+            break
+          end
+          res = job.check
+          m.synchronize do
+            @formatter.result(job, res)
+          end
+        end
+      end
+    end.each do |t|
+      t.join
+    end
   end
 end
 
