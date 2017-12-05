@@ -1,4 +1,4 @@
-LIBS = gcd_lcm bitvec simple_prime palindrome
+LIBS = gcd_lcm bitvec simple_prime palindrome vec8 vec
 
 build: $(LIBS:%=%.a)
 
@@ -10,10 +10,12 @@ build: $(LIBS:%=%.a)
 	@$(CC) $(LDFLAGS) -o $@ $^
 
 test: $(LIBS:%=%_test)
-	@./palindrome_test
 	@./gcd_lcm_test
 	@./bitvec_test
 	@./simple_prime_test
+	@./palindrome_test
+	@./vec8_test
+	@./vec_test
 
 clean:
 	$(RM) -rf *.o
