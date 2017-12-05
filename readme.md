@@ -1,5 +1,7 @@
 # Project Euler Solutions
 
+[![asciicast](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck.png)](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck)
+
 This is a repository of a couple of solutions to project euler problems. Mostly
 intended as a tool for me to use when learning a new language — solving problems
 or porting solutions into a new language helps a lot to get a grasp on the new
