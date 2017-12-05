@@ -116,6 +116,7 @@ end
 
 class ActionCheck
   class Formatter
+    attr_accessor :problems
     def initialize
     end
 
@@ -222,7 +223,13 @@ class ActionCheck
 
     def setup
       # print list of all problems
-      @ps = Problem.all.each_slice(20).to_a
+      @ps = Problem.all.select do |p|
+        if @problems
+          @problems.include? p.num
+        else
+          true
+        end
+      end.each_slice(20).to_a
       @ps.each do |line|
         line.each do |p|
           print "#{p.num.to_s.rjust(3, '0')} "
@@ -292,7 +299,12 @@ class ActionCheck
         @lang << o
       end
       opts.on('-p', '--problem MANDATORY') do |o|
-        @prob << o.to_i
+        a, b = o.split('-')
+        if(b)
+          @prob += Range.new(a.to_i, b.to_i).to_a
+        else
+          @prob << o.to_i
+        end
       end
       opts.on('-t', '--threads MANDATORY') do |o|
         @threads = o.to_i
@@ -307,6 +319,7 @@ class ActionCheck
 
     @formatter.color if @color
     @formatter.verbose if @verbose
+    @formatter.problems = @prob
 
     self
   end
