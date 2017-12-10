@@ -190,6 +190,7 @@ class ActionCheck
     end
 
     def done
+      0
     end
   end
 
@@ -280,10 +281,8 @@ class ActionCheck
     require 'bcrypt'
     @lang = []
     @prob = []
-  end
 
-  def setup
-    OptionParser.new do |opts|
+    @options = OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} build [options]"
       opts.version = "1.0.0"
       opts.on('-v', '--verbose') do |o|
@@ -309,7 +308,11 @@ class ActionCheck
       opts.on('-t', '--threads MANDATORY') do |o|
         @threads = o.to_i
       end
-    end.parse!
+    end
+  end
+
+  def run
+    @options.parse!
 
     if @overview
       @formatter = Overview.new
@@ -321,10 +324,6 @@ class ActionCheck
     @formatter.verbose if @verbose
     @formatter.problems = @prob
 
-    self
-  end
-
-  def run
     @formatter.setup
     to_check = Implementation.all.select do |i|
       if !@lang.empty? then @lang.include? i.lang else true end
@@ -332,12 +331,13 @@ class ActionCheck
       if !@prob.empty? then @prob.include? i.problem.num else true end
     end
 
-    if !@threads
+    ret = if !@threads
       check_single to_check
     else
       check_threaded to_check, @threads
     end
     @formatter.done
+    ret
   end
 
   def check_single to_check
@@ -379,9 +379,6 @@ class ActionBuild
     require 'open3'
   end
 
-  def setup
-  end
-
   def run
     Implementation.all.each do |impl|
       result = impl.build
@@ -394,6 +391,8 @@ class ActionBuild
 
       puts impl.path
     end
+
+    0
   end
 end
 
@@ -401,10 +400,6 @@ class ActionClean
   def initialize
     require 'pathname'
     require 'open3'
-  end
-
-  def setup
-    self
   end
 
   def run
@@ -419,6 +414,8 @@ class ActionClean
 
       puts impl.path
     end
+
+    0
   end
 end
 
@@ -426,10 +423,6 @@ class ActionTest
   def initialize
     require 'pathname'
     require 'open3'
-  end
-
-  def setup
-    self
   end
 
   def run
@@ -444,6 +437,8 @@ class ActionTest
 
       puts impl.path
     end
+
+    0
   end
 end
 
@@ -451,10 +446,8 @@ class ActionGoals
   def initialize
     require 'pathname'
     require 'open3'
-  end
 
-  def setup
-    OptionParser.new do |opts|
+    @options = OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} goals [options]"
       opts.version = "1.0.0"
       opts.on('-i', '--interactive') do |o|
@@ -466,7 +459,11 @@ class ActionGoals
       opts.on('-t', '--threads MANDATORY') do |o|
         @threads = o.to_i
       end
-    end.parse!
+    end
+  end
+
+  def run
+    @options.parse!
 
     if @interactive
       @formatter = Interactive.new
@@ -478,10 +475,7 @@ class ActionGoals
     @formatter.verbose if @verbose
     @formatter.problems = @prob
 
-    self
-  end
-
-  def run
+    0
   end
 end
 
@@ -523,7 +517,7 @@ HELP
       puts @options
     else
       begin
-        ret = actions[command].new.setup.run || 0
+        ret = actions[command].new.run || 0
       rescue SystemExit => _
         raise
       rescue Exception => e
