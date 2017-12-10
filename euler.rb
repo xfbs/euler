@@ -114,7 +114,7 @@ class Implementation
 end
 
 class String
-  def self.colorised text, color={}
+  def self.colorise text, color={}
     fg = {
       :red => 31,
       :green => 32,
@@ -199,7 +199,7 @@ class ActionCheck < ActionDefault
 
     def style text, color={}
       if @color
-        print String.colorised(text, color)
+        print String.colorise(text, color)
       else
         print text
       end
@@ -450,17 +450,23 @@ class ActionTest < ActionDefault
   def run
     @options.parse!
 
+    dandy = true
     Implementation.all.each do |impl|
-      result = impl.test
-
-      if !result
-        print "error "
-      else
-        print "works "
-      end
-
-      puts impl.path
+      works = impl.test
+      dandy = false unless works
+      result impl, works
     end
+
+    dandy
+  end
+
+  def result impl, works
+    res = if works then "works" else "error" end
+    if @color
+      res = String.colorise(res, fg: if works then :green else :red end)
+    end
+
+    puts "#{res} #{impl.path}"
   end
 end
 
@@ -486,8 +492,6 @@ class ActionGoals
     @formatter.color if @color
     @formatter.verbose if @verbose
     @formatter.problems = @prob
-
-    0
   end
 end
 
