@@ -14,4 +14,6 @@ module Solve
   end
 end
 
-puts Solve.solve(1000).inspect
+if __FILE__ == $0
+  puts Solve.solve(1000).inspect
+end
