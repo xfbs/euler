@@ -532,7 +532,7 @@ class Invocation
     end
 
     begin
-      ret = actions[command].new.run || 0
+      ret = actions[command].new.run
     rescue SystemExit => _
       raise
     rescue Exception => e
