@@ -486,16 +486,13 @@ class Invocation
       opts.banner = "Usage: euler.rb [command] [options]"
       opts.version = "1.0.0"
       opts.separator ""
-      opts.separator <<HELP
-Available commands are:
-  build:  builds all solutions
-  check:  checks the solutions
-  clean:  cleans the build cache
-   test:  runs tests for all solutions
-  goals:  checks if goals have been achieved
-
-See 'euler.rb COMMAND --help' for more information.
-HELP
+      opts.separator "Available commands are:\n"
+      opts.separator "  build:  builds all solutions\n"
+      opts.separator "  check:  checks the solutions\n"
+      opts.separator "  clean:  cleans the build cache\n"
+      opts.separator "   test:  runs tests for all solutions\n"
+      opts.separator "  goals:  checks if goals have been achieved\n\n"
+      opts.separator "See 'euler.rb COMMAND --help' for more information.\n"
     end
   end
 
@@ -516,18 +513,25 @@ HELP
     command = find_command
     unless command
       puts @options
-    else
-      begin
-        ret = actions[command].new.run || 0
-      rescue SystemExit => _
-        raise
-      rescue Exception => e
-        puts "error while executing the command"
-        puts e
-        puts e.backtrace
-      end
+      return 0
+    end
 
+    begin
+      ret = actions[command].new.run || 0
+    rescue SystemExit => _
+      raise
+    rescue Exception => e
+      puts "error while executing the command"
+      puts e
+      puts e.backtrace
+    end
+
+    if ret.is_a? Numeric
       ret
+    elsif ret
+      0
+    else
+      -1
     end
   end
 end
