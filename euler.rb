@@ -7,7 +7,6 @@
 
 require 'optparse'
 
-
 class Problem
   BASEDIR = "src"
   attr_accessor :path, :num, :slug
@@ -114,6 +113,70 @@ class Implementation
   end
 end
 
+class String
+  def self.colorised text, color={}
+    fg = {
+      :red => 31,
+      :green => 32,
+      :yellow => 33,
+      :blue => 34,
+      :magenta => 35,
+      :cyan => 36,
+      :white => 37,
+    }
+
+    bg = {
+      :red => 41,
+      :green => 42,
+      :yellow => 43,
+      :blue => 44,
+      :magenta => 45,
+      :cyan => 46,
+      :white => 47,
+    }
+
+    at = {
+      :reset => 0,
+      :bold => 1,
+      :underscore => 4,
+      :blink => 5,
+      :reverse => 7,
+      :conceal => 8
+    }
+
+    mode = []
+    mode << fg[color[:fg]] if color[:fg]
+    mode << bg[color[:bg]] if color[:bg]
+    mode << at[color[:at]] if color[:at]
+
+    "\e[#{mode.join(';')}m#{text}\e[0m"
+  end
+end
+
+class ActionDefault
+  def initialize
+    require 'pathname'
+    require 'open3'
+
+    @options = OptionParser.new do |opts|
+      opts.version = "1.0.0"
+      opts.on('-v', '--verbose') do |o|
+        @verbose = true
+      end
+      opts.on('-c', '--color', "Use color when displaying results") do |o|
+        @color = true
+      end
+      opts.on('-t', '--threads COUNT', "How many threads to use (defalt 1)") do |o|
+        @threads = o.to_i
+      end
+    end
+  end
+
+  def run
+    raise "not implemented"
+  end
+end
+
 class ActionCheck
   class Formatter
     attr_accessor :problems
@@ -135,42 +198,8 @@ class ActionCheck
     end
 
     def style text, color={}
-      fg = {
-        :red => 31,
-        :green => 32,
-        :yellow => 33,
-        :blue => 34,
-        :magenta => 35,
-        :cyan => 36,
-        :white => 37,
-      }
-
-      bg = {
-        :red => 41,
-        :green => 42,
-        :yellow => 43,
-        :blue => 44,
-        :magenta => 45,
-        :cyan => 46,
-        :white => 47,
-      }
-
-      at = {
-        :reset => 0,
-        :bold => 1,
-        :underscore => 4,
-        :blink => 5,
-        :reverse => 7,
-        :conceal => 8
-      }
-
-      mode = []
-      mode << fg[color[:fg]] if color[:fg]
-      mode << bg[color[:bg]] if color[:bg]
-      mode << at[color[:at]] if color[:at]
-
       if @color
-        print "\e[#{mode.join(';')}m#{text}\e[0m"
+        print String.colorised(text, color)
       else
         print text
       end
@@ -283,10 +312,11 @@ class ActionCheck
     @prob = []
 
     @options = OptionParser.new do |opts|
-      opts.banner = "Usage: #{__FILE__} build [options]"
+      opts.banner = "Usage: #{__FILE__} check [options]"
       opts.separator "Checks solutions to problems."
       opts.version = "1.0.0"
       opts.on('-v', '--verbose') do |o|
+        # TODO: implement verbose output (forwarding stdout/stderr)
         @verbose = true
       end
       opts.on('-o', '--overview', "Only show which problems are solved") do |o|
@@ -374,13 +404,16 @@ class ActionCheck
   end
 end
 
-class ActionBuild
+class ActionBuild < ActionDefault
   def initialize
-    require 'pathname'
-    require 'open3'
+    super
+    @options.banner = "Usage: #{__FILE__} build [options]"
+    @options.separator "Builds problems."
   end
 
   def run
+    @options.parse!
+
     Implementation.all.each do |impl|
       result = impl.build
 
@@ -392,54 +425,54 @@ class ActionBuild
 
       puts impl.path
     end
-
-    0
   end
 end
 
-class ActionClean
+class ActionClean < ActionDefault
   def initialize
-    require 'pathname'
-    require 'open3'
+    super
+    @options.banner = "Usage: #{__FILE__} clean [options]"
+    @options.separator "Cleans problems."
   end
 
   def run
+    @options.parse!
+
     Implementation.all.each do |impl|
       result = impl.clean
 
       if !result
         print "error "
       else
-        print "cleaned "
+        print "clean "
       end
 
       puts impl.path
     end
-
-    0
   end
 end
 
-class ActionTest
+class ActionTest < ActionDefault
   def initialize
-    require 'pathname'
-    require 'open3'
+    super
+    @options.banner = "Usage: #{__FILE__} test [options]"
+    @options.separator "Tests problems."
   end
 
   def run
+    @options.parse!
+
     Implementation.all.each do |impl|
       result = impl.test
 
       if !result
         print "error "
       else
-        print "tested "
+        print "works "
       end
 
       puts impl.path
     end
-
-    0
   end
 end
 
