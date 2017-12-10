@@ -441,6 +441,7 @@ class ActionClean < ActionDefault
 end
 
 class ActionTest < ActionDefault
+  # TODO: implement --verbose flag
   def initialize
     super
     @options.banner = "Usage: #{__FILE__} test [options]"
@@ -471,6 +472,11 @@ class ActionTest < ActionDefault
 end
 
 class ActionGoals
+  # goal ideas:
+  # number of consecutive problems solved
+  # number of problems solved
+  # number of problems solved by language
+  # number of problems with an explanation
   def initialize
     super
 
