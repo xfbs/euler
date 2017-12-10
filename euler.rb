@@ -447,36 +447,96 @@ class ActionTest
   end
 end
 
-def find_command
-  OptionParser.new do |opts|
-    opts.banner = "Usage: euler.rb [command] [options]"
-    opts.version = "1.0.0"
-    opts.separator ""
-    opts.separator <<HELP
-Commonly used commands are:
+class ActionGoals
+  def initialize
+    require 'pathname'
+    require 'open3'
+  end
+
+  def setup
+    OptionParser.new do |opts|
+      opts.banner = "Usage: #{__FILE__} goals [options]"
+      opts.version = "1.0.0"
+      opts.on('-i', '--interactive') do |o|
+        @interactive = true
+      end
+      opts.on('-c', '--color') do |o|
+        @color = true
+      end
+      opts.on('-t', '--threads MANDATORY') do |o|
+        @threads = o.to_i
+      end
+    end.parse!
+
+    if @interactive
+      @formatter = Interactive.new
+    else
+      @formatter = Default.new
+    end
+
+    @formatter.color if @color
+    @formatter.verbose if @verbose
+    @formatter.problems = @prob
+
+    self
+  end
+
+  def run
+  end
+end
+
+class Invocation
+  def initialize
+    @options = OptionParser.new do |opts|
+      opts.banner = "Usage: euler.rb [command] [options]"
+      opts.version = "1.0.0"
+      opts.separator ""
+      opts.separator <<HELP
+Available commands are:
   build:  builds all solutions
   check:  checks the solutions
   clean:  cleans the build cache
    test:  runs tests for all solutions
+  goals:  checks if goals have been achieved
 
 See 'euler.rb COMMAND --help' for more information.
 HELP
-  end.order!
-  ARGV.shift
+    end
+  end
+
+  def find_command
+    @options.order!
+    ARGV.shift
+  end
+
+  def run
+    actions = {
+      'check' => ActionCheck,
+      'build' => ActionBuild,
+      'clean' => ActionClean,
+      'test'  => ActionTest,
+      'goals' => ActionGoals
+    }
+
+    command = find_command
+    unless command
+      puts @options
+    else
+      begin
+        ret = actions[command].new.setup.run || 0
+      rescue SystemExit => _
+        raise
+      rescue Exception => e
+        puts "error while executing the command"
+        puts e
+        puts e.backtrace
+      end
+
+      ret
+    end
+  end
 end
 
-actions = {
-  'check' => ActionCheck,
-  'build' => ActionBuild,
-  'clean' => ActionClean,
-  'test' => ActionTest
-}
-
-command = find_command
-begin
-  actions[command].new.setup.run
-rescue Exception => e
-  puts "error while executing the command"
-  puts e
-  puts e.backtrace
+if __FILE__ == $0
+  exit Invocation.new.run
 end
