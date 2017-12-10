@@ -284,20 +284,21 @@ class ActionCheck
 
     @options = OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} build [options]"
+      opts.separator "Checks solutions to problems."
       opts.version = "1.0.0"
       opts.on('-v', '--verbose') do |o|
         @verbose = true
       end
-      opts.on('-o', '--overview') do |o|
+      opts.on('-o', '--overview', "Only show which problems are solved") do |o|
         @overview = true
       end
-      opts.on('-c', '--color') do |o|
+      opts.on('-c', '--color', "Use color when displaying results") do |o|
         @color = true
       end
-      opts.on('-l', '--language MANDATORY') do |o|
+      opts.on('-l', '--language LANG', "Limit to problems in the given language") do |o|
         @lang << o
       end
-      opts.on('-p', '--problem MANDATORY') do |o|
+      opts.on('-p', '--problem PROB', "--problems RANGE", "Limit to a given problem or problems") do |o|
         a, b = o.split('-')
         if(b)
           @prob += Range.new(a.to_i, b.to_i).to_a
@@ -305,7 +306,7 @@ class ActionCheck
           @prob << o.to_i
         end
       end
-      opts.on('-t', '--threads MANDATORY') do |o|
+      opts.on('-t', '--threads COUNT', "How many threads to use (defalt 1)") do |o|
         @threads = o.to_i
       end
     end
