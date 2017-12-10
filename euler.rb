@@ -193,7 +193,7 @@ class ActionCheck
     end
   end
 
-  class Standard < Formatter
+  class Default < Formatter
     def initialize
       super
     end
@@ -215,7 +215,7 @@ class ActionCheck
     end
   end
 
-  class Summary < Formatter
+  class Overview < Formatter
     def initialize
       super
       @good = []
@@ -289,8 +289,8 @@ class ActionCheck
       opts.on('-v', '--verbose') do |o|
         @verbose = true
       end
-      opts.on('-s', '--summary') do |o|
-        @summary = true
+      opts.on('-o', '--overview') do |o|
+        @overview = true
       end
       opts.on('-c', '--color') do |o|
         @color = true
@@ -311,10 +311,10 @@ class ActionCheck
       end
     end.parse!
 
-    if @summary
-      @formatter = Summary.new
+    if @overview
+      @formatter = Overview.new
     else
-      @formatter = Standard.new
+      @formatter = Default.new
     end
 
     @formatter.color if @color

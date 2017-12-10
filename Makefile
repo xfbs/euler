@@ -1,8 +1,8 @@
 check:
-	ruby euler.rb check -c
+	ruby euler.rb check --color
 
 overview:
-	ruby euler.rb check -c -s -p 1-100 -t 4
+	ruby euler.rb check --color --overview --problem 1-100 --thread 4
 
 build:
 	ruby euler.rb build
