@@ -177,7 +177,7 @@ class ActionDefault
   end
 end
 
-class ActionCheck
+class ActionCheck < ActionDefault
   class Formatter
     attr_accessor :problems
     def initialize
@@ -305,39 +305,27 @@ class ActionCheck
   end
 
   def initialize
-    require 'pathname'
-    require 'open3'
     require 'bcrypt'
+    super
+
     @lang = []
     @prob = []
 
-    @options = OptionParser.new do |opts|
-      opts.banner = "Usage: #{__FILE__} check [options]"
-      opts.separator "Checks solutions to problems."
-      opts.version = "1.0.0"
-      opts.on('-v', '--verbose') do |o|
-        # TODO: implement verbose output (forwarding stdout/stderr)
-        @verbose = true
-      end
-      opts.on('-o', '--overview', "Only show which problems are solved") do |o|
-        @overview = true
-      end
-      opts.on('-c', '--color', "Use color when displaying results") do |o|
-        @color = true
-      end
-      opts.on('-l', '--language LANG', "Limit to problems in the given language") do |o|
-        @lang << o
-      end
-      opts.on('-p', '--problem PROB', "--problems RANGE", "Limit to a given problem or problems") do |o|
-        a, b = o.split('-')
-        if(b)
-          @prob += Range.new(a.to_i, b.to_i).to_a
-        else
-          @prob << o.to_i
-        end
-      end
-      opts.on('-t', '--threads COUNT', "How many threads to use (defalt 1)") do |o|
-        @threads = o.to_i
+    @options.banner = "Usage: #{__FILE__} check [options]"
+    @options.banner << "\nChecks solutions to problems."
+    @options.version = "1.0.0"
+    @options.on('-o', '--overview', "Only show which problems are solved") do |o|
+      @overview = true
+    end
+    @options.on('-l', '--language LANG', "Limit to problems in the given language") do |o|
+      @lang << o
+    end
+    @options.on('-p', '--problem PROB', "--problems RANGE", "Limit to a given problem or problems") do |o|
+      a, b = o.split('-')
+      if(b)
+        @prob += Range.new(a.to_i, b.to_i).to_a
+      else
+        @prob << o.to_i
       end
     end
   end
@@ -408,7 +396,7 @@ class ActionBuild < ActionDefault
   def initialize
     super
     @options.banner = "Usage: #{__FILE__} build [options]"
-    @options.separator "Builds problems."
+    @options.banner << "\nBuilds problems."
   end
 
   def run
@@ -432,7 +420,7 @@ class ActionClean < ActionDefault
   def initialize
     super
     @options.banner = "Usage: #{__FILE__} clean [options]"
-    @options.separator "Cleans problems."
+    @options.banner << "\nCleans problems."
   end
 
   def run
@@ -456,7 +444,7 @@ class ActionTest < ActionDefault
   def initialize
     super
     @options.banner = "Usage: #{__FILE__} test [options]"
-    @options.separator "Tests problems."
+    @options.banner << "\nTests problems."
   end
 
   def run
@@ -478,21 +466,11 @@ end
 
 class ActionGoals
   def initialize
-    require 'pathname'
-    require 'open3'
+    super
 
-    @options = OptionParser.new do |opts|
-      opts.banner = "Usage: #{__FILE__} goals [options]"
-      opts.version = "1.0.0"
-      opts.on('-i', '--interactive') do |o|
-        @interactive = true
-      end
-      opts.on('-c', '--color') do |o|
-        @color = true
-      end
-      opts.on('-t', '--threads MANDATORY') do |o|
-        @threads = o.to_i
-      end
+    @options.banner = "Usage: #{__FILE__} goals [options]"
+    @options.on('-i', '--interactive') do |o|
+      @interactive = true
     end
   end
 
