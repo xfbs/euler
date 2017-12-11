@@ -114,7 +114,7 @@ class Implementation
   end
 end
 
-class String
+class ANSI
   def self.colorise text, color={}
     fg = {
       :red => 31,
@@ -151,6 +151,19 @@ class String
     mode << at[color[:at]] if color[:at]
 
     "\e[#{mode.join(';')}m#{text}\e[0m"
+  end
+
+  def self.cursor action, arg=nil
+    codes = {
+      :save => 's',
+      :restore => 'u',
+      :up => 'A',
+      :down => 'B',
+      :forward => 'C',
+      :backward => 'D'
+    }
+
+    "\e[#{arg||''}#{codes[action]}"
   end
 end
 
@@ -201,23 +214,14 @@ class ActionCheck < ActionDefault
 
     def style text, color={}
       if @color
-        print String.colorise(text, color)
+        print ANSI.colorise(text, color)
       else
         print text
       end
     end
 
     def cursor action, arg=nil
-      codes = {
-        :save => 's',
-        :restore => 'u',
-        :up => 'A',
-        :down => 'B',
-        :forward => 'C',
-        :backward => 'D'
-      }
-
-      print "\e[#{arg||''}#{codes[action]}"
+      print ANSI.cursor(action, arg)
     end
 
     def done
@@ -466,25 +470,51 @@ class ActionTest < ActionDefault
   def result impl, works, out
     res = if works then "works" else "error" end
     if @color
-      res = String.colorise(res, fg: if works then :green else :red end)
-      out = String.colorise(out, fg: :red) unless works
+      res = ANSI.colorise(res, fg: if works then :green else :red end)
+      out = ANSI.colorise(out, fg: :red) unless works
     end
 
     puts "#{res} #{impl.path}"
 
-    if !works && @verbose || @verbose > 1
+    if !works && @verbose || @verbose && @verbose > 1
       puts out
     end
   end
 end
 
-class ActionGoals
+class ActionGoals < ActionDefault
+  class Formatter
+    def setup
+    end
+
+    def done
+    end
+  end
+
+  class Interactive < Formatter
+    def initialize color:
+      @color = color
+    end
+
+    def result impl, res
+    end
+  end
+
+  class Default < Formatter
+    def initialize color:
+      @color = color
+    end
+
+    def result impl, res
+    end
+  end
   # goal ideas:
   # number of consecutive problems solved
   # number of problems solved
   # number of problems solved by language
   # number of problems with an explanation
   def initialize
+    require 'bcrypt'
     super
 
     @options.banner = "Usage: #{__FILE__} goals [options]"
@@ -497,14 +527,16 @@ class ActionGoals
     @options.parse!
 
     if @interactive
-      @formatter = Interactive.new
+      @formatter = Interactive.new color: @color
     else
-      @formatter = Default.new
+      @formatter = Default.new color: @color
     end
 
-    @formatter.color if @color
-    @formatter.verbose if @verbose
-    @formatter.problems = @prob
+    @formatter.setup
+    Implementation.all.each do |impl|
+      @formatter.result(impl, impl.check)
+    end
+    @formatter.done
   end
 end
 
