@@ -9,6 +9,7 @@ What do I want to achieve?
 ## Languages
 
   - C (my favourite, although horrible)
+  - C++ (haven't touched this bad boy in a while)
   - Ruby (my favourite, although slow)
   - Rust (someone brave dragon slayer needs to put the type checker into it's
     place, but otherwise a good language)
