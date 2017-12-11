@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdint.h>
 #pragma once
 
 typedef struct {

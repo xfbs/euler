@@ -1,4 +1,5 @@
 CFLAGS += -Ilib -std=c99
+LDFLAGS = -l
 LIBS =
 DEPS = $(LIBS:%=lib/%.a) solve.o palindrome.o
 
@@ -6,7 +7,7 @@ lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
 
 main: main.o $(DEPS)
-	$(CC) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^
 
 %_test: %_test.o $(DEPS)
 	@$(CC) $(LDFLAGS) -o $@ $^

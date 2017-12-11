@@ -1,4 +1,4 @@
-CFLAGS += -Ilib
+CFLAGS += -Ilib -std=c99
 LIBS = gcd_lcm
 DEPS = $(LIBS:%=lib/%.a) solve.o
 
