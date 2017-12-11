@@ -1,27 +1,24 @@
 # Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler)
 
-This is a repository of a couple of solutions to project euler problems. Mostly
-intended as a tool for me to use when learning a new language — solving problems
-or porting solutions into a new language helps a lot to get a grasp on the new
-language's features.
+This is a repository of my solutions to [Project Euler](https://projecteuler.net/)
+problems. Mostly intended as a tool for me to use when learning a new language —
+solving problems or porting solutions into a new language helps a lot to get a 
+grasp on the new language's features.
 
-Under the `src/` directory, I have a folder for (most of) the project euler
-problems, with a problem description in `problem.md`. Most problem folders also
-contain the (numeric) solution to the problem in the file `.solution.bcrypt`,
-however as the name implies it has been run through the *bcrypt* hash function
-to obscure it. Furthermore many directories have one or more solution in
+Under the `src/` directory, there is a folder for (most of) the Project Euler
+problems (I have to update these occasionally as new problems are released).
+Each folder contains a problem description in `problem.md`. Most problem folders also
+contain the (numeric) solution to the problem in the file `.solution.bcrypt` as
+a [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash (which is used by my 
+[euler.rb](euler.rb) script to check if my solution is correct or not).
+
+Ideally all, practically only some directories have one or more solution(s) in
 subfolders named after the language they are written in, such as `c/` or
-`ruby/`. Every solution subfolder contains a `Makefile` the responds to commands
-such as `make build`, `make solve`, `make clean` and `make test`.
-
-To automatically test all the solutions present there is a small script in the
-root of the repository, which offers several ways to see which ones are correct
-and which ones are not:
-
-To see which problems are solved, 
-`ruby euler.rb check --color --summary --problem 1-100 --thread 4` does the
-trick. For more details, `ruby euler.rb check --color --problem 1-100` can be
-used which reports more detail for each solution.
+`ruby/`. Every solution subfolder contains a `Makefile` that responds to commands
+such as `make build`, `make solve`, `make clean` and `make test`. The idea is
+that my script will `make build` to build the solution and then call
+`make solve` to get the solution, compare that with the stored answer, and
+based on that decide if the solution is correct or not.
 
 ## Rules
 
