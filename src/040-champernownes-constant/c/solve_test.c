@@ -1,17 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_chapernowne_digit();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_chapernowne_digit();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_chapernowne_digit()
 {
@@ -34,4 +22,8 @@ void test_chapernowne_digit()
     assert(champernowne_digit(16) == 3);
     assert(champernowne_digit(17) == 1);
     assert(champernowne_digit(18) == 4);
+}
+
+TESTS() {
+    RUN(test_chapernowne_digit);
 }
