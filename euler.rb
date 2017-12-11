@@ -87,8 +87,8 @@ class Implementation
   end
 
   def test
-    _, _, status = Open3.capture3("cd \"#{@path}\" && make test")
-    status == 0
+    out, status = Open3.capture2e("cd \"#{@path}\" && make test")
+    [status == 0, out]
   end
 
   def clean
@@ -160,8 +160,9 @@ class ActionDefault
 
     @options = OptionParser.new do |opts|
       opts.version = "1.0.0"
-      opts.on('-v', '--verbose') do |o|
-        @verbose = true
+      opts.on('-v', '--verbose', "Increases verbosity level") do |o|
+        @verbose ||= 0
+        @verbose += 1
       end
       opts.on('-c', '--color', "Use color when displaying results") do |o|
         @color = true
@@ -453,21 +454,26 @@ class ActionTest < ActionDefault
 
     dandy = true
     Implementation.all.each do |impl|
-      works = impl.test
+      works, out = impl.test
       dandy = false unless works
-      result impl, works
+      result impl, works, out
     end
 
     dandy
   end
 
-  def result impl, works
+  def result impl, works, out
     res = if works then "works" else "error" end
     if @color
       res = String.colorise(res, fg: if works then :green else :red end)
+      out = String.colorise(out, fg: :red) unless works
     end
 
     puts "#{res} #{impl.path}"
+
+    if !works && @verbose || @verbose > 1
+      puts out
+    end
   end
 end
 
