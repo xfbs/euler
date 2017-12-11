@@ -7,10 +7,10 @@ lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
 
 main: main.o $(DEPS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 %_test: %_test.o $(DEPS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 test: solve_test
 	@./solve_test
