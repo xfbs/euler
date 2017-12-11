@@ -1,4 +1,5 @@
 script: ruby euler.rb test --color --verbose
+language: rust
 rust:
   - stable
   - beta
