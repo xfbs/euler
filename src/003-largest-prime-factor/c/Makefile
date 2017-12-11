@@ -10,7 +10,7 @@ main: main.o $(DEPS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 %_test: %_test.o $(DEPS)
-	@$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^
 
 test: solve_test
 	@./solve_test
