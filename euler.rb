@@ -489,6 +489,14 @@ class ActionGoals < ActionDefault
 
     def done
     end
+
+    def style text, attr={}
+      if @color
+        ANSI.colorise text, attr
+      else
+        text
+      end
+    end
   end
 
   class Interactive < Formatter
@@ -503,9 +511,62 @@ class ActionGoals < ActionDefault
   class Default < Formatter
     def initialize color:
       @color = color
+      @impls = []
+      @seen = 0
     end
 
     def result impl, res
+      @seen += 1
+      print '.'
+      puts if (@seen % 80) == 0
+      if res
+        @impls << impl
+      end
+    end
+
+    def bar cur, max
+      n = (70.0 * cur / max).to_i
+      print style(cur.to_s.rjust(3, '0'))
+      print '/'
+      print style(max.to_s.rjust(3, '0'))
+      print " ["
+      print style('#'*n, fg: :blue)
+      print style('-'*(70-n))
+      puts ']'
+    end
+
+    def done
+      print "\n\n"
+
+      solved_problems = []
+      languages = {}
+      @impls.each do |i|
+        num = i.problem
+        solved_problems << num unless solved_problems.include? num
+        languages[i.lang] ||= 0
+        languages[i.lang] += 1
+      end
+
+      problems_count = Problem.all.length
+      print "Sucessfully solved #{100*solved_problems.length/problems_count}% "
+      puts "of all project euler problems"
+      bar solved_problems.length, problems_count
+      puts
+
+      contiguous_solved = solved_problems
+        .sort
+        .each_with_index
+        .count{|p, i| p.num == (i+1)}
+      puts "Solved the first #{contiguous_solved} problems with no omissions"
+      bar contiguous_solved, problems_count
+      puts
+
+      languages.sort_by{|k, v| v}.reverse.each do |lang, solutions|
+        puts "Solved #{100*solutions/solved_problems.length}% of problems in #{lang}"
+        bar solutions, solved_problems.length
+        puts
+      end
+
     end
   end
   # goal ideas:
@@ -518,7 +579,7 @@ class ActionGoals < ActionDefault
     super
 
     @options.banner = "Usage: #{__FILE__} goals [options]"
-    @options.on('-i', '--interactive') do |o|
+    @options.on('-i', '--interactive', "Updates display in real-time") do |o|
       @interactive = true
     end
   end
