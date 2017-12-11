@@ -1,4 +1,4 @@
-CFLAGS += -Ilib
+CFLAGS += -Ilib -std=c99
 LIBS =
 DEPS = $(LIBS:%=lib/%.a) solve.o palindrome.o
 

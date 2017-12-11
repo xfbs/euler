@@ -1,4 +1,4 @@
-CFLAGS += -Ilib
+CFLAGS += -Ilib -std=c99
 LIBS = simple_prime
 DEPS = $(LIBS:%=lib/%.a) solve.o bitvec.o
 

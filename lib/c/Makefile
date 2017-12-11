@@ -1,3 +1,4 @@
+CFLAGS = -std=c99
 LIBS = gcd_lcm bitvec simple_prime palindrome vec8 vec
 
 build: $(LIBS:%=%.a)
