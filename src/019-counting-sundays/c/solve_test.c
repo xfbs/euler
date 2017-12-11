@@ -1,23 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_leap_year();
-void test_month_length();
-void test_next_month();
-void test_solve();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_leap_year();
-    test_month_length();
-    test_next_month();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_leap_year()
 {
@@ -94,4 +76,11 @@ void test_solve()
     date_t start = {FRIDAY, 1, JANUARY, 2016};
     date_t end = {THURSDAY, 1, DECEMBER, 2016};
     assert(solve(start, end) == 1);
+}
+
+TESTS() {
+    RUN(test_leap_year);
+    RUN(test_month_length);
+    RUN(test_next_month);
+    RUN(test_solve);
 }

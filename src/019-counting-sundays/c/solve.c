@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 #include <assert.h>
 
 uint32_t solve(date_t start, date_t end)
