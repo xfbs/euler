@@ -1,4 +1,5 @@
-# Project Euler Solutions
+# Project Euler Solutions [![Build
+Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler)
 
 This is a repository of a couple of solutions to project euler problems. Mostly
 intended as a tool for me to use when learning a new language — solving problems
