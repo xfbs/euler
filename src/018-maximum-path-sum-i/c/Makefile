@@ -1,17 +1,27 @@
 DATAFILE = ../triangle.txt
+CFLAGS 	+= -Ilib -std=c99 -Wall -pedantic
+LDFLAGS  = -lm
+LIBS 	 =
+DEPS 	 = solve.o
+DEPS	+= $(LIBS:%=lib/%.a)
 
-main: main.o lib.o
-	$(CC) $(CFLAGS) -o $@ $^
+lib/%.a: lib/%.h lib/%.c
+	cd lib && make $(notdir $@)
 
-test: test.o lib.o
-	$(CC) $(CFLAGS) -o $@ $^
-	@./test
+main: main.o $(DEPS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+%_test: %_test.o $(DEPS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+test: solve_test
+	@./solve_test
 
 solve:
 	@./main $(DATAFILE)
 
 clean:
-	$(RM) *.o test main
+	$(RM) *.o *_test main
 
 build: main
 

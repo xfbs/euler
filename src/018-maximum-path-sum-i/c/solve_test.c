@@ -1,23 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_triangle_get();
-void test_triangle_set();
-void test_triangle_simplify();
-void test_solve();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_triangle_get();
-    test_triangle_set();
-    test_triangle_simplify();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_triangle_get()
 {
@@ -121,3 +103,9 @@ void test_solve()
     assert(solve(&t) == 23);
 }
 
+TESTS() {
+    RUN(test_triangle_get);
+    RUN(test_triangle_set);
+    RUN(test_triangle_simplify);
+    RUN(test_solve);
+}
