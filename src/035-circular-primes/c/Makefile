@@ -1,8 +1,9 @@
 DATAFILE =
-CFLAGS += -Ilib -std=c99
-LDFLAGS = -lm
-LIBS = simple_prime
-DEPS = $(LIBS:%=lib/%.a) solve.o bitvec.o
+CFLAGS  += -Ilib -std=c99
+LDFLAGS  = -lm
+LIBS 	 = simple_prime
+DEPS 	 = solve.o bitvec.o
+DEPS 	+= $(LIBS:%=lib/%.a)
 
 lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
