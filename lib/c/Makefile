@@ -1,4 +1,4 @@
-CFLAGS = -std=c99
+CFLAGS = -std=c99 -Wall -pedantic
 LIBS = gcd_lcm bitvec simple_prime palindrome vec8 vec
 
 build: $(LIBS:%=%.a)
@@ -8,7 +8,7 @@ build: $(LIBS:%=%.a)
 	ranlib $@
 
 %_test: %.o %_test.o
-	@$(CC) $(LDFLAGS) -o $@ $^
+	@$(CC) -o $@ $^ $(LDFLAGS)
 
 test: $(LIBS:%=%_test)
 	@./gcd_lcm_test
