@@ -1,5 +1,5 @@
 DATAFILE =
-CFLAGS 	+= -Ilib -std=c99
+CFLAGS 	+= -Ilib -std=c99 -Wall -pedantic
 LDFLAGS  = -lm
 LIBS 	 = simple_prime
 DEPS 	 = solve.o
