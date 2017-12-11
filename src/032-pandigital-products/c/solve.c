@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 
 uint32_t solve()
 {
