@@ -1,1 +1,5 @@
 script: ruby euler.rb test --color --verbose
+rust:
+  - stable
+  - beta
+  - nightly
