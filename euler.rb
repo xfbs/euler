@@ -29,6 +29,7 @@ class Problem
   def implementations
     Pathname.new(@path).children
       .select{|entry| File.directory? entry}
+      .select{|entry| !File.exists? File.join(entry, "DISABLED")}
       .map{|entry| Implementation.new entry.to_s}
   end
 
