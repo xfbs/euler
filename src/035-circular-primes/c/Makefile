@@ -1,4 +1,6 @@
+DATAFILE =
 CFLAGS += -Ilib -std=c99
+LDFLAGS = -lm
 LIBS = simple_prime
 DEPS = $(LIBS:%=lib/%.a) solve.o bitvec.o
 
@@ -6,10 +8,10 @@ lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
 
 main: main.o $(DEPS)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 %_test: %_test.o $(DEPS)
-	@$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 test: solve_test bitvec_test
 	@./bitvec_test

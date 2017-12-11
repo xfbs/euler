@@ -1,3 +1,4 @@
+DATAFILE =
 CFLAGS += -Ilib -std=c99
 LDFLAGS = -lm
 LIBS =
