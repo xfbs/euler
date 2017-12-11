@@ -8,7 +8,7 @@ build:
 	ruby euler.rb build
 
 test:
-	ruby euler.rb test
+	ruby euler.rb test --color --verbose
 
 clean:
 	ruby euler.rb clean
