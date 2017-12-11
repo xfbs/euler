@@ -1,8 +1,9 @@
 DATAFILE =
-CFLAGS += -Ilib -std=c99
-LDFLAGS = -lm
-LIBS =
-DEPS = $(LIBS:%=lib/%.a) solve.o palindrome.o
+CFLAGS 	+= -Ilib -std=c99
+LDFLAGS  = -lm
+LIBS 	 =
+DEPS 	 = solve.o palindrome.o
+DEPS	+= $(LIBS:%=lib/%.a)
 
 lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)

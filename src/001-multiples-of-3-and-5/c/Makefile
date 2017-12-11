@@ -1,8 +1,9 @@
 DATAFILE =
-CFLAGS += -Ilib -std=c99
-LDFLAGS = -lm
-LIBS =
-DEPS = $(LIBS:%=lib/%.a) solve.o gcd_lcm.o
+CFLAGS 	+= -Ilib -std=c99
+LDFLAGS  = -lm
+LIBS 	 =
+DEPS 	 = solve.o gcd_lcm.o
+DEPS	+= $(LIBS:%=lib/%.a)
 
 lib/%.a: lib/%.h lib/%.c
 	cd lib && make $(notdir $@)
