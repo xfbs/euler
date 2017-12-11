@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 
 uint32_t solve(int32_t max) {
     uint8_t nums[6] = {2, 0, 0, 0, 0, 0};
