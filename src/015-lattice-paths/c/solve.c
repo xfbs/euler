@@ -1,4 +1,4 @@
-#include "lib.h"
+#include "solve.h"
 
 uint64_t solve(size_t x, size_t y)
 {

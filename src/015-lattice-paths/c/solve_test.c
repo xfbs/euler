@@ -1,21 +1,5 @@
-#include "lib.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_solve_easy();
-void test_solve_harder();
-void test_solve_big();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_solve_easy();
-    test_solve_harder();
-    test_solve_big();
-    printf("done.\n");
-
-    return 0;
-}
+#include <test.h>
+#include "solve.h"
 
 void test_solve_easy()
 {
@@ -62,4 +46,10 @@ void test_solve_big()
     // this broke the solution before because I used uint32_t which is not
     // large enough, which resulted in an overflow.
     assert(solve(20, 16) == 7307872110);
+}
+
+TESTS() {
+    RUN(test_solve_easy);
+    RUN(test_solve_harder);
+    RUN(test_solve_big);
 }
