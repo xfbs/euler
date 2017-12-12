@@ -1,6 +1,18 @@
-#include <string.h>
 #include <assert.h>
 #include "modular_arithmetic.h"
+
+static uint8_t flsll(uint64_t mask)
+{
+    if(mask == 0) return 0;
+
+    // find last set bit
+	uint8_t bit;
+	for (bit = 1; mask != 1; bit++) {
+		mask = mask >> 1;
+    }
+
+	return bit;
+}
 
 uint64_t pow_mod(uint64_t num, uint64_t exp, uint64_t mod)
 {
