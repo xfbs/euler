@@ -1,25 +1,5 @@
-#include "solution.h"
-#include <assert.h>
-#include <stdio.h>
-
-void test_shift_mod();
-void test_mult_mod();
-void test_pow_mod();
-void test_sum_mod();
-void test_solve();
-
-int main(int argc, char *argv[])
-{
-    printf("Testing solution...\n");
-    test_shift_mod();
-    test_mult_mod();
-    test_pow_mod();
-    test_sum_mod();
-    test_solve();
-    printf("done.\n");
-
-    return 0;
-}
+#include "test.h"
+#include "modular_arithmetic.h"
 
 void test_shift_mod()
 {
@@ -79,7 +59,7 @@ void test_pow_mod()
 
 void test_sum_mod()
 {
-    u64 data[] = {
+    uint64_t data[] = {
         0x2d3cf55f5d0323dc,
         0x2600751c67ff3c1e,
         0x29571f6549efabd6,
@@ -100,8 +80,9 @@ void test_sum_mod()
     assert(0x128732b41fe55bc6 == sum_mod(data, 10, 0x16d9dee3ef3911d8));
 }
 
-void test_solve() {
-    assert(10405071317 == solve(10, 11));
-    assert(405071317 == solve(10, 10));
-    assert(71317 == solve(10, 5));
+TESTS() {
+    RUN(test_shift_mod);
+    RUN(test_mult_mod);
+    RUN(test_pow_mod);
+    RUN(test_sum_mod);
 }
