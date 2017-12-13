@@ -446,6 +446,56 @@ class ActionClean < ActionDefault
   end
 end
 
+class ActionTiming < ActionDefault
+  def initialize
+    require 'benchmark'
+    require 'bcrypt'
+    super
+    @options.banner = "Usage: #{__FILE__} timing [options]"
+    @options.banner << "\nTests the timing of problems."
+    @options.on('-r', '--repeats NUM', "How often to repeat the measurment") do |o|
+      @repeats = o.to_i
+    end
+  end
+
+  def run
+    @options.parse!
+
+    Implementation.all.each do |impl|
+      works = nil
+      times = []
+      (@repeats || 1).times do
+        times <<  Benchmark.measure do
+          res, _ = impl.check
+          works = res if works.nil? or res==false
+        end
+      end
+      result impl, works, times
+    end
+  end
+
+  def style str, attr={}
+    if @color
+      print ANSI.colorise(str, attr)
+    else
+      print str
+    end
+  end
+
+  def result impl, works, times
+    avg = times.map{|t| t.total}.inject(0, :+)/times.length
+    if works
+      color = if avg > 1 then :red elsif avg > 0.5 then :yellow else :green end
+      style((1000*avg).round.to_s.rjust(4, ' '), fg: color)
+      print "ms"
+    else
+      style(" error", fg: :red)
+    end
+
+    puts " " + impl.path
+  end
+end
+
 class ActionTest < ActionDefault
   # TODO: implement --verbose flag
   def initialize
@@ -631,7 +681,8 @@ class Invocation
       'build' => ActionBuild,
       'clean' => ActionClean,
       'test'  => ActionTest,
-      'goals' => ActionGoals
+      'goals' => ActionGoals,
+      'timing' => ActionTiming
     }
 
     command = find_command
