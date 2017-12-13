@@ -1,6 +1,11 @@
 matrix:
   include:
     - language: rust
+      script: ruby euler.rb test --color --verbose --lang rust
       rust: beta
     - language: crystal
-script: ruby euler.rb test --color --verbose
+      script: ruby euler.rb test --color --verbose --lang crystal
+    - language: ruby
+      script: ruby euler.rb test --color --verbose --lang ruby
+    - language: c
+      script: ruby euler.rb test --color --verbose --lang c
