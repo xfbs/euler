@@ -38,6 +38,21 @@ based on that decide if the solution is correct or not.
     reimplement the same things multiple times), but this code also has to be
     tested
 
+## Other Repositories
+
+There are some other people putting their solutions to project euler problems
+online:
+
+  - [mathblog.dk](http://www.mathblog.dk/project-euler-solutions/), solutions
+    are in C#
+  - [project nayuki](https://www.nayuki.io/page/project-euler-solutions),
+    solutions are in Java, Python, Mathematica and Haskell
+  - [haskell wiki](https://wiki.haskell.org/Euler_problems), solutions are in
+    Haskell
+
+These are useful to compare against after having solved a problem, to check if
+there is a more elegant or efficient method.
+
 ## Tech Demo
 
 [![asciicast](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck.png)](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck)
