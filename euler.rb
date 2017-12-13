@@ -503,15 +503,21 @@ class ActionTest < ActionDefault
   # TODO: implement --verbose flag
   def initialize
     super
+    @lang = []
     @options.banner = "Usage: #{__FILE__} test [options]"
     @options.banner << "\nTests problems."
+    @options.on('-l', '--language LANG', "Limit to problems in the given language") do |o|
+      @lang << o
+    end
   end
 
   def run
     @options.parse!
 
     dandy = true
-    Implementation.all.each do |impl|
+    Implementation.all
+      .select{|i| @lang.empty? or @lang.include? i.lang}
+      .each do |impl|
       works, out = impl.test
       dandy = false unless works
       result impl, works, out
