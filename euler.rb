@@ -464,12 +464,15 @@ class ActionTiming < ActionDefault
     Implementation.all.each do |impl|
       works = nil
       times = []
+      impl.clean
+      impl.build
       (@repeats || 1).times do
         times <<  Benchmark.measure do
           res, _ = impl.check
           works = res if works.nil? or res==false
         end
       end
+      impl.clean
       result impl, works, times
     end
   end
