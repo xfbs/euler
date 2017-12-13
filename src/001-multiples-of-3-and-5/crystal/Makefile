@@ -6,6 +6,7 @@ build:
 	$(SHARDS) build
 
 test:
+	@$(SHARDS) install
 	@$(CRYSTAL) run test/solver_test.cr -- --verbose
 
 clean:
