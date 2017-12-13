@@ -1,2 +1,9 @@
 before_install: ./.setup_travis.sh
+addons:
+    apt:
+        sources:
+            - sourceline: "deb https://dist.crystal-lang.org/apt crystal main"
+                key_url: https://dist.crystal-lang.org/rpm/RPM-GPG-KEY
+        packages:
+            - crystal
 script: ruby euler.rb test --color --verbose
