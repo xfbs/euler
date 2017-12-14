@@ -657,7 +657,9 @@ class ActionGoals < ActionDefault
 
     @formatter.setup
     Implementation.all.each do |impl|
+      impl.build
       @formatter.result(impl, impl.check)
+      impl.clean
     end
     @formatter.done
   end
