@@ -1,0 +1,18 @@
+name: solve
+version: 0.1.0
+
+authors:
+  - Patrick Elsen <pelsen@xfbs.net>
+
+targets:
+  solve:
+    main: src/solve.cr
+
+development_dependencies:
+  minitest:
+    git: https://github.com/ysbaddaden/minitest.cr.git
+    version: 0.3.5
+
+crystal: 0.23.1
+
+license: MIT
