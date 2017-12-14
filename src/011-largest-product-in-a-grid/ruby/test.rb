@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
+require 'minitest/autorun'
 require_relative 'solution'
-require 'minitest'
 
 class SolutionTest < MiniTest::Test
   def setup
@@ -64,5 +63,3 @@ class SolutionTest < MiniTest::Test
     ],-1,1)
   end
 end
-
-MiniTest.autorun
