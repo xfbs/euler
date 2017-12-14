@@ -1,4 +1,18 @@
-#!/usr/bin/env ruby
-require_relative 'solution'
+module Solver
+  def self.square_of_sums n
+    (n**2) * ((n + 1)**2) / 4
+  end
 
-puts Solution.solve(100)
+  def self.sum_of_squares n
+    n * (n + 1) * (2 * n + 1) / 6
+  end
+
+  def self.solve n
+    self.square_of_sums(n) - self.sum_of_squares(n)
+  end
+end
+
+if __FILE__ == $0
+  puts Solver.solve(100)
+end
+

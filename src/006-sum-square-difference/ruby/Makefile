@@ -1,9 +1,9 @@
 build:
 
-test: test.rb solution.rb
+test: test.rb solve.rb
 	@ruby test.rb
 
-solve: solve.rb solution.rb
+solve: solve.rb
 	@ruby solve.rb
 
 clean:
