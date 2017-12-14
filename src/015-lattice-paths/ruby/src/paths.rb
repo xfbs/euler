@@ -7,7 +7,6 @@ class Paths
 
   def count(_x, _y)
     x, y = [_x, _y].sort
-    puts "oops" if x > y
 
     # known shortcuts
     return 1 if x == 0
