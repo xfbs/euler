@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
+require 'minitest/autorun'
 require_relative 'solve'
-require 'minitest'
 
 class SolveTest < MiniTest::Test
   def setup
@@ -14,5 +14,3 @@ class SolveTest < MiniTest::Test
     assert_equal Solve.solve(10), 2520
   end
 end
-
-MiniTest.autorun
