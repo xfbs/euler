@@ -1,32 +1,23 @@
 class Collatz
   def initialize(len=0)
-    @cache = Array(UInt32 | Nil).new(len, nil)
+    @cache = Array(UInt32).new(len, 0_u32)
   end
 
   def length(num : UInt32)
-    return 1_u32 if num == 1
-    return 2_u32 if num == 2
-    odd = (num % 2) == 1
-    return @cache[(num-3)/2].as(UInt32) if odd && @cache[(num-3)/2]?
+    return 1 if num <= 1
+    return @cache[num-2] if @cache[num-2]? && @cache[num-2] != 0
 
-    step = 1_u32
-    succ = num
-    if odd
-      succ = (3_u32*succ + 1_u32).as(UInt32)
+    len = 1_u32
+    if num.odd?
+      len += length(num * 3 + 1)
     else
-      succ /= 2
+      len += length(num / 2)
     end
 
-    while (succ % 2) == 0
-      succ /= 2
-      step += 1
+    if (num-2) < @cache.size
+      @cache[num-2] = len
     end
 
-    len = step + length(succ)
-    if odd && ((num-3)/2) < @cache.size
-      @cache[(num-3)/2] = len
-    end
-
-    len.as(UInt32)
+    len
   end
 end
