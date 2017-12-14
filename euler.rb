@@ -98,7 +98,6 @@ class Implementation
   end
 
   def check
-    build
     solution = solve
     @problem.check_solution solution if solution
   end
@@ -367,8 +366,10 @@ class ActionCheck < ActionDefault
 
   def check_single to_check
     to_check.each do |impl|
+      impl.build
       result = impl.check
       @formatter.result(impl, result)
+      impl.clean
     end
   end
 
@@ -386,7 +387,9 @@ class ActionCheck < ActionDefault
           rescue Exception => _
             break
           end
+          job.build
           res = job.check
+          job.clean
           m.synchronize do
             @formatter.result(job, res)
           end
