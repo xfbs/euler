@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    printf("%i\n", solve(1001));
+    printf("%llu\n", solve(1001));
 
     return 0;
 }
