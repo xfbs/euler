@@ -1,4 +1,6 @@
 module Solution
+  @@pow = Hash.new{|h, i| h[i] = 10**i - 1}
+
   def self.solve max
     (1..max).map{|n| [n, reciprocal_cycle(n)]}.max_by{|n| n[1]}[0]
   end
@@ -9,7 +11,7 @@ module Solution
     return 0 if num == 1
 
     cycle = 1
-    cycle += 1 while ((10**cycle - 1) % num) != 0
+    cycle += 1 while (@@pow[cycle] % num) != 0
     cycle
   end
 end
