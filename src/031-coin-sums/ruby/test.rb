@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
+require 'minitest/autorun'
 require_relative 'solution'
-require 'minitest'
 
 class SolutionTest < MiniTest::Test
   def setup
@@ -13,5 +12,3 @@ class SolutionTest < MiniTest::Test
     assert_equal 5, Solution.change(coins: [5, 2, 1], value: 6)
   end
 end
-
-MiniTest.autorun
