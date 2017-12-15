@@ -5,15 +5,14 @@ class SolverTest < Minitest::Test
   def setup
   end
 
-  def test_solution
-    assert_equal 22, Solver.solve([[11], [11, 10]])
-    assert_equal 23, Solver.solve([[10], [12, 13]])
-    assert_equal 65, Solver.solve([[10], [50, 9], [5, 4, 10]])
+  def test_solve
+    assert_equal 7, Solver.solve(10)
+    assert_equal 3, Solver.solve(4)
   end
 
-  def test_reduce
-    assert_equal [[22]], Solver.reduce([[11], [11, 10]])
-    assert_equal [[23]], Solver.reduce([[10], [12, 13]])
-    assert_equal [[10], [55, 19]], Solver.reduce([[10], [50, 9], [5, 4, 10]])
+  def test_reciprocal_cycle
+    assert_equal 0, Solver.reciprocal_cycle(2)
+    assert_equal 1, Solver.reciprocal_cycle(3)
+    assert_equal 6, Solver.reciprocal_cycle(7)
   end
 end
