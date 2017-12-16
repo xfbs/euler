@@ -1,7 +1,7 @@
 module Solver
   def self.solve max
     # what is the highest number d1d2..dn such that d1d2..dn..d2d1 < max?
-    high = (max-1).to_s[0..(((max-1).size+1)/2)].to_i
+    high = max.to_s[0..((max.to_s.size+1)/2-1)].to_i
 
     # generate all pairs of palindromes (in base ten)
     # turn the array of palindrome pairs into an array of palindromes
