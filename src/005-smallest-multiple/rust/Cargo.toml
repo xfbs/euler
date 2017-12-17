@@ -1,0 +1,7 @@
+[package]
+name = "solution"
+version = "0.1.0"
+
+[dependencies]
+gcd_lcm = { path = "lib/gcd_lcm" }
+
