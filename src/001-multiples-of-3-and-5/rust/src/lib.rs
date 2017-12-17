@@ -1,12 +1,12 @@
 mod gcd_lcm;
-use gcd_lcm::lcm;
+use gcd_lcm::GcdLcm;
 
 // find the sum of all numbers between 0 and max that are divisible
 // by any of the two divisors
 pub fn solve(max: u32, divisors: (u32, u32)) -> u32 {
     let (a, b) = divisors;
 
-    sum(max, a) + sum(max, b) - sum(max, lcm(a, b))
+    sum(max, a) + sum(max, b) - sum(max, a.lcm(b))
 }
 
 // find the sum of all numbers that are divisible by the divisor
