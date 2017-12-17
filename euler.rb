@@ -83,7 +83,7 @@ class Implementation
   end
 
   def build
-    _, _, status = Open3.capture3("cd \"#{@path}\" && make")
+    _, status = Open3.capture2e("cd \"#{@path}\" && make")
     status == 0
   end
 
@@ -100,6 +100,15 @@ class Implementation
   def check
     solution = solve
     @problem.check_solution solution if solution
+  end
+
+  def check_timed
+    solution = nil
+    time = Benchmark.measure do
+      solution = solve
+    end
+
+    [solution && @problem.check_solution(solution), time, nil]
   end
 
   def <=> other
@@ -192,6 +201,163 @@ class ActionDefault
 end
 
 class ActionCheck < ActionDefault
+  class Formatter
+    def style text, color={}
+      if @color
+        print ANSI.colorise(text, color)
+      else
+        print text
+      end
+    end
+
+    def cursor action, arg=nil
+      print ANSI.cursor(action, arg)
+    end
+  end
+
+  class Default < Formatter
+    def initialize args={}
+      @color = args[:color]
+      @verbose = args[:verbose]
+      @seen = []
+    end
+
+    def setup to_check
+      @to_check = to_check
+      puts "checking euler solutions"
+    end
+
+    def result impl, result
+      unless @seen.include? impl.problem
+        style impl.problem.path, fg: :blue
+        puts
+      end
+      @seen << impl.problem
+      style impl.lang.rjust(8, ' '), fg: :blue
+      print ': '
+      style result[:build]&&"builds, "||"build error", fg: result[:build]&&:green||:yellow
+      style result[:tests]&&"tests, "||"tests error", fg: result[:tests]&&:green||:yellow
+      style result[:works]&&"correct, "||"incorrect", fg: result[:works]&&:green||:yellow
+      print 'time: '
+      time = result[:times].map{|t| t.total}.inject(0, :+)/result[:times].size
+      timecolor = :green
+      timecolor = :yellow if time > 0.5
+      timecolor = :red if time > 1
+      style (1000*time).round.to_s.rjust(4, ' '), fg: timecolor
+      puts "ms"
+    end
+
+    def done
+    end
+  end
+
+  def initialize
+    require 'bcrypt'
+    require 'benchmark'
+    super
+
+    @lang   = []
+    @prob   = []
+    @verify = true
+    @tests  = true
+    @timing = true
+    @repeat = 1
+    @threads= 1
+
+    @options.banner = "Usage: #{__FILE__} check [options]"
+    @options.banner << "\nChecks solutions to problems."
+    @options.version = "1.0.0"
+    @options.on('-l', '--language LANG', "Limit to problems in the given language") do |o|
+      @lang << o
+    end
+    @options.on('--no-verify', "Don't verify the solution") do |o|
+      @verify = false
+    end
+    @options.on('--no-test', "Don't run tests for the solution") do |o|
+      @tests = false
+    end
+    @options.on('--no-timing', "Don't measure the timing of the solution") do |o|
+      @tests = false
+    end
+    @options.on('-r', '--repeat NUM', "Repeat solve for more accureate timing") do |o|
+      @repeat = o.to_i
+    end
+    @options.on('-p', '--problem PROB', "--problems RANGE", "Limit to a given problem or problems") do |o|
+      a, b = o.split('-')
+      if(b)
+        @prob += Range.new(a.to_i, b.to_i).to_a
+      else
+        @prob << o.to_i
+      end
+    end
+  end
+
+  def run
+    @options.parse!
+    @formatter = Default.new  :color => @color, :verbose => @verbose
+
+    to_check = Problem.all
+      .select{|p| @prob.empty? || @prob.includes?(p.num)}
+      .map{|p| [p, p.implementations
+        .select{|i| @lang.empty? || @lang.includes?(i.lang)}]}
+      .to_h
+
+    @formatter.setup to_check
+    ret = check_all to_check, @threads
+    @formatter.done
+    ret
+  end
+
+  def check_all to_check, num
+    # add all jobs to a queue
+    q = Queue.new
+    m = Mutex.new
+    to_check.each{|k, v| v.each{|i| q << i}}
+
+    (1..num).map do
+      Thread.new do
+        while true
+          begin
+            impl = q.pop(true)
+          rescue Exception => _
+            break
+          end
+          res = check(impl)
+          m.synchronize do
+            @formatter.result(impl, res)
+          end
+        end
+      end
+    end.each do |t|
+      t.join
+    end
+  end
+
+  def check impl
+    result = {}
+    result[:build], result[:error] = impl.build
+    return result unless result[:build]
+
+    result[:tests], result[:error] = impl.test
+    return result unless result[:tests]
+
+    times = []
+    works = true
+    @repeat.times do
+      res, time, err = impl.check_timed
+      works = works && res
+      result[:error] = err if err
+      times << time
+    end
+
+    result[:times] = times
+    result[:works] = works
+
+    result
+  end
+end
+
+class ActionVerify < ActionDefault
   class Formatter
     attr_accessor :problems
     def initialize
@@ -694,6 +860,7 @@ class Invocation
       'check' => ActionCheck,
       'build' => ActionBuild,
       'clean' => ActionClean,
+      'verify' => ActionVerify,
       'test'  => ActionTest,
       'goals' => ActionGoals,
       'timing' => ActionTiming
