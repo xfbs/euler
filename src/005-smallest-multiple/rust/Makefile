@@ -1,4 +1,4 @@
-CARGO = cargo
+CARGO 	= cargo
 CONFIG  = Cargo.toml
 SOURCES = $(wildcard src/*.rs) src/bin/solve.rs
 
