@@ -1,0 +1,4 @@
+[root]
+name = "even_fibonacci"
+version = "0.1.0"
+
