@@ -1,0 +1,1 @@
+../../../../src/004-largest-palindrome-product/rust/src/palindrome.rs
