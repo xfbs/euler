@@ -1,6 +1,6 @@
 CARGO = cargo
 CONFIG  = Cargo.toml
-SOURCES = src/lib.rs src/test.rs src/bin/solve.rs
+SOURCES = $(wildcard src/*.rs) src/bin/solve.rs
 
 build: target/release/solve
 
