@@ -1,14 +1,6 @@
 module Solver
-  def self.square_of_sums n
-    (n**2) * ((n + 1)**2) / 4
-  end
-
-  def self.sum_of_squares n
-    n * (n + 1) * (2 * n + 1) / 6
-  end
-
   def self.solve n
-    self.square_of_sums(n) - self.sum_of_squares(n)
+    (3 * n**4 + 2 * n**3 - 3 * n**2 - 2 * n) / 12
   end
 end
 
