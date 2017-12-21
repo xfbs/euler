@@ -1,11 +1,13 @@
+DATAFILE=
+RUBY    = ruby
+
 build:
 
 test:
-	@ruby test/solver_test.rb
-	@ruby test/prime_test.rb
+	@$(RUBY) test/all.rb
 
 solve:
-	@ruby src/solve.rb
+	@$(RUBY) src/solve.rb $(DATAFILE)
 
 clean:
 
