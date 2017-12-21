@@ -1,6 +1,6 @@
 CRYSTAL = crystal
 SHARDS 	= shards
-RM		= rm -f
+RM	    = rm -f
 SOURCES = $(wildcard src/*.cr)
 TESTS	= $(wildcard test/*_test.cr)
 
