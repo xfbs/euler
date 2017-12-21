@@ -17,4 +17,4 @@ def solve(m, a, b):
 
 if __name__ == '__main__':
     # solution to problem
-    print solve(1000, 3, 5)
+    print solve(999, 3, 5)
