@@ -1,5 +1,4 @@
 require "euler/divisor_sum"
-require "benchmark"
 
 module Solver
   def self.solve max
@@ -13,10 +12,13 @@ module Solver
 
     poss = Array.new(max)
     # generate a list of all possible sums under max
-    (0...abundant.size).each do |a|
-      (a...abundant.size).each do |b|
-        sum = abundant[a] + abundant[b]
-        break if sum >= max
+    abundant.each_with_index do |a, i|
+      abundant[i..-1].each do |b|
+        sum = a + b
+        if sum >= max
+          break
+        end
+
         poss[sum] = true
       end
     end
