@@ -1,0 +1,1 @@
+../../../../../src/021-amicable-numbers/crystal/src/divisor_sum.cr
