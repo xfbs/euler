@@ -1,7 +1,7 @@
 DATAFILE =
 CFLAGS 	+= -Ilib -std=c99 -Wall -pedantic
 LDFLAGS  = -lm
-LIBS 	 = bitvec
+LIBS 	 = bitvec divisor_sum
 DEPS 	 = solve.o
 DEPS	+= $(LIBS:%=lib/%.a)
 
