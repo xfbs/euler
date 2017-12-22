@@ -69,10 +69,16 @@ class Date
   end
 
   def <(other)
+    return true if @year < other.year
     return false if @year > other.year
+
+    return true if @month < other.month
     return false if @month > other.month
+
+    return true if @day < other.day
     return false if @day > other.day
-    true
+
+    false
   end
 
   def ==(other)
