@@ -2,7 +2,7 @@ DATAFILE =
 CFLAGS 	+= -Ilib -std=c99 -Wall -pedantic
 LDFLAGS  = -lm
 LIBS 	 = bitvec
-DEPS 	 = solve.o
+DEPS 	 = solve.o divisor_sum.o
 DEPS	+= $(LIBS:%=lib/%.a)
 
 lib/%.a: lib/%.h lib/%.c
@@ -14,8 +14,9 @@ main: main.o $(DEPS)
 %_test: %_test.o $(DEPS)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-test: solve_test
+test: solve_test divisor_sum_test
 	@./solve_test
+	@./divisor_sum_test
 
 solve:
 	@./main

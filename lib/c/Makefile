@@ -1,5 +1,5 @@
 CFLAGS = -std=c99 -Wall -pedantic
-LIBS = gcd_lcm bitvec simple_prime palindrome vec8 vec
+LIBS = gcd_lcm bitvec simple_prime palindrome vec8 vec divisor_sum
 
 build: $(LIBS:%=%.a)
 
@@ -17,6 +17,7 @@ test: $(LIBS:%=%_test)
 	@./palindrome_test
 	@./vec8_test
 	@./vec_test
+	@./divisor_sum_test
 
 clean:
 	$(RM) -rf *.o

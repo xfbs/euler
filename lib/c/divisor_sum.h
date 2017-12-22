@@ -1,0 +1,1 @@
+../../src/021-amicable-numbers/c/divisor_sum.h
