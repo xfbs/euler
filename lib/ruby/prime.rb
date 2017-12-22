@@ -1,0 +1,1 @@
+../../src/007-10001st-prime/ruby/src/prime.rb
