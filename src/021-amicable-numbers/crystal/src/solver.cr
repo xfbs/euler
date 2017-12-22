@@ -1,22 +1,10 @@
+require "./divisor_sum"
+
 module Solver
-  def self.divisor_sum(num)
-    (1..Math.sqrt(num)).map do |d|
-      if (num % d) == 0
-        if (d != (num / d)) && d != 1
-          d + (num / d)
-        else
-          d
-        end
-      else
-        0
-      end
-    end.sum
-  end
-
   def self.amicable_pair(num)
-    partner = divisor_sum(num)
+    partner = Euler.divisor_sum(num)
 
-    if num != partner && num == divisor_sum(partner)
+    if num != partner && num == Euler.divisor_sum(partner)
       partner
     else
       nil
