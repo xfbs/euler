@@ -1,0 +1,1 @@
+../../../src/021-amicable-numbers/ruby/src/divisor_sum.rb
