@@ -16,7 +16,7 @@ test: bin/test
 clean:
 	$(SHARDS) prune
 	$(RM) bin/solve bin/test
-	$(RM) -r .shards
+	$(RM) -r .shards lib
 
 bin/solve: $(SOURCES)
 	$(SHARDS) build solve --production
