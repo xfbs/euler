@@ -8,8 +8,8 @@ targets:
     main: test/all.cr
 
 dependencies:
-  prime:
-    path: ../../../lib/crystal/prime
+  euler:
+    path: ../../../lib/crystal/euler
 
 development_dependencies:
   minitest:
