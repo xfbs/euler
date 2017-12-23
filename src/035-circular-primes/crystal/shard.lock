@@ -1,0 +1,10 @@
+version: 1.0
+shards:
+  euler:
+    path: ../../../lib/crystal/euler
+    version: 0.1.0
+
+  minitest:
+    path: ../../../lib/crystal/minitest
+    version: 0.3.5
+
