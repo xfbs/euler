@@ -1,4 +1,4 @@
-module Solution
+module Solver
   def self.solve n
     (1..n).map{|num| thousands_number_word(num).scan(/[a-z]/).length}.inject(:+)
   end
