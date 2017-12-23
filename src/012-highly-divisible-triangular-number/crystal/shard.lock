@@ -3,7 +3,8 @@ shards:
   minitest:
     path: ../../../lib/crystal/minitest
     version: 0.3.5
+
   prime:
     path: ../../../lib/crystal/prime
-    version: 0.1.0
+    version: 0
 
