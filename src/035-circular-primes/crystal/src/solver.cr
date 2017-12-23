@@ -20,9 +20,15 @@ module Solver
   def self.circular(primes, p)
     digits = p.to_s.chars.map{|d| d.to_i}
 
-    circle = (1...digits.size)
-      .reduce([digits]){|m, c| m + [m.last.rotate]}
-      .map{|d| d.reduce(0){|m, c| 10*m+c}}
+    circle = (0...digits.size)
+      .map do |r|
+        cur = 0
+        (0...digits.size).each do |i|
+          cur *= 10
+          cur += digits[(i+r) % digits.size]
+        end
+        cur
+    end
       .map do |n|
         i = primes.bsearch_index{|c, i| c >= n}
         if i && primes[i] == n
