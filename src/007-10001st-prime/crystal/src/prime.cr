@@ -8,7 +8,7 @@ class Prime
       self.next
     end
 
-    @primes[p]
+    @primes.unsafe_at(p)
   end
 
   def next
@@ -21,10 +21,15 @@ class Prime
   end
 
   def check_prime?(n)
-    max = Math.sqrt(n)
-    @primes.take_while{|p| p <= max}.each do |d|
-      return false if (n % d) == 0
+    max = Math.sqrt(n).to_i
+    pos = 0
+    prime = @primes.unsafe_at(pos)
+    while prime <= max
+      return false if (n % prime) == 0
+      pos += 1
+      prime = @primes.unsafe_at(pos)
     end
+
     true
   end
 end
