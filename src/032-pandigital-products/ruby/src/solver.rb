@@ -13,11 +13,9 @@ module Solver
   def self.pandigital_product_sums(digits)
     sums = nil
 
-    (1..3).each do |len_a|
+    (1..2).each do |len_a|
       len_b = 5 - len_a
-      #a = digits[0...len_a].inject(0){|m, c| 10*m+c}
-      #b = digits[len_a...(len_a+len_b)].inject(0){|m, c| 10*m+c}
-      #p = digits[(len_a+len_b)..-1].inject(0){|m, c| 10*m+c}
+
       pos = 0
       a = 0
       b = 0
