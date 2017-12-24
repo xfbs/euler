@@ -22,9 +22,12 @@ class Prime
 
   def check_prime?(n)
     max = Math.sqrt(n)
-    @primes.take_while{|p| p <= max}.each do |d|
-      return false if (n % d) == 0
+
+    @primes.each do |p|
+      return true if p > max
+      return false if (n % p) == 0
     end
+
     true
   end
 end
