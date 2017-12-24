@@ -229,7 +229,10 @@ class ActionCheck < ActionDefault
 
     def result impl, result
       unless @seen.include? impl.problem
-        style impl.problem.path, fg: :blue
+        print "     "
+        style impl.problem.num.to_s.rjust(3, '0')
+        print ": "
+        style File.basename(impl.problem.path)[4..-1].gsub('-', ' '), fg: :blue
         puts
       end
       @seen << impl.problem
