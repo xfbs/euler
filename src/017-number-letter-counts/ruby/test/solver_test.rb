@@ -39,4 +39,12 @@ class SolverTest < MiniTest::Test
     # one thousand, seven hundred and sixty-four
     assert_equal 35, Solver.thousands_number_word(1764)
   end
+
+  def test_solve
+    # one
+    assert_equal 3, Solver.solve(1)
+
+    # one two three four five six seven eight nine ten
+    assert_equal 39, Solver.solve(10)
+  end
 end
