@@ -1,6 +1,4 @@
-#!/usr/bin/env ruby
-
-module Solve
+module Solver
   def self.solve
     # almost a one-liner and cute, but not exactly efficient.
     #(1..100000000)
@@ -33,8 +31,4 @@ module Solve
 
     digits
   end
-end
-
-if __FILE__ == $0
-  puts Solve.solve()
 end
