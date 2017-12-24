@@ -1,5 +1,10 @@
+import math
+
 def check(primes, prime):
+   root = math.sqrt(prime)
    for d in primes:
+      if d > root:
+         return True
       if (prime % d) == 0:
          return False
 
