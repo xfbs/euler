@@ -1,10 +1,16 @@
+DATAFILE=
+RUBY    = ruby
+RBOPTS  = -I../../../lib/ruby
+SOURCES = $(wildcard src/*.rb)
+TESTS   = $(wildcard test/*_test.rb)
+
 build:
 
-test: test.rb solve.rb
-	@ruby test.rb
+test: $(SOURCES) $(TESTS)
+	@$(RUBY) $(RBOPTS) test/all.rb
 
-solve: solve.rb
-	@ruby solve.rb
+solve: $(SOURCES)
+	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
 
 clean:
 
