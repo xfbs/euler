@@ -2,7 +2,7 @@
 
 uint32_t solve()
 {
-    uint32_t solution = 
+    uint32_t solution =
         champernowne_digit(0)
         * champernowne_digit(9)
         * champernowne_digit(99)
