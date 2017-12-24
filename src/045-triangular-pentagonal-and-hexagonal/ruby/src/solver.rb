@@ -1,13 +1,8 @@
-#!/usr/bin/env ruby
-
-module Solve
-  def self.solve
-    t = 285
-    tt = 40755
-    p = 165
-    pp = 40755
-    h = 143
-    hh = 40755
+module Solver
+  def self.solve(t, p, h)
+    tt = triangular(t)
+    pp = pentagonal(p)
+    hh = hexagonal(h)
 
     while true
       is_pentagonal = false
@@ -42,8 +37,4 @@ module Solve
   def self.hexagonal n
     n * (2 * n - 1)
   end
-end
-
-if __FILE__ == $0
-  puts Solve.solve()
 end
