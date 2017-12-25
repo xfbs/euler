@@ -9,3 +9,5 @@ matrix:
       script: ruby euler.rb test --color --verbose --lang ruby
     - language: c
       script: ruby euler.rb test --color --verbose --lang c
+notifications:
+  email: false
