@@ -1,7 +1,10 @@
-import math
+def gcd(a, b):
+   while b != 0:
+      a, b = b, a % b
+   return a
 
 def lcm(a, b):
-   return a * b // math.gcd(a, b)
+   return a * b // gcd(a, b)
 
 def sum_divisible(m, n):
    m = m - (m % n)
