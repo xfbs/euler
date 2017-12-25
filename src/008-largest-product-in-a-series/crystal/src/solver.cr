@@ -1,15 +1,5 @@
 module Solver
-  def self.solve(filename, len)
-    # read file
-    f = File.read(filename)
-
-    # number is split across multiple lines, so we remove those newlines
-    f = f.split("\n").join("")
-
-    greatest_substring_product(f, len)
-  end
-
-  def self.greatest_substring_product(string, length)
+  def self.solve(string, length)
     numbers = string.chars.map{|n| n.to_i}
 
     # step one: find the earliest sequence of non-zero numbers with the
