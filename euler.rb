@@ -316,9 +316,9 @@ class ActionCheck < ActionDefault
     @formatter = Default.new  :color => @color, :verbose => @verbose
 
     to_check = Problem.all
-      .select{|p| @prob.empty? || @prob.includes?(p.num)}
+      .select{|p| @prob.empty? || @prob.include?(p.num)}
       .map{|p| [p, p.implementations
-        .select{|i| @lang.empty? || @lang.includes?(i.lang)}]}
+        .select{|i| @lang.empty? || @lang.include?(i.lang)}]}
       .to_h
 
     @formatter.setup to_check
