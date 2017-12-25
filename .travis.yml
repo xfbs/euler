@@ -3,11 +3,15 @@ matrix:
     - language: rust
       script: ruby euler.rb check --color --verbose --lang rust
       rust: beta
+      before_install: gem install bcrypt
     - language: crystal
       script: ruby euler.rb check --color --verbose --lang crystal
+      before_install: gem install bcrypt
     - language: ruby
       script: ruby euler.rb check --color --verbose --lang ruby --lang python
+      before_install: gem install bcrypt
     - language: c
       script: ruby euler.rb check --color --verbose --lang c
+      before_install: gem install bcrypt
 notifications:
   email: false
