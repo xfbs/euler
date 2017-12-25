@@ -1,13 +1,13 @@
 matrix:
   include:
     - language: rust
-      script: ruby euler.rb test --color --verbose --lang rust
+      script: ruby euler.rb check --color --verbose --lang rust
       rust: beta
     - language: crystal
-      script: ruby euler.rb test --color --verbose --lang crystal
+      script: ruby euler.rb check --color --verbose --lang crystal
     - language: ruby
-      script: ruby euler.rb test --color --verbose --lang ruby
+      script: ruby euler.rb check --color --verbose --lang ruby --lang python
     - language: c
-      script: ruby euler.rb test --color --verbose --lang c
+      script: ruby euler.rb check --color --verbose --lang c
 notifications:
   email: false
