@@ -6,7 +6,7 @@ export PYTHONPATH
 build:
 
 solve:
-	@$(PYTHON) solve.py
+	@$(PYTHON) solve.py $(DATAFILE)
 
 test:
 	@$(PYTHON) -m unittest discover --verbose
