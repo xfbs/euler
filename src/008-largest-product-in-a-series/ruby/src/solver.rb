@@ -27,8 +27,8 @@ module Solver
     zeroes = 0
     max = product
     (string.length-length-offset).times do |i|
-      out = string[i+offset].to_i
-      cur = string[i+offset+length].to_i
+      out = numbers[i+offset]
+      cur = numbers[i+offset+length]
 
       if out == 0
         zeroes += 1
