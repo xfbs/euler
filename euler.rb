@@ -268,6 +268,63 @@ class ActionCheck < ActionDefault
   end
 
   class Interactive < Formatter
+    def initialize args={}
+      @color = args[:color]
+      @verbose = args[:verbose]
+      @seen = []
+    end
+
+    def setup to_check
+      @to_check = to_check
+      puts "checking euler solutions"
+    end
+
+    def result impl, result
+      unless @seen.include? impl.problem
+        print "     "
+        style impl.problem.num.to_s.rjust(3, '0')
+        print ": "
+        style File.basename(impl.problem.path)[4..-1].gsub('-', ' '), fg: :blue
+        puts
+        @seen << impl.problem
+      end
+      case result[:state]
+      when :build
+        style impl.lang.rjust(8, ' '), fg: :blue
+        print ': building'
+      when :test
+        print "\r"
+        cursor :forward, 10
+        print "testing "
+      when :verify
+        print "\r"
+        cursor :forward, 10
+        print "verifying"
+      when :done
+        print "\r"
+        cursor :forward, 10
+        style "passed, ", fg: :green
+        time = result[:times].map{|t| t.total}.inject(0, :+)/result[:times].size
+        time = (1000*time).round
+        timecolor = :green
+        timecolor = :yellow if time > 500
+        timecolor = :red if time > 1000
+        style time.to_s.rjust(4, ' '), fg: timecolor
+        puts "ms"
+      when :error
+        style result[:desc], fg: :red
+        print "\n"
+        if result[:error]
+          result[:error].split("\n").each do |l|
+            style l, fg: :red
+            print "\n"
+          end
+        end
+      end
+    end
+
+    def done
+    end
   end
 
   def initialize
@@ -282,6 +339,7 @@ class ActionCheck < ActionDefault
     @timing = true
     @repeat = 1
     @threads= 1
+    @format = Default
 
     @options.banner = "Usage: #{__FILE__} check [options]"
     @options.banner << "\nChecks solutions to problems."
@@ -309,11 +367,14 @@ class ActionCheck < ActionDefault
         @prob << o.to_i
       end
     end
+    @options.on('-i', '--interactive', "Show progress interactively") do
+      @format = Interactive
+    end
   end
 
   def run
     @options.parse!
-    @formatter = Default.new  :color => @color, :verbose => @verbose
+    @formatter = @format.new  :color => @color, :verbose => @verbose
 
     to_check = Problem.all
       .select{|p| @prob.empty? || @prob.include?(p.num)}
