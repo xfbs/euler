@@ -2,8 +2,8 @@ import math
 
 class Prime(object):
    def __init__(self):
-      self.primes = [2]
-      self.prime  = 2
+      self.primes = [2, 3]
+      self.prime  = 3
 
    def check(self, prime):
       root = math.sqrt(prime)
@@ -15,26 +15,26 @@ class Prime(object):
       return True
 
    def next(self):
-      if self.prime == 2:
-         self.prime = 3
-         return 2
-      self.primes.append(self.prime)
-
       # find next prime
       self.prime += 2
       while not self.check(self.prime):
          self.prime += 2
 
+      self.primes.append(self.prime)
       return self.primes[-1]
 
    def nth(self, n):
-      while len(self.primes) < n:
+      while len(self.primes) <= n:
          self.next()
-      return self.primes[n-1]
+      return self.primes[n]
+
+   def iter(self):
+      for p in self.primes:
+         yield p
+      while True:
+         yield self.next()
 
 # generator function for primes
 def iter():
-   p = Prime()
-   while True:
-      yield p.next()
+   return Prime().iter()
 
