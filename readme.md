@@ -44,6 +44,8 @@ Here is a table of the current status of the project. The numbers represent how
 many miliseconds the implementation takes to compute the correct answer (blank
 means not implemented). 
 
+<details>
+  <summary>Click to view</summary>
 | problem | crystal |    c | ruby | python | rust |
 | ------: | ------: | ---: | ---: | -----: | ---: |
 | `001` |   20 |   10 |   60 |   40 |   70 |
@@ -96,7 +98,7 @@ means not implemented).
 | `049` |      |  190 |      |      |      |
 | `050` |      |   20 |      |      |      |
 | `052` |  100 |   60 |  270 |      |      |
-
+</details>
 
 ## Other Repositories
 
