@@ -267,6 +267,46 @@ class ActionCheck < ActionDefault
     end
   end
 
+  class JSON < Formatter
+    def initialize args={}
+      @verbose = args[:verbose]
+      @checked = {}
+    end
+
+    def setup to_check
+      @to_check = to_check
+      puts '{'
+    end
+
+    def result impl, result
+      case result[:state]
+      when :build
+      when :test
+      when :verify
+      when :done
+        time = result[:times].map{|t| t.total}.inject(0, :+)/result[:times].size
+        time = (1000*time).round
+        @to_check[impl.problem.num].delete(impl)
+        @checked[impl.problem.num] ||= {}
+        @checked[impl.problem.num][impl.lang] = time
+        if @to_check[impl.problem.num].empty?
+          print "  \"#{impl.problem.num.to_s.rjust(3, '0')}\": "
+          print "{#{@checked[impl.problem.num].map{|k, v| "\"#{k}\": #{v}"}.join(', ')}}"
+          unless @to_check.values.all?(&:empty?)
+            puts ","
+          else
+            puts
+          end
+        end
+      when :error
+      end
+    end
+
+    def done
+      puts '}'
+    end
+  end
+
   class Interactive < Formatter
     def initialize args={}
       @color = args[:color]
@@ -370,6 +410,9 @@ class ActionCheck < ActionDefault
     @options.on('-i', '--interactive', "Show progress interactively") do
       @format = Interactive
     end
+    @options.on('--json', "Output JSON-formatted data") do
+      @format = JSON
+    end
   end
 
   def run
@@ -378,7 +421,7 @@ class ActionCheck < ActionDefault
 
     to_check = Problem.all
       .select{|p| @prob.empty? || @prob.include?(p.num)}
-      .map{|p| [p, p.implementations
+      .map{|p| [p.num, p.implementations
         .select{|i| @lang.empty? || @lang.include?(i.lang)}]}
       .to_h
 
