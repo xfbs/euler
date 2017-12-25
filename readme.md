@@ -39,8 +39,13 @@ based on that decide if the solution is correct or not.
     tested
 
 ## Progress
-| problem | crystal |   c | ruby | python | rust |
-| ------- | ------- | --- | ---- | ------ | ---- |
+
+Here is a table of the current status of the project. The numbers represent how
+many miliseconds the implementation takes to compute the correct answer (blank
+means not implemented). 
+
+| problem | crystal |    c | ruby | python | rust |
+| ------: | ------: | ---: | ---: | -----: | ---: |
 | `001` |   20 |   10 |   60 |   40 |   70 |
 | `002` |   30 |   10 |   90 |   50 |   80 |
 | `003` |   20 |   20 |  100 |   60 |   70 |
