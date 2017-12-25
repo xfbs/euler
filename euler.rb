@@ -83,8 +83,8 @@ class Implementation
   end
 
   def build
-    _, status = Open3.capture2e("cd \"#{@path}\" && make")
-    status == 0
+    out, status = Open3.capture2e("cd \"#{@path}\" && make")
+    return status == 0, out
   end
 
   def test
@@ -234,24 +234,40 @@ class ActionCheck < ActionDefault
         print ": "
         style File.basename(impl.problem.path)[4..-1].gsub('-', ' '), fg: :blue
         puts
+        @seen << impl.problem
       end
-      @seen << impl.problem
-      style impl.lang.rjust(8, ' '), fg: :blue
-      print ': '
-      style result[:build]&&"builds, "||"build error", fg: result[:build]&&:green||:yellow
-      style result[:tests]&&"tests, "||"tests error", fg: result[:tests]&&:green||:yellow
-      style result[:works]&&"correct, "||"incorrect", fg: result[:works]&&:green||:yellow
-      print 'time: '
-      time = result[:times].map{|t| t.total}.inject(0, :+)/result[:times].size
-      timecolor = :green
-      timecolor = :yellow if time > 0.5
-      timecolor = :red if time > 1
-      style (1000*time).round.to_s.rjust(4, ' '), fg: timecolor
-      puts "ms"
+      case result[:state]
+      when :build
+        style impl.lang.rjust(8, ' '), fg: :blue
+        print ': '
+      when :test
+      when :verify
+      when :done
+        style "passed, ", fg: :green
+        time = result[:times].map{|t| t.total}.inject(0, :+)/result[:times].size
+        time = (1000*time).round
+        timecolor = :green
+        timecolor = :yellow if time > 500
+        timecolor = :red if time > 1000
+        style time.to_s.rjust(4, ' '), fg: timecolor
+        puts "ms"
+      when :error
+        style result[:desc], fg: :red
+        print "\n"
+        if result[:error]
+          result[:error].split("\n").each do |l|
+            style l, fg: :red
+            print "\n"
+          end
+        end
+      end
     end
 
     def done
     end
+  end
+
+  class Interactive < Formatter
   end
 
   def initialize
@@ -316,6 +332,7 @@ class ActionCheck < ActionDefault
     q = Queue.new
     m = Mutex.new
     to_check.each{|k, v| v.each{|i| q << i}}
+    ret = true
 
     (1..num).map do
       Thread.new do
@@ -325,38 +342,52 @@ class ActionCheck < ActionDefault
           rescue Exception => _
             break
           end
-          res = check(impl)
-          m.synchronize do
-            @formatter.result(impl, res)
+          check(impl) do |state|
+            m.synchronize do
+              @formatter.result(impl, state)
+              if state[:state] == :error
+                ret = false
+              end
+            end
           end
         end
       end
     end.each do |t|
       t.join
     end
+
+    ret
   end
 
   def check impl
-    result = {}
-    result[:build], result[:error] = impl.build
-    return result unless result[:build]
+    yield({:state => :build})
+    res, err = impl.build
+    unless res
+      yield({:state => :error, :kind => :build, :desc => "build error", :error => err})
+      return
+    end
 
-    result[:tests], result[:error] = impl.test
-    return result unless result[:tests]
+    yield({:state => :test})
+    res, err = impl.test
+    unless res
+      yield({:state => :error, :kind => :test, :desc => "test error", :error => err})
+      return
+    end
 
+    yield({:state => :verify})
     times = []
-    works = true
     @repeat.times do
       res, time, err = impl.check_timed
-      works = works && res
-      result[:error] = err if err
+
+      unless res
+        yield({:state => :error, :kind => :verify, :desc => "incorrect result", :error => err})
+        return
+      end
+
       times << time
     end
 
-    result[:times] = times
-    result[:works] = works
-
-    result
+    yield({:state => :done, :times => times})
   end
 end
 
@@ -581,7 +612,7 @@ class ActionBuild < ActionDefault
     @options.parse!
 
     Implementation.all.each do |impl|
-      result = impl.build
+      result, _ = impl.build
 
       if !result
         print "error "
