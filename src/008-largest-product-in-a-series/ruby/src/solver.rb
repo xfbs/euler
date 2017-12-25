@@ -1,17 +1,5 @@
-#!/usr/bin/env ruby
-
-module Solve
-  def self.solve filename, len
-    # read file
-    f = File.open(filename, 'r').read
-
-    # number is split across multiple lines, so we remove those newlines
-    f = f.split("\n").join('')
-
-    greatest_substring_product(f, len)
-  end
-
-  def self.greatest_substring_product string, length
+module Solver
+  def self.solve string, length
     numbers = string.chars.map{|n| n.to_i}
 
     # step one: find the earliest sequence of non-zero numbers with the
@@ -63,9 +51,4 @@ module Solve
       max
     end
   end
-end
-
-if __FILE__ == $0
-  raise "no data file specified" unless ARGV[0]
-  puts Solve.solve(ARGV[0], 13)
 end

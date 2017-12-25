@@ -1,12 +1,16 @@
-DATAFILE = ../number.txt
+DATAFILE= ../number.txt
+RUBY    = ruby
+RBOPTS  = -I../../../lib/ruby
+SOURCES = $(wildcard src/*.rb)
+TESTS   = $(wildcard test/*_test.rb)
 
 build:
 
-test: test.rb
-	@ruby test.rb
+test: $(SOURCES) $(TESTS)
+	@$(RUBY) $(RBOPTS) test/all.rb
 
-solve: solve.rb
-	@ruby solve.rb $(DATAFILE)
+solve: $(SOURCES)
+	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
 
 clean:
 
