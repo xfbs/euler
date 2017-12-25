@@ -1,9 +1,8 @@
-#!/usr/bin/env ruby
-
-module Solve
+module Solver
   def self.solve(digits)
     min = 10**(digits-1)
-    max = 10**digits
+    max = 10*min
+
     (min...max).map do |a|
       (a...max).select do |b|
         is_palindrome?(a * b)
@@ -24,8 +23,4 @@ module Solve
 
     rev == num
   end
-end
-
-if __FILE__ == $0
-  puts Solve.solve(3)
 end
