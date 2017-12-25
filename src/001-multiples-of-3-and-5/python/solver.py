@@ -1,10 +1,7 @@
-def gcd(a, b):
-   while b != 0:
-      a, b = b, a % b
-   return a
+import euler
 
 def lcm(a, b):
-   return a * b // gcd(a, b)
+   return a * b // euler.gcd(a, b)
 
 def sum_divisible(m, n):
    m = m - (m % n)

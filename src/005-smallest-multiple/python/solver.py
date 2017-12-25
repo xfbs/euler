@@ -1,10 +1,10 @@
-import math
+import euler
 
 def solve(nums):
    cur = nums[0]
 
    for num in nums:
-      cur *= num // math.gcd(cur, num)
+      cur *= num // euler.gcd(cur, num)
 
    return cur
 

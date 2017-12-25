@@ -15,10 +15,3 @@ class TestSolution(unittest.TestCase):
    def test_solve(self):
       self.assertEqual(solver.solve(10, 2, 3), 2+4+6+8+10+3+9)
       self.assertEqual(solver.solve(10, 5, 3), 3+5+6+9+10)
-
-   def test_gcd(self):
-      self.assertEqual(solver.gcd(3, 5), 1)
-      self.assertEqual(solver.gcd(5, 13), 1)
-      self.assertEqual(solver.gcd(2, 10), 2)
-      self.assertEqual(solver.gcd(5, 10), 5)
-      self.assertEqual(solver.gcd(10, 25), 5)
