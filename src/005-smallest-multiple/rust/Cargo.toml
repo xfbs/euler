@@ -1,7 +1,6 @@
 [package]
-name = "solution"
+name = "solver"
 version = "0.1.0"
 
 [dependencies]
-gcd_lcm = { path = "lib/gcd_lcm" }
-
+gcd_lcm = { path = "../../../lib/rust/gcd_lcm" }
