@@ -4,7 +4,6 @@ matrix:
       script: ruby euler.rb check --color --verbose --lang rust
       before_install: gem install bcrypt
     - language: crystal
-      before_script: rm -rf lib/crystal/minitest; git clone https://github.com/ysbaddaden/minitest.cr lib/crystal/minitest
       script: ruby euler.rb check --color --verbose --lang crystal
       before_install: gem install bcrypt
     - language: ruby
