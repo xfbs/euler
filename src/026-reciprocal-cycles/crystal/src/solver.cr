@@ -1,4 +1,4 @@
-require "big_int"
+require "big"
 
 module Solver
   @@pow = Hash(Int32, UInt64 | BigInt).new do |h, i|

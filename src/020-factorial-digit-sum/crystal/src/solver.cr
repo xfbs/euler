@@ -1,4 +1,4 @@
-require "big_int"
+require "big"
 
 module Solver
   def self.solve(n)
