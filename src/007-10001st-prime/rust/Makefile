@@ -1,3 +1,4 @@
+DATAFILE= $(wildcard ../*.txt)
 CARGO 	= cargo
 CONFIG  = Cargo.toml
 SOURCES = $(wildcard src/*.rs) src/bin/solve.rs
@@ -14,7 +15,7 @@ test: $(CONFIG) $(SOURCES)
 	$(CARGO) test
 
 solve: target/release/solve
-	@$(CARGO) run --release -q solve
+	@$(CARGO) run --release -q solve $(DATAFILE)
 
 clean:
 	$(CARGO) clean
