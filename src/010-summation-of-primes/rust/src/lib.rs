@@ -36,3 +36,8 @@ pub fn sieve(n: u64) -> Vec<u64> {
 
     r
 }
+
+#[test]
+fn test_sieve() {
+    assert!(sieve(10) == [2, 3, 5, 7]);
+}
