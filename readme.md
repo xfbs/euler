@@ -123,3 +123,24 @@ there is a more elegant or efficient method.
 
 [![asciicast](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck.png)](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck)
 
+## Planned Languages:
+
+  - [chez scheme](https://github.com/cisco/ChezScheme), because I never really
+    worked with a scheme before and it's reportedly very fast.
+  - [ocaml](https://github.com/ocaml/ocaml) because I keep hearing about it in
+    unexpected places and it got me curious.
+  - [nodejs](https://github.com/nodejs/node) because all the cool kids are doing
+    it and my javascript is quite rusty.
+  - [java9](https://www.oracle.com/java/java9.html) because that's what most
+    people worldwide speak and while I'm really not a fan of java, they did add
+    some features that make it interesting.
+  - [haskell](https://www.haskell.org), because it's just been on my to do list
+    for too long.
+  - [risc5asm](https://rv8.io), because well you need to have done some assembly
+    to be able to call yourself a 'real' programmer, and x86 assembler is too
+    ordinaire for me and MIPS stopped being interesting 20 years ago.
+  - [cpp](http://clang.org), because I haven't really gotten around to playing
+    with C++14 and it could be okay.
+  - [swift](https://github.com/apple/swift), because it's seems cool even though
+    it's from a major company and not some academic tech hippies. it might even
+    be useful..
