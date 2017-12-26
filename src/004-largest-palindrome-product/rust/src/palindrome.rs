@@ -5,8 +5,8 @@ pub trait Palindrome : PartialEq + Clone {
     }
 }
 
-impl Palindrome for i32 {
-    fn reversed(&self) -> i32 {
+impl Palindrome for u32 {
+    fn reversed(&self) -> u32 {
         let mut r = 0;
         let mut o = self.clone();
 
