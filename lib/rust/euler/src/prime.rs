@@ -1,0 +1,1 @@
+../../../../src/007-10001st-prime/rust/src/prime.rs
