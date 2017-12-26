@@ -27,7 +27,6 @@ impl GcdLcm for u32 {
     }
 }
 
-
 #[test]
 fn lcm_works() {
     // gcd of primes a and b is always a*b
