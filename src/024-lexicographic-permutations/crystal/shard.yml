@@ -1,5 +1,6 @@
 name: solve
 version: 0.1.0
+crystal: 0.23.1
 
 targets:
   solve:
@@ -9,7 +10,4 @@ targets:
 
 development_dependencies:
   minitest:
-    git: https://github.com/ysbaddaden/minitest.cr.git
-    version: 0.3.5
-
-crystal: 0.23.1
+    path: ../../../lib/crystal/minitest
