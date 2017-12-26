@@ -22,3 +22,8 @@ pub fn solve(n: u32) -> u32 {
     // return product
     triplet.0 * triplet.1 * triplet.2
 }
+
+#[test]
+fn test_solve() {
+    assert!(solve(3+4+5) == 3*4*5);
+}
