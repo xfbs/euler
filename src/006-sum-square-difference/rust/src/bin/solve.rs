@@ -1,5 +1,5 @@
-extern crate solution;
+extern crate solver;
 
 fn main() {
-    println!("{}", solution::solve(100));
+    println!("{}", solver::solve(100));
 }
