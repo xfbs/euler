@@ -3,4 +3,4 @@ name = "solver"
 version = "0.1.0"
 
 [dependencies]
-gcd_lcm = { path = "../../../lib/rust/gcd_lcm" }
+euler = { path = "../../../lib/rust/euler" }
