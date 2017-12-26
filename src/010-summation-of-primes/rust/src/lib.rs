@@ -40,4 +40,13 @@ pub fn sieve(n: u64) -> Vec<u64> {
 #[test]
 fn test_sieve() {
     assert!(sieve(10) == [2, 3, 5, 7]);
+    assert!(sieve(20) == [2, 3, 5, 7, 11, 13, 17, 19]);
+    assert!(sieve(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+}
+
+#[test]
+fn test_solve() {
+    assert!(solve(10) == 2+3+5+7);
+    assert!(solve(20) == 2+3+5+7+11+13+17+19);
+    assert!(solve(30) == 2+3+5+7+11+13+17+19+23+29);
 }
