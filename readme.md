@@ -1,4 +1,4 @@
-# Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler)
+# Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=plastic)]()
 
 This is a repository of my solutions to [Project Euler](https://projecteuler.net/)
 problems. Mostly intended as a tool for me to use when learning a new language —
