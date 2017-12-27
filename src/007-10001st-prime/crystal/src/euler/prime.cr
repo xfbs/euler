@@ -1,5 +1,7 @@
 module Euler
   class Prime
+    include Iterator(Int32)
+
     def initialize
       @primes = [2,3]
     end
@@ -19,6 +21,10 @@ module Euler
       end
       @primes.push(cur)
       cur
+    end
+
+    def iter
+      (2..3).each.chain(@primes.each).chain(self)
     end
 
     def check_prime?(n)
