@@ -153,3 +153,7 @@ there is a more elegant or efficient method.
 Verdict: there are far too many dope programming languages out there. I will try
 my luck with these few, but whichever I choose, there will be ten others just as
 great.
+
+## License
+
+See [LICENSE.md](LICENSE.md) for more information. 
