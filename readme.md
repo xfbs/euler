@@ -1,38 +1,30 @@
 # Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler) [![GitHub release](https://img.shields.io/github/tag/xfbs/euler.svg)]()
 
-This is a repository of my solutions to [Project Euler](https://projecteuler.net/)
-problems. Mostly intended as a tool for me to use when learning a new language —
-solving problems or porting solutions into a new language helps a lot to get a 
-grasp on the new language's features.
-
-Under the `src/` directory, there is a folder for (most of) the Project Euler
-problems (I have to update these occasionally as new problems are released).
-Each folder contains a problem description in `problem.md`. Most problem folders also
-contain the (numeric) solution to the problem in the file `.solution.bcrypt` as
-a [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash (which is used by my 
-[euler.rb](euler.rb) script to check if my solution is correct or not).
-
-Ideally all, practically only some directories have one or more solution(s) in
-subfolders named after the language they are written in, such as `c/` or
-`ruby/`. Every solution subfolder contains a `Makefile` that responds to commands
-such as `make build`, `make solve`, `make clean` and `make test`. The idea is
-that my script will `make build` to build the solution and then call
-`make solve` to get the solution, compare that with the stored answer, and
-based on that decide if the solution is correct or not.
+This is a repository of solutions to [Project Euler](https://projecteuler.net/)
+problems. All of these solutions are written by me in an attempt to fool around
+with mathematics and sharpen my programming skills in a few languages.
 
 ## Rules
 
-  - A solution only accepted when it:
-      - yields the correct answer.
-      - takes less than 1s (1000ms) to compute the answer.
-      - is completely written by myself, without having looked at someone else's
-        solution (unless by accident)
-      - has a full and working testing suite.
-  - Every language needs to be treated with respect by trying to use its idioms
-    as much as possible and by avoiding hackery.
+  - A solution is only accepted when it:
+      - yields the *correct answer*.
+      - takes *less than 1s* (1000ms) to compute the answer. There are some
+        solutions in here that take longer, because I couldn't (yet) get them
+        there.
+      - is *completely written by myself*, without having looked at someone
+        else's solution (unless by accident). Don't wanna spoil the fun.
+      - has a *full and working testing suite*. I like my code tested.
+  - Every language needs to be treated with respect by trying to *use its
+    idioms* as much as possible and by avoiding hackery. That's kind of the
+    point of this project — getting familiar with some dope new languages and
+    their cool tricks
   - Code can be shared between solutions if it helps keeping things 
     [Dry](http://wiki.c2.com/?DontRepeatYourself).
-  - When possible, the standard library of the language should suffice. 
+  - When possible, the standard library of the language should suffice. I don't
+    like depending on external libraries, especially when it can be useful to
+    implement some things by myself. However, in some cases it's okay (for 
+    example, unit testing frameworks). When possible, I'll try to bundle
+    external libraries into this repository.
 
 ## Languages
 
@@ -113,6 +105,60 @@ means not implemented).
 
 </details>
 
+## Structure
+
+The structure of the project is as follows:
+  - `makefile` – to build, clean, test and verify all solutions.
+  - `euler.rb` — helper script to check solutions
+  - `src/` — all solutions are in here, named as such:
+      - `003-example-solution/` — example of a problem folder
+          - `problem.md` — explanation of the problem
+          - `ruby/` — ruby implementation of the solution
+          - `rust/` — rust implementation of the solution
+          - `.solution.bcrypt` —
+            [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash of the
+            solution
+  - `lib/` — libraries and data shared between solutions
+  - `doc/` — folder where, at some point, documentation for my solutions can be
+    found or generated.
+
+Every solution needs to contain a `Makefile` that responds to four commands:
+  - `make build` — to build the solution
+  - `make solve` — to solve the problem, which should return the solution on
+    `stdout` (and no other text)
+  - `make test` — to build and run the unit test suite, returning nonzero on
+    failure
+  - `make clean` — to clean intermediate files, build targets and caches
+
+## Setup
+
+To actually test out these solutions, you need to install a few things: 
+
+  - ruby `2.3`, on macOS with `brew install ruby`
+  - python3, on macOS with `brew install python3`
+  - crystal `0.24.1`, on macOS with `brew install crystal-lang`
+  - clang or gcc
+  - rust `1.19.0`, on macOS with `brew install rust`
+
+## Run Solutions
+
+The [`Makefile`](Makefile) in the project root, in conjunction with the 
+[`euler.rb`](euler.rb) script, offer some ways of running the solutions and
+showing some statistics. To build, test, verify and time all solutions (this
+could take a while), run:
+
+```bash
+make check
+```
+
+If you want to see how many problems are solved in a more concise manner, run:
+
+```bash
+make overview
+```
+
+Read the source code of the Makefile for more details.
+
 ## Other Repositories
 
 There are some other people putting their solutions to project euler problems
@@ -156,4 +202,4 @@ great.
 
 ## License
 
-See [LICENSE.md](LICENSE.md) for more information. 
+See [license.md](license.md) for more information. 
