@@ -22,21 +22,30 @@ based on that decide if the solution is correct or not.
 
 ## Rules
 
-  - A problem is only solved when the solution
-      - yields the correct answer
-      - takes less than 1s (1000ms) to compute the answer
+  - A solution only accepted when it:
+      - yields the correct answer.
+      - takes less than 1s (1000ms) to compute the answer.
       - is completely written by myself, without having looked at someone else's
         solution (unless by accident)
-  - The more languages I can solve a problem in, the better
-  - I should make use of each language's dogmas and idioms as well as possible
-    and try to exploit all of it's features
-  - When possible, I should reduce dependencies to what's available in the
-    language by default, but if I really need to pull in a library I can
-  - Every solution should have tests so I can work on my TDD workflow
-  - When necessary, I should be able to share code across solutions (especially
-    in languages where the standard API is limited, to avoid having to
-    reimplement the same things multiple times), but this code also has to be
-    tested
+      - has a full and working testing suite.
+  - Every language needs to be treated with respect by trying to use its idioms
+    as much as possible and by avoiding hackery.
+  - Code can be shared between solutions if it helps keeping things 
+    [Dry](http://wiki.c2.com/?DontRepeatYourself).
+  - When possible, the standard library of the language should suffice. 
+
+## Languages
+
+  - [crystal](https://crystal-lang.org/), because it's pretty damn fast (thank
+    you, LLVM) but also a pleasure to write because it has a rubye-sque syntax.
+  - [c](https://en.wikipedia.org/wiki/C_(programming_language)), the grandfather
+    of programming languages, because once you get into it, you can't escape it.
+  - [ruby](https://www.ruby-lang.org), because it has a sweet, sweet syntax and
+    it will always be my slow, but heartwarming favourite.
+  - [rust](https://rust-lang.org), because all the cool kids at Mozilla are
+    doing it and I like picking up fights with the compiler.
+  - [python](https://python.org), because it's Everybody's Favourite Language
+    and I haven't spent much time with it recently.
 
 ## Progress
 
