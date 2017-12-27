@@ -9,7 +9,7 @@ puts "| ------- | #{lang.map{|l| l.rjust(3, ' ').gsub(/./, '-')}.join(' | ')} | 
 
 data.keys.each do |key|
   avg = data[key].values.inject(0, :+) / data[key].values.length
-  puts "| `#{key}` | #{lang.map{|l| (data[key][l] || "").to_s.rjust(4, ' ')}.join(' | ')} | #{avg} |"
+  puts "| [`#{key}`](https://projecteuler.net/problem=#{key}) | #{lang.map{|l| (if data[key][l] then "#{data[key][l]}ms" else "" end).to_s.rjust(4, ' ')}.join(' | ')} | #{avg} |"
 end
 
 counts = lang.map{|l| data.values.map{|i| i.keys}.flatten.count{|i| i == l}}
