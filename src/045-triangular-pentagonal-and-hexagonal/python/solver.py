@@ -13,8 +13,8 @@ def solve(t, p, h):
    hh = hexagonal(h)
 
    while True:
+      is_triangular = False
       is_pentagonal = False
-      is_hexagonal = False
       h += 1
       hh = hexagonal(h)
 
