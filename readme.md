@@ -116,7 +116,7 @@ means not implemented).
 ## Other Repositories
 
 There are some other people putting their solutions to project euler problems
-online:
+online, kudos to them because they have solved far more problems than I have:
 
   - [mathblog.dk](http://www.mathblog.dk/project-euler-solutions/), solutions
     are in C#
@@ -127,10 +127,6 @@ online:
 
 These are useful to compare against after having solved a problem, to check if
 there is a more elegant or efficient method.
-
-## Tech Demo
-
-[![asciicast](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck.png)](https://asciinema.org/a/OJ6I04nBYKx6Z1sfbMpMwgrck)
 
 ## Planned Languages:
 
@@ -153,3 +149,7 @@ there is a more elegant or efficient method.
   - [swift](https://github.com/apple/swift), because it's seems cool even though
     it's from a major company and not some academic tech hippies. it might even
     be useful..
+
+Verdict: there are far too many dope programming languages out there. I will try
+my luck with these few, but whichever I choose, there will be ten others just as
+great.
