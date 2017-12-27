@@ -26,13 +26,4 @@ class SolverTest < Minitest::Test
     assert !Solver.check?(p, 18)
     assert !Solver.check?(p, 21)
   end
-
-  def test_pandigital
-    assert_equal Solver.pandigital(5, 0), 12345
-    assert_equal Solver.pandigital(5, 1), 12354
-    assert_equal Solver.pandigital(5, 2), 12435
-    assert_equal Solver.pandigital(5, 3), 12453
-    assert_equal Solver.pandigital(5, 4), 12534
-    assert_equal Solver.pandigital(5, 5), 12543
-  end
 end
