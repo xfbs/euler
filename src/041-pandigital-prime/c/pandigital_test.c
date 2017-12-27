@@ -32,14 +32,6 @@ void test_nth_pandigital()
     assert(54321 == nth_pandigital(5, 119));
 }
 
-void test_max_pandigital() {
-    assert(0 == nth_pandigital(2, 10));
-    assert(0 == nth_pandigital(4, 24));
-    assert(0 == nth_pandigital(6, 1000));
-    assert(0 == nth_pandigital(7, 6000));
-}
-
 TESTS() {
     RUN(test_nth_pandigital);
-    RUN(test_max_pandigital);
 }

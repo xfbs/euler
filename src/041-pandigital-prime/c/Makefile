@@ -1,7 +1,7 @@
 DATAFILE =
 CFLAGS 	+= -Ilib -std=c99
 LDFLAGS  = -lm
-LIBS 	 = simple_prime bitvec
+LIBS 	 = simple_prime
 DEPS 	 = solve.o factorial.o pandigital.o
 DEPS 	+= $(LIBS:%=lib/%.a)
 

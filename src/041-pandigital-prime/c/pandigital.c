@@ -1,15 +1,14 @@
-#include "pandigital.h"
 #include <stdio.h>
+#include "pandigital.h"
+#include "factorial.h"
 
 uint32_t nth_pandigital(uint8_t n, uint32_t nth)
 {
-    if(nth >= factorial(n)) return 0;
-
     // the finished pandigital
     uint32_t num = 0;
 
     // which digits are taken
-    bitvec_t b = bitvec_new(n);
+    uint32_t taken = 0;
 
     while(n) {
         num *= 10;
@@ -21,24 +20,22 @@ uint32_t nth_pandigital(uint8_t n, uint32_t nth)
         // find the remaining digit
         uint8_t digit = 0;
         while(choice != 0) {
-            if(!bitvec_get(&b, digit)) choice--;
+            if(!(taken & (1 << digit))) choice--;
             digit++;
         }
 
-        while(bitvec_get(&b, digit)) {
+        while(taken & (1 << digit)) {
             digit++;
         }
 
         // mark this digit as used
-        bitvec_set(&b, digit);
+        taken |= 1 << digit;
 
         // digits are zero-indexed, but we treat '1' as first digit
         digit++;
         num += digit;
         n--;
     }
-
-    bitvec_free(&b);
 
     return num;
 }
