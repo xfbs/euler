@@ -1,18 +1,17 @@
 #include "solve.h"
-#include <assert.h>
 
 uint32_t solve(size_t max)
 {
     prime_t p = prime_new();
-
     size_t sum = 0;
-    size_t amount = 0;
 
-    for(size_t i = 0; amount < 11; i++) {
+    // we start with the fourth prime, which is 11, because primes below 10 are
+    // not considered truncatable.
+    for(size_t i = 4; max; i++) {
         uint32_t prime = prime_nth(&p, i);
         if(truncatable(&p, prime)) {
             sum += prime;
-            amount++;
+            max--;
         }
     }
 
@@ -21,25 +20,15 @@ uint32_t solve(size_t max)
 
 bool truncatable(prime_t *p, uint32_t prime)
 {
-    uint32_t truncated = prime;
-    uint32_t exp = 1;
+    uint32_t cur = prime / 10;
+    uint32_t exp = 10;
 
-    while(truncated / 10) {
-        truncated /= 10;
+    while(cur > 0) {
+        if(prime_which(p, cur) == SIZE_MAX) return false;
+        if(prime_which(p, prime % exp) == SIZE_MAX) return false;
         exp *= 10;
-        if(prime_which(p, truncated) == SIZE_MAX) return false;
+        cur /= 10;
     }
-
-    truncated = prime;
-    assert(exp <= prime);
-    assert((exp*10) > prime);
-
-    do {
-        uint8_t high = truncated / exp;
-        truncated -= high * exp;
-        exp /= 10;
-        if(prime_which(p, truncated) == SIZE_MAX) return false;
-    } while(truncated > 9);
 
     return true;
 }
