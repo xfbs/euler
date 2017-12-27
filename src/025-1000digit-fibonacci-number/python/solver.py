@@ -1,9 +1,7 @@
-from fibonacci import Fibonacci
+import math
 
-# solution
 def solve(length):
-   fibo = Fibonacci()
-   counter = 2
-   while len(str(fibo.next())) < length:
-      counter += 1
-   return counter
+   phi = (1 + math.sqrt(5)) / 2
+   sum1 = 0.5 * math.log(5)
+   sum2 = (length - 1) * math.log(10)
+   return math.ceil((sum1 + sum2) / math.log(phi))
