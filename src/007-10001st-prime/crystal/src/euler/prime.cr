@@ -33,5 +33,18 @@ module Euler
 
       true
     end
+
+    def index(n)
+      while n > @primes.last
+        self.next
+      end
+
+      i = @primes.bsearch_index {|p, i| p >= n}
+      if i.nil? || @primes[i.to_u] == n
+        i
+      else
+        nil
+      end
+    end
   end
 end
