@@ -4,9 +4,7 @@
 
 uint64_t solve()
 {
-    // gen some primes
     prime_t p = prime_new();
-    prime_nth(&p, 100000);
 
     uint64_t num = 1;
     while(true) {
