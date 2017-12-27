@@ -6,17 +6,16 @@ int32_t solve(int32_t max)
     uint32_t run = 0;
     prime_t p = prime_new();
 
-    for(int32_t a = (-max + 5); a < max; a+=2) {
-        // b must be odd, so we start at an odd number (this assumes that max
-        // is even) and increase by two each iteration.
-        // b must be positive, because when n=0, n^2+na+b shortens to just b.
-        // a+b+1 >= 5 must be true
-        for(int32_t b = -a+4; b < max; b+=2) {
+    // a must be between -max < a < max.
+    for(int32_t a = -max+1; a < max; a++) {
+        // b must be prime itself, because f(0)=n^2 + na + b=0^2 + 0n + b = b
+        for(int32_t b = 0; prime_nth(&p, b) < max; b++) {
+            uint32_t cur = quadratic_prime_run(&p, a, prime_nth(&p, b));
 
-            uint32_t cur = quadratic_prime_run(&p, a, b);
+            // if we found a prime run that is long, we keep it and the product
             if(cur > run) {
                 run = cur;
-                product = a * b;
+                product = a * prime_nth(&p, b);
             }
         }
     }
@@ -26,24 +25,12 @@ int32_t solve(int32_t max)
 
 uint32_t quadratic_prime_run(prime_t *p, int32_t a, int32_t b)
 {
-    uint32_t prime, run = 0;
-    int32_t num = run*run + run*a + b;
-    size_t i = 0;
+    uint32_t n = 0;
+    while(true) {
+        int32_t cur = n*n + n*a + b;
+        if(cur < 2 || prime_which(p, cur) == SIZE_MAX) break;
+        n++;
+    }
 
-    do {
-        prime = prime_nth(p, i);
-        i++;
-
-        if(num == prime) {
-            run++;
-            num = run*run + run*a + b;
-
-            while(num <= prime && prime > 2) {
-                i--;
-                prime = prime_nth(p, i);
-            }
-        }
-    } while(num > 2 && prime < num);
-
-    return run;
+    return n;
 }

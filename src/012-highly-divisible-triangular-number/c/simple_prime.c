@@ -53,6 +53,7 @@ static int equal(const void *_a, const void *_b)
 
 size_t prime_which(prime_t *p, uint32_t pr)
 {
+    while(pr > p->primes[p->len-1]) prime_nth(p, p->len);
     uint32_t *r = bsearch(&pr, p->primes, p->len, sizeof(uint32_t), equal);
     if(r) return r - p->primes;
     return SIZE_MAX;
