@@ -1,4 +1,4 @@
-module Solution
+module Solver
   def self.solve array, index
     return array if array.length < 2
     p = permutations(array.length - 1)
