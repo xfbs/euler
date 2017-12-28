@@ -203,17 +203,20 @@ Read the source code of the Makefile for more details.
 
 ### ToDo
 
- - clean up some of the old ruby solutions to bring them into the new format
- - clean up all of the C solutions to remove the link to lib and improve
-   directory structure
- - change `lib/c/` structure so that you have to `#include <euler/somelib>` for
-   some scoping of libs and to clean up files
- - change the C solutions makefile to rearrange so that build is default target
- - change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
- - change all crystal solutions to remove `lib/`, `bin/` etc when doing a `make
-   clean`
- - comment and clean up all solutions
- - improve execution speed on some ruby/python solutions
+  - clean up some of the old ruby solutions to bring them into the new format
+  - clean up all of the C solutions to remove the link to lib and improve
+    directory structure
+  - change `lib/c/` structure so that you have to `#include <euler/somelib>` for
+    some scoping of libs and to clean up files
+  - change the C solutions makefile to rearrange so that build is default target
+  - change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
+  - change all crystal solutions to remove `lib/`, `bin/` etc when doing a `make
+    clean`
+  - comment and clean up all solutions
+  - improve execution speed on some ruby/python solutions
+  - fix some of the makefiles (rust makefile in particular) to call the compiled
+    binary directly rather than call it through `cargo`, `shards` or the like, to
+    increase execution speed.
 
 ## Other Repositories
 
