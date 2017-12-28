@@ -7,36 +7,38 @@ with mathematics and sharpen my programming skills in a few languages.
 ## Rules
 
   - A solution is only accepted when it:
-      - yields the *correct answer*.
-      - takes *less than 1s* (1000ms) to compute the answer. There are some
+      - yields the **correct answer**.
+      - takes **less than 1s** (1000ms) to compute the answer. There are some
         solutions in here that take longer, because I couldn't (yet) get them
         there.
-      - is *completely written by myself*, without having looked at someone
+      - is **completely written by myself**, without having looked at someone
         else's solution (unless by accident). Don't wanna spoil the fun.
-      - has a *full and working testing suite*. I like my code tested.
-  - Every language needs to be treated with respect by trying to *use its
-    idioms* as much as possible and by avoiding hackery. That's kind of the
+      - has a **full and working testing suite**. I like my code tested.
+  - Every language needs to be treated with respect by trying to **use its
+    idioms** as much as possible and by avoiding hackery. That's kind of the
     point of this project — getting familiar with some dope new languages and
     their cool tricks
   - Code can be shared between solutions if it helps keeping things 
     [Dry](http://wiki.c2.com/?DontRepeatYourself).
-  - When possible, the standard library of the language should suffice. I don't
-    like depending on external libraries, especially when it can be useful to
-    implement some things by myself. However, in some cases it's okay (for 
+  - When possible, the **standard library of the language should suffice**. I
+    don't like depending on external libraries, especially when it can be useful
+    to implement some things by myself. However, in some cases it's okay (for 
     example, unit testing frameworks). When possible, I'll try to bundle
     external libraries into this repository.
+  - The **simpler** the solution is, in terms of lines of code and complexity,
+    the better.
 
 ## Languages
 
   - [crystal](https://crystal-lang.org/), because it's pretty damn fast (thank
-    you, LLVM) but also a pleasure to write because it has a rubye-sque syntax.
+    you, LLVM) — but also a pleasure to write because it has a rubye-sque syntax.
   - [c](https://en.wikipedia.org/wiki/C_(programming_language)), the grandfather
-    of programming languages, because once you get into it, you can't escape it.
+    of programming languages: because once you get into it, you can't escape it.
   - [ruby](https://www.ruby-lang.org), because it has a sweet, sweet syntax and
     it will always be my slow, but heartwarming favourite.
   - [rust](https://rust-lang.org), because all the cool kids at Mozilla are
-    doing it and I like picking up fights with the compiler.
-  - [python](https://python.org), because it's Everybody's Favourite Language
+    doing it, and I like picking up fights with the compiler.
+  - [python](https://python.org), because it's *Everybody's Favourite Language*
     and I haven't spent much time with it recently.
 
 ## Progress
@@ -108,21 +110,26 @@ means not implemented).
 ## Structure
 
 The structure of the project is as follows:
-  - `makefile` – to build, clean, test and verify all solutions.
-  - `euler.rb` — helper script to check solutions
-  - `src/` — all solutions are in here, named as such:
-      - `003-example-solution/` — example of a problem folder
-          - `problem.md` — explanation of the problem
-          - `ruby/` — ruby implementation of the solution
+  - [`Makefile`](Makefile) – to build, clean, test and verify all solutions.
+  - [`euler.rb`](euler.rb) — helper script to check solutions
+  - [`src/`](src/) — all solutions are in here, named as such:
+      - [`001-multiples-of-3-and-5/`](src/001-multiples-of-3-and-5) — example 
+        of a problem folder
+          - [`problem.md`](src/001-multiples-of-3-and-5/problem.md) — 
+            explanation of the problem
+          - [`ruby/`](src/001-multiples-of-3-and-5/ruby/) — ruby implementation
+            of the solution
           - `rust/` — rust implementation of the solution
           - `.solution.bcrypt` —
             [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash of the
             solution
-  - `lib/` — libraries and data shared between solutions
-  - `doc/` — folder where, at some point, documentation for my solutions can be
-    found or generated.
+  - [`lib/`](lib/) — libraries and data shared between solutions
+  - [`doc/`](doc/) — folder where, at some point, documentation for my solutions
+    can be found or generated.
 
-Every solution needs to contain a `Makefile` that responds to four commands:
+Every solution needs to contain a
+[`Makefile`](src/001-multiples-of-3-and-5/ruby/Makefile) that responds to four
+commands:
   - `make build` — to build the solution
   - `make solve` — to solve the problem, which should return the solution on
     `stdout` (and no other text)
@@ -134,11 +141,17 @@ Every solution needs to contain a `Makefile` that responds to four commands:
 
 To actually test out these solutions, you need to install a few things: 
 
-  - ruby `2.3`, on macOS with `brew install ruby`
-  - python3, on macOS with `brew install python3`
-  - crystal `0.24.1`, on macOS with `brew install crystal-lang`
+  - ruby `2.3`
+  - python `3.6`
+  - crystal `0.24.1`
   - clang or gcc
-  - rust `1.19.0`, on macOS with `brew install rust`
+  - rust `1.19.0`
+
+### On macOS
+
+```bash
+$ brew install ruby python3 crystal-lang rust
+```
 
 ## Run Solutions
 
