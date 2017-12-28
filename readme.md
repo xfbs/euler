@@ -150,6 +150,11 @@ commands:
     failure
   - `make clean` — to clean intermediate files, build targets and caches
 
+Some solutions may have a `DISABLED` file inside their folder. This tells my
+euler.rb script to ignore them, which usually means that the solution doesn't
+work or is too slow, but I have committed it anyways because I feel that I get
+get it to work or optimize it.
+
 ## Setup
 
 To actually test out these solutions, you need to install a few things: 
