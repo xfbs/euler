@@ -1,4 +1,4 @@
-module Solve
+module Solver
   def self.solve
     pandigitals = []
     (1..9999).each do |b|
@@ -35,8 +35,4 @@ module Solve
 
     true
   end
-end
-
-if __FILE__ == $0
-  puts Solve.solve()
 end
