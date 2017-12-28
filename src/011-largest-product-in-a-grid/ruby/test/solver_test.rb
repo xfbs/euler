@@ -1,18 +1,15 @@
 require 'minitest/autorun'
-require_relative 'solution'
+require_relative '../src/solver'
 
-class SolutionTest < MiniTest::Test
-  def setup
-  end
-
+class SolverTest < MiniTest::Test
   def test_solution
-    assert_equal 2763600, Solution.solve([
+    assert_equal 2763600, Solver.solve([
       [17, 20, 5, 12],
       [99, 9, 98, 2],
       [7, 25, 12, 88],
       [94, 21, 0, 41]])
 
-    assert_equal 3884832, Solution.solve([
+    assert_equal 3884832, Solver.solve([
       [17, 20, 5, 12],
       [99, 9, 98, 2],
       [7, 25, 12, 88],
@@ -20,22 +17,22 @@ class SolutionTest < MiniTest::Test
   end
 
   def test_quadruple_products
-    assert_equal [], Solution.quadruple_products([], 0, 0)
-    assert_equal [[1]], Solution.quadruple_products([[1]], 0, 0)
+    assert_equal [], Solver.quadruple_products([], 0, 0)
+    assert_equal [[1]], Solver.quadruple_products([[1]], 0, 0)
   end
 
   def test_quadruple_products_horizontal
-    assert_equal [[1,2,4,8]], Solution.quadruple_products([[1,1,1,1,2,2,2]],1,0)
+    assert_equal [[1,2,4,8]], Solver.quadruple_products([[1,1,1,1,2,2,2]],1,0)
   end
 
   def test_quadruple_products_vertical
     assert_equal [[1],[2],[4],[8]],
-      Solution.quadruple_products([[1],[1],[1],[1],[2],[2],[2]],0,1)
+      Solver.quadruple_products([[1],[1],[1],[1],[2],[2],[2]],0,1)
   end
 
   def test_quadruple_products_diagonal
     assert_equal [[1, 2],[4, 8]],
-      Solution.quadruple_products([
+      Solver.quadruple_products([
         [1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1],
@@ -46,7 +43,7 @@ class SolutionTest < MiniTest::Test
 
   def test_quadruple_products_diagonal_inverted
     assert_equal [[6]],
-      Solution.quadruple_products([
+      Solver.quadruple_products([
         [0, 0, 0, 1],
         [0, 0, 2, 0],
         [0, 1, 0, 0],
@@ -54,7 +51,7 @@ class SolutionTest < MiniTest::Test
     ],-1,1)
 
     assert_equal [[6, 105], [105, 0]],
-      Solution.quadruple_products([
+      Solver.quadruple_products([
         [0, 0, 0, 1, 3],
         [0, 0, 2, 7, 1],
         [0, 1, 5, 0, 0],

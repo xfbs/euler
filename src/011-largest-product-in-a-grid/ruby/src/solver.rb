@@ -1,4 +1,4 @@
-module Solution
+module Solver
   def self.solve grid
     [[1,0], [0,1], [1,1], [-1,1]].map do |d|
       quadruple_products(grid, d[0], d[1]).map{|r| r.max}.max
