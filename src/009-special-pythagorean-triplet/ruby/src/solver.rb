@@ -17,5 +17,3 @@ module Solver
     true
   end
 end
-
-puts Solver.solve(1000)
