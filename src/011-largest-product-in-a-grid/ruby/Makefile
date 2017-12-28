@@ -1,13 +1,16 @@
-DATAFILE= ../grid.txt
+DATAFILE= $(wildcard ../*.txt)
 RUBY    = ruby
+RBOPTS  = -I../../../lib/ruby
+SOURCES = $(wildcard src/*.rb src/*/*.rb)
+TESTS   = $(wildcard test/*_test.rb)
 
 build:
 
-test:
-	@$(RUBY) test/all.rb
+test: $(SOURCES) $(TESTS)
+	@$(RUBY) $(RBOPTS) test/all.rb
 
-solve:
-	@$(RUBY) src/solve.rb $(DATAFILE)
+solve: $(SOURCES)
+	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
 
 clean:
 

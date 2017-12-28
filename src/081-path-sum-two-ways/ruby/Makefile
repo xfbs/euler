@@ -1,19 +1,17 @@
-BUNDLER = bundler
-RAKE    = rake
-CONFIG  = Gemfile
-SOURCES = $(wildcard lib/**.rb)
-SOLVER	= bin/solve
-DATAFILE= matrix.txt
+DATAFILE= $(wildcard ../*.txt)
+RUBY    = ruby
+RBOPTS  = -I../../../lib/ruby
+SOURCES = $(wildcard src/*.rb src/*/*.rb)
+TESTS   = $(wildcard test/*_test.rb)
 
-build: $(CONFIG)
-	$(BUNDLER) install
+build:
 
-test: $(CONFIG) $(SOURCES)
-	$(RAKE) test
+test: $(SOURCES) $(TESTS)
+	@$(RUBY) $(RBOPTS) test/all.rb
 
-solve: $(CONFIG) $(SOURCES) $(SOLVER)
-	@$(BUNDLER) exec $(SOLVER) $(DATAFILE)
+solve: $(SOURCES)
+	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
 
 clean:
 
-.PHONY: test build solve clean
+.PHONY: build test clean solve

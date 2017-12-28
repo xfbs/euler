@@ -1,7 +1,7 @@
-DATAFILE=
+DATAFILE= $(wildcard ../*.txt)
 RUBY    = ruby
 RBOPTS  = -I../../../lib/ruby
-SOURCES = $(wildcard src/*.rb)
+SOURCES = $(wildcard src/*.rb src/*/*.rb)
 TESTS   = $(wildcard test/*_test.rb)
 
 build:
