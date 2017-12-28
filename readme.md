@@ -192,10 +192,13 @@ Read the source code of the Makefile for more details.
 
 ## Goals
 
-[X] Solve first 50 problems
-[X] Solve first 10 problems in all languages
-[ ] Solve first 100 problems
-[ ] Solve first 100 problems in all languages
+ - [X] Solve first 10 problems
+ - [X] Solve first 10 problems in all languages
+ - [X] Solve first 20 problems
+ - [ ] Solve first 20 problems in all languages
+ - [X] Solve first 50 problems
+ - [ ] Solve first 100 problems
+ - [ ] Solve first 100 problems in all languages
 
 ## Other Repositories
 
