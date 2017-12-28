@@ -1,4 +1,4 @@
-module Solution
+module Solver
   @@pow = Hash.new{|h, i| h[i] = 10**i - 1}
 
   def self.solve max
