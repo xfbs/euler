@@ -1,4 +1,4 @@
-module Solution
+module Solver
   def self.solve names
     names
       .sort
