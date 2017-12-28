@@ -1,12 +1,16 @@
-DATAFILE = ../triangle.txt
+DATAFILE= ../triangle.txt
+RUBY    = ruby
+RBOPTS  = -I../../../lib/ruby
+SOURCES = $(wildcard src/*.rb)
+TESTS   = $(wildcard test/*_test.rb)
 
 build:
 
-test: test.rb solution.rb
-	@ruby test.rb
+test: $(SOURCES) $(TESTS)
+	@$(RUBY) $(RBOPTS) test/all.rb
 
-solve: solve.rb solution.rb
-	@ruby solve.rb $(DATAFILE)
+solve: $(SOURCES)
+	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
 
 clean:
 
