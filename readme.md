@@ -14,12 +14,15 @@ with mathematics and sharpen my programming skills in a few languages.
       - is **completely written by myself**, without having looked at someone
         else's solution (unless by accident). Don't wanna spoil the fun.
       - has a **full and working testing suite**. I like my code tested.
+      - **is well-documented**, meaning that when reading it, it's obvious to
+        see what is going on because the variables are named smartly and there
+        comments to explain what is going on when necessary.
   - Every language needs to be treated with respect by trying to **use its
-    idioms** as much as possible and by avoiding hackery. That's kind of the
+    idioms** as much as possible and by **avoiding hackery**. That's kind of the
     point of this project — getting familiar with some dope new languages and
     their cool tricks
-  - Code can be shared between solutions if it helps keeping things 
-    [Dry](http://wiki.c2.com/?DontRepeatYourself).
+  - Code can be shared between solutions if it helps **keeping things 
+    [Dry](http://wiki.c2.com/?DontRepeatYourself)**.
   - When possible, the **standard library of the language should suffice**. I
     don't like depending on external libraries, especially when it can be useful
     to implement some things by myself. However, in some cases it's okay (for 
@@ -30,10 +33,13 @@ with mathematics and sharpen my programming skills in a few languages.
 
 ## Languages
 
-  - [crystal](https://crystal-lang.org/), because it's pretty damn fast (thank
-    you, LLVM) — but also a pleasure to write because it has a rubye-sque syntax.
+  - [crystal](https://crystal-lang.org/), because it's pretty damn fast (thanks
+    to LLVM, static typing and a lot of optimization, from what I can tell) — 
+    but yet also a pleasure to write because it has a ruby-esque syntax.
   - [c](https://en.wikipedia.org/wiki/C_(programming_language)), the grandfather
     of programming languages: because once you get into it, you can't escape it.
+    I personally think it's a bit of a horrible and ancient language, but yet
+    it's not so bad to write.
   - [ruby](https://www.ruby-lang.org), because it has a sweet, sweet syntax and
     it will always be my slow, but heartwarming favourite.
   - [rust](https://rust-lang.org), because all the cool kids at Mozilla are
@@ -110,19 +116,26 @@ means not implemented).
 ## Structure
 
 The structure of the project is as follows:
-  - [`Makefile`](Makefile) – to build, clean, test and verify all solutions.
-  - [`euler.rb`](euler.rb) — helper script to check solutions
-  - [`src/`](src/) — all solutions are in here, named as such:
-      - [`001-multiples-of-3-and-5/`](src/001-multiples-of-3-and-5) — example 
+  - [`Makefile`](Makefile), to build, clean, test and verify all solutions.
+  - [`euler.rb`](euler.rb), a helper script to check solutions
+  - [`src/`](src/), a folder with all the solutions, named as such:
+      - [`001-multiples-of-3-and-5/`](src/001-multiples-of-3-and-5), an example 
         of a problem folder
-          - [`problem.md`](src/001-multiples-of-3-and-5/problem.md) — 
+          - [`problem.md`](src/001-multiples-of-3-and-5/problem.md), the
             explanation of the problem
-          - [`ruby/`](src/001-multiples-of-3-and-5/ruby/) — ruby implementation
+          - [`ruby/`](src/001-multiples-of-3-and-5/ruby/), a ruby implementation
             of the solution
-          - `rust/` — rust implementation of the solution
-          - `.solution.bcrypt` —
-            [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash of the
+              - [`Makefile`](src/001-multiples-of-3-and-5/ruby/Makefile), the
+                Makefile to build, test, run and clean the ruby solution
+              - `...` ruby code and files
+          - [`rust/`](src/001-multiples-of-3-and-5/rust), a rust implementation of the solution
+              - [`Makefile`](src/001-multiples-of-3-and-5/rust/Makefile), the
+                Makefile to build, test, run and clean the rust solution
+              - `...` rust code and files
+          - [`.solution.bcrypt`](src/001-multiples-of-3-and-5/.solution.bcrypt),
+            a [bcrypt](https://en.wikipedia.org/wiki/Bcrypt)ed hash of the
             solution
+      - `...` other problems
   - [`lib/`](lib/) — libraries and data shared between solutions
   - [`doc/`](doc/) — folder where, at some point, documentation for my solutions
     can be found or generated.
