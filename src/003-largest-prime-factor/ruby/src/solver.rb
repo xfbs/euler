@@ -1,6 +1,4 @@
-#!/usr/bin/env ruby
-
-module Solve
+module Solver
   def self.solve(num)
     cur = 2
     while !is_prime?(num)
@@ -28,8 +26,4 @@ module Solve
 
     true
   end
-end
-
-if __FILE__ == $0
-  puts Solve.solve(600851475143)
 end
