@@ -1,7 +1,8 @@
 DATAFILE= $(wildcard ../*.txt)
-CARGO 	= cargo
+CARGO   = cargo
 CONFIG  = Cargo.toml
 SOURCES = $(wildcard src/*.rs) src/bin/solve.rs
+RM      = rm -f
 
 build: target/release/solve
 
@@ -15,9 +16,10 @@ test: $(CONFIG) $(SOURCES)
 	$(CARGO) test
 
 solve: target/release/solve
-	@$(CARGO) run --release -q --bin solve -- $(DATAFILE)
+	@./target/release/solve $(DATAFILE)
 
 clean:
 	$(CARGO) clean
+	$(RM) Cargo.lock
 
 .PHONY: test build solve clean
