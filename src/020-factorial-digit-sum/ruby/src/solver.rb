@@ -1,4 +1,4 @@
-module Solution
+module Solver
   def self.solve n
     factorial = factorial_trimmed n
 
