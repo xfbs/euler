@@ -190,6 +190,13 @@ make overview
 
 Read the source code of the Makefile for more details.
 
+## Goals
+
+[X] Solve first 50 problems
+[X] Solve first 10 problems in all languages
+[ ] Solve first 100 problems
+[ ] Solve first 100 problems in all languages
+
 ## Other Repositories
 
 There are some other people putting their solutions to project euler problems
