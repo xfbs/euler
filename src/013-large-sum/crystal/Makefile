@@ -1,13 +1,14 @@
-DATAFILE=../numbers.txt
+DATAFILE= $(wildcard ../*.txt)
 CRYSTAL = crystal
 SHARDS 	= shards
 RM	    = rm -f
-SOURCES = $(wildcard src/*.cr)
+SOURCES = $(wildcard src/*.cr src/*/*.cr)
 TESTS	= $(wildcard test/*_test.cr)
+CONFIG  = shard.yml
 
 build: bin/solve
 
-solve:
+solve: bin/solve
 	@./bin/solve $(DATAFILE)
 
 test: bin/test
@@ -15,13 +16,12 @@ test: bin/test
 
 clean:
 	$(SHARDS) prune
-	$(RM) bin/solve bin/test
-	$(RM) -r .shards
+	$(RM) -r .shards lib bin shard.lock
 
-bin/solve: $(SOURCES)
+bin/solve: $(CONFIG) $(SOURCES)
 	$(SHARDS) build solve --production
 
-bin/test: $(SOURCES) $(TESTS)
+bin/test: $(CONFIg) $(SOURCES) $(TESTS)
 	$(SHARDS) build test
 
 .PHONY: build test clean solve
