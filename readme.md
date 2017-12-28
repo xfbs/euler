@@ -212,6 +212,8 @@ Read the source code of the Makefile for more details.
   - change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
   - change all crystal solutions to remove `lib/`, `bin/` etc when doing a `make
     clean`
+  - amend makefiles to delete lock files (`shard.lock`, `Cargo.lock`) when
+    running `make clean`
   - comment and clean up all solutions
   - improve execution speed on some ruby/python solutions
   - fix some of the makefiles (rust makefile in particular) to call the compiled
