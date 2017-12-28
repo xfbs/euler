@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'solve'
+require_relative '../src/solver'
 
 class SolverTest < MiniTest::Test
   def test_solve
