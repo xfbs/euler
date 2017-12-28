@@ -21,7 +21,7 @@ class Prime
   end
 
   def check_prime?(n)
-    max = Math.sqrt(n)
+    max = Math.sqrt(n).floor
 
     @primes.each do |p|
       return true if p > max
