@@ -1,15 +1,20 @@
-require "euler/prime_sieve"
+require "euler/prime"
 
 module Solver
   def self.solve(max)
-    primes = Euler::PrimeSieve.new(max).to_a
+    # so, this prime generator has the tiny little problem that when you use
+    # prime.nth or prime.index while you use prime.iter, it kinds fucks up
+    # everything. so, to save the day, we gotta gen all the primes before
+    primes = Euler::Prime.new
+    primes.index(max)
+
     rotates = [] of Int32
 
-    primes.each do |p|
+    primes.iter.take_while{|p| p < max}.each do |p|
       c = circular(primes, p)
       if c
         c.each do |i|
-          rotates << primes[i] unless rotates.includes? primes[i]
+          rotates << primes.nth(i) unless rotates.includes? primes.nth(i)
         end
       end
     end
@@ -30,12 +35,7 @@ module Solver
         cur
     end
       .map do |n|
-        i = primes.bsearch_index{|c, i| c >= n}
-        if i && primes[i] == n
-          i
-        else
-          nil
-        end
+        primes.index(n)
     end
 
     if circle.all?{|n| n}
