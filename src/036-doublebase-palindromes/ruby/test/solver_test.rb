@@ -2,9 +2,6 @@ require 'minitest/autorun'
 require_relative '../src/solver'
 
 class SolverTest < MiniTest::Test
-  def setup
-  end
-
   def test_is_palindrome_base_10
     assert Solver.is_palindrome?(121)
     assert Solver.is_palindrome?(1234321)
