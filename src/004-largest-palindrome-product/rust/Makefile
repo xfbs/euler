@@ -15,7 +15,7 @@ test: $(CONFIG) $(SOURCES)
 	$(CARGO) test
 
 solve: target/release/solve
-	@$(CARGO) run --release -q solve $(DATAFILE)
+	@$(CARGO) run --release -q --bin solve -- $(DATAFILE)
 
 clean:
 	$(CARGO) clean
