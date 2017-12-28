@@ -1,1 +1,0 @@
-../../../../../src/010-summation-of-primes/crystal/src/euler/prime_sieve.cr
