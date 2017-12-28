@@ -9,14 +9,15 @@ puts "| ------- | #{lang.map{|l| l.rjust(3, ' ').gsub(/./, '-')}.join(' | ')} | 
 
 data.keys.each do |key|
   avg = data[key].values.inject(0, :+) / data[key].values.length
-  puts "| [`#{key}`](https://projecteuler.net/problem=#{key}) | #{lang.map{|l| (if data[key][l] then "#{data[key][l]}ms" else "" end).to_s.rjust(4, ' ')}.join(' | ')} | #{avg} |"
+  puts "| [`#{key}`](https://projecteuler.net/problem=#{key}) | #{lang.map{|l| (if data[key][l] then "#{data[key][l]}ms" else "" end).to_s.rjust(4, ' ')}.join(' | ')} | #{avg}ms |"
 end
-
-counts = lang.map{|l| data.values.map{|i| i.keys}.flatten.count{|i| i == l}}
-puts "| *count* | #{counts.join(' | ')} | #{counts.inject(0, :+) / counts.length} |"
 
 avgs = lang.map do |l|
   res = data.values.map{|i| i[l]}.compact
   res.inject(0, :+) / res.length
 end
-puts "| *average* | #{avgs.join(' | ')} | #{avgs.inject(0, :+) / avgs.length} |"
+puts "| *average* | #{avgs.join('ms | ')}ms | #{avgs.inject(0, :+) / avgs.length}ms |"
+
+counts = lang.map{|l| data.values.map{|i| i.keys}.flatten.count{|i| i == l}}
+puts "| *count* | #{counts.join(' | ')} | #{counts.inject(0, :+) / counts.length} |"
+
