@@ -24,7 +24,7 @@ module Euler
     end
 
     def iter
-      (2..3).each.chain(@primes.each).chain(self)
+      @primes.each.chain(self)
     end
 
     def check_prime?(n)
