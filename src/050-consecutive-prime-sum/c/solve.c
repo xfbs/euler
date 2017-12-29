@@ -7,16 +7,8 @@
 bool is_prime(prime_t *p, uint64_t num)
 {
     uint64_t root = sqrt(num);
-    uint64_t prim = 0;
     for(size_t i = 0; prime_nth(p, i) <= root; i++) {
-        prim = prime_nth(p, i);
-        if((num % prim) == 0) return false;
-    }
-
-    // we need to assume that prim is odd
-    if(prim == 2) prim = 1;
-    for(uint64_t i = prim+2; i <= root; i += 2) {
-        if((num % i) == 0) return false;
+        if((num % prime_nth(p, i)) == 0) return false;
     }
 
     return true;
