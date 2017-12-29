@@ -11,7 +11,3 @@ targets:
 development_dependencies:
   minitest:
     path: ../../../lib/crystal/minitest
-
-dependencies:
-  euler:
-    path: ../../../lib/crystal/euler
