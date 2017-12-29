@@ -16,7 +16,7 @@ module Euler
 
     def next
       cur = @primes.last + 2
-      while !check_prime?(cur)
+      while !check_fast?(cur)
         cur += 2
       end
       @primes.push(cur)
@@ -27,7 +27,7 @@ module Euler
       @primes.each.chain(self)
     end
 
-    def check_prime?(n)
+    def check_fast?(n)
       max = Math.sqrt(n).to_i
       pos = 0
       prime = @primes.unsafe_at(pos)
@@ -38,6 +38,16 @@ module Euler
       end
 
       true
+    end
+
+    def check?(n)
+      max = Math.sqrt(n).to_i
+
+      while @primes.last <= max
+        self.next
+      end
+
+      check_fast? n
     end
 
     def index(n)
