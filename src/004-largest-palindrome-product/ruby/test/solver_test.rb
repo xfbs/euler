@@ -2,17 +2,20 @@ require 'minitest/autorun'
 require_relative '../src/solver'
 
 class SolverTest < MiniTest::Test
-  def test_is_palindrome?
-    assert Solver.is_palindrome?(101)
-    assert Solver.is_palindrome?(163361)
-    assert Solver.is_palindrome?(94249)
-    assert Solver.is_palindrome?(3301033)
-    assert Solver.is_palindrome?(19291)
+  def test_palindrome
+    assert_equal Solver.palindrome(123, false), 123321
+    assert_equal Solver.palindrome(123, true), 12321
+    assert_equal Solver.palindrome(12, false), 1221
+    assert_equal Solver.palindrome(12, true), 121
+    assert_equal Solver.palindrome(6435, false), 64355346
+    assert_equal Solver.palindrome(6435, true), 6435346
+    assert_equal Solver.palindrome(1, false), 11
+  end
 
-    assert !Solver.is_palindrome?(19281)
-    assert !Solver.is_palindrome?(123)
-    assert !Solver.is_palindrome?(4923)
-    assert !Solver.is_palindrome?(2439)
+  def test_factorizable
+    assert_equal Solver.factorizable(234 * 345, 234, 345), true
+    assert_equal Solver.factorizable(234 * 345, 23, 34), false
+    assert_equal Solver.factorizable(999999, 100, 999), false
   end
 
   def test_solve
