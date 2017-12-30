@@ -17,6 +17,7 @@ with mathematics and sharpen my programming skills in a few languages.
       - **is well-documented**, meaning that when reading it, it's obvious to
         see what is going on because the variables are named smartly and there
         comments to explain what is going on when necessary.
+      - is **elegant**, meaning no more complex than it should be
   - Every language needs to be treated with respect by trying to **use its
     idioms** as much as possible and by **avoiding hackery**. That's kind of the
     point of this project — getting familiar with some dope new languages and
