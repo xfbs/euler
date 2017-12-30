@@ -3,7 +3,7 @@ module Solver
     mod = 10u64**digits
 
     (1..max).reduce(0u64) do |m, c|
-      m = (m + pow(c.to_u64, c.to_u64, mod)) % mod
+      (m + pow(c.to_u64, c.to_u64, mod)) % mod
     end
   end
 
