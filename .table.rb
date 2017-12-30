@@ -19,5 +19,5 @@ end
 puts "| *average* | #{avgs.join('ms | ')}ms | #{avgs.inject(0, :+) / avgs.length}ms |"
 
 counts = lang.map{|l| data.values.map{|i| i.keys}.flatten.count{|i| i == l}}
-puts "| *count* | #{counts.join(' | ')} | #{counts.inject(0, :+) / counts.length} |"
+puts "| *count* | #{counts.join(' | ')} | #{counts.inject(0, :+)} |"
 
