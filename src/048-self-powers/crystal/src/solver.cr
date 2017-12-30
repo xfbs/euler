@@ -21,9 +21,9 @@ module Solver
 
   def self.mult(a : UInt64, b : UInt64, m : UInt64) : UInt64
     pow32 = 2u64**32
-    ah = (a / pow32)
+    ah = a / pow32
+    bh = b / pow32
     al = a % pow32
-    bh = (b / pow32)
     bl = b % pow32
 
     res  = al * bl
