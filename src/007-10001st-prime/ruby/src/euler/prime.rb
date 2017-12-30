@@ -1,5 +1,7 @@
 module Euler
   class Prime
+    include Enumerable
+
     def initialize
       @primes = [2,3]
     end
@@ -21,6 +23,16 @@ module Euler
       cur
     end
 
+    def each
+      @primes.each do |p|
+        yield p
+      end
+
+      while true
+        yield self.next
+      end
+    end
+
     def check_prime?(n)
       max = Math.sqrt(n).floor
 
@@ -30,6 +42,19 @@ module Euler
       end
 
       true
+    end
+
+    def index(n)
+      while n > @primes.last
+        self.next
+      end
+
+      i = @primes.bsearch_index {|p, _| p >= n}
+      if i.nil? || @primes[i] == n
+        i
+      else
+        nil
+      end
     end
   end
 end
