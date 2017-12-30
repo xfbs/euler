@@ -1,10 +1,10 @@
-require 'prime'
+require 'euler/prime'
 
 module Solver
   def self.solve max
     triangle = 1
     index = 1
-    p = Prime.new
+    p = Euler::Prime.new
 
     while factor_count(p, triangle) <= max
       index += 1
