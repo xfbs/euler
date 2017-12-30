@@ -1,6 +1,6 @@
 # Problem 47: Distinct primes factors
 
-AThe first two consecutive numbers to have two distinct prime factors are: 
+The first two consecutive numbers to have two distinct prime factors are: 
 
 >   14 = 2 × 7
 >   15 = 3 × 5 
