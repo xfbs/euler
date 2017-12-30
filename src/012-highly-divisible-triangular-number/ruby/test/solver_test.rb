@@ -8,7 +8,7 @@ class SolverTest < MiniTest::Test
   end
 
   def test_factor_count
-    p = Prime.new
+    p = Euler::Prime.new
     assert_equal Solver.factor_count(p, 2), 2
     assert_equal Solver.factor_count(p, 4), 3
     assert_equal Solver.factor_count(p, 8), 4
