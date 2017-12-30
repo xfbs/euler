@@ -1,12 +1,12 @@
 require 'minitest/autorun'
-require_relative '../src/prime'
+require_relative '../src/euler/prime'
 
 class PrimeTest < MiniTest::Test
   def setup
   end
 
   def test_primes
-    p = Prime.new
+    p = Euler::Prime.new
 
     assert_equal p.nth(0), 2
     assert_equal p.nth(1), 3
