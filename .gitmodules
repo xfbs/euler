@@ -1,3 +1,6 @@
 [submodule "lib/chez/thunderchez"]
 	path = lib/chez/thunderchez
 	url = https://github.com/ovenpasta/thunderchez
+[submodule "lib/crystal/minitest"]
+	path = lib/crystal/minitest
+	url = https://github.com/ysbaddaden/minitest.cr
