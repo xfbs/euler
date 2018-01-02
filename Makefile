@@ -5,7 +5,7 @@ check:
 
 # gives an overview over which problems have working solutions
 overview:
-	ruby euler.rb check --color --overview --problem 1-100 --thread 4
+	ruby euler.rb verify --color --overview --problem 1-100 --thread 4
 
 # runs `make build` for all implementations
 build:
