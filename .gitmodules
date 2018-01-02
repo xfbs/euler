@@ -1,0 +1,3 @@
+[submodule "lib/chez/thunderchez"]
+	path = lib/chez/thunderchez
+	url = https://github.com/ovenpasta/thunderchez
