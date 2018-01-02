@@ -237,6 +237,19 @@ online, kudos to them because they have solved far more problems than I have:
 These are useful to compare against after having solved a problem, to check if
 there is a more elegant or efficient method.
 
+## Acknowledgments
+
+Apart from the great standard libraries of the languages that are used in this
+project, there are also a few support libraries used, which for now I have
+bundled into the repository:
+
+  - [ysbaddaden/minitest.cr](https://github.com/ysbaddaden/minitest.cr) in
+    [`lib/crystal/minitest`](lib/crystal/minitest/), a unit test and assertions
+    library for Crystal
+  - [ovenpasta/thunderchez](https://github.com/ovenpasta/thunderchez) in
+    [`lib/chez/thunderchez/`](lib/chez/thunderchez/), a collection of libraries
+    for chez productivity
+
 ## Planned Languages:
 
   - [chez scheme](https://github.com/cisco/ChezScheme), because I never really
