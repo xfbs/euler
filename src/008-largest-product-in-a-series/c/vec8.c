@@ -15,6 +15,13 @@ vec8_t vec8_new(size_t len, uint8_t fill)
     return v;
 }
 
+vec8_t *vec8_alloc(size_t len, uint8_t fill)
+{
+    vec8_t *v = malloc(sizeof(vec8_t));
+    *v = vec8_new(len, fill);
+    return v;
+}
+
 uint8_t vec8_get(vec8_t *v, size_t pos)
 {
     return v->data[pos];
