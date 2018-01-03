@@ -1,4 +1,6 @@
 #include "vec.h"
+#include <stdint.h>
+#include <stddef.h>
 #pragma once
 
 uint64_t get(vec_t *grid, int x, int y);
