@@ -191,33 +191,13 @@ make overview
 
 Read the source code of the Makefile for more details.
 
-## Goals
-
- - [X] Solve first 10 problems
- - [X] Solve first 10 problems in all languages
- - [X] Solve first 20 problems
- - [ ] Solve first 20 problems in all languages
- - [ ] Solve first 50 problems
- - [ ] Solve first 50 problems in all languages
- - [ ] Solve first 100 problems
- - [ ] Solve first 100 problems in all languages
-
 ### ToDo
 
-  - [X] clean up all of the C solutions to remove the link to lib and improve
-    directory structure
-  - [X] change `lib/c/` structure so that you have to `#include <euler/somelib>` for
-    some scoping of libs and to clean up files, put all library code into a
-    single `libeuler.a` for easier linking
-  - [X] change the C solutions makefile to rearrange so that build is default target
-  - [X] change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
   - [ ] comment and clean up all solutions
-    - [ ] problems 1..10
-    - [ ] problems 11..20
-  - [ ] implement tests
-    - [ ] problems 1..10
-    - [ ] problems 11.20
+  - [ ] implement tests for all problems
   - [ ] improve execution speed on some ruby/python solutions
+  - [ ] solve all problems up to problem 100
+  - [ ] add solutions in another language (scheme, ocaml, cpp)
 
 ## Other Repositories
 
