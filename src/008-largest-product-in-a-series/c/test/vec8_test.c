@@ -1,5 +1,5 @@
-#include "test.h"
-#include "vec8.h"
+#include <euler/test.h>
+#include "euler/vec8.h"
 
 void test_vec8_new()
 {

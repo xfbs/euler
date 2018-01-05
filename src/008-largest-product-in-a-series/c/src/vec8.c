@@ -1,4 +1,4 @@
-#include "vec8.h"
+#include "euler/vec8.h"
 
 vec8_t vec8_new(size_t len, uint8_t fill)
 {
