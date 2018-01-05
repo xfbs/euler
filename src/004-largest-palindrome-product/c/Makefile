@@ -22,7 +22,7 @@ build: $(TARGETS:%.c=%)
 
 # run the solver
 solve:
-	@./bin/main
+	@./bin/main $(DATAFILE)
 
 # build and run all tests. every src/*.c file must have a corresponding
 # test/*_test.c file, which are all built and run.

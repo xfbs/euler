@@ -22,7 +22,7 @@ build: $(TARGETS:%.c=%)
 
 # run the solver
 solve:
-	@./bin/main
+	@./bin/main $(DATAFILE)
 
 # build and run all tests. every src/*.c file must have a corresponding
 # test/*_test.c file, which are all built and run.
@@ -40,7 +40,7 @@ bin/%: bin/%.o $(SOURCES:%.c=%.o) $(LIBEULER)
 
 # build a given test, test/*_test, from test/*_test.c and src/*.c, linked
 # against libeuler.a
-test/%_test: test/%_test.o src/%.o $(LIBEULER)
+test/%_test: test/%_test.o $(SOURCES:%.c=%.o) $(LIBEULER)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 # build libeuler.a. all files that are in src/ and all corresponding header
