@@ -1,4 +1,4 @@
-#include "palindrome.h"
+#include "euler/palindrome.h"
 
 bool is_palindrome(uint64_t num)
 {

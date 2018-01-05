@@ -1,5 +1,5 @@
-#include "test.h"
-#include "palindrome.h"
+#include "euler/test.h"
+#include "euler/palindrome.h"
 
 void test_palin()
 {
