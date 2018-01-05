@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <simple_prime.h>
+#include <euler/simple_prime.h>
 #pragma once
 
 int32_t solve(int32_t max);
