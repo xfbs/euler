@@ -1,5 +1,5 @@
 #include "solve.h"
-#include "vec8.h"
+#include "euler/vec8.h"
 
 uint64_t solve(size_t exp)
 {
