@@ -1,6 +1,6 @@
-#include "solve.h"
-#include "vec.h"
+#include <euler/vec.h>
 #include <stdio.h>
+#include "solve.h"
 
 int main(int argc, char *argv[])
 {

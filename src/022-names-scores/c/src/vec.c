@@ -1,4 +1,4 @@
-#include "vec.h"
+#include "euler/vec.h"
 
 vec_t vec_new(size_t len, void *fill)
 {
