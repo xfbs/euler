@@ -1,5 +1,5 @@
-#include <test.h>
-#include "solve.h"
+#include <euler/test.h>
+#include <euler/collatz.h>
 
 void test_collatz()
 {

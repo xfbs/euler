@@ -1,4 +1,4 @@
-#include "collatz.h"
+#include "euler/collatz.h"
 
 collatz_cache_t collatz_cache(uint32_t limit) {
     collatz_cache_t cache;
