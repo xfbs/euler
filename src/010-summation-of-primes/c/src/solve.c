@@ -1,3 +1,4 @@
+#include <euler/simple_prime.h>
 #include "solve.h"
 
 uint64_t solve(uint64_t n) {
