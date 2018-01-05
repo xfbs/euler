@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
-#include <bitvec.h>
+#include <euler/bitvec.h>
 #include <math.h>
 #pragma once
 
