@@ -1,4 +1,4 @@
-#include <test.h>
+#include <euler/test.h>
 #include "solve.h"
 
 void test_num_to_digits() {
