@@ -1,1 +1,0 @@
-../../../../src/041-pandigital-prime/c/factorial.h

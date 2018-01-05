@@ -1,1 +1,0 @@
-../../../../src/002-even-fibonacci-numbers/c/even_fibonacci.h
