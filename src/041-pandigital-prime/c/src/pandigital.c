@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "pandigital.h"
-#include "factorial.h"
+#include "euler/pandigital.h"
+#include "euler/factorial.h"
 
 uint32_t nth_pandigital(uint8_t n, uint32_t nth)
 {

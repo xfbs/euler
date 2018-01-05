@@ -1,9 +1,9 @@
-#include <simple_prime.h>
+#include <euler/simple_prime.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <math.h>
-#include "factorial.h"
-#include "pandigital.h"
+#include "euler/factorial.h"
+#include "euler/pandigital.h"
 #include "solve.h"
 
 static bool prime_check(prime_t *p, uint32_t num)

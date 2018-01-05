@@ -1,4 +1,4 @@
-#include "factorial.h"
+#include "euler/factorial.h"
 
 uint64_t factorial(uint8_t nth)
 {
