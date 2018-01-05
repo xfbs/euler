@@ -1,5 +1,5 @@
-#include "bitvec.h"
-#include "test.h"
+#include "euler/bitvec.h"
+#include <euler/test.h>
 
 void test_bitvec_new();
 void test_bitvec_get();
