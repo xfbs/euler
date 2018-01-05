@@ -1,4 +1,4 @@
-#include "gcd_lcm.h"
+#include "euler/gcd_lcm.h"
 
 uint64_t lcm(uint64_t a, uint64_t b)
 {
