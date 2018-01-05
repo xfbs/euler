@@ -204,18 +204,13 @@ Read the source code of the Makefile for more details.
 
 ### ToDo
 
-  - [ ] clean up all of the C solutions to remove the link to lib and improve
+  - [X] clean up all of the C solutions to remove the link to lib and improve
     directory structure
-  - [ ] change `lib/c/` structure so that you have to `#include <euler/somelib>` for
+  - [X] change `lib/c/` structure so that you have to `#include <euler/somelib>` for
     some scoping of libs and to clean up files, put all library code into a
     single `libeuler.a` for easier linking
-  - [ ] change the C solutions makefile to rearrange so that build is default target
-  - [ ] change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
-    - [X] ruby
-    - [X] python
-    - [X] rust
-    - [X] crystal
-    - [ ] c
+  - [X] change the C solutions makefile to rearrange so that build is default target
+  - [X] change all makefiles to use `$(wildcard ../*.txt)` as `DATAFILE`
   - [ ] comment and clean up all solutions
     - [ ] problems 1..10
     - [ ] problems 11..20
@@ -223,7 +218,6 @@ Read the source code of the Makefile for more details.
     - [ ] problems 1..10
     - [ ] problems 11.20
   - [ ] improve execution speed on some ruby/python solutions
-  - [ ] improve libraries for all languages, adds tests for all
 
 ## Other Repositories
 
