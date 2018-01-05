@@ -1,4 +1,7 @@
+#include <euler/vec.h>
+#include <stdbool.h>
 #include <stdio.h>
+#include "solve.h"
 
 int main(int argc, char *argv[])
 {
@@ -7,21 +10,21 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    FILE *datafile = fopen(argv[1], "r");
+    FILE *data_file = fopen(argv[1], "r");
+    vec_t v = vec_new(0, NULL);
+    char *str;
 
-    long long number, ignore, sum = 0;
+    while(true) {
+        str = malloc(256);
 
-    // add upp all the numbers
-    while(0 < fscanf(datafile, "%11lld%lld", &number, &ignore)) {
-        sum += number;
+        if(1 == fscanf(data_file, "%255[0-9]%*255[^0-9]", str)) {
+            vec_push(&v, str);
+        } else {
+            break;
+        }
     }
 
-    // get first ten digits from sum
-    while(sum > 9999999999LL) {
-        sum /= 10;
-    }
-
-    printf("%10lli\n", sum);
+    printf("%llu\n", solve(&v));
 
     return 0;
 }
