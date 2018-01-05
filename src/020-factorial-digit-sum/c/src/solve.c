@@ -1,5 +1,5 @@
 #include "solve.h"
-#include "vec16.h"
+#include "euler/vec16.h"
 
 uint64_t solve(size_t exp)
 {
