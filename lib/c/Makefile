@@ -1,28 +1,28 @@
-CFLAGS = -std=c99 -Wall -pedantic
-LIBS = gcd_lcm bitvec simple_prime palindrome vec16 vec8 vec divisor_sum
+CFLAGS = -std=c99 -Wall -pedantic -Iinclude
+SOURCES = $(wildcard src/*.c)
+TARGET  = lib/libeuler.a
 
-build: $(LIBS:%=%.a)
+build: lib/libeuler.a
 
-%.a: %.o
+$(TARGET): $(SOURCES:%.c=%.o)
 	ar cr $@ $^
 	ranlib $@
 
-%_test: %.o %_test.o
-	@$(CC) -o $@ $^ $(LDFLAGS)
+#%_test: %.o %_test.o
+#	@$(CC) -o $@ $^ $(LDFLAGS)
 
-test: $(LIBS:%=%_test)
-	@./gcd_lcm_test
-	@./bitvec_test
-	@./simple_prime_test
-	@./palindrome_test
-	@./vec8_test
-	@./vec16_test
-	@./vec_test
-	@./divisor_sum_test
+#test: $(LIBS:%=%_test)
+#	@./gcd_lcm_test
+#	@./bitvec_test
+#	@./simple_prime_test
+#	@./palindrome_test
+#	@./vec8_test
+#	@./vec16_test
+#	@./vec_test
+#	@./divisor_sum_test
 
 clean:
-	$(RM) -rf *.o
-	$(RM) -rf *.a
-	$(RM) -rf *_test
+	$(RM) -rf src/*.o
+	$(RM) $(TARGET)
 
 .PHONY: build test

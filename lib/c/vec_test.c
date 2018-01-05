@@ -1,1 +1,0 @@
-../../src/022-names-scores/c/vec_test.c

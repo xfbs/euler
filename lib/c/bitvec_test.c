@@ -1,1 +1,0 @@
-../../src/035-circular-primes/c/bitvec_test.c
