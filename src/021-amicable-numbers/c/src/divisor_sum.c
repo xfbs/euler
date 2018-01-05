@@ -1,5 +1,5 @@
 #include <math.h>
-#include "divisor_sum.h"
+#include "euler/divisor_sum.h"
 
 uint32_t divisor_sum(uint32_t num)
 {

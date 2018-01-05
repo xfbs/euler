@@ -1,5 +1,5 @@
-#include "test.h"
-#include "divisor_sum.h"
+#include <euler/test.h>
+#include <euler/divisor_sum.h>
 
 void test_divisor_sum() {
     assert(divisor_sum(2) == 1);
