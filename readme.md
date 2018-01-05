@@ -163,7 +163,7 @@ To actually test out these solutions, you need to install a few things:
   - ruby `2.3`
   - python `3.6`
   - crystal `0.24.1`
-  - clang or gcc
+  - clang or gcc implementing `c99`
   - rust `1.19.0`
 
 ### On macOS
