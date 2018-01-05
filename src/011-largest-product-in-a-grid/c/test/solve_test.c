@@ -1,6 +1,6 @@
-#include <test.h>
+#include <euler/test.h>
 #include "solve.h"
-#include "vec8.h"
+#include "euler/vec8.h"
 
 vec_t setup() {
     uint8_t nums[4][4] = {

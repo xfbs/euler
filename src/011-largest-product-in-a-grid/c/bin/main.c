@@ -1,8 +1,8 @@
-#include "solve.h"
-#include "vec8.h"
-#include "vec.h"
+#include <euler/vec8.h>
+#include <euler/vec.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "solve.h"
 
 int main(int argc, char *argv[])
 {

@@ -1,4 +1,4 @@
-#include <vec8.h>
+#include <euler/vec8.h>
 #include "solve.h"
 
 uint64_t get(vec_t *grid, int x, int y) {
