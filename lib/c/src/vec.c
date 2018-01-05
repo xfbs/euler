@@ -1,0 +1,1 @@
+../../../src/022-names-scores/c/src/vec.c

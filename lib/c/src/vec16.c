@@ -1,0 +1,1 @@
+../../../src/020-factorial-digit-sum/c/src/vec16.c

@@ -1,0 +1,1 @@
+../../../../src/020-factorial-digit-sum/c/src/euler/vec16.h

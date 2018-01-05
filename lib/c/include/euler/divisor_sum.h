@@ -1,0 +1,1 @@
+../../../../src/021-amicable-numbers/c/src/euler/divisor_sum.h

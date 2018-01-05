@@ -1,0 +1,1 @@
+../../../../src/012-highly-divisible-triangular-number/c/src/euler/simple_prime.h
