@@ -1,4 +1,4 @@
-#include "simple_prime.h"
+#include "euler/simple_prime.h"
 #include <math.h>
 
 prime_t prime_new()

@@ -1,5 +1,5 @@
-#include "simple_prime.h"
-#include "test.h"
+#include "euler/simple_prime.h"
+#include <euler/test.h>
 
 void test_prime_new()
 {
