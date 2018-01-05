@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include <simple_prime.h>
+#include <euler/simple_prime.h>
 #include <math.h>
 #pragma once
 
