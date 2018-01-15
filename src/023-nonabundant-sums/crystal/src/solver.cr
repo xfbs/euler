@@ -1,5 +1,4 @@
 require "euler/divisor_sum"
-require "benchmark"
 
 module Solver
   def self.solve(max)
