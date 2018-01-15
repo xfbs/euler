@@ -25,4 +25,5 @@ void test_solve() {
 TESTS() {
     RUN(test_make_pandigital_multiple);
     RUN(test_pandigital_multiple);
+    RUN(test_solve);
 }
