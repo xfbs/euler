@@ -248,6 +248,9 @@ bundled into the repository:
   - [swift](https://github.com/apple/swift), because it's seems cool even though
     it's from a major company and not some academic tech hippies. it might even
     be useful..
+  - [nim](https://nim-lang.org), because compiling to C, it has the potential to
+    be rather quick but with a larger standard library, and with a python-esque
+    syntax, also quite usable.
 
 Verdict: there are far too many dope programming languages out there. I will try
 my luck with these few, but whichever I choose, there will be ten others just as
