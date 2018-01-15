@@ -1,30 +1,37 @@
+#include <euler/divisor_sum.h>
+#include <stdbool.h>
 #include "solve.h"
 
 uint32_t solve(size_t max)
 {
-    bitvec_t poss = bitvec_new(max);
+    uint8_t possible[max];
+    for(size_t i = 0; i < max; i++) possible[i] = false;
+
+    // list of abundant numbers up to max
     uint32_t abundant[max];
-    size_t pos = 0;
+    size_t abundant_pos = 0;
 
     for(size_t i = 1; i < max; i++) {
         if(divisor_sum(i) > i) {
-            abundant[pos] = i;
-            pos++;
+            abundant[abundant_pos] = i;
+            abundant_pos++;
         }
     }
 
-    for(size_t a = 0; a < pos; a++) {
-        for(size_t b = a; b < pos; b++) {
+    // mark every sum of two abundant numbers as possible
+    for(size_t a = 0; a < abundant_pos; a++) {
+        for(size_t b = a; b < abundant_pos; b++) {
             uint32_t sum = abundant[a] + abundant[b];
-            if(sum < max) {
-                bitvec_set(&poss, sum);
-            }
+            if(sum >= max) break;
+            possible[sum] = true;
         }
     }
 
+    // get the sum of all numbers which cannot be expressed as the sum of two
+    // abundant numbers
     uint32_t sum = 0;
     for(size_t i = 0; i < max; i++) {
-        if(!bitvec_get(&poss, i)) {
+        if(!possible[i]) {
             sum += i;
         }
     }

@@ -1,5 +1,5 @@
-#include <euler/bitvec.h>
-#include <euler/divisor_sum.h>
+#include <stdint.h>
+#include <stddef.h>
 #include <math.h>
 #pragma once
 
