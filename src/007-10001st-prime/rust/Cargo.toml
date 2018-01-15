@@ -3,4 +3,3 @@ name = "solver"
 version = "0.1.0"
 
 [dependencies]
-bit-vec = "0.4.1"
