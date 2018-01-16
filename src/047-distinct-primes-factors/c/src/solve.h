@@ -7,10 +7,6 @@
 // distinct prime factors each.
 uint64_t solve(uint8_t cnt);
 
-// for a given number `num`, populates the array `f` with it's `cnt` prime
-// factors using the prime generator `p`, returning true if successful or false
-// when there are less or more than `cnt` prime factors.
-bool prime_factors(prime_t *p, uint64_t num, uint8_t cnt, uint16_t f[cnt]);
-
-// check if the given `cnt` prime factors of the `cnt` numbers are all distinct
-bool distinct_prime_factors(uint8_t cnt, uint16_t fs[cnt][cnt]);
+// checks if a given number is the first number is a sequence that is `count`
+// long where each number has `count` prime factors that are distinct.
+bool distinct_prime_factors(prime_t *p, uint8_t count, uint64_t num);

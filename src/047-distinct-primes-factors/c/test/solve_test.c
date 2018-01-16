@@ -1,18 +1,26 @@
 #include <euler/test.h>
 #include "solve.h"
 
-void test_prime_factors() {
+void test_distinct_prime_factors() {
     prime_t p = prime_new();
-    uint16_t f[3];
 
-    assert(prime_factors(&p, 2*3*5, 3, f) == true);
-    assert(f[0] == 2 && f[1] == 3 && f[2] == 5);
+    assert(distinct_prime_factors(&p, 1, 2) == true);
+    assert(distinct_prime_factors(&p, 1, 3) == true);
+    assert(distinct_prime_factors(&p, 1, 6) == false);
 
-    assert(prime_factors(&p, 2*3*3, 3, f) == false);
-    assert(prime_factors(&p, 2*3*5*7, 3, f) == false);
+    assert(distinct_prime_factors(&p, 2, 13) == false);
+    assert(distinct_prime_factors(&p, 2, 14) == true);
+    assert(distinct_prime_factors(&p, 2, 15) == false);
 
-    assert(prime_factors(&p, 2*2*3*3*5*5, 3, f) == true);
-    assert(f[0] == 4 && f[1] == 9 && f[2] == 25);
+    assert(distinct_prime_factors(&p, 3, 643) == false);
+    assert(distinct_prime_factors(&p, 3, 644) == true);
+    assert(distinct_prime_factors(&p, 3, 645) == false);
+
+    for(uint32_t i = 123; i < 23423; i++) {
+        for(uint8_t l = 4; l < 10; l++) {
+            assert(distinct_prime_factors(&p, l, i) == false);
+        }
+    }
 }
 
 void test_solve() {
@@ -21,6 +29,6 @@ void test_solve() {
 }
 
 TESTS() {
-    RUN(test_prime_factors);
+    RUN(test_distinct_prime_factors);
     RUN(test_solve);
 }
