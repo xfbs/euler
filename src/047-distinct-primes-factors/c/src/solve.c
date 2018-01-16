@@ -3,9 +3,9 @@
 uint64_t solve(uint8_t count)
 {
     size_t max = 1024;
+    prime_t primes = prime_new();
 
     while(true) {
-        prime_t primes = prime_new();
         uint8_t prime_factors[max];
 
         // initialize prime factors
@@ -14,7 +14,7 @@ uint64_t solve(uint8_t count)
         // compute prime factors counts up to max
         for(size_t i = 0; prime_nth(&primes, i) < max; i++) {
             uint64_t prime = prime_nth(&primes, i);
-            uint64_t cur = 2 * prime;
+            uint64_t cur = prime;
 
             while(cur < max) {
                 if(prime_factors[cur] <= count) {
@@ -35,6 +35,7 @@ uint64_t solve(uint8_t count)
 
             if(offset == count) {
                 if(distinct_prime_factors(&primes, count, num)) {
+                    prime_free(&primes);
                     return num;
                 }
             } else {
