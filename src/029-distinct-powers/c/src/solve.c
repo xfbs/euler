@@ -1,15 +1,22 @@
+#include <string.h>
+#include <stdbool.h>
 #include "solve.h"
 
 uint32_t solve(uint32_t max_a, uint32_t max_b)
 {
+    // if all powers were equal, this is what the sum would be
     uint32_t sum = (max_a-1) * (max_b-1);
-    bitvec_t b = bitvec_new(max_a-1);
+
+    // basically, the goal here is to find how many powers will be equal to one
+    // another, and subtract that from the theoretical count of distinct powers.
+    bool b[max_a - 1];
+    memset(b, 0, sizeof b);
 
     for(uint32_t a = 2; a <= max_a; a++) {
         uint32_t product = a*a;
         uint32_t power = 2;
-        while(product <= max_a && !bitvec_get(&b, product-2)) {
-            bitvec_set(&b, product-2);
+        while(product <= max_a && !b[product-2]) {
+            b[product-2] = true;
 
             for(uint32_t b = 2; b <= max_b; b++) {
                 uint32_t exponent = b * power;
@@ -26,8 +33,6 @@ uint32_t solve(uint32_t max_a, uint32_t max_b)
             power += 1;
         }
     }
-
-    bitvec_free(&b);
 
     return sum;
 }
