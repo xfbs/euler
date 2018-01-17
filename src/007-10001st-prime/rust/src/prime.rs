@@ -1,7 +1,7 @@
 use std::vec::Vec;
 
 pub struct Prime {
-    list: Vec<u64>,
+    list: Vec<u64>
 }
 
 impl Prime {
@@ -10,36 +10,75 @@ impl Prime {
             list: vec![2, 3]
         }
     }
+
     fn next(&mut self) -> u64 {
         let mut last = self.list.last().unwrap() + 2;
 
-        while !self.is_prime(last) {
+        while !self.check_fast(last).unwrap() {
             last += 2;
         }
 
         self.list.push(last);
         last
     }
-    pub fn is_prime(&self, num: u64) -> bool {
+
+    pub fn check_fast(&self, num: u64) -> Result<bool, ()> {
         let root = (num as f64).sqrt() as u64;
 
         for prime in self.list.iter() {
             if *prime > root {
-                return true;
+                return Ok(true);
             }
             if (num % *prime) == 0 {
-                return false;
+                return Ok(false);
             }
         }
 
-        true
+        Err(())
     }
+
     pub fn nth(&mut self, n: usize) -> u64 {
         while self.list.len() < n {
             self.next();
         }
 
         self.list[n-1]
+    }
+
+    pub fn check(&mut self, num: u64) -> bool {
+        let root = (num as f64).sqrt() as u64;
+
+        while *self.list.last().unwrap() < root {
+            self.next();
+        }
+
+        self.check_fast(num).unwrap()
+    }
+}
+
+pub struct PrimeIter<'a> {
+    prime: &'a mut Prime,
+    pos: usize
+}
+
+impl<'a> Iterator for PrimeIter<'a> {
+    type Item = u64;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.pos += 1;
+        Some(self.prime.nth(self.pos - 1))
+    }
+}
+
+impl<'a> IntoIterator for &'a mut Prime {
+    type Item = u64;
+    type IntoIter = PrimeIter<'a>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        PrimeIter {
+            prime: self,
+            pos: 1
+        }
     }
 }
 
