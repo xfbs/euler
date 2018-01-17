@@ -1,3 +1,3 @@
 require "../solver"
 
-puts Solver.solve
+puts Solver.solve(5)
