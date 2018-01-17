@@ -14,7 +14,7 @@ build:
 
 # runs the unit tests in the `test/` folder.
 test: $(SOURCES) $(TESTS)
-	@$(RUBY) $(RBOPTS) test/all.rb
+	@$(RUBY) $(RBOPTS) test/all.rb --verbose
 
 # runs the solver, solve.rb.
 solve: $(SOURCES)

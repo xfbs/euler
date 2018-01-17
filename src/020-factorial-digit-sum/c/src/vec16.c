@@ -55,3 +55,8 @@ void vec16_free(vec16_t *v)
     v->cap = 0;
     v->len = 0;
 }
+
+void vec16_clear(vec16_t *v)
+{
+    v->len = 0;
+}

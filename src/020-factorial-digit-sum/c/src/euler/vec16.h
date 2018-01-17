@@ -16,3 +16,4 @@ void vec16_set(vec16_t *v, size_t pos, uint16_t data);
 size_t vec16_push(vec16_t *v, uint16_t data);
 size_t vec16_len(vec16_t *v);
 void vec16_free(vec16_t *v);
+void vec16_clear(vec16_t *v);
