@@ -44,6 +44,17 @@ module Euler
       true
     end
 
+    def check?(n)
+      max = Math.sqrt(n).to_i
+
+      while @primes.last <= max
+        self.next
+      end
+
+      check_prime? n
+    end
+
+
     def index(n)
       while n > @primes.last
         self.next
