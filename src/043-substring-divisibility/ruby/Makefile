@@ -18,7 +18,7 @@ test: $(SOURCES) $(TESTS)
 
 # runs the solver, solve.rb.
 solve: $(SOURCES)
-	@$(RUBY) $(RBOPTS) src/solve.rb $(DATAFILE)
+	@$(RUBY) $(RBOPTS) src/bin/solve.rb $(DATAFILE)
 
 clean:
 
