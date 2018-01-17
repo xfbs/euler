@@ -3,7 +3,7 @@ version: 0.1.0
 
 targets:
   solve:
-    main: src/solve.cr
+    main: src/bin/solve.cr
   test:
     main: test/all.cr
 
