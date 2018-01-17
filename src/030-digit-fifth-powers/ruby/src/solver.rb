@@ -1,35 +1,26 @@
 module Solver
-  def self.solve
+  def self.solve(power)
     # generate all fifth powers of digits
-    nums = (0..9).map{|n| n**5}
+    nums = (0..9).map{|n| n**power}
 
     # find all numbers where the sum of the fifth powers of the digits is equal
     # to the number itself
     total = 0
-    nums.each_with_index do |fa, ia|
-      nums[ia..-1].each_with_index do |fb, ibt|
-        ib = ia+ibt
-        nums[ib..-1].each_with_index do |fc, ict|
-          ic = ib+ict
-          nums[ic..-1].each_with_index do |fd, idt|
-            id = ic+idt
-            nums[id..-1].each_with_index do |fe, iet|
-              ie = id+iet
-              nums[ie..-1].each_with_index do |fg, igt|
-                ig = ie+igt
+    for a in 0..9 do
+      for b in a..9 do
+        for c in b..9 do
+          for d in c..9 do
+            for e in d..9 do
+              for f in e..9 do
+                # digits of the number (sorted)
+                digits = [a, b, c, d, e, f]
 
                 # sum of the digit of the fifth power
-                sum = fa+fb+fc+fd+fe+fg
-
-                # digits of the number (sorted)
-                digits = [ia, ib, ic, id, ie, ig]
+                sum = digits.map{|n| nums[n]}.inject(0, &:+)
 
                 # check if sum of fifth powers of digit is equal to sum
-                if sum > 2 && sum < 999999
-                  sum_digits = sum.to_s.rjust(6, '0').chars.map(&:to_i)
-                  if sum_digits.sort == digits
-                    total += sum
-                  end
+                if digit_power_sum? digits, sum
+                  total += sum
                 end
               end
             end
@@ -39,5 +30,15 @@ module Solver
     end
 
     total
+  end
+
+  def self.digit_power_sum?(digits, sum)
+    if sum == 1
+      false
+    else
+      sum_digits = sum.to_s.rjust(6, '0').chars.map(&:to_i)
+
+      sum_digits.sort == digits
+    end
   end
 end
