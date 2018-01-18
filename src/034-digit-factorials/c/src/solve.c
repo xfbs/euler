@@ -4,7 +4,7 @@ uint64_t solve(uint64_t max)
 {
     uint64_t sum = 0;
 
-    for(uint64_t num = 10; num < max; num++) {
+    for(uint64_t num = 10; num <= max; num++) {
         if(is_curious_number(num)) {
             sum += num;
         }
