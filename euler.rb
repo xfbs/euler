@@ -74,38 +74,42 @@ class Implementation
     @lang = File.basename(@path)
   end
 
-  def solve
-    stdout, _, status = Open3.capture3("cd \"#{@path}\" && make solve")
+  def solve opts=[]
+    opts = opts.join(' ')
+    stdout, _, status = Open3.capture3("cd \"#{@path}\" && make solve #{opts}")
 
     # throw exception if stderr is not empty?
     return nil if status != 0
     stdout.chomp
   end
 
-  def build
-    out, status = Open3.capture2e("cd \"#{@path}\" && make")
+  def build opts=[]
+    opts = opts.join(' ')
+    out, status = Open3.capture2e("cd \"#{@path}\" && make build #{opts}")
     return status == 0, out
   end
 
-  def test
-    out, status = Open3.capture2e("cd \"#{@path}\" && make test")
+  def test opts=[]
+    opts = opts.join(' ')
+    out, status = Open3.capture2e("cd \"#{@path}\" && make test #{opts}")
     [status == 0, out]
   end
 
-  def clean
-    _, _, status = Open3.capture3("cd \"#{@path}\" && make clean")
+  def clean opts=[]
+    opts = opts.join(' ')
+    _, _, status = Open3.capture3("cd \"#{@path}\" && make clean #{opts}")
     status == 0
   end
 
-  def check
-    solution = solve
+  def check opts=[]
+    solution = solve opts
     @problem.check_solution solution if solution
   end
 
-  def check_timed
+  def check_timed opts=[]
     solution = nil
     time = Benchmark.measure do
-      solution = solve
+      solution = solve opts
     end
 
     [solution && @problem.check_solution(solution), time, nil]
@@ -180,6 +184,8 @@ class ActionDefault
     require 'pathname'
     require 'open3'
 
+    @makeopts = []
+
     @options = OptionParser.new do |opts|
       opts.version = "1.0.0"
       opts.on('-v', '--verbose', "Increases verbosity level") do |o|
@@ -191,6 +197,9 @@ class ActionDefault
       end
       opts.on('-t', '--threads COUNT', "How many threads to use (defalt 1)") do |o|
         @threads = o.to_i
+      end
+      opts.on("--makeopt OPTION", "Option to pass on to make") do |o|
+        @makeopts << o
       end
     end
   end
@@ -465,14 +474,14 @@ class ActionCheck < ActionDefault
 
   def check impl
     yield({:state => :build})
-    res, err = impl.build
+    res, err = impl.build @makeopts
     unless res
       yield({:state => :error, :kind => :build, :desc => "build error", :error => err})
       return
     end
 
     yield({:state => :test})
-    res, err = impl.test
+    res, err = impl.test @makeopts
     unless res
       yield({:state => :error, :kind => :test, :desc => "test error", :error => err})
       return
@@ -481,7 +490,7 @@ class ActionCheck < ActionDefault
     yield({:state => :verify})
     times = []
     @repeat.times do
-      res, time, err = impl.check_timed
+      res, time, err = impl.check_timed @makeopts
 
       unless res
         yield({:state => :error, :kind => :verify, :desc => "incorrect result", :error => err})
@@ -670,10 +679,10 @@ class ActionVerify < ActionDefault
 
   def check_single to_check
     to_check.each do |impl|
-      impl.build
-      result = impl.check
+      impl.build @makeopts
+      result = impl.check @makeopts
       @formatter.result(impl, result)
-      impl.clean
+      impl.clean @makeopts
     end
   end
 
@@ -691,9 +700,9 @@ class ActionVerify < ActionDefault
           rescue Exception => _
             break
           end
-          job.build
-          res = job.check
-          job.clean
+          job.build @makeopts
+          res = job.check @makeopts
+          job.clean @makeopts
           m.synchronize do
             @formatter.result(job, res)
           end
@@ -716,7 +725,7 @@ class ActionBuild < ActionDefault
     @options.parse!
 
     Implementation.all.each do |impl|
-      result, _ = impl.build
+      result, _ = impl.build @makeopts
 
       if !result
         print "error "
@@ -740,7 +749,7 @@ class ActionClean < ActionDefault
     @options.parse!
 
     Implementation.all.each do |impl|
-      result = impl.clean
+      result = impl.clean @makeopts
 
       if !result
         print "error "
@@ -775,11 +784,11 @@ class ActionTiming < ActionDefault
       impl.build
       (@repeats || 1).times do
         times <<  Benchmark.measure do
-          res, _ = impl.check
+          res, _ = impl.check @makeopts
           works = res if works.nil? or res==false
         end
       end
-      impl.clean
+      impl.clean @makeopts
       result impl, works, times
     end
   end
@@ -825,7 +834,7 @@ class ActionTest < ActionDefault
     Implementation.all
       .select{|i| @lang.empty? or @lang.include? i.lang}
       .each do |impl|
-      works, out = impl.test
+      works, out = impl.test @makeopts
       dandy = false unless works
       result impl, works, out
     end
@@ -961,9 +970,9 @@ class ActionGoals < ActionDefault
 
     @formatter.setup
     Implementation.all.each do |impl|
-      impl.build
-      @formatter.result(impl, impl.check)
-      impl.clean
+      impl.build @makeopts
+      @formatter.result(impl, impl.check(@makeopts))
+      impl.clean @makeopts
     end
     @formatter.done
   end
