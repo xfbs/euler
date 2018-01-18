@@ -1,5 +1,5 @@
-#include "solve.h"
 #include <stdio.h>
+#include "solve.h"
 
 static int alphabetical(const void *_a, const void *_b)
 {
