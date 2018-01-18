@@ -57,61 +57,61 @@ means not implemented).
 <details>
   <summary>Click to view</summary>
 
-| problem | crystal |   c | ruby | rust | python | *avg* |
-| ------- | ------- | --- | ---- | ---- | ------ | ----- |
-| [`001`](https://projecteuler.net/problem=001) | 16ms | 12ms | 80ms | 16ms | 60ms | 36ms |
-| [`002`](https://projecteuler.net/problem=002) | 20ms | 14ms | 72ms | 14ms | 48ms | 33ms |
-| [`003`](https://projecteuler.net/problem=003) | 18ms | 12ms | 96ms | 22ms | 56ms | 40ms |
-| [`004`](https://projecteuler.net/problem=004) | 78ms | 22ms | 114ms | 24ms | 64ms | 60ms |
-| [`005`](https://projecteuler.net/problem=005) | 16ms | 10ms | 72ms | 12ms | 48ms | 31ms |
-| [`006`](https://projecteuler.net/problem=006) | 16ms | 10ms | 70ms | 14ms | 52ms | 32ms |
-| [`007`](https://projecteuler.net/problem=007) | 30ms | 20ms | 168ms | 22ms | 212ms | 90ms |
-| [`008`](https://projecteuler.net/problem=008) | 24ms | 14ms | 74ms | 16ms | 54ms | 36ms |
-| [`009`](https://projecteuler.net/problem=009) | 18ms | 12ms | 70ms | 16ms | 92ms | 41ms |
-| [`010`](https://projecteuler.net/problem=010) | 152ms | 278ms | 370ms | 34ms | 546ms | 276ms |
-| [`011`](https://projecteuler.net/problem=011) | 18ms | 12ms | 84ms | 12ms | 66ms | 38ms |
-| [`012`](https://projecteuler.net/problem=012) | 76ms | 44ms | 690ms | 40ms | 1126ms | 395ms |
-| [`013`](https://projecteuler.net/problem=013) | 20ms | 12ms | 68ms | 14ms | 54ms | 33ms |
-| [`014`](https://projecteuler.net/problem=014) | 542ms | 58ms | 1486ms | 36ms | 2264ms | 877ms |
-| [`015`](https://projecteuler.net/problem=015) | 18ms | 16ms | 72ms | 22ms | 50ms | 35ms |
-| [`016`](https://projecteuler.net/problem=016) | 18ms | 16ms | 70ms | 18ms | 52ms | 34ms |
-| [`017`](https://projecteuler.net/problem=017) | 48ms | 12ms | 132ms | 18ms | 56ms | 53ms |
-| [`018`](https://projecteuler.net/problem=018) | 20ms | 16ms | 74ms | 14ms | 56ms | 36ms |
-| [`019`](https://projecteuler.net/problem=019) | 20ms | 12ms | 70ms | 20ms |      | 30ms |
-| [`020`](https://projecteuler.net/problem=020) | 16ms | 12ms | 70ms | 14ms | 58ms | 34ms |
-| [`021`](https://projecteuler.net/problem=021) | 78ms | 30ms | 480ms | 32ms | 184ms | 160ms |
-| [`022`](https://projecteuler.net/problem=022) | 34ms | 22ms | 94ms |      |      | 50ms |
-| [`023`](https://projecteuler.net/problem=023) | 610ms | 94ms |      |      |      | 352ms |
-| [`024`](https://projecteuler.net/problem=024) | 18ms | 12ms | 72ms | 18ms |      | 30ms |
-| [`025`](https://projecteuler.net/problem=025) | 18ms | 14ms | 74ms | 18ms | 50ms | 34ms |
-| [`026`](https://projecteuler.net/problem=026) | 48ms |      | 150ms |      |      | 99ms |
-| [`027`](https://projecteuler.net/problem=027) | 230ms | 78ms |      |      |      | 154ms |
-| [`028`](https://projecteuler.net/problem=028) | 16ms | 12ms | 76ms | 14ms | 52ms | 34ms |
-| [`029`](https://projecteuler.net/problem=029) | 148ms | 16ms | 86ms | 18ms | 64ms | 66ms |
-| [`030`](https://projecteuler.net/problem=030) | 28ms | 32ms | 118ms |      | 90ms | 67ms |
-| [`031`](https://projecteuler.net/problem=031) | 48ms | 16ms | 142ms | 18ms | 166ms | 78ms |
-| [`032`](https://projecteuler.net/problem=032) | 304ms | 760ms |      |      |      | 532ms |
-| [`033`](https://projecteuler.net/problem=033) | 18ms | 12ms | 70ms |      |      | 33ms |
-| [`034`](https://projecteuler.net/problem=034) | 62ms | 418ms | 174ms |      |      | 218ms |
-| [`035`](https://projecteuler.net/problem=035) | 638ms | 146ms |      |      |      | 392ms |
-| [`036`](https://projecteuler.net/problem=036) | 14ms | 160ms | 76ms |      |      | 83ms |
-| [`037`](https://projecteuler.net/problem=037) | 168ms | 92ms |      |      |      | 130ms |
-| [`038`](https://projecteuler.net/problem=038) | 78ms | 14ms | 186ms | 18ms |      | 74ms |
-| [`039`](https://projecteuler.net/problem=039) | 20ms | 14ms | 96ms | 16ms |      | 36ms |
-| [`040`](https://projecteuler.net/problem=040) | 20ms | 16ms | 72ms | 22ms | 66ms | 39ms |
-| [`041`](https://projecteuler.net/problem=041) | 496ms | 210ms |      |      |      | 353ms |
-| [`042`](https://projecteuler.net/problem=042) | 24ms |      | 80ms |      |      | 52ms |
-| [`043`](https://projecteuler.net/problem=043) | 20ms | 14ms | 72ms |      |      | 35ms |
-| [`044`](https://projecteuler.net/problem=044) | 100ms | 42ms | 624ms |      |      | 255ms |
-| [`045`](https://projecteuler.net/problem=045) | 20ms | 18ms | 90ms | 20ms | 102ms | 50ms |
-| [`046`](https://projecteuler.net/problem=046) | 36ms | 16ms | 268ms |      |      | 106ms |
-| [`047`](https://projecteuler.net/problem=047) | 74ms | 40ms |      |      |      | 57ms |
-| [`048`](https://projecteuler.net/problem=048) | 68ms | 16ms | 78ms | 32ms | 54ms | 49ms |
-| [`049`](https://projecteuler.net/problem=049) | 236ms | 218ms |      |      |      | 227ms |
-| [`050`](https://projecteuler.net/problem=050) | 18ms | 14ms | 78ms | 164ms |      | 68ms |
-| [`052`](https://projecteuler.net/problem=052) | 124ms | 58ms | 302ms |      |      | 161ms |
-| *average* | 98ms | 65ms | 175ms | 24ms | 208ms | 114ms |
-| *count* | 51 | 49 | 43 | 32 | 28 | 203 |
+| problem | crystal | ruby |   c | rust | python | *avg* |
+| ------- | ------- | ---- | --- | ---- | ------ | ----- |
+| [`001`](https://projecteuler.net/problem=001) | 20ms | 70ms | 12ms | 16ms | 60ms | 35ms |
+| [`002`](https://projecteuler.net/problem=002) | 22ms | 68ms | 12ms | 16ms | 48ms | 33ms |
+| [`003`](https://projecteuler.net/problem=003) | 20ms | 88ms | 12ms | 16ms | 54ms | 38ms |
+| [`004`](https://projecteuler.net/problem=004) | 78ms | 120ms | 20ms | 20ms | 60ms | 59ms |
+| [`005`](https://projecteuler.net/problem=005) | 16ms | 72ms | 14ms | 16ms | 48ms | 33ms |
+| [`006`](https://projecteuler.net/problem=006) | 22ms | 96ms | 12ms | 14ms | 72ms | 43ms |
+| [`007`](https://projecteuler.net/problem=007) | 34ms | 162ms | 24ms | 24ms | 220ms | 92ms |
+| [`008`](https://projecteuler.net/problem=008) | 18ms | 76ms | 14ms | 16ms | 78ms | 40ms |
+| [`009`](https://projecteuler.net/problem=009) | 18ms | 92ms | 14ms | 14ms | 106ms | 48ms |
+| [`010`](https://projecteuler.net/problem=010) | 150ms | 424ms | 300ms | 34ms | 614ms | 304ms |
+| [`011`](https://projecteuler.net/problem=011) | 22ms | 86ms | 14ms | 16ms | 66ms | 40ms |
+| [`012`](https://projecteuler.net/problem=012) | 82ms | 720ms | 56ms | 48ms | 1190ms | 419ms |
+| [`013`](https://projecteuler.net/problem=013) | 20ms | 76ms | 16ms | 16ms | 48ms | 35ms |
+| [`014`](https://projecteuler.net/problem=014) | 654ms | 1670ms | 72ms | 40ms | 2418ms | 970ms |
+| [`015`](https://projecteuler.net/problem=015) | 16ms | 78ms | 18ms | 18ms | 58ms | 37ms |
+| [`016`](https://projecteuler.net/problem=016) | 18ms | 72ms | 18ms | 16ms | 54ms | 35ms |
+| [`017`](https://projecteuler.net/problem=017) | 58ms | 108ms | 16ms | 14ms | 60ms | 51ms |
+| [`018`](https://projecteuler.net/problem=018) | 18ms | 84ms | 14ms | 14ms | 50ms | 36ms |
+| [`019`](https://projecteuler.net/problem=019) | 22ms | 74ms | 14ms | 12ms |      | 30ms |
+| [`020`](https://projecteuler.net/problem=020) | 22ms | 72ms | 18ms | 12ms | 54ms | 35ms |
+| [`021`](https://projecteuler.net/problem=021) | 80ms | 480ms | 26ms | 30ms | 190ms | 161ms |
+| [`022`](https://projecteuler.net/problem=022) | 36ms | 92ms | 24ms | 16ms | 74ms | 48ms |
+| [`023`](https://projecteuler.net/problem=023) | 620ms | 2500ms | 98ms | 70ms |      | 822ms |
+| [`024`](https://projecteuler.net/problem=024) | 16ms | 72ms | 16ms | 12ms |      | 29ms |
+| [`025`](https://projecteuler.net/problem=025) | 16ms | 68ms | 12ms | 14ms | 52ms | 32ms |
+| [`026`](https://projecteuler.net/problem=026) | 56ms | 144ms |      |      |      | 100ms |
+| [`027`](https://projecteuler.net/problem=027) | 230ms | 994ms | 76ms |      |      | 433ms |
+| [`028`](https://projecteuler.net/problem=028) | 16ms | 68ms | 14ms | 14ms | 54ms | 33ms |
+| [`029`](https://projecteuler.net/problem=029) | 152ms | 90ms | 14ms | 12ms | 64ms | 66ms |
+| [`030`](https://projecteuler.net/problem=030) | 32ms | 104ms | 28ms |      | 90ms | 63ms |
+| [`031`](https://projecteuler.net/problem=031) | 38ms | 106ms | 14ms | 16ms | 126ms | 60ms |
+| [`032`](https://projecteuler.net/problem=032) | 302ms | 1212ms | 764ms |      |      | 759ms |
+| [`033`](https://projecteuler.net/problem=033) | 18ms | 76ms | 14ms |      |      | 36ms |
+| [`034`](https://projecteuler.net/problem=034) | 58ms | 166ms | 420ms | 52ms |      | 174ms |
+| [`035`](https://projecteuler.net/problem=035) | 636ms | 3650ms | 150ms | 184ms |      | 1155ms |
+| [`036`](https://projecteuler.net/problem=036) | 16ms | 72ms | 162ms |      |      | 83ms |
+| [`037`](https://projecteuler.net/problem=037) | 164ms |      | 100ms |      |      | 132ms |
+| [`038`](https://projecteuler.net/problem=038) | 76ms | 172ms | 12ms | 14ms |      | 68ms |
+| [`039`](https://projecteuler.net/problem=039) | 24ms | 100ms | 14ms | 12ms |      | 37ms |
+| [`040`](https://projecteuler.net/problem=040) | 14ms | 68ms | 16ms | 14ms | 48ms | 32ms |
+| [`041`](https://projecteuler.net/problem=041) | 490ms |      | 214ms |      |      | 352ms |
+| [`042`](https://projecteuler.net/problem=042) | 20ms | 78ms |      |      |      | 49ms |
+| [`043`](https://projecteuler.net/problem=043) | 16ms | 68ms | 12ms |      |      | 32ms |
+| [`044`](https://projecteuler.net/problem=044) | 94ms | 626ms | 40ms |      |      | 253ms |
+| [`045`](https://projecteuler.net/problem=045) | 16ms | 88ms | 12ms | 16ms | 106ms | 47ms |
+| [`046`](https://projecteuler.net/problem=046) | 44ms | 260ms | 14ms |      |      | 106ms |
+| [`047`](https://projecteuler.net/problem=047) | 72ms | 438ms | 46ms |      |      | 185ms |
+| [`048`](https://projecteuler.net/problem=048) | 60ms | 80ms | 22ms | 34ms | 58ms | 50ms |
+| [`049`](https://projecteuler.net/problem=049) | 224ms | 1014ms | 244ms |      |      | 494ms |
+| [`050`](https://projecteuler.net/problem=050) | 18ms | 72ms | 14ms | 168ms |      | 68ms |
+| [`052`](https://projecteuler.net/problem=052) | 118ms | 290ms | 60ms |      |      | 156ms |
+| *average* | 100ms | 358ms | 68ms | 29ms | 214ms | 153ms |
+| *count* | 51 | 49 | 49 | 36 | 29 | 214 |
 
 </details>
 
@@ -194,6 +194,7 @@ Read the source code of the Makefile for more details.
 
 ### ToDo
 
+  - [ ] problem 049, change algorithm to be more efficient
   - [ ] export `010/rust` sieve code, free it from `bit-vec`
   - [ ] properly test `lib/rust/euler/prime.rs`
   - [ ] comment and clean up all solutions
@@ -201,6 +202,7 @@ Read the source code of the Makefile for more details.
   - [ ] improve execution speed on some ruby/python solutions
   - [ ] solve all problems up to problem 100
   - [ ] add solutions in another language (scheme, ocaml, cpp)
+  - [ ] change from `python3` to `pypy3` for a little speed boost
 
 ## Other Repositories
 
@@ -233,7 +235,11 @@ bundled into the repository:
 ## Planned Languages:
 
   - [chez scheme](https://github.com/cisco/ChezScheme), because I never really
-    worked with a scheme before and it's reportedly very fast.
+    worked with a scheme before and it's reportedly very fast. **Edit**: I might
+    use a different flavour of Scheme, [chicken scheme](http://call-cc.org),
+    because it seems a little more simplistic and doesn't have the overhead of
+    an interpreter since it's compiled (although, it might be slower than
+    `chez`).
   - [ocaml](https://github.com/ocaml/ocaml) because I keep hearing about it in
     unexpected places and it got me curious.
   - [nodejs](https://github.com/nodejs/node) because all the cool kids are doing
