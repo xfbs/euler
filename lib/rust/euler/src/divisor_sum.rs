@@ -1,0 +1,1 @@
+../../../../src/021-amicable-numbers/rust/src/divisor_sum.rs
