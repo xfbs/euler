@@ -240,6 +240,9 @@ bundled into the repository:
     because it seems a little more simplistic and doesn't have the overhead of
     an interpreter since it's compiled (although, it might be slower than
     `chez`).
+  - [idris](https://www.idris-lang.org), because it might be an interesting way
+    to get into haskell, and it has support for some cool features like
+    automagic proofs and a totality checker.
   - [ocaml](https://github.com/ocaml/ocaml) because I keep hearing about it in
     unexpected places and it got me curious.
   - [nodejs](https://github.com/nodejs/node) because all the cool kids are doing
