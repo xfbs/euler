@@ -71,3 +71,11 @@ bool prime_check(prime_t *p, uint32_t num)
 
     return true;
 }
+
+size_t primes_below(prime_t *p, uint32_t n)
+{
+    size_t i = 10;
+    while(prime_nth(p, i) < n) i += 10;
+    while(prime_nth(p, i) > n) i--;
+    return i+1;
+}

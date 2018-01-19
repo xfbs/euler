@@ -16,14 +16,6 @@ uint32_t solve(size_t max)
     return bitvec_count(&b);
 }
 
-size_t primes_below(prime_t *p, uint32_t n)
-{
-    size_t i = 10;
-    while(prime_nth(p, i) < n) i += 10;
-    while(prime_nth(p, i) > n) i--;
-    return i+1;
-}
-
 void check_prime_cycle(prime_t *p, bitvec_t *b, size_t cur)
 {
     uint32_t num = prime_nth(p, cur);
