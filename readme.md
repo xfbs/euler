@@ -203,6 +203,7 @@ Read the source code of the Makefile for more details.
   - [ ] solve all problems up to problem 100
   - [ ] add solutions in another language (scheme, ocaml, cpp)
   - [ ] change from `python3` to `pypy3` for a little speed boost
+  - [ ] rename `simple_prime.h` to just `prime.h`, add `sieve.h`
 
 ## Other Repositories
 
