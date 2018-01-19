@@ -1,3 +1,5 @@
+#include <stdbool.h>
+#include <stdlib.h>
 #include "solve.h"
 
 uint32_t solve()
