@@ -21,25 +21,22 @@ uint32_t solve()
     return vec16_sum(&products);
 }
 
+static inline bool check_digits(bool digits[10], uint32_t num) {
+    for( ; num > 0; num /= 10) {
+        if(digits[num % 10]) return false;
+        digits[num % 10] = true;
+    }
+
+    return true;
+}
+
 uint32_t pandigital_product(uint32_t a, uint32_t b)
 {
     bool digits[10] = {false};
-    uint32_t product = a * b;
-    uint32_t p = product;
+    uint32_t p = a * b;
 
-    for( ; a > 0; a /= 10) {
-        if(digits[a % 10]) return 0;
-        digits[a % 10] = true;
-    }
-
-    for( ; b > 0; b /= 10) {
-        if(digits[b % 10]) return 0;
-        digits[b % 10] = true;
-    }
-
-    for( ; p > 0; p /= 10) {
-        if(digits[p % 10]) return 0;
-        digits[p % 10] = true;
+    if(!check_digits(digits, a) || !check_digits(digits, b) || !check_digits(digits, p)) {
+        return 0;
     }
 
     for(size_t digit = 0; digit < 10; digit++) {
@@ -48,5 +45,5 @@ uint32_t pandigital_product(uint32_t a, uint32_t b)
         }
     }
 
-    return product;
+    return p;
 }
