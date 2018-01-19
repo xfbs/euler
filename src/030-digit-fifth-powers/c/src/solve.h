@@ -1,7 +1,4 @@
-#include <stdbool.h>
-#include <string.h>
 #include <stdint.h>
-#include <stdlib.h>
 #pragma once
 
 uint32_t solve();

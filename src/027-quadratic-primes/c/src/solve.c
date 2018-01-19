@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "solve.h"
 
 int32_t solve(int32_t max)

@@ -1,5 +1,5 @@
-#include <euler/divisor_sum.h>
 #include <stdbool.h>
+#include <euler/divisor_sum.h>
 #include "solve.h"
 
 uint32_t solve(size_t max)

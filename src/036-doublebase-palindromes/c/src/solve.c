@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <stdio.h>
 
-uint32_t solve(size_t max)
+uint32_t solve(uint32_t max)
 {
     uint32_t sum = 0;
 
@@ -14,7 +14,7 @@ uint32_t solve(size_t max)
     return sum;
 }
 
-bool is_palindrome(uint32_t num, size_t base)
+bool is_palindrome(uint32_t num, uint32_t base)
 {
     uint32_t mag = 1;
     uint32_t max = base;

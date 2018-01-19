@@ -1,6 +1,10 @@
+#include <stdbool.h>
+#include <stddef.h>
+#include <string.h>
 #include "solve.h"
 
 uint32_t solve() {
+    // TODO: can we simplify this?
     uint8_t nums[6] = {2, 0, 0, 0, 0, 0};
     uint32_t sum = 0;
 

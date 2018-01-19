@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include <stddef.h>
 #pragma once
 
-uint64_t solve(size_t exp);
+uint64_t solve(uint32_t exp);

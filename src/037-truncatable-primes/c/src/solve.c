@@ -3,7 +3,7 @@
 uint32_t solve(size_t max)
 {
     prime_t p = prime_new();
-    size_t sum = 0;
+    uint32_t sum = 0;
 
     // we start with the fourth prime, which is 11, because primes below 10 are
     // not considered truncatable.

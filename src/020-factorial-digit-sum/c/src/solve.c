@@ -1,7 +1,7 @@
 #include "solve.h"
 #include "euler/vec16.h"
 
-uint64_t solve(size_t exp)
+uint64_t solve(uint32_t exp)
 {
     vec16_t num = vec16_new(1, 1);
 
