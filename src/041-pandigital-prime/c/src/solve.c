@@ -1,7 +1,4 @@
 #include <euler/simple_prime.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <math.h>
 #include "euler/factorial.h"
 #include "euler/pandigital.h"
 #include "solve.h"
