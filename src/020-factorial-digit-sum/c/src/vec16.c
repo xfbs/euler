@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "euler/vec16.h"
 
 vec16_t vec16_new(size_t len, uint16_t fill)
@@ -59,4 +60,26 @@ void vec16_free(vec16_t *v)
 void vec16_clear(vec16_t *v)
 {
     v->len = 0;
+}
+
+size_t vec16_index(vec16_t *v, uint16_t data)
+{
+    for(size_t pos = 0; pos < vec16_len(v); pos++) {
+        if(vec16_get(v, pos) == data) {
+            return pos;
+        }
+    }
+
+    return SIZE_MAX;
+}
+
+uint64_t vec16_sum(vec16_t *v)
+{
+    uint64_t sum = 0;
+
+    for(size_t pos = 0; pos < vec16_len(v); pos++) {
+        sum += vec16_get(v, pos);
+    }
+
+    return sum;
 }

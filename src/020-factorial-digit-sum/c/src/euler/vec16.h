@@ -1,6 +1,5 @@
-#include <stdlib.h>
-#include <string.h>
 #include <stdint.h>
+#include <stddef.h>
 #pragma once
 
 typedef struct {
@@ -17,3 +16,5 @@ size_t vec16_push(vec16_t *v, uint16_t data);
 size_t vec16_len(vec16_t *v);
 void vec16_free(vec16_t *v);
 void vec16_clear(vec16_t *v);
+size_t vec16_index(vec16_t *v, uint16_t data);
+uint64_t vec16_sum(vec16_t *v);
