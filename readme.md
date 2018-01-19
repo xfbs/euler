@@ -58,7 +58,7 @@ means not implemented).
   <summary>Click to view</summary>
 
 | problem | crystal | ruby |   c | rust | python | *avg* |
-| ------- | ------- | ---- | --- | ---- | ------ | ----- |
+| ------: | ------- | ---- | --- | ---- | ------ | ----- |
 | [`001`](https://projecteuler.net/problem=001) | 16ms | 68ms | 10ms | 16ms | 54ms | 32ms |
 | [`002`](https://projecteuler.net/problem=002) | 16ms | 86ms | 14ms | 14ms | 62ms | 38ms |
 | [`003`](https://projecteuler.net/problem=003) | 26ms | 100ms | 14ms | 18ms | 76ms | 46ms |
