@@ -1,11 +1,16 @@
+#include <euler/factorial.h>
 #include "solve.h"
 
 uint64_t solve(uint64_t max)
 {
+    // pre-populate a list of all the factorials we will need
+    uint64_t factorials[10];
+    for(uint8_t i = 0; i < 10; i++) factorials[i] = factorial(i);
+
     uint64_t sum = 0;
 
-    for(uint64_t num = 10; num <= max; num++) {
-        if(is_curious_number(num)) {
+    for(uint64_t num = 3; num <= max; num++) {
+        if(is_curious_number(factorials, num)) {
             sum += num;
         }
     }
@@ -13,22 +18,13 @@ uint64_t solve(uint64_t max)
     return sum;
 }
 
-static uint64_t factorial(uint64_t num)
+bool is_curious_number(uint64_t factorials[], uint64_t num)
 {
-    if(num == 0) return 1;
-    return num * factorial(num - 1);
-}
-
-bool is_curious_number(uint64_t num)
-{
-    static uint64_t memo[10] = {0};
     uint64_t cur = num;
     uint64_t sum = 0;
 
     while(sum < num && cur) {
-        uint8_t digit = cur % 10;
-        if(!memo[digit]) memo[digit] = factorial(digit);
-        sum += memo[digit];
+        sum += factorials[cur % 10];
         cur /= 10;
     }
 

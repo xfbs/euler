@@ -58,3 +58,16 @@ size_t prime_which(prime_t *p, uint32_t pr)
     if(r) return r - p->primes;
     return SIZE_MAX;
 }
+
+bool prime_check(prime_t *p, uint32_t num)
+{
+    uint32_t root = sqrt(num);
+
+    for(size_t i = 0; prime_nth(p, i) < root; i++) {
+        if((num % prime_nth(p, i)) == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
