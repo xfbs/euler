@@ -1,6 +1,7 @@
+#include <euler/gcd_lcm.h>
 #include "solve.h"
 
-uint32_t solve(size_t max)
+uint32_t solve(uint32_t max)
 {
     uint32_t l = 1;
 

@@ -1,3 +1,4 @@
+#include <math.h>
 #include "solve.h"
 #define prime(x) shitty_primality_test(x)
 

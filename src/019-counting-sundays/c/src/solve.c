@@ -1,5 +1,4 @@
 #include "solve.h"
-#include <assert.h>
 
 uint32_t solve(date_t start, date_t end)
 {
@@ -43,7 +42,6 @@ date_t next_month(date_t date)
 {
     // find out how many days the next first of the month is away
     size_t distance = month_length(date);
-    assert(date.day <= distance);
     distance -= (date.day-1);
 
     // set day to first of month

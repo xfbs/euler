@@ -1,6 +1,8 @@
+#include <math.h>
+#include "euler/palindrome.h"
 #include "solve.h"
 
-uint32_t solve(size_t digits)
+uint32_t solve(uint32_t digits)
 {
     uint32_t min = pow(10, digits-1);
     uint32_t max = pow(10, digits);

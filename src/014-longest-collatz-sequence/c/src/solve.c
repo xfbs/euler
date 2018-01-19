@@ -1,5 +1,5 @@
-#include "solve.h"
 #include "euler/collatz.h"
+#include "solve.h"
 
 uint32_t solve(uint32_t limit)
 {
