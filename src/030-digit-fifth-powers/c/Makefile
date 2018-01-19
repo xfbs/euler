@@ -1,17 +1,17 @@
-# some problems requite auxillary datafiles, which are discovered automatically
-# by being a .txt file in the problem root folder.
-# LIBDIR is the directory for shared code between C solutions.
-# CFLAGS and LDFLAGS are flags passed to the compiler for compilation or
-# linking, they are set to include LIBDIR in the search path for headers, to use
-# a modern version of C, and to show extra warnings.
-# SOURCES are all the .c files that are to be compiled, containing the functions
-# to solve the problem.
-# LIBEULER is a shared library with functions from other solutions to reuse.
-# TARGETS are all binaries to be built.
+# DATAFILE 	is a file that is passed to the solver that contains data provided
+# 			for the problem.
+# LIBDIR 	is a directory for shared code between C solutions.
+# OPTIMISE 	sets the optimisation level used by the compiler and linker.
+# CFLAGS 	are flags passed to the compiler for compilation
+# LDFLAGS	are flags passed to the linker for linking.
+# SOURCES 	are all the .c files that are to be compiled
+# LIBEULER 	is a library of functions to be shared across solutions.
+# TARGETS 	are all binaries to be built.
 DATAFILE = $(wildcard ../*.txt)
 LIBDIR   = ../../../lib/c
-CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c99 -Wall -pedantic
-LDFLAGS  = -lm
+OPTIMISE = -O3
+CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c99 -Wall -pedantic $(OPTIMISE)
+LDFLAGS  = -lm $(OPTIMISE)
 SOURCES  = $(wildcard src/*.c)
 LIBEULER = $(LIBDIR)/lib/libeuler.a
 TARGETS  = $(wildcard bin/*.c)
