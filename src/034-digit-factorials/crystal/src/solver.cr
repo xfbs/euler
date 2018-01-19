@@ -1,3 +1,5 @@
+require "euler/factorial"
+
 module Solver
   # find the sum of all numbers where the sum of the factorial of the digits is
   # equal to the number itself. such a number can't have more than seven digits
@@ -5,7 +7,7 @@ module Solver
   # here is to basically try all numbers and see if they fit
   def self.solve
     # generate factorials of digits in advance
-    nums = (0..9).map{|n| (1..n).reduce(1){|m, c| m*c}}
+    nums = (0..9).map{|n| Euler.factorial64(n)}
 
     total = 0
 
