@@ -48,8 +48,12 @@ impl Prime {
     pub fn check(&mut self, num: u64) -> bool {
         let root = (num as f64).sqrt() as u64;
 
-        while *self.list.last().unwrap() < root {
+        while *self.list.last().unwrap() <= root {
             self.next();
+        }
+
+        if num < 2 {
+            return false
         }
 
         self.check_fast(num).unwrap()
@@ -111,6 +115,24 @@ fn test_prime_nth() {
     assert!(p.nth(8) == 19);
     assert!(p.nth(9) == 23);
     assert!(p.nth(10) == 29);
-    assert!(p.nth(11) == 31);
     assert!(p.nth(12) == 37);
+}
+
+#[test]
+fn test_prime_check() {
+    let mut p = Prime::new();
+
+    assert!(!p.check(0));
+    assert!(!p.check(1));
+    assert!(p.check(2));
+    assert!(p.check(3));
+    assert!(p.check(13));
+    assert!(!p.check(21));
+}
+
+#[test]
+fn test_prime_iter() {
+    let mut p = Prime::new();
+    let ten = p.into_iter().take_while(|p| *p < 10).collect::<Vec<u64>>();
+    assert_eq!(ten, vec![2, 3, 5, 7]);
 }
