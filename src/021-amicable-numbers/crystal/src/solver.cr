@@ -1,10 +1,10 @@
-require "euler/divisor_sum"
+require "euler/divisors"
 
 module Solver
   def self.amicable_pair(num)
-    partner = Euler.divisor_sum(num)
+    partner = Euler.divisors(num).sum
 
-    if num != partner && num == Euler.divisor_sum(partner)
+    if num != partner && num == Euler.divisors(partner).sum
       partner
     else
       nil
