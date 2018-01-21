@@ -1,7 +1,7 @@
 require "minitest/autorun"
-require "../src/euler/divisor_sum"
+require "../src/euler/divisors"
 
-class DivisorSumTest < Minitest::Test
+class DivisorsTest < Minitest::Test
   def test_divisors
     assert_equal Euler.divisors(1).to_a, [1]
     assert_equal Euler.divisors(2).to_a, [1]
