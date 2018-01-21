@@ -2,7 +2,7 @@ require "minitest/autorun"
 require "../src/euler/factorial"
 
 class FactorialTest < Minitest::Test
-  def test_factorial
+  def test_factorial64
     assert_equal Euler.factorial64(0), 1u64
     assert_equal Euler.factorial64(1), 1u64
     assert_equal Euler.factorial64(2), 1u64*2

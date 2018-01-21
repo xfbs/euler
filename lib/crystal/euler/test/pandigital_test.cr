@@ -2,28 +2,30 @@ require "minitest/autorun"
 require "../src/euler/pandigital"
 
 class PandigitalTest < Minitest::Test
-  def test_pandigital
-    # length one
-    assert_equal Euler.pandigital(1, 0), 1
+  def test_pandigital_len_one
+    assert_equal Euler.pandigital(len: 1, nth: 0), 1
+  end
 
-    # length two
-    assert_equal Euler.pandigital(2, 0), 12
-    assert_equal Euler.pandigital(2, 1), 21
+  def test_pandigital_len_two
+    assert_equal Euler.pandigital(len: 2, nth: 0), 12
+    assert_equal Euler.pandigital(len: 2, nth: 1), 21
+  end
 
-    # length three
-    assert_equal Euler.pandigital(3, 0), 123
-    assert_equal Euler.pandigital(3, 1), 132
-    assert_equal Euler.pandigital(3, 2), 213
-    assert_equal Euler.pandigital(3, 3), 231
-    assert_equal Euler.pandigital(3, 4), 312
-    assert_equal Euler.pandigital(3, 5), 321
+  def test_pandigital_len_three
+    assert_equal Euler.pandigital(len: 3, nth: 0), 123
+    assert_equal Euler.pandigital(len: 3, nth: 1), 132
+    assert_equal Euler.pandigital(len: 3, nth: 2), 213
+    assert_equal Euler.pandigital(len: 3, nth: 3), 231
+    assert_equal Euler.pandigital(len: 3, nth: 4), 312
+    assert_equal Euler.pandigital(len: 3, nth: 5), 321
+  end
 
-    # length four
-    assert_equal Euler.pandigital(5, 0), 12345
-    assert_equal Euler.pandigital(5, 1), 12354
-    assert_equal Euler.pandigital(5, 2), 12435
-    assert_equal Euler.pandigital(5, 3), 12453
-    assert_equal Euler.pandigital(5, 4), 12534
-    assert_equal Euler.pandigital(5, 5), 12543
+  def test_pandigital_len_five
+    assert_equal Euler.pandigital(len: 5, nth: 0), 12345
+    assert_equal Euler.pandigital(len: 5, nth: 1), 12354
+    assert_equal Euler.pandigital(len: 5, nth: 2), 12435
+    assert_equal Euler.pandigital(len: 5, nth: 3), 12453
+    assert_equal Euler.pandigital(len: 5, nth: 4), 12534
+    assert_equal Euler.pandigital(len: 5, nth: 5), 12543
   end
 end
