@@ -1,11 +1,11 @@
-require "euler/divisor_sum"
+require "euler/divisors"
 
 module Solver
   def self.solve(max)
     # generate a list of abundant numbers up to max
     abundant = [] of Int32
     (1..max).each do |n|
-      if Euler.divisor_sum(n) > n
+      if Euler.divisors(n).sum > n
         abundant << n
       end
     end
