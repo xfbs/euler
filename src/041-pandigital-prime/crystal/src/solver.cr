@@ -1,6 +1,6 @@
 require "euler/prime"
-require "./euler/pandigital"
-require "./euler/factorial"
+require "euler/pandigital"
+require "euler/factorial"
 
 module Solver
   def self.solve(num)
