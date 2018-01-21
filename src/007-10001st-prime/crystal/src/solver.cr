@@ -1,4 +1,4 @@
-require "./euler/prime"
+require "euler/prime"
 
 module Solver
   def self.solve(n)
