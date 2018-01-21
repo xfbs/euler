@@ -207,6 +207,8 @@ Read the source code of the Makefile for more details.
   - [ ] add solutions in another language (scheme, ocaml, cpp)
   - [ ] change from `python3` to `pypy3` for a little speed boost
   - [ ] rename `simple_prime.h` to just `prime.h`, add `sieve.h`
+  - [ ] problems 30 and 34 are quite similar, export library code?
+  - [ ] don't symlink for shared code, make libraries own their code
 
 ## Other Repositories
 
@@ -267,6 +269,8 @@ bundled into the repository:
   - [nim](https://nim-lang.org), because compiling to C, it has the potential to
     be rather quick but with a larger standard library, and with a python-esque
     syntax, also quite usable.
+  - [luajit](https://luajit.org/luajit.html), because I'm already familiar with
+    lua and it claims to be the 'fastest dynamic language'.
 
 Verdict: there are far too many dope programming languages out there. I will try
 my luck with these few, but whichever I choose, there will be ten others just as
