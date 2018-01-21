@@ -1,4 +1,4 @@
-require "./divisor_sum"
+require "euler/divisor_sum"
 
 module Solver
   def self.amicable_pair(num)
