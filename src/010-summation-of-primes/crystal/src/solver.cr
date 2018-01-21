@@ -1,4 +1,4 @@
-require "./euler/sieve"
+require "euler/sieve"
 
 module Solver
   def self.solve(max)

@@ -4,9 +4,13 @@ crystal: 0.23.1
 
 targets:
   solve:
-    main: src/bin/solve.cr
+    main: solve.cr
   test:
     main: test/all.cr
+
+dependencies:
+  euler:
+    path: ../../../lib/crystal/euler
 
 development_dependencies:
   minitest:
