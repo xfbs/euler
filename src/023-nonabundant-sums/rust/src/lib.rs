@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::divisor_sum::*;
+use euler::divisors::*;
 
 pub fn solve(max: u64) -> u64 {
     let mut possible = vec![false; max as usize];
