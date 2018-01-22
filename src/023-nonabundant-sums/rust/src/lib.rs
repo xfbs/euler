@@ -1,11 +1,11 @@
 extern crate euler;
-use euler::divisors::*;
+use euler::ToDivisors;
 
 pub fn solve(max: u64) -> u64 {
     let mut possible = vec![false; max as usize];
 
     let abundant = (1..max)
-        .filter(|n| divisor_sum(*n) > *n)
+        .filter(|n| n.divisors().sum::<u64>() > *n)
         .collect::<Vec<u64>>();
 
     for a in 0..abundant.len() {
