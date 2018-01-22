@@ -1,4 +1,4 @@
-#include "euler/gcd_lcm.h"
+#include <euler/gcd_lcm.h>
 #pragma once
 
 int solve(int max, int div1, int div2);
