@@ -1,4 +1,4 @@
-#include "euler/simple_prime.h"
+#include <euler/prime.h>
 #include <euler/test.h>
 
 void test_prime_new()
@@ -69,9 +69,46 @@ void test_prime_which()
     prime_free(&p);
 }
 
+void test_prime_check()
+{
+    prime_t p = prime_new();
+
+    assert(prime_check(&p, 2));
+    assert(prime_check(&p, 3));
+    assert(prime_check(&p, 5));
+    assert(prime_check(&p, 7));
+    assert(prime_check(&p, 11));
+    assert(prime_check(&p, 13));
+    assert(prime_check(&p, 17));
+    assert(prime_check(&p, 19));
+    assert(prime_check(&p, 23));
+
+    assert(!prime_check(&p, 0));
+    assert(!prime_check(&p, 1));
+    assert(!prime_check(&p, 4));
+    assert(!prime_check(&p, 6));
+    assert(!prime_check(&p, 8));
+    assert(!prime_check(&p, 9));
+    assert(!prime_check(&p, 10));
+    assert(!prime_check(&p, 15));
+
+    prime_free(&p);
+}
+
+void test_prime_below()
+{
+    prime_t p = prime_new();
+
+    assert(prime_below(&p, 10) == 4);
+    assert(prime_below(&p, 20) == 8);
+    assert(prime_below(&p, 100) == 25);
+}
+
 TESTS() {
     RUN(test_prime_new);
     RUN(test_prime_free);
     RUN(test_prime_nth);
     RUN(test_prime_which);
+    RUN(test_prime_check);
+    RUN(test_prime_below);
 }

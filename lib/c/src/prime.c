@@ -1,4 +1,4 @@
-#include "euler/simple_prime.h"
+#include "euler/prime.h"
 #include <math.h>
 
 prime_t prime_new()
@@ -63,16 +63,16 @@ bool prime_check(prime_t *p, uint32_t num)
 {
     uint32_t root = sqrt(num);
 
-    for(size_t i = 0; prime_nth(p, i) < root; i++) {
+    for(size_t i = 0; prime_nth(p, i) <= root; i++) {
         if((num % prime_nth(p, i)) == 0) {
             return false;
         }
     }
 
-    return true;
+    return (num > 1);
 }
 
-size_t primes_below(prime_t *p, uint32_t n)
+size_t prime_below(prime_t *p, uint32_t n)
 {
     size_t i = 10;
     while(prime_nth(p, i) < n) i += 10;

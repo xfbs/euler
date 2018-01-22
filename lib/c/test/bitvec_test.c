@@ -1,19 +1,5 @@
-#include "euler/bitvec.h"
 #include <euler/test.h>
-
-void test_bitvec_new();
-void test_bitvec_get();
-void test_bitvec_set();
-void test_bitvec_count();
-void test_bitvec_free();
-
-TESTS() {
-    RUN(test_bitvec_new);
-    RUN(test_bitvec_get);
-    RUN(test_bitvec_set);
-    RUN(test_bitvec_count);
-    RUN(test_bitvec_free);
-}
+#include <euler/bitvec.h>
 
 void test_bitvec_new() {
     for(size_t max = 1; max < 1000; max++) {
@@ -63,4 +49,12 @@ void test_bitvec_count() {
 void test_bitvec_free() {
     bitvec_t b = bitvec_new(100);
     bitvec_free(&b);
+}
+
+TESTS() {
+    RUN(test_bitvec_new);
+    RUN(test_bitvec_get);
+    RUN(test_bitvec_set);
+    RUN(test_bitvec_count);
+    RUN(test_bitvec_free);
 }

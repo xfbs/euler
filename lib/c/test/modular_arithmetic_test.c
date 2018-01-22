@@ -1,5 +1,5 @@
 #include <euler/test.h>
-#include "euler/modular_arithmetic.h"
+#include <euler/modular_arithmetic.h>
 
 void test_shift_mod()
 {

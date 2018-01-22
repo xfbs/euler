@@ -1,5 +1,5 @@
 #include <euler/test.h>
-#include "euler/vec.h"
+#include <euler/vec.h>
 
 void test_vec_new()
 {

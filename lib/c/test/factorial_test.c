@@ -1,5 +1,5 @@
 #include <euler/test.h>
-#include "euler/factorial.h"
+#include <euler/factorial.h>
 
 void test_factorial()
 {

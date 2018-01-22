@@ -1,5 +1,5 @@
 #include <euler/test.h>
-#include "euler/pandigital.h"
+#include <euler/pandigital.h>
 
 void test_nth_pandigital()
 {

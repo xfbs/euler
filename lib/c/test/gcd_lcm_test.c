@@ -1,5 +1,5 @@
-#include "euler/test.h"
-#include "euler/gcd_lcm.h"
+#include <euler/test.h>
+#include <euler/gcd_lcm.h>
 
 void test_lcm()
 {
