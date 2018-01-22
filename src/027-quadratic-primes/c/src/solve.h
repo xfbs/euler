@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include <euler/simple_prime.h>
+#include <euler/prime.h>
 #pragma once
 
 int32_t solve(int32_t max);
