@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stddef.h>
-#include <euler/simple_prime.h>
+#include <euler/prime.h>
 #include <euler/bitvec.h>
 #pragma once
 
