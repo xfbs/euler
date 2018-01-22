@@ -9,7 +9,7 @@ pub struct Digits<T> {
 }
 
 impl<T: DivAssign + MulAssign + PartialOrd + Copy + From<u8>> Digits<T> {
-    fn reverse(&self) -> Self {
+    pub fn reverse(&self) -> Self {
         Digits {
             num: self.num,
             mag: self.mag,
@@ -18,7 +18,7 @@ impl<T: DivAssign + MulAssign + PartialOrd + Copy + From<u8>> Digits<T> {
         }
     }
 
-    fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
+    pub fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
         let mut mag = 1u8.into();
         while self.num >= mag {
             mag *= base.into();

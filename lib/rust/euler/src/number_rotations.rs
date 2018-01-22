@@ -10,7 +10,7 @@ pub struct Rotations<T> {
 }
 
 impl<T: MulAssign + PartialOrd + Copy + From<u8>> Rotations<T> {
-    fn reverse(&self) -> Self {
+    pub fn reverse(&self) -> Self {
         let cur = if !self.rev { self.mag } else { 1u8.into() };
 
         Rotations {
@@ -22,7 +22,7 @@ impl<T: MulAssign + PartialOrd + Copy + From<u8>> Rotations<T> {
         }
     }
 
-    fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
+    pub fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
         let mut mag = base.into();
         while self.num >= mag {
             mag *= base.into();
