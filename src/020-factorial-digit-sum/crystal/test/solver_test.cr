@@ -2,25 +2,17 @@ require "minitest/autorun"
 require "../src/solver"
 
 class SolverTest < Minitest::Test
-  def setup
-  end
+  def test_solve
+    assert_equal Solver.solve(0), 1
+    assert_equal Solver.solve(1), 1
+    assert_equal Solver.solve(2), 2
+    assert_equal Solver.solve(3), 6
+    assert_equal Solver.solve(4), 6
+    assert_equal Solver.solve(5), 3
+    assert_equal Solver.solve(6), 9
+    assert_equal Solver.solve(7), 9
+    assert_equal Solver.solve(8), 9
 
-  def test_factorial_factorised
-    assert_equal Solver.factorial_factorised(2), {2=>1}
-    assert_equal Solver.factorial_factorised(3), {2=>1, 3=>1}
-    assert_equal Solver.factorial_factorised(4), {2=>3, 3=>1}
-    assert_equal Solver.factorial_factorised(5), {2=>3, 3=>1, 5=>1}
-    assert_equal Solver.factorial_factorised(6), {2=>4, 3=>2, 5=>1}
-  end
-
-  def test_factorial_trimmed
-    assert_equal Solver.factorial_trimmed(2), 2
-    assert_equal Solver.factorial_trimmed(3), 6
-    assert_equal Solver.factorial_trimmed(4), 24
-    assert_equal Solver.factorial_trimmed(10), 36288
-  end
-
-  def test_solution
-    assert_equal Solver.solve(10), 27
+    assert_equal Solver.solve(40), 189
   end
 end
