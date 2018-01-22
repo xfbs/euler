@@ -1,5 +1,4 @@
 use digits::ToDigits;
-use digits::Digits;
 use std::ops::{DivAssign, MulAssign, RemAssign, Add, Div, Rem, Mul};
 
 pub trait ToPalindrome where Self: Sized {
