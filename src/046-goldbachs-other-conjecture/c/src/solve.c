@@ -1,5 +1,7 @@
+#include <euler/prime.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include <math.h>
 #include "solve.h"
 
 uint64_t solve()
