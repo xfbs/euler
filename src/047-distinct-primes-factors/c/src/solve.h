@@ -1,4 +1,4 @@
-#include <euler/simple_prime.h>
+#include <euler/prime.h>
 #include <stdbool.h>
 #include <stdint.h>
 #pragma once
