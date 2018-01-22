@@ -1,18 +1,6 @@
+#include <euler/prime.h>
 #include <stddef.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
 #include "solve.h"
-
-bool is_prime(prime_t *p, uint64_t num)
-{
-    uint64_t root = sqrt(num);
-    for(size_t i = 0; prime_nth(p, i) <= root; i++) {
-        if((num % prime_nth(p, i)) == 0) return false;
-    }
-
-    return true;
-}
 
 uint64_t solve(uint64_t max)
 {
@@ -34,7 +22,7 @@ uint64_t solve(uint64_t max)
         sum_pre -= prime_nth(&p, len-1);
 
         for(size_t i = len; sum < max; i++) {
-            if(is_prime(&p, sum)) {
+            if(prime_check(&p, sum)) {
                 prime_free(&p);
                 return sum;
             }
