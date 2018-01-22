@@ -8,6 +8,10 @@ targets:
   test:
     main: test/all.cr
 
+dependencies:
+  euler:
+    path: ../../../lib/crystal/euler
+
 development_dependencies:
   minitest:
     path: ../../../lib/crystal/minitest
