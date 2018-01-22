@@ -73,11 +73,11 @@ where
     }
 }
 
-pub trait HasDigits<T> {
+pub trait ToDigits<T> {
     fn digits(&self) -> Digits<T>;
 }
 
-impl<T> HasDigits<T> for T
+impl<T> ToDigits<T> for T
 where
     T: Copy
         + DivAssign
