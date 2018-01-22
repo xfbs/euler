@@ -1,13 +1,15 @@
+require "euler/factorial"
+
 module Solver
   def self.solve(array, index)
-    return array if array.size < 2
-    p = permutations(array.size - 1)
-    o = index / p
-    c = array.delete_at(o)
-    [c] + solve(array, index % p)
+    permutation(array.dup, index).join("")
   end
 
-  def self.permutations(len)
-    (1..len).reduce(1_u64){|a, b| a * b}
+  def self.permutation(array, nth)
+    return array if array.size < 2
+    p = Euler.factorial64(array.size - 1)
+    o = nth / p
+    c = array.delete_at(o)
+    [c] + permutation(array, nth % p)
   end
 end
