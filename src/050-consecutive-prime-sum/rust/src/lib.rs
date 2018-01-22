@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::prime::Prime;
+use euler::Prime;
 
 pub fn solve(max: u64) -> u64 {
     let mut prime = Prime::new();
