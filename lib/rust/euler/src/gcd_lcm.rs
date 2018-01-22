@@ -1,15 +1,19 @@
-pub trait GcdLcm: Clone {
-    fn gcd(&self, b: Self) -> Self;
-    fn lcm(&self, b: Self) -> Self;
+use std::ops::{Rem, Div, Mul};
+
+pub trait GcdLcm where Self: Clone {
+    fn gcd<R: Clone + Into<Self>>(&self, b: R) -> Self;
+    fn lcm<R: Clone + Into<Self>>(&self, b: R) -> Self;
 }
 
-impl GcdLcm for u32 {
+impl<T> GcdLcm for T
+where T: PartialEq + Rem<Output=T> + Div<Output=T> + Mul<Output=T> + Clone + From<u8> + PartialOrd
+{
     // greatest common divisor
-    fn gcd(&self, b: u32) -> u32 {
+    fn gcd<R: Into<T>>(&self, b: R) -> T {
         let mut a = self.clone();
-        let mut b = b;
-        while b != 0 {
-            let t = b;
+        let mut b = b.into();
+        while b != 0u8.into() {
+            let t = b.clone();
             b = a % b;
             a = t;
         }
@@ -18,11 +22,12 @@ impl GcdLcm for u32 {
     }
 
     // least common multiple of a and b.
-    fn lcm(&self, b: u32) -> u32 {
+    fn lcm<R: Into<T>>(&self, b: R) -> T {
+        let b = b.into();
         if b > *self {
-            b.lcm(*self)
+            b.lcm(self.clone())
         } else {
-            self / self.gcd(b) * b
+            self.clone() / self.gcd(b.clone()) * b
         }
     }
 }
