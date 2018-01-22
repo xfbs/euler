@@ -1,8 +1,8 @@
 mod gcd_lcm;
 mod prime;
 mod sieve;
-pub mod divisors;
-pub mod number_rotations;
+mod divisors;
+mod rotations;
 mod digits;
 mod palindrome;
 
@@ -12,3 +12,5 @@ pub use sieve::Sieve;
 pub use digits::ToDigits;
 pub use palindrome::IsPalindrome;
 pub use palindrome::ToPalindrome;
+pub use rotations::ToRotations;
+pub use divisors::ToDivisors;

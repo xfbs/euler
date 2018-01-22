@@ -71,11 +71,11 @@ where
     }
 }
 
-pub trait Rotatable<T> {
+pub trait ToRotations<T> {
     fn rotations(&self) -> Rotations<T>;
 }
 
-impl<T> Rotatable<T> for T
+impl<T> ToRotations<T> for T
 where
     T: Copy
         + DivAssign
