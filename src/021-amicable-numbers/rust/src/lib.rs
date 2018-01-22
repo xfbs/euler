@@ -1,14 +1,14 @@
 extern crate euler;
-use euler::divisors::divisor_sum;
+use euler::ToDivisors;
 
 pub fn solve(max: u32) -> u64 {
     (1..max).map(|n| amicable(n as u64)).sum()
 }
 
 pub fn amicable(num: u64) -> u64 {
-    let partner = divisor_sum(num);
+    let partner = num.divisors().sum();
 
-    if num != partner && num == divisor_sum(partner) {
+    if num != partner && num == partner.divisors().sum() {
         partner
     } else {
         0
