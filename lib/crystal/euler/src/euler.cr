@@ -1,4 +1,4 @@
-require './euler/*'
+require "./euler/*"
 
 module Euler
 end
