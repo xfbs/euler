@@ -1,12 +1,8 @@
-mod sieve;
-use sieve::sieve;
+extern crate euler;
+use euler::Sieve;
 
 pub fn solve(n: u64) -> u64 {
-    let primes = sieve(n);
-
-    primes.iter()
-        .filter(|&p| *p < n)
-        .fold(0, |s,n| s+n)
+    Sieve::new(n as usize).into_iter().sum()
 }
 
 #[test]
