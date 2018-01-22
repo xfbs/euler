@@ -1,5 +1,5 @@
-pub mod number_digits;
-use number_digits::HasDigits;
+extern crate euler;
+use euler::number_digits::HasDigits;
 use std::collections::HashSet;
 
 pub fn solve() -> u32 {

@@ -1,7 +1,6 @@
 extern crate euler;
-mod number_rotations;
-use euler::prime::Prime;
-use number_rotations::Rotatable;
+use euler::Prime;
+use euler::number_rotations::Rotatable;
 use std::collections::HashSet;
 
 pub fn solve(max: u64) -> usize {

@@ -1,5 +1,5 @@
-mod divisor_sum;
-use divisor_sum::divisor_sum;
+extern crate euler;
+use euler::divisor_sum::divisor_sum;
 
 pub fn solve(max: u32) -> u64 {
     (1..max).map(|n| amicable(n as u64)).sum()

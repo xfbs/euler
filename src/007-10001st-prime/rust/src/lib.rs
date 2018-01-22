@@ -1,5 +1,5 @@
-mod prime;
-use prime::Prime;
+extern crate euler;
+use euler::Prime;
 
 pub fn solve(nth: usize) -> u64 {
     let mut p = Prime::new();
