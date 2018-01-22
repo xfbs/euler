@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::prime::Prime;
+use euler::Prime;
 
 pub fn solve(max: u32) -> u32 {
     let mut triangle = 1;
