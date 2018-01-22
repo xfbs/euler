@@ -4,7 +4,7 @@ uint32_t solve(size_t max)
 {
     // generate all primes below max
     prime_t p = prime_new();
-    size_t primes = primes_below(&p, max);
+    size_t primes = prime_below(&p, max);
 
     // bitvec to store the cyclic primes we found
     bitvec_t b = bitvec_new(primes);
