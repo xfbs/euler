@@ -1,1 +1,4 @@
-../../../../src/021-amicable-numbers/c/src/euler/divisor_sum.h
+#include <stdint.h>
+#pragma once
+
+uint32_t divisor_sum(uint32_t num);

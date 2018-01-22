@@ -1,1 +1,5 @@
-../../../../src/004-largest-palindrome-product/c/src/euler/palindrome.h
+#include <stdbool.h>
+#include <stdint.h>
+#pragma once
+
+bool is_palindrome(uint64_t num);

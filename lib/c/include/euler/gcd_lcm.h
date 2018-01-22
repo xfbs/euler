@@ -1,1 +1,5 @@
-../../../../src/001-multiples-of-3-and-5/c/src/euler/gcd_lcm.h
+#include <stdint.h>
+#pragma once
+
+uint64_t lcm(uint64_t a, uint64_t b);
+uint64_t gcd(uint64_t a, uint64_t b);

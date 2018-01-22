@@ -1,1 +1,4 @@
-../../../../src/041-pandigital-prime/c/src/euler/factorial.h
+#include <stdint.h>
+#pragma once
+
+uint64_t factorial(uint8_t nth);
