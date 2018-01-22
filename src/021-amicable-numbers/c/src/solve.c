@@ -1,6 +1,6 @@
-#include <euler/simple_prime.h>
+#include <euler/prime.h>
 #include <euler/bitvec.h>
-#include "euler/divisor_sum.h"
+#include <euler/divisor_sum.h>
 #include "solve.h"
 
 uint32_t solve(size_t max)
