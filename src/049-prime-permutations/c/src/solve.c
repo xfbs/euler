@@ -1,5 +1,5 @@
+#include <euler/prime.h>
 #include <stddef.h>
-#include <stdio.h>
 #include "solve.h"
 
 uint64_t solve(uint32_t avoid)

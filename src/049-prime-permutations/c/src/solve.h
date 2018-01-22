@@ -1,6 +1,5 @@
 #include <stdint.h>
 #include <stdbool.h>
-#include <euler/simple_prime.h>
 #pragma once
 
 uint64_t solve(uint32_t avoid);
