@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::number_digits::HasDigits;
+use euler::ToDigits;
 use std::collections::HashSet;
 
 pub fn solve() -> u32 {
