@@ -1,13 +1,17 @@
 use digits::ToDigits;
-use std::ops::{DivAssign, MulAssign, RemAssign, Add, Div, Rem, Mul};
+use std::ops::{Add, Div, DivAssign, Mul, MulAssign, Rem, RemAssign};
 
-pub trait ToPalindrome where Self: Sized {
+pub trait ToPalindrome
+where
+    Self: Sized,
+{
     fn to_palindrome(&self, base: Self) -> (Self, Self);
 }
 
 impl<T> ToPalindrome for T
 where
-    T: ToDigits<T> + Copy
+    T: ToDigits<T>
+        + Copy
         + DivAssign
         + MulAssign
         + RemAssign
@@ -20,19 +24,29 @@ where
         + From<u8>,
 {
     fn to_palindrome(&self, base: Self) -> (Self, Self) {
-        let long = self.digits().base(base).chain(self.digits().base(base).reverse()).fold(0u8.into(), |m, d| base * m + d);
-        let short = self.digits().base(base).chain(self.digits().base(base).reverse().skip(1)).fold(0u8.into(), |m, d| base * m + d);
+        let long = self.digits()
+            .base(base)
+            .chain(self.digits().base(base).reverse())
+            .fold(0u8.into(), |m, d| base * m + d);
+        let short = self.digits()
+            .base(base)
+            .chain(self.digits().base(base).reverse().skip(1))
+            .fold(0u8.into(), |m, d| base * m + d);
         (short, long)
     }
 }
 
-pub trait IsPalindrome where Self: Sized {
+pub trait IsPalindrome
+where
+    Self: Sized,
+{
     fn is_palindrome(&self, base: Self) -> bool;
 }
 
 impl<T> IsPalindrome for T
 where
-    T: ToDigits<T> + Copy
+    T: ToDigits<T>
+        + Copy
         + DivAssign
         + MulAssign
         + RemAssign
@@ -45,7 +59,11 @@ where
         + From<u8>,
 {
     fn is_palindrome(&self, base: Self) -> bool {
-        *self == self.digits().base(base).reverse().fold(0u8.into(), |m, c| base as T * m + c)
+        *self
+            == self.digits()
+                .base(base)
+                .reverse()
+                .fold(0u8.into(), |m, c| base as T * m + c)
     }
 }
 

@@ -47,7 +47,10 @@ where
     }
 }
 
-pub trait ToDivisors where Self: Sized {
+pub trait ToDivisors
+where
+    Self: Sized,
+{
     fn divisors(&self) -> Divisors<Self>;
 }
 
@@ -59,7 +62,7 @@ where
         Divisors {
             num: *self,
             cur: 1u8.into(),
-            chk: false
+            chk: false,
         }
     }
 }

@@ -2,7 +2,7 @@ use std::vec::IntoIter;
 use std::iter::{Enumerate, FilterMap};
 
 pub struct Sieve {
-    state: Vec<bool>
+    state: Vec<bool>,
 }
 
 impl Sieve {
@@ -12,7 +12,7 @@ impl Sieve {
         state[1] = false;
 
         let mut p: u64 = 2;
-        while (p*p) <= max as u64 {
+        while (p * p) <= max as u64 {
             for f in p..((max as u64 / p) + 1) {
                 state[(f * p) as usize] = false;
             }
@@ -96,4 +96,3 @@ fn test_sieve_iter_check() {
 
     assert_eq!(sieve.into_iter().count(), 25);
 }
-

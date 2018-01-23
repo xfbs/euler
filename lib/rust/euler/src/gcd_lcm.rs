@@ -1,14 +1,14 @@
-use std::ops::{Rem, Div, Mul};
+use std::ops::{Div, Mul, Rem};
 
-pub trait GcdLcm<RHS = Self> where
-{
+pub trait GcdLcm<RHS = Self> {
     type Output;
     fn gcd(&self, b: RHS) -> Self::Output;
     fn lcm(&self, b: RHS) -> Self::Output;
 }
 
-impl<LHS, RHS> GcdLcm<RHS> for LHS where
-    LHS: Copy + Div<Output=LHS> + Mul<Output=LHS> + PartialOrd + Rem<Output=LHS> + From<u8>,
+impl<LHS, RHS> GcdLcm<RHS> for LHS
+where
+    LHS: Copy + Div<Output = LHS> + Mul<Output = LHS> + PartialOrd + Rem<Output = LHS> + From<u8>,
     RHS: Copy + Into<LHS>,
 {
     type Output = LHS;
