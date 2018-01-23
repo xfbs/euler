@@ -16,6 +16,10 @@ clean:
 test: $(SOURCES:src/%.c=test/%_test)
 	@cd test && ./all.sh
 
+# runs the clang-format code formatter for all files in this lib.
+fmt: $(wildcard include/**.h src/*.c test/*.c)
+	clang-format -i $^
+
 # take the sources and produce a library file
 $(TARGET): $(SOURCES:%.c=%.o)
 	ar cr $@ $^
@@ -25,4 +29,4 @@ $(TARGET): $(SOURCES:%.c=%.o)
 test/%_test: test/%_test.o $(SOURCES:%.c=%.o)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-.PHONY: build test clean
+.PHONY: build test clean fmt
