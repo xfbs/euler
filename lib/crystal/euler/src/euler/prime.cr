@@ -4,7 +4,7 @@ module Euler
 
     # initializes new prime empty prime generator, with 2 and 3 pre-generated.
     def initialize
-      @primes = [2,3]
+      @primes = [2, 3]
     end
 
     # returns the nth prime, either by looking it up in it's cache or by
@@ -68,7 +68,7 @@ module Euler
         self.next
       end
 
-      i = @primes.bsearch_index {|p, i| p >= n}
+      i = @primes.bsearch_index { |p, i| p >= n }
       if i.nil? || @primes[i.to_u] == n
         i
       else

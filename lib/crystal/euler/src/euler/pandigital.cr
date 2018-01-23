@@ -7,7 +7,7 @@ module Euler
     num = 0
 
     # this is a bitmap of which digits are taken
-    taken = 0;
+    taken = 0
 
     while len > 0
       num *= 10
@@ -19,12 +19,12 @@ module Euler
       # find the remaining digit
       digit = 0
       while choice != 0
-          choice -= 1 unless (taken & (1 << digit)) > 0
-          digit += 1
+        choice -= 1 unless (taken & (1 << digit)) > 0
+        digit += 1
       end
 
       while (taken & (1 << digit)) > 0
-          digit += 1
+        digit += 1
       end
 
       # mark this digit as used

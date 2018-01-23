@@ -30,9 +30,9 @@ class PrimeTest < Minitest::Test
   def test_iter
     p = Euler::Prime.new
 
-    assert_equal p.iter().first(5).to_a, [2, 3, 5, 7, 11]
-    assert_equal p.iter().first(2).to_a, [2, 3]
-    assert_equal p.iter().first(8).to_a, [2, 3, 5, 7, 11, 13, 17, 19]
+    assert_equal p.iter.first(5).to_a, [2, 3, 5, 7, 11]
+    assert_equal p.iter.first(2).to_a, [2, 3]
+    assert_equal p.iter.first(8).to_a, [2, 3, 5, 7, 11, 13, 17, 19]
   end
 
   def test_check

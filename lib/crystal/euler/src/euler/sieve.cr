@@ -12,7 +12,7 @@ module Euler
         break if p*p > max
 
         (p*p).step(to: max, by: 2*p) do |m|
-          @sieve[(m-1)/2] = 0u64
+          @sieve[(m - 1)/2] = 0u64
         end
       end
     end

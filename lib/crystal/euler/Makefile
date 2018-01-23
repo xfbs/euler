@@ -16,8 +16,12 @@ clean:
 	$(SHARDS) prune
 	$(RM) -r .shards lib bin shard.lock
 
+# runs the crystal code formatter over the code
+fmt: $(SOURCES)
+	$(CRYSTAL) tool format
+
 # build test unit test executable
 bin/test: $(CONFIG) $(SOURCES) $(TESTS)
 	$(SHARDS) build test
 
-.PHONY: test clean
+.PHONY: test clean fmt
