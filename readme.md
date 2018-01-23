@@ -101,7 +101,7 @@ means not implemented).
 | [`040`](https://projecteuler.net/problem=040) | 16ms | 14ms | 66ms | 14ms | 48ms | 31ms |
 | [`041`](https://projecteuler.net/problem=041) | 446ms | 124ms |      |      |      | 285ms |
 | [`042`](https://projecteuler.net/problem=042) | 24ms | 14ms | 68ms | 16ms |      | 30ms |
-| [`043`](https://projecteuler.net/problem=043) | 22ms | 12ms | 64ms |      |      | 32ms |
+| [`043`](https://projecteuler.net/problem=043) | 14ms | 10ms | 70ms | 18ms |      | 28ms |
 | [`044`](https://projecteuler.net/problem=044) | 86ms | 32ms | 552ms | 36ms |      | 176ms |
 | [`045`](https://projecteuler.net/problem=045) | 20ms | 16ms | 80ms | 12ms | 104ms | 46ms |
 | [`046`](https://projecteuler.net/problem=046) | 40ms | 14ms | 234ms | 16ms |      | 76ms |
@@ -114,7 +114,7 @@ means not implemented).
 | *max* | 594ms | 414ms | 3264ms | 174ms | 2012ms | 3264ms |
 | *average* | 91ms | 37ms | 323ms | 30ms | 181ms | 128ms |
 | *mean* | 28ms | 14ms | 82ms | 16ms | 54ms | ms |
-| *count* | 51 | 50 | 49 | 47 | 29 | 226 |
+| *count* | 51 | 50 | 49 | 48 | 29 | 227 |
 
 </details>
 
@@ -160,6 +160,10 @@ euler.rb script to ignore them, which usually means that the solution doesn't
 work or is too slow, but I have committed it anyways because I feel that I get
 get it to work or optimize it.
 
+### Coding Style
+
+For solutions in rust, the coding style enforced by `cargo fmt` is used.
+
 ## Setup
 
 To actually test out these solutions, you need to install a few things: 
@@ -197,6 +201,8 @@ Read the source code of the Makefile for more details.
 
 ### ToDo
 
+  - [ ] change implementation of euler/prime.h and other prime generators to use
+        a prime sieve internally to generates the primes faster.
   - [ ] problem `022` and `042` share code (`weight()` function), export?
   - [ ] run formatters over all of the code
   - [ ] problem 049, change algorithm to be more efficient
