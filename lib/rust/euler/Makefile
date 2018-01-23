@@ -20,4 +20,8 @@ clean:
 	$(CARGO) clean
 	$(RM) Cargo.lock
 
-.PHONY: test clean
+# runs cargo's formatter over the code
+fmt: $(wildcard src/**.rs)
+	$(CARGO) fmt
+
+.PHONY: test clean fmt
