@@ -9,12 +9,10 @@ uint64_t solve(uint8_t count)
     // factors is a `window` of numbers from `window_offset` to
     // `window_offset + window_size`. it keeps a list of how many prime factors
     // each number has (up to `count + 1`, anything above we don't care about).
-    size_t factors_offset = 0;
     uint8_t factors[factors_size];
-
     prime_t primes = prime_new();
 
-    while(true) {
+    for(size_t factors_offset = 0; ; factors_offset += factors_size - count) {
         size_t window_max = factors_offset + factors_size;
         make_factors(&primes, factors_offset, factors, count);
 
@@ -36,8 +34,6 @@ uint64_t solve(uint8_t count)
                 num += offset;
             }
         }
-
-        factors_offset += factors_size - count;
     }
 }
 
