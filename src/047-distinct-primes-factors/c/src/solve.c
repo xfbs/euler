@@ -2,21 +2,22 @@
 
 uint64_t solve(uint8_t count)
 {
-    size_t max = 1024;
+    size_t window_size = 1024;
+    size_t offset = 0;
     prime_t primes = prime_new();
 
     while(true) {
-        uint8_t prime_factors[max];
+        uint8_t prime_factors[window_size];
 
         // initialize prime factors
-        for(size_t i = 0; i < max; i++) prime_factors[i] = 0;
+        for(size_t i = 0; i < window_size; i++) prime_factors[i] = 0;
 
-        // compute prime factors counts up to max
-        for(size_t i = 0; prime_nth(&primes, i) < max; i++) {
+        // compute prime factors counts up to window_size
+        for(size_t i = 0; prime_nth(&primes, i) < window_size; i++) {
             uint64_t prime = prime_nth(&primes, i);
             uint64_t cur = prime;
 
-            while(cur < max) {
+            while(cur < window_size) {
                 if(prime_factors[cur] <= count) {
                     prime_factors[cur]++;
                 }
@@ -27,7 +28,7 @@ uint64_t solve(uint8_t count)
 
         // check which `count` consecutive numbers have `count` distinct prime
         // factors
-        for(size_t num = 0; num < (max - count); num++) {
+        for(size_t num = 0; num < (window_size - count); num++) {
             size_t offset;
             for(offset = 0; offset < count; offset++) {
                 if(prime_factors[num + offset] != count) break;
@@ -44,7 +45,7 @@ uint64_t solve(uint8_t count)
             }
         }
 
-        max *= 2;
+        window_size *= 2;
     }
 }
 
