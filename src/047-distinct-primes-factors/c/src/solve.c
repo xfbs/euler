@@ -1,47 +1,29 @@
 #include "solve.h"
 
+static const size_t factors_size = 10240;
+
+void make_factors(prime_t *p, size_t off, uint8_t f[], uint8_t ct);
+
 uint64_t solve(uint8_t count)
 {
-    // prime_factors is a `window` of numbers from `window_offset` to 
+    // factors is a `window` of numbers from `window_offset` to
     // `window_offset + window_size`. it keeps a list of how many prime factors
     // each number has (up to `count + 1`, anything above we don't care about).
-    size_t window_size = 10240;
-    size_t window_offset = 0;
-    uint8_t prime_factors[window_size];
+    size_t factors_offset = 0;
+    uint8_t factors[factors_size];
 
     prime_t primes = prime_new();
 
     while(true) {
-        size_t window_max = window_offset + window_size;
-
-        // reset window to all-zeroes.
-        for(size_t i = 0; i < window_size; i++) prime_factors[i] = 0;
-
-        // iterate through the prime numbers, and for every number in the
-        // `prime_factors` window, set how many prime factors it has
-        for(size_t i = 0; prime_nth(&primes, i) < window_max; i++) {
-            uint64_t prime = prime_nth(&primes, i);
-            uint64_t cur = prime;
-
-            while(cur < window_offset) cur += prime;
-            while(cur < window_max) {
-                // if the prime factors are already bigger than count, we
-                // ignore - we don't want overflow errors and we only care if
-                // the prime factors are equal to count or not anyways.
-                if(prime_factors[cur - window_offset] <= count) {
-                    prime_factors[cur - window_offset]++;
-                }
-
-                cur += prime;
-            }
-        }
+        size_t window_max = factors_offset + factors_size;
+        make_factors(&primes, factors_offset, factors, count);
 
         // check which `count` consecutive numbers have `count` distinct prime
         // factors
-        for(size_t num = window_offset; num < (window_max - count); num++) {
+        for(size_t num = factors_offset; num < (window_max - count); num++) {
             size_t offset;
             for(offset = 0; offset < count; offset++) {
-                if(prime_factors[num + offset - window_offset] != count) break;
+                if(factors[num + offset - factors_offset] != count) break;
             }
 
             if(offset == count) {
@@ -55,7 +37,34 @@ uint64_t solve(uint8_t count)
             }
         }
 
-        window_offset += window_size - count;
+        factors_offset += factors_size - count;
+    }
+}
+
+void make_factors(prime_t *primes, size_t offset, uint8_t factors[], uint8_t count)
+{
+    size_t max = offset + factors_size;
+
+    // reset window to all-zeroes.
+    for(size_t pos = 0; pos < factors_size; pos++) factors[pos] = 0;
+
+    // iterate through the prime numbers, and for every number in the
+    // `prime_factors` window, set how many prime factors it has
+    for(size_t i = 0; prime_nth(primes, i) < max; i++) {
+        uint64_t prime = prime_nth(primes, i);
+        uint64_t cur = prime;
+
+        while(cur < offset) cur += prime;
+        while(cur < max) {
+            // if the prime factors are already bigger than count, we
+            // ignore - we don't want overflow errors and we only care if
+            // the prime factors are equal to count or not anyways.
+            if(factors[cur - offset] <= count) {
+                factors[cur - offset]++;
+            }
+
+            cur += prime;
+        }
     }
 }
 
