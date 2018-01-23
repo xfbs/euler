@@ -5,22 +5,24 @@ module Solver
   # primes.
   def self.solve(digits, seen)
     primes = Euler::Prime.new
-    min = 10**(digits-1)
+    min = 10**(digits - 1)
     max = 10**digits
 
     # generate all n-digit primes
-    candidates = primes.iter
-      .take_while{|p| p < max}
-      .select{|p| p != seen && p > min}
+    candidates = primes
+      .iter
+      .take_while { |p| p < max }
+      .select { |p| p != seen && p > min }
       .to_a
 
     candidates.each_with_index do |p, i|
-      candidates.each
-        .skip(i+1)
-        .take_while{|s| (p + 2 * (s-p)) < max}
-        .select{|s| test_sequence(primes, p, s-p)}
-        .select{|s| is_permutations(p, s-p)}
-        .each{|s| return (0..2).reduce(0u64){|m, c| m * 10**digits + p + c * (s-p)}}
+      candidates
+        .each
+        .skip(i + 1)
+        .take_while { |s| (p + 2 * (s - p)) < max }
+        .select { |s| test_sequence(primes, p, s - p) }
+        .select { |s| is_permutations(p, s - p) }
+        .each { |s| return (0..2).reduce(0u64) { |m, c| m * 10**digits + p + c * (s - p) } }
     end
   end
 
@@ -33,8 +35,8 @@ module Solver
   end
 
   def self.is_permutations(p, s)
-    list = [p, p+s, p+s+s]
-    list = list.map{|n| n.to_s.chars.map{|c| c.to_i}.sort}
+    list = [p, p + s, p + s + s]
+    list = list.map { |n| n.to_s.chars.map { |c| c.to_i }.sort }
     list[0] == list[1] && list[1] == list[2]
   end
 end

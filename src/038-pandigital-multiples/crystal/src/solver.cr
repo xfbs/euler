@@ -20,7 +20,7 @@ module Solver
   end
 
   def self.check_pandigital_multiple(base, n)
-    num = (1..n).map{|n| (n*base).to_s}.join.to_u64
+    num = (1..n).map { |n| (n*base).to_s }.join.to_u64
 
     return check_pandigital(num), num
   end
@@ -30,7 +30,7 @@ module Solver
     return false if chars.size != 9
 
     "123456789".chars.each do |c|
-      return false unless chars.count{|i| i == c} == 1
+      return false unless chars.count { |i| i == c } == 1
     end
 
     true

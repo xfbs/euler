@@ -25,8 +25,8 @@ module Solver
 
     poss
       .each_with_index
-      .select{|a| !a[0]}
-      .map{|a| a[1]}
+      .select { |a| !a[0] }
+      .map { |a| a[1] }
       .sum
   end
 end

@@ -7,7 +7,7 @@ module Solver
     (1..9)
       .to_a
       .permutations(9)
-      .map{|s| pandigital_product_sums(s)}
+      .map { |s| pandigital_product_sums(s) }
       .compact
       .flatten
       .uniq

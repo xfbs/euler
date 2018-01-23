@@ -7,7 +7,7 @@ module Solver
   # here is to basically try all numbers and see if they fit
   def self.solve
     # generate factorials of digits in advance
-    nums = (0..9).map{|n| Euler.factorial64(n)}
+    nums = (0..9).map { |n| Euler.factorial64(n) }
 
     total = 0
 
@@ -36,13 +36,13 @@ module Solver
   def self.digit_sum(nums, digits)
     # calculate the sum of the factorials of all digits greater
     # than 0
-    num = digits.select{|n| n != 0}.map{|n| nums[n]}.sum
+    num = digits.select { |n| n != 0 }.map { |n| nums[n] }.sum
 
     # count how many zeroes there are. this is needed because we
     # have two different types of zeroes - for example if the
     # number is 0001204, then the leading zeroes need to be
     # ignored but the embedded zero needs to be counted (0! = 1).
-    zeroes = digits.count{|n| n==0}
+    zeroes = digits.count { |n| n == 0 }
 
     # if there are 6 (or more) zeroes, then disregard this number
     # since it's not a sum.
@@ -53,7 +53,7 @@ module Solver
         num += 1
       end
 
-      if digits == num.to_s.rjust(7, '0').chars.map{|c| c.to_i}.sort
+      if digits == num.to_s.rjust(7, '0').chars.map { |c| c.to_i }.sort
         return num
       end
     end

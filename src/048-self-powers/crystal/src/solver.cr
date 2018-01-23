@@ -26,7 +26,7 @@ module Solver
     al = a % pow32
     bl = b % pow32
 
-    res  = al * bl
+    res = al * bl
     res %= m
     res += shift(ah * bl % m, 32u8, m)
     res %= m

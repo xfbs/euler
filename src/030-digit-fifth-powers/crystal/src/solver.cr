@@ -1,7 +1,7 @@
 module Solver
   def self.solve(power)
     # generate all fifth powers of digits
-    nums = (0..9).map{|n| n**power}
+    nums = (0..9).map { |n| n**power }
 
     # find all numbers where the sum of the fifth powers of the digits is equal
     # to the number itself
@@ -16,7 +16,7 @@ module Solver
                 digits = [a, b, c, d, e, f]
 
                 # sum of the digit of the fifth power
-                sum = digits.map{|n| nums[n]}.sum
+                sum = digits.map { |n| nums[n] }.sum
 
                 # check if sum of fifth powers of digit is equal to sum
                 if digit_power_sum? digits, sum
@@ -36,7 +36,7 @@ module Solver
     if sum == 1
       false
     else
-      sum_digits = sum.to_s.rjust(6, '0').chars.map{|c| c.to_i}
+      sum_digits = sum.to_s.rjust(6, '0').chars.map { |c| c.to_i }
 
       sum_digits.sort == digits
     end

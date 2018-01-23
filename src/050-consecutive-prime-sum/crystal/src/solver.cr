@@ -18,12 +18,12 @@ module Solver
 
     max_len.downto(2).each do |len|
       sum = sum_pre
-      sum_pre -= primes.nth(len-1)
+      sum_pre -= primes.nth(len - 1)
 
       (len..max_len).each do |i|
         return sum if primes.check? sum
 
-        sum -= primes.nth(i-len)
+        sum -= primes.nth(i - len)
         sum += primes.nth(i)
       end
     end

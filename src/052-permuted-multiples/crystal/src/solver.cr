@@ -3,7 +3,7 @@ module Solver
   # same digits.
   def self.solve
     (2..10).each do |exp|
-      ((10**exp)..(10**(exp+1) / 6)).each do |i|
+      ((10**exp)..(10**(exp + 1) / 6)).each do |i|
         return i if is_permuted_multiple?(i)
       end
     end
@@ -15,7 +15,7 @@ module Solver
   def self.is_permuted_multiple?(x)
     digits = num_to_digits_rev(2*x).sort
 
-    [3,4,5,6].each do |n|
+    [3, 4, 5, 6].each do |n|
       return false unless digits == num_to_digits_rev(n*x).sort
     end
 

@@ -3,15 +3,15 @@ require "../src/solver"
 
 class SolverTest < Minitest::Test
   def test_teens_number_word
-    assert_equal  3, Solver.teens_number_word(1)  # one
-    assert_equal  4, Solver.teens_number_word(5)  # four
-    assert_equal  5, Solver.teens_number_word(7)  # seven
-    assert_equal  8, Solver.teens_number_word(13) # thirteen
-    assert_equal  6, Solver.teens_number_word(20) # twenty
-    assert_equal  9, Solver.teens_number_word(21) # twenty-one
-    assert_equal  9, Solver.teens_number_word(45) # forty-five
+    assert_equal 3, Solver.teens_number_word(1)   # one
+    assert_equal 4, Solver.teens_number_word(5)   # four
+    assert_equal 5, Solver.teens_number_word(7)   # seven
+    assert_equal 8, Solver.teens_number_word(13)  # thirteen
+    assert_equal 6, Solver.teens_number_word(20)  # twenty
+    assert_equal 9, Solver.teens_number_word(21)  # twenty-one
+    assert_equal 9, Solver.teens_number_word(45)  # forty-five
     assert_equal 11, Solver.teens_number_word(98) # ninety-eight
-    assert_equal  7, Solver.teens_number_word(70) # seventy
+    assert_equal 7, Solver.teens_number_word(70)  # seventy
     assert_equal 11, Solver.teens_number_word(33) # thirty-three
   end
 

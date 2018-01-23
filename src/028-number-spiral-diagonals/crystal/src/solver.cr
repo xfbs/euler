@@ -4,10 +4,10 @@ module Solver
     cur = 1
 
     (2...max).step(2).each do |ring|
-      cur += ring; sum += cur;
-      cur += ring; sum += cur;
-      cur += ring; sum += cur;
-      cur += ring; sum += cur;
+      cur += ring; sum += cur
+      cur += ring; sum += cur
+      cur += ring; sum += cur
+      cur += ring; sum += cur
     end
 
     sum

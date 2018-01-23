@@ -2,7 +2,7 @@ require "big"
 
 module Solver
   @@pow = Hash(Int32, UInt64 | BigInt).new do |h, i|
-    if(i < 64)
+    if (i < 64)
       h[i] = 10_u64**i - 1
     else
       h[i] = BigInt.new(10)**i - 1
@@ -10,7 +10,7 @@ module Solver
   end
 
   def self.solve(max)
-    (1..max).map{|n| [n, reciprocal_cycle(n)]}.max_by{|n| n[1]}[0]
+    (1..max).map { |n| [n, reciprocal_cycle(n)] }.max_by { |n| n[1] }[0]
   end
 
   def self.reciprocal_cycle(num)

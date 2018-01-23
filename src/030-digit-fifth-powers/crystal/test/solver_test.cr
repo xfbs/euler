@@ -3,7 +3,7 @@ require "../src/solver"
 
 class SolverTest < Minitest::Test
   def test_solve
-    assert_equal Solver.solve(4), 1634+8208+9474
+    assert_equal Solver.solve(4), 1634 + 8208 + 9474
   end
 
   def test_digit_power_sum?

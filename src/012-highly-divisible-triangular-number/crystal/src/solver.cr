@@ -27,7 +27,6 @@ module Solver
         factors += 1
       end
 
-
       count *= factors
       cur += 1
     end

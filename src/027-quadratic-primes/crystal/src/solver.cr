@@ -6,7 +6,7 @@ module Solver
     run = 0_u32
     prime = Euler::Prime.new
 
-    ((-max+1)...max).each do |a|
+    ((-max + 1)...max).each do |a|
       (0..max).each do |b|
         break if prime.nth(b) >= max
         cur = quadratic_prime_run(prime, a, prime.nth(b))
@@ -32,4 +32,3 @@ module Solver
     n
   end
 end
-

@@ -4,7 +4,7 @@ module Solver
   def self.solve(max)
     (1..max)
       .to_a
-      .sort_by{|n| number_of_solutions(n)}
+      .sort_by { |n| number_of_solutions(n) }
       .last
   end
 
@@ -14,7 +14,7 @@ module Solver
   # a^2 + b^2 = c^2
   # are all fulfilled?
   def self.number_of_solutions(p)
-    (1..((p-3)/3))
-      .count{|a| ((p * (2 * a - p)) % (2 * (a - p))) == 0}
+    (1..((p - 3)/3))
+      .count { |a| ((p * (2 * a - p)) % (2 * (a - p))) == 0 }
   end
 end

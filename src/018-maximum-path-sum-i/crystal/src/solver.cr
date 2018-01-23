@@ -13,10 +13,10 @@ module Solver
 
     upper << lower[0].each_with_index.map do |low|
       n, i = low
-      if lower[1][i] > lower[1][i+1]
+      if lower[1][i] > lower[1][i + 1]
         n + lower[1][i]
       else
-        n + lower[1][i+1]
+        n + lower[1][i + 1]
       end
     end.to_a
   end

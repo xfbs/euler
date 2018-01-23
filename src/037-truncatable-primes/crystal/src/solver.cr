@@ -4,9 +4,10 @@ module Solver
   def self.solve(num)
     sum = 0
     primes = Euler::Prime.new
-    primes.iter
-      .skip_while{|p| p < 10}
-      .select{|p| is_truncatable_prime?(primes, p)}
+    primes
+      .iter
+      .skip_while { |p| p < 10 }
+      .select { |p| is_truncatable_prime?(primes, p) }
       .first(num)
       .sum
   end
@@ -28,4 +29,3 @@ module Solver
     true
   end
 end
-

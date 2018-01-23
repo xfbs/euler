@@ -4,7 +4,7 @@ module Solver
   def self.solve
     [0, 9, 99, 999, 9999, 99999, 999999].map do |n|
       champernowne_digit(n)
-    end.reduce(1){|m, c| m * c}
+    end.reduce(1) { |m, c| m * c }
   end
 
   # generates the digit that is at pos after the decimal point in the
@@ -14,9 +14,9 @@ module Solver
     exp = 9
 
     while pos >= (mag*exp)
-        pos -= mag*exp
-        exp *= 10
-        mag += 1
+      pos -= mag*exp
+      exp *= 10
+      mag += 1
     end
 
     off = mag - pos % mag - 1

@@ -12,6 +12,6 @@ module Solver
   end
 
   def self.solve(max)
-    (1..max).map{|n| amicable_pair(n)}.compact.sum
+    (1..max).map { |n| amicable_pair(n) }.compact.sum
   end
 end

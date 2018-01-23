@@ -2,7 +2,7 @@ require "euler/palindrome"
 
 module Solver
   def self.solve(digits)
-    min = 10**(digits-1)
+    min = 10**(digits - 1)
     max = 10**digits
     (min...max).map do |a|
       (a...max).select do |b|

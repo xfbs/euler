@@ -8,7 +8,7 @@ class SolverTest < Minitest::Test
 
   def test_sequence
     p = Euler::Prime.new
-    p.iter.take_while{|p| p < 10000}
+    p.iter.take_while { |p| p < 10000 }
 
     assert Solver.test_sequence(p, 1487, 3330)
     assert Solver.test_sequence(p, 1487, 3300)

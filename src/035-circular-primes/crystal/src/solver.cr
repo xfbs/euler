@@ -10,7 +10,7 @@ module Solver
 
     rotates = [] of Int32
 
-    primes.iter.take_while{|p| p < max}.each do |p|
+    primes.iter.take_while { |p| p < max }.each do |p|
       c = circular(primes, p)
       if c
         c.each do |i|
@@ -23,23 +23,21 @@ module Solver
   end
 
   def self.circular(primes, p)
-    digits = p.to_s.chars.map{|d| d.to_i}
+    digits = p.to_s.chars.map { |d| d.to_i }
 
-    circle = (0...digits.size)
-      .map do |r|
-        cur = 0
-        (0...digits.size).each do |i|
-          cur *= 10
-          cur += digits[(i+r) % digits.size]
-        end
-        cur
-    end
-      .map do |n|
-        primes.index(n)
+    circle = (0...digits.size).map do |r|
+      cur = 0
+      (0...digits.size).each do |i|
+        cur *= 10
+        cur += digits[(i + r) % digits.size]
+      end
+      cur
+    end.map do |n|
+      primes.index(n)
     end
 
-    if circle.all?{|n| n}
-      circle.map{|n| (n || 0).to_i}
+    if circle.all? { |n| n }
+      circle.map { |n| (n || 0).to_i }
     else
       nil
     end
