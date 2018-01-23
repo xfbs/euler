@@ -1,10 +1,6 @@
-#include <euler/test.h>
 #include "solve.h"
+#include <euler/test.h>
 
-void test_solve() {
-    assert(solve(4) == 4231);
-}
+void test_solve() { assert(solve(4) == 4231); }
 
-TESTS() {
-    RUN(test_solve);
-}
+TESTS() { RUN(test_solve); }

@@ -1,11 +1,8 @@
-#include <euler/test.h>
 #include "solve.h"
+#include <euler/test.h>
 
-void test_solve()
-{
-    //...
+void test_solve() {
+  //...
 }
 
-TESTS() {
-    RUN(test_solve);
-}
+TESTS() { RUN(test_solve); }

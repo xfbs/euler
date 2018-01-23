@@ -1,9 +1,8 @@
-#include <stdio.h>
 #include "solve.h"
+#include <stdio.h>
 
-int main(int argc, char *argv[])
-{
-    printf("%i\n", solve());
+int main(int argc, char *argv[]) {
+  printf("%i\n", solve());
 
-    return 0;
+  return 0;
 }

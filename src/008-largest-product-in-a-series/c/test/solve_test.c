@@ -1,6 +1,4 @@
-#include <euler/test.h>
 #include "solve.h"
+#include <euler/test.h>
 
-
-TESTS() {
-}
+TESTS() {}
