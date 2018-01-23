@@ -1,17 +1,16 @@
-#include <euler/prime.h>
+#include <euler/sieve.h>
 #include "solve.h"
 
-uint64_t solve(uint64_t n) {
-    prime_t p = prime_new();
-    size_t i = 1;
+uint64_t solve(uint64_t max) {
+    sieve_t sieve = sieve_new(max);
     uint64_t sum = 0;
-    uint64_t prime = 2;
 
-    while(prime < n) {
-        sum += prime;
-        prime = prime_nth(&p, i);
-        i++;
+    for(uint64_t num = 0; num < max; num++) {
+        if(sieve_check(&sieve, num)) {
+            sum += num;
+        }
     }
 
+    sieve_free(&sieve);
     return sum;
 }
