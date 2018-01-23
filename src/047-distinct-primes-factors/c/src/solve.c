@@ -2,24 +2,34 @@
 
 uint64_t solve(uint8_t count)
 {
-    size_t window_size = 1024;
-    size_t offset = 0;
+    // prime_factors is a `window` of numbers from `window_offset` to 
+    // `window_offset + window_size`. it keeps a list of how many prime factors
+    // each number has (up to `count + 1`, anything above we don't care about).
+    size_t window_size = 10240;
+    size_t window_offset = 0;
+    uint8_t prime_factors[window_size];
+
     prime_t primes = prime_new();
 
     while(true) {
-        uint8_t prime_factors[window_size];
+        size_t window_max = window_offset + window_size;
 
-        // initialize prime factors
+        // reset window to all-zeroes.
         for(size_t i = 0; i < window_size; i++) prime_factors[i] = 0;
 
-        // compute prime factors counts up to window_size
-        for(size_t i = 0; prime_nth(&primes, i) < window_size; i++) {
+        // iterate through the prime numbers, and for every number in the
+        // `prime_factors` window, set how many prime factors it has
+        for(size_t i = 0; prime_nth(&primes, i) < window_max; i++) {
             uint64_t prime = prime_nth(&primes, i);
             uint64_t cur = prime;
 
-            while(cur < window_size) {
-                if(prime_factors[cur] <= count) {
-                    prime_factors[cur]++;
+            while(cur < window_offset) cur += prime;
+            while(cur < window_max) {
+                // if the prime factors are already bigger than count, we
+                // ignore - we don't want overflow errors and we only care if
+                // the prime factors are equal to count or not anyways.
+                if(prime_factors[cur - window_offset] <= count) {
+                    prime_factors[cur - window_offset]++;
                 }
 
                 cur += prime;
@@ -28,10 +38,10 @@ uint64_t solve(uint8_t count)
 
         // check which `count` consecutive numbers have `count` distinct prime
         // factors
-        for(size_t num = 0; num < (window_size - count); num++) {
+        for(size_t num = window_offset; num < (window_max - count); num++) {
             size_t offset;
             for(offset = 0; offset < count; offset++) {
-                if(prime_factors[num + offset] != count) break;
+                if(prime_factors[num + offset - window_offset] != count) break;
             }
 
             if(offset == count) {
@@ -45,7 +55,7 @@ uint64_t solve(uint8_t count)
             }
         }
 
-        window_size *= 2;
+        window_offset += window_size - count;
     }
 }
 
