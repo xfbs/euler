@@ -1,6 +1,6 @@
 module Solver
-  def self.solve string, length
-    numbers = string.chars.map{|n| n.to_i}
+  def self.solve(string, length)
+    numbers = string.chars.map(&:to_i)
 
     # step one: find the earliest sequence of non-zero numbers with the
     # specified length. offset denotes the start of this sequence. product is
@@ -8,9 +8,7 @@ module Solver
     offset = 0
     product = 1
     numbers.each_with_index do |num, index|
-      if (index - offset) == length
-        break
-      end
+      break if (index - offset) == length
 
       if num == 0
         offset = index + 1
@@ -26,20 +24,20 @@ module Solver
     # biggest products seen in max.
     zeroes = 0
     max = product
-    (string.length-length-offset).times do |i|
-      out = numbers[i+offset]
-      cur = numbers[i+offset+length]
+    (string.length - length - offset).times do |i|
+      out = numbers[i + offset]
+      cur = numbers[i + offset + length]
 
       if out == 0
         zeroes += 1
       else
-        product = product / out
+        product /= out
       end
 
       if cur == 0
         zeroes -= 1
       else
-        product = product * cur
+        product *= cur
       end
 
       max = product if zeroes == 0 && product > max

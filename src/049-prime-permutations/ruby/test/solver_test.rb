@@ -3,12 +3,12 @@ require_relative '../src/solver'
 
 class SolverTest < MiniTest::Test
   def test_solver
-    assert_equal Solver.solve(4, 0), 148748178147
+    assert_equal Solver.solve(4, 0), 148_748_178_147
   end
 
   def test_sequence
     p = Euler::Prime.new
-    p.take_while{|p| p < 10000}
+    p.take_while { |p| p < 10_000 }
 
     assert Solver.test_sequence(p, 1487, 3330)
     assert Solver.test_sequence(p, 1487, 3300)

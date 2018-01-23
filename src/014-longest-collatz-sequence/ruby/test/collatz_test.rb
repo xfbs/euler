@@ -2,8 +2,7 @@ require 'minitest/autorun'
 require_relative '../src/collatz'
 
 class PrimeTest < MiniTest::Test
-  def setup
-  end
+  def setup; end
 
   def test_length
     c = Collatz.new

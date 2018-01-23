@@ -1,11 +1,9 @@
 module Solver
-  def self.solve n
-    (((n-3)/3)..(n-1)).each do |c|
-      (((n-c-1)/2)..[c, n-c].min).each do |b|
+  def self.solve(n)
+    (((n - 3) / 3)..(n - 1)).each do |c|
+      (((n - c - 1) / 2)..[c, n - c].min).each do |b|
         a = n - c - b
-        if is_pythagorean_triplet?(a, b, c)
-          return a*b*c
-        end
+        return a * b * c if is_pythagorean_triplet?(a, b, c)
       end
     end
   end

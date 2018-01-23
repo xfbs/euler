@@ -1,7 +1,7 @@
 require 'euler/prime'
 
 module Solver
-  def self.solve max
+  def self.solve(max)
     triangle = 1
     index = 1
     p = Euler::Prime.new
@@ -14,7 +14,7 @@ module Solver
     triangle
   end
 
-  def self.factor_count primes, num
+  def self.factor_count(primes, num)
     count = 1
     cur = 0
 
@@ -26,7 +26,6 @@ module Solver
         num /= prime
         factors += 1
       end
-
 
       count *= factors
       cur += 1

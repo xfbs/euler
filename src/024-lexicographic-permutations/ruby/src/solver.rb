@@ -1,5 +1,5 @@
 module Solver
-  def self.solve array, index
+  def self.solve(array, index)
     return array if array.length < 2
     p = permutations(array.length - 1)
     o = index / p
@@ -7,7 +7,7 @@ module Solver
     [c] + solve(array, index % p)
   end
 
-  def self.permutations len
+  def self.permutations(len)
     (1..len).inject(1, :*)
   end
 end

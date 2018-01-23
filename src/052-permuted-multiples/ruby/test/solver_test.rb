@@ -12,8 +12,8 @@ class SolverTest < MiniTest::Test
   def test_is_permuted_multiple
     assert !Solver.is_permuted_multiple?(123)
     assert !Solver.is_permuted_multiple?(1324)
-    assert !Solver.is_permuted_multiple?(43232)
-    assert !Solver.is_permuted_multiple?(121231)
+    assert !Solver.is_permuted_multiple?(43_232)
+    assert !Solver.is_permuted_multiple?(121_231)
     assert !Solver.is_permuted_multiple?(1432)
   end
 

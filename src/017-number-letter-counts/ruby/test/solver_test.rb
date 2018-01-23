@@ -11,7 +11,7 @@ class SolverTest < MiniTest::Test
     assert_equal  9, Solver.teens_number_word(21) # twenty-one
     assert_equal  9, Solver.teens_number_word(45) # forty-five
     assert_equal 11, Solver.teens_number_word(98) # ninety-eight
-    assert_equal  7, Solver.teens_number_word(70) # seventy
+    assert_equal 7, Solver.teens_number_word(70) # seventy
     assert_equal 11, Solver.teens_number_word(33) # thirty-three
   end
 

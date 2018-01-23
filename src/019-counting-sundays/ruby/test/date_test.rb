@@ -2,15 +2,15 @@ require 'minitest/autorun'
 require_relative '../src/date'
 
 class DateTest < MiniTest::Test
-  def with_year year
+  def with_year(year)
     Date.new(Date::MONDAY, 1, Date::JANUARY, year)
   end
 
-  def with_month month
+  def with_month(month)
     Date.new(Date::MONDAY, 1, month, 1900)
   end
 
-  def with_leap_month month
+  def with_leap_month(month)
     Date.new(Date::MONDAY, 1, month, 1904)
   end
 

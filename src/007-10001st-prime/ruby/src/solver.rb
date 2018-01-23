@@ -1,8 +1,8 @@
 require_relative 'euler/prime'
 
 module Solver
-  def self.solve n
+  def self.solve(n)
     p = Euler::Prime.new
-    p.nth(n-1)
+    p.nth(n - 1)
   end
 end

@@ -2,7 +2,7 @@ module Solution
   class Cell
     attr_reader :row, :col, :cell
 
-    def initialize matrix, row, col, cell
+    def initialize(matrix, row, col, cell)
       @matrix = matrix
       @row    = row
       @col    = col
@@ -11,29 +11,29 @@ module Solution
     end
 
     def right
-      @matrix.get(row, col+1)
+      @matrix.get(row, col + 1)
     end
 
     def down
-      @matrix.get(row+1, col)
+      @matrix.get(row + 1, col)
     end
 
     def up
-      @matrix.get(row-1, col)
+      @matrix.get(row - 1, col)
     end
 
-    def min_path dir=:best
-      return @cell if !right
+    def min_path(dir = :best)
+      return @cell unless right
       return @path[dir] if @path[dir]
 
       # find out the minimum paths in all directions
-      @path[:right] = @cell + right.min_path()
+      @path[:right] = @cell + right.min_path
       @path[:down]  = down && (@cell + down.min_path(:down)) unless dir == :up
       @path[:up]    = up && (@cell + up.min_path(:up)) unless dir == :down
 
       # if going right is shorter than going into that direction,
       # update the path length
-      (dir == :best && [:down, :up] || [dir]).each do |d|
+      (dir == :best && %i[down up] || [dir]).each do |d|
         @path[d] = [@path[d], @path[:right]].compact.min
       end
 

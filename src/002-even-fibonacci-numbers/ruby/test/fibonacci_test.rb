@@ -2,8 +2,7 @@ require 'minitest/autorun'
 require_relative '../src/fibonacci'
 
 class PrimeTest < MiniTest::Test
-  def setup
-  end
+  def setup; end
 
   def test_fibonaccis
     assert_equal Fibonacci.nth(1), 1

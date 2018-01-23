@@ -1,7 +1,7 @@
 require_relative 'date'
 
 module Solver
-  def self.solve s, e
+  def self.solve(s, e)
     count = (s.day == 1 && s.weekday == Date::SUNDAY) && 1 || 0
     s.next_month!
 

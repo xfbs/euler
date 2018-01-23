@@ -40,6 +40,6 @@ class PathsTest < MiniTest::Test
     assert_equal @p.count(5, 7), 792
 
     big = Paths.new(20, 20)
-    assert_equal big.count(20, 16), 7307872110
+    assert_equal big.count(20, 16), 7_307_872_110
   end
 end

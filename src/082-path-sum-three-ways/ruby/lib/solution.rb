@@ -1,12 +1,10 @@
 require 'solution/matrix'
 
 module Solution
-  def self.solve file
+  def self.solve(file)
     f = File.open(file, 'r').read
     mat = f.chomp.split("\n").map do |line|
-      line.split(',').map do |cell|
-        cell.to_i
-      end
+      line.split(',').map(&:to_i)
     end
 
     # we can start from any cell on the right,

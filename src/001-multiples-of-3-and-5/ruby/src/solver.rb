@@ -4,7 +4,7 @@ module Solver
   end
 
   def self.sum_divisible(max, div)
-    max = max - (max % div)
-    max * ((max/div) + 1) / 2
+    max -= max % div
+    max * ((max / div) + 1) / 2
   end
 end

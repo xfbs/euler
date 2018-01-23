@@ -1,5 +1,5 @@
 module Solver
-  def self.solve max, digits
+  def self.solve(max, digits)
     mod = 10**digits
 
     (1..max).inject(0) do |m, c|
@@ -12,7 +12,7 @@ module Solver
       1
     elsif e == 1
       n % m
-    elsif (e % 2) == 0
+    elsif e.even?
       pow(n**2 % m, e / 2, m) % m
     else
       ((pow(n**2 % m, e / 2, m) % m) * n) % m

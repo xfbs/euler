@@ -25,7 +25,7 @@ class Date
   DECEMBER  = 11
   MONTH_MAX = 12
 
-  def initialize weekday, day, month, year
+  def initialize(weekday, day, month, year)
     @weekday = weekday
     @day = day
     @month = month
@@ -61,9 +61,7 @@ class Date
     @day = 1
     @weekday = (@weekday + distance) % WEEKDAY_MAX
 
-    if @month == DECEMBER
-      @year += 1
-    end
+    @year += 1 if @month == DECEMBER
 
     @month = (@month + 1) % MONTH_MAX
   end

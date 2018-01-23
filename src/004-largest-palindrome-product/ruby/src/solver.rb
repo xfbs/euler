@@ -2,15 +2,15 @@ module Solver
   # finds the largest palindrome which can be factored into two numbers that
   # are 10^(digits-1) <= n < 10^digits
   def self.solve(digits)
-    min_factor = 10**(digits-1)
+    min_factor = 10**(digits - 1)
     max_factor = 10**digits
 
     [false, true].each do |lower|
-      (max_factor-1)
+      (max_factor - 1)
         .downto(min_factor)
-        .map{|n| palindrome(n, lower)}
-        .select{|p| factorizable(p, min_factor, max_factor)}
-        .each{|p| return p}
+        .map { |n| palindrome(n, lower) }
+        .select { |p| factorizable(p, min_factor, max_factor) }
+        .each { |p| return p }
     end
   end
 
@@ -30,14 +30,14 @@ module Solver
 
     num /= 10 if lower
 
-    return (num * exp) + rev
+    (num * exp) + rev
   end
 
   # checks if a number n is factorizable into two numbers a and b, for which
   # min_factor <= a < max_factor and min_factor <= b < sqrt(n)
   def self.factorizable(num, min_factor, max_factor)
     (min_factor..Math.sqrt(num).floor).each do |d|
-      if num % d == 0 and (num / d) >= min_factor and (num / d) < max_factor
+      if (num % d == 0) && ((num / d) >= min_factor) && ((num / d) < max_factor)
         return true
       end
     end

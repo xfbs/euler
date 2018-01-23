@@ -1,3 +1,3 @@
 require_relative '../solver'
 
-puts Solver.solve(600851475143)
+puts Solver.solve(600_851_475_143)

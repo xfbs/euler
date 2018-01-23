@@ -3,22 +3,18 @@ module Euler
     include Enumerable
 
     def initialize
-      @primes = [2,3]
+      @primes = [2, 3]
     end
 
     def nth(p)
-      while @primes.length <= p
-        self.next
-      end
+      self.next while @primes.length <= p
 
       @primes[p]
     end
 
     def next
       cur = @primes.last + 2
-      while !check_prime?(cur)
-        cur += 2
-      end
+      cur += 2 until check_prime?(cur)
       @primes.push(cur)
       cur
     end
@@ -28,7 +24,7 @@ module Euler
         yield p
       end
 
-      while true
+      loop do
         yield self.next
       end
     end
@@ -47,25 +43,16 @@ module Euler
     def check?(n)
       max = Math.sqrt(n).to_i
 
-      while @primes.last <= max
-        self.next
-      end
+      self.next while @primes.last <= max
 
       check_prime? n
     end
 
-
     def index(n)
-      while n > @primes.last
-        self.next
-      end
+      self.next while n > @primes.last
 
-      i = @primes.bsearch_index {|p, _| p >= n}
-      if i.nil? || @primes[i] == n
-        i
-      else
-        nil
-      end
+      i = @primes.bsearch_index { |p, _| p >= n }
+      i if i.nil? || @primes[i] == n
     end
   end
 end

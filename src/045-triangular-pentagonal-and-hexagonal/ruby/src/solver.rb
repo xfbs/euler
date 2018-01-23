@@ -4,7 +4,7 @@ module Solver
     pp = pentagonal(p)
     hh = hexagonal(h)
 
-    while true
+    loop do
       is_pentagonal = false
       is_triangular = false
       h += 1
@@ -26,15 +26,15 @@ module Solver
     end
   end
 
-  def self.triangular n
+  def self.triangular(n)
     n * (n + 1) / 2
   end
 
-  def self.pentagonal n
+  def self.pentagonal(n)
     n * (3 * n - 1) / 2
   end
 
-  def self.hexagonal n
+  def self.hexagonal(n)
     n * (2 * n - 1)
   end
 end

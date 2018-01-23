@@ -1,4 +1,4 @@
-require "euler/prime"
+require 'euler/prime'
 
 module Solver
   def self.solve(max)
@@ -6,7 +6,7 @@ module Solver
     run = 0
     prime = Euler::Prime.new
 
-    ((-max+1)...max).each do |a|
+    ((-max + 1)...max).each do |a|
       (0..max).each do |b|
         break if prime.nth(b) >= max
         cur = quadratic_prime_run(prime, a, prime.nth(b))
@@ -24,7 +24,7 @@ module Solver
   def self.quadratic_prime_run(primes, a, b)
     n = 0
     loop do
-      cur = a*n + n*n + b
+      cur = a * n + n * n + b
       break unless cur >= 2 && primes.check?(cur)
       n += 1
     end
@@ -32,4 +32,3 @@ module Solver
     n
   end
 end
-

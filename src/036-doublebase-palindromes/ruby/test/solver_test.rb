@@ -4,16 +4,16 @@ require_relative '../src/solver'
 class SolverTest < MiniTest::Test
   def test_is_palindrome_base_10
     assert Solver.is_palindrome?(121)
-    assert Solver.is_palindrome?(1234321)
+    assert Solver.is_palindrome?(1_234_321)
     assert Solver.is_palindrome?(1221)
-    assert Solver.is_palindrome?(12345054321)
-    assert Solver.is_palindrome?(1664661)
+    assert Solver.is_palindrome?(12_345_054_321)
+    assert Solver.is_palindrome?(1_664_661)
 
     assert !Solver.is_palindrome?(112)
-    assert !Solver.is_palindrome?(55554555)
+    assert !Solver.is_palindrome?(55_554_555)
     assert !Solver.is_palindrome?(1121)
     assert !Solver.is_palindrome?(1612)
-    assert !Solver.is_palindrome?(9999991)
+    assert !Solver.is_palindrome?(9_999_991)
   end
 
   def test_is_palindrome_base_2
@@ -32,7 +32,7 @@ class SolverTest < MiniTest::Test
 
   def test_gen_palindromes
     assert_equal Solver.gen_palindromes(12), [121, 1221]
-    assert_equal Solver.gen_palindromes(131), [13131, 131131]
+    assert_equal Solver.gen_palindromes(131), [13_131, 131_131]
 
     assert_equal Solver.gen_palindromes(0b10, 2), [0b101, 0b1001]
     assert_equal Solver.gen_palindromes(0b1011, 2), [0b1011101, 0b10111101]

@@ -3,7 +3,7 @@ module Solver
     (1..9)
       .to_a
       .permutation(9)
-      .map{|s| pandigital_product_sums(s)}
+      .map { |s| pandigital_product_sums(s) }
       .compact
       .flatten
       .uniq
@@ -36,9 +36,7 @@ module Solver
         pos += 1
       end
 
-      if (a * b) == p
-        (sums ||= []) << p
-      end
+      (sums ||= []) << p if (a * b) == p
     end
 
     sums

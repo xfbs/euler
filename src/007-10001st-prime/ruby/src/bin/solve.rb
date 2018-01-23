@@ -1,3 +1,3 @@
 require_relative '../solver'
 
-puts Solver.solve(10001)
+puts Solver.solve(10_001)

@@ -1,13 +1,11 @@
-require "euler/divisor_sum"
+require 'euler/divisor_sum'
 
 module Solver
-  def self.solve max
+  def self.solve(max)
     # generate a list of abundant numbers up to max
     abundant = []
     (1..max).each do |n|
-      if Euler.divisor_sum(n) > n
-        abundant << n
-      end
+      abundant << n if Euler.divisor_sum(n) > n
     end
 
     poss = Array.new(max)
@@ -15,14 +13,12 @@ module Solver
     abundant.each_with_index do |a, i|
       abundant[i..-1].each do |b|
         sum = a + b
-        if sum >= max
-          break
-        end
+        break if sum >= max
 
         poss[sum] = true
       end
     end
 
-    poss.each_with_index.select{|p, _| !p}.map{|_, n| n}.inject(0, :+)
+    poss.each_with_index.reject { |p, _| p }.map { |_, n| n }.inject(0, :+)
   end
 end

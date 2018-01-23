@@ -1,9 +1,9 @@
 module Solver
-  def self.solve n
-    (1..n).map{|num| thousands_number_word(num)}.inject(:+)
+  def self.solve(n)
+    (1..n).map { |num| thousands_number_word(num) }.inject(:+)
   end
 
-  def self.teens_number_word n
+  def self.teens_number_word(n)
     numbers = {
       1  => 3, # one
       2  => 3, # two
@@ -34,18 +34,18 @@ module Solver
       90 => 6, # ninety
     }
 
-    numbers.sort_by{|p| p[0]}.reverse.inject([n, 0]) do |s, cur|
+    numbers.sort_by { |p| p[0] }.reverse.inject([n, 0]) do |s, cur|
       if s[0] >= cur[0]
-        [s[0]-cur[0], s[1]+cur[1]]
+        [s[0] - cur[0], s[1] + cur[1]]
       else
         s
       end
     end[1]
   end
 
-  def self.hundreds_number_word n
+  def self.hundreds_number_word(n)
     out = 0
-    hundreds = n/100
+    hundreds = n / 100
 
     # thirty-three hundred
     out += teens_number_word(hundreds) + 7 if hundreds > 0
@@ -54,20 +54,20 @@ module Solver
     out += 3 if hundreds > 0 && (n % 100) > 0
 
     # fourty-five
-    out += teens_number_word(n%100) if (n%100) > 0
+    out += teens_number_word(n % 100) if (n % 100) > 0
 
     out
   end
 
-  def self.thousands_number_word n
+  def self.thousands_number_word(n)
     out = 0
-    thousands = n/1000
+    thousands = n / 1000
 
     # three hundred and forty-five thousand
     out += hundreds_number_word(thousands) + 8 if thousands > 0
 
     # five hundred and sixty-seven
-    out += hundreds_number_word(n%1000) if (n%1000) > 0
+    out += hundreds_number_word(n % 1000) if (n % 1000) > 0
 
     out
   end

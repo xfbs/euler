@@ -2,8 +2,7 @@ require 'minitest/autorun'
 require_relative '../src/euler/prime'
 
 class PrimeTest < MiniTest::Test
-  def setup
-  end
+  def setup; end
 
   def test_primes
     p = Euler::Prime.new
