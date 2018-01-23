@@ -13,12 +13,12 @@ uint64_t solve(uint8_t count)
     prime_t primes = prime_new();
 
     for(size_t factors_offset = 0; ; factors_offset += factors_size - count) {
-        size_t window_max = factors_offset + factors_size;
+        size_t factors_max = factors_offset + factors_size;
         make_factors(&primes, factors_offset, factors, count);
 
         // check which `count` consecutive numbers have `count` distinct prime
         // factors
-        for(size_t num = factors_offset; num < (window_max - count); num++) {
+        for(size_t num = factors_offset; num < (factors_max - count); num++) {
             size_t offset;
             for(offset = 0; offset < count; offset++) {
                 if(factors[num + offset - factors_offset] != count) break;
