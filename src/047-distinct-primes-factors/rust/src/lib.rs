@@ -15,8 +15,8 @@ pub fn solve(count: u8) -> u64 {
             if skip > 0 {
                 skip -= 1;
             } else {
-                let offset = (0..(count as usize))
-                    .find(|&n| factors[num - factors_offset + n] != count);
+                let offset =
+                    (0..(count as usize)).find(|&n| factors[num - factors_offset + n] != count);
 
                 if offset == None {
                     if distinct_prime_factors(&mut primes, num as u64, count) {

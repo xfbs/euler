@@ -1,6 +1,7 @@
 pub fn solve(words: &mut Vec<String>) -> usize {
     words.sort_unstable();
-    words.iter()
+    words
+        .iter()
         .enumerate()
         .map(|(index, word)| (index + 1) * worth(word))
         .sum()
@@ -21,8 +22,12 @@ fn test_worth() {
 #[test]
 fn test_solve() {
     assert_eq!(solve(&mut vec!["A".to_string()]), 1);
-    assert_eq!(solve(&mut vec![
-                     "A".to_string(),
-                     "Z".to_string(),
-                     "COLIN".to_string()]), 1*1 + 2*53 + 3*26);
+    assert_eq!(
+        solve(&mut vec![
+            "A".to_string(),
+            "Z".to_string(),
+            "COLIN".to_string(),
+        ]),
+        1 * 1 + 2 * 53 + 3 * 26
+    );
 }

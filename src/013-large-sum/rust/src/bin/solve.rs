@@ -1,5 +1,5 @@
 extern crate solver;
-use std::io::{BufReader,BufRead};
+use std::io::{BufRead, BufReader};
 use std::fs::File;
 use std::env::args;
 

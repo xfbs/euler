@@ -14,7 +14,7 @@ fn sum(max: u32, divisor: u32) -> u32 {
     // find the biggest number <= max that is divisible by divisor
     let max = max - (max % divisor);
 
-    (max * ((max/divisor) + 1)) / 2
+    (max * ((max / divisor) + 1)) / 2
 }
 
 #[test]

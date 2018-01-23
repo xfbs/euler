@@ -3,7 +3,7 @@ use std::f64;
 pub fn solve(max: u32) -> u32 {
     let phi = (1.0 + (5.0 as f64).sqrt()) / 2.0;
 
-    let sum1 = (1.0/2.0) * (5.0 as f64).log(phi);
+    let sum1 = (1.0 / 2.0) * (5.0 as f64).log(phi);
     let sum2 = ((max - 1) as f64) * (10.0 as f64).log(phi);
     (sum1 + sum2).ceil() as u32
 }

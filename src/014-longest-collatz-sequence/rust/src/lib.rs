@@ -1,5 +1,5 @@
 struct CollatzLength {
-    cache: Vec<u32>
+    cache: Vec<u32>,
 }
 
 impl CollatzLength {
@@ -7,9 +7,7 @@ impl CollatzLength {
         let mut cache = vec![0; size];
         cache[1] = 1;
 
-        CollatzLength {
-            cache: cache
-        }
+        CollatzLength { cache: cache }
     }
 
     fn len(&mut self, num: u32) -> u32 {
@@ -40,7 +38,8 @@ impl CollatzLength {
         (1..max)
             .map(|n| (n, self.len(n as u32)))
             .max_by_key(|n| n.1)
-            .unwrap().0 as u32
+            .unwrap()
+            .0 as u32
     }
 }
 
@@ -55,14 +54,14 @@ fn test_collatz_length_len() {
     let mut cs = CollatzLength::new(1000);
 
     for i in 4..30 {
-        let num = (2 as u32).pow(i-1);
+        let num = (2 as u32).pow(i - 1);
         assert_eq!(cl.len(num), i);
         assert_eq!(cs.len(num), i);
 
         if ((num - 1) % 3) == 0 && (((num - 1) / 3) % 2) == 1 {
-            let num = (num-1)/3;
-            assert_eq!(cl.len(num), i+1);
-            assert_eq!(cs.len(num), i+1);
+            let num = (num - 1) / 3;
+            assert_eq!(cl.len(num), i + 1);
+            assert_eq!(cs.len(num), i + 1);
         }
     }
 
@@ -70,8 +69,8 @@ fn test_collatz_length_len() {
     let mut cs = CollatzLength::new(1000);
     let v = vec![1, 2, 4, 8, 16, 5, 10, 20, 40, 13, 26, 52, 17, 34, 11];
     for (i, n) in v.iter().enumerate() {
-        assert_eq!(cs.len(*n as u32), (i+1) as u32);
-        assert_eq!(cl.len(*n as u32), (i+1) as u32);
+        assert_eq!(cs.len(*n as u32), (i + 1) as u32);
+        assert_eq!(cl.len(*n as u32), (i + 1) as u32);
     }
 
     for i in 1..500 {
@@ -89,7 +88,7 @@ fn test_collatz_longest() {
         let longest = cs.longest(*max);
         let length = cs.len(longest);
 
-        for i in 1..(max+1) {
+        for i in 1..(max + 1) {
             if i != longest {
                 assert!(cs.len(i) <= length);
             }

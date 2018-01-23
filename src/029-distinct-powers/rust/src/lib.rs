@@ -4,14 +4,14 @@ pub fn solve(max_a: u32, max_b: u32) -> u32 {
 
     let mut visited = vec![false; max_a as usize - 1];
 
-    for a in 2..(max_a+1) {
+    for a in 2..(max_a + 1) {
         let mut product = a * a;
         let mut power = 2;
 
         while product <= max_a && !visited[product as usize - 2] {
             visited[product as usize - 2] = true;
 
-            for b in 2..(max_b+1) {
+            for b in 2..(max_b + 1) {
                 let exponent = b * power;
 
                 for lower in 1..power {

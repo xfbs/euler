@@ -20,7 +20,8 @@ pub fn solve(max: u64) -> u64 {
         }
     }
 
-    possible.iter()
+    possible
+        .iter()
         .enumerate()
         .filter(|&(_, poss)| !poss)
         .map(|(index, _)| index as u64)

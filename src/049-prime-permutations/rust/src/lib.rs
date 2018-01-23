@@ -5,14 +5,15 @@ use euler::Prime;
 pub fn solve(avoid: u64) -> u64 {
     let mut primes = Prime::new();
 
-    let four_digit_primes: Vec<u64> = primes.into_iter()
+    let four_digit_primes: Vec<u64> = primes
+        .into_iter()
         .filter(|&p| 1000 <= p)
         .filter(|&p| p != avoid)
         .take_while(|&p| p < 10000)
         .collect();
 
     for (index, first) in four_digit_primes.iter().enumerate() {
-        for second in &four_digit_primes[index+1..] {
+        for second in &four_digit_primes[index + 1..] {
             let third = 2 * *second - *first;
             if third < 10000 && permutation(*first, *second) {
                 if permutation(*second, third) && primes.check(third) {

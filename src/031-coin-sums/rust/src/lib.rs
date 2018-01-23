@@ -4,14 +4,14 @@ pub fn solve(value: u32) -> usize {
 }
 
 pub fn change(coins: &Vec<u32>, value: u32, pos: usize) -> usize {
-    if value == 0 || (pos+1) == coins.len() {
+    if value == 0 || (pos + 1) == coins.len() {
         if value % coins.last().unwrap() == 0 {
             1
         } else {
             0
         }
     } else {
-        (0..(value/coins[pos] + 1))
+        (0..(value / coins[pos] + 1))
             .map(|n| change(coins, value - n * coins[pos], pos + 1))
             .sum()
     }

@@ -1,12 +1,12 @@
 pub fn solve(max: u32) -> u32 {
     let factorials = factorials();
 
-    (3..(max+1)).filter(|n| is_curious(&factorials, *n)).sum()
+    (3..(max + 1)).filter(|n| is_curious(&factorials, *n)).sum()
 }
 
 fn factorials() -> Vec<u32> {
     (0..10)
-        .map(|n| (1..(n+1)).fold(1u32, |memo, cur| memo * cur))
+        .map(|n| (1..(n + 1)).fold(1u32, |memo, cur| memo * cur))
         .collect::<Vec<u32>>()
 }
 

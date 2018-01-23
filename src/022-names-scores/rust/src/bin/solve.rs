@@ -13,8 +13,9 @@ fn main() {
         .split(',' as u8)
         .map(|word| {
             let word = word.unwrap();
-            let word = String::from_utf8(word[1..word.len()-1].to_vec());
-            word.unwrap()})
+            let word = String::from_utf8(word[1..word.len() - 1].to_vec());
+            word.unwrap()
+        })
         .collect::<Vec<String>>();
 
     println!("{}", solver::solve(&mut words));

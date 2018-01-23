@@ -3,7 +3,9 @@ use std::u32;
 pub fn solve(max: u32) -> u32 {
     let fifth_powers = (0u32..10).map(|n| n.pow(5)).collect::<Vec<u32>>();
 
-    (3..(max+1)).filter(|n| is_curious(&fifth_powers, *n)).sum()
+    (3..(max + 1))
+        .filter(|n| is_curious(&fifth_powers, *n))
+        .sum()
 }
 
 pub fn is_curious(digit_mapping: &[u32], num: u32) -> bool {

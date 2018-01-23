@@ -12,7 +12,10 @@ pub fn solve(max: u64) -> usize {
     let mut rotatable = HashSet::new();
 
     for prime in &primes {
-        if prime.rotations().all(|rot| primes.binary_search(&rot).is_ok()) {
+        if prime
+            .rotations()
+            .all(|rot| primes.binary_search(&rot).is_ok())
+        {
             for rot in prime.rotations() {
                 rotatable.insert(rot);
             }

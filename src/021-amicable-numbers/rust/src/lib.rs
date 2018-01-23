@@ -27,5 +27,5 @@ fn test_amicable() {
 
 #[test]
 fn test_solution() {
-    assert_eq!(solve(285), 220+284);
+    assert_eq!(solve(285), 220 + 284);
 }

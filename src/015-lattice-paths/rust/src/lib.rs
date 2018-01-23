@@ -1,28 +1,28 @@
 struct LatticePaths {
-    paths: Vec<Vec<u64>>
+    paths: Vec<Vec<u64>>,
 }
 
 impl LatticePaths {
     pub fn new(x: usize, y: usize) -> Self {
-        let (x, y) = if x < y {(x, y)} else {(y, x)};
+        let (x, y) = if x < y { (x, y) } else { (y, x) };
         LatticePaths {
-            paths: vec![vec![0; y+1]; x+1]
+            paths: vec![vec![0; y + 1]; x + 1],
         }
     }
 
     pub fn count(&mut self, x: usize, y: usize) -> u64 {
-        let (x, y) = if x < y {(x, y)} else {(y, x)};
+        let (x, y) = if x < y { (x, y) } else { (y, x) };
 
         if x == 0 {
             return 1;
         }
 
         if x == 1 {
-            return (y+1) as u64;
+            return (y + 1) as u64;
         }
 
         if x == 2 {
-            return ((y+1) * (y+2) / 2) as u64;
+            return ((y + 1) * (y + 2) / 2) as u64;
         }
 
         if x < self.paths.len() && y < self.paths[x].len() {
@@ -31,7 +31,7 @@ impl LatticePaths {
             }
         }
 
-        let res = self.count(x-1, y) + self.count(x, y-1);
+        let res = self.count(x - 1, y) + self.count(x, y - 1);
 
         if x < self.paths.len() && y < self.paths[x].len() {
             self.paths[x][y] = res;

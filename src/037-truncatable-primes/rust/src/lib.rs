@@ -32,13 +32,23 @@ pub fn solve(count: usize) -> u64 {
 /// # }
 /// ```
 pub fn is_truncatable(primes: &mut Prime, prime: u64) -> bool {
-    let right = prime.digits()
-        .scan(0, |memo, digit| {*memo *= 10; *memo += digit; Some(*memo)})
+    let right = prime
+        .digits()
+        .scan(0, |memo, digit| {
+            *memo *= 10;
+            *memo += digit;
+            Some(*memo)
+        })
         .all(|n| primes.check(n));
 
-    let left = prime.digits()
+    let left = prime
+        .digits()
         .reverse()
-        .scan((0, 1), |memo, digit| {memo.0 += memo.1 * digit; memo.1 *= 10; Some(memo.0)})
+        .scan((0, 1), |memo, digit| {
+            memo.0 += memo.1 * digit;
+            memo.1 *= 10;
+            Some(memo.0)
+        })
         .all(|n| primes.check(n));
 
     right && left

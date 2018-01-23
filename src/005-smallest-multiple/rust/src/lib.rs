@@ -2,7 +2,7 @@ extern crate euler;
 use euler::GcdLcm;
 
 pub fn solve(max: u32) -> u32 {
-    (1..(max+1)).fold(1, |a, b| a.lcm(b))
+    (1..(max + 1)).fold(1, |a, b| a.lcm(b))
 }
 
 #[test]

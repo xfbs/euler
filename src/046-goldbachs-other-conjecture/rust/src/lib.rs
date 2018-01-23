@@ -17,7 +17,8 @@ pub fn solve() -> u64 {
 }
 
 pub fn conjecture(primes: &mut Prime, odd_composite: u64) -> bool {
-    primes.into_iter()
+    primes
+        .into_iter()
         .skip(1)
         .take_while(|&prime| prime < odd_composite)
         .map(|prime| (odd_composite - prime) / 2)

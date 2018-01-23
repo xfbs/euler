@@ -11,7 +11,8 @@ pub fn solve(max: u64) -> u64 {
 // find the maximum amount of primes you can add up to run short of max,
 // and their sum.
 fn max_len_sum(prime: &mut Prime, max: u64) -> (usize, u64) {
-    let (max_len, sum_pre) = prime.into_iter()
+    let (max_len, sum_pre) = prime
+        .into_iter()
         .enumerate()
         .take_while(|&(_, n)| n < max)
         .fold((0usize, 0u64), |(len, sum), (index, prime)| {
@@ -19,7 +20,8 @@ fn max_len_sum(prime: &mut Prime, max: u64) -> (usize, u64) {
                 (index + 1, sum + prime)
             } else {
                 (len, sum)
-            }});
+            }
+        });
 
     (max_len, sum_pre)
 }
@@ -28,11 +30,11 @@ fn max_len_sum(prime: &mut Prime, max: u64) -> (usize, u64) {
 // sequence is sum_pre, that is also prime.
 fn consecutive_prime_sum(prime: &mut Prime, max_len: usize, sum_pre: u64) -> Option<u64> {
     let mut sum_pre = sum_pre;
-    for len in (0..(max_len-1)).map(|n| max_len - n) {
+    for len in (0..(max_len - 1)).map(|n| max_len - n) {
         let mut sum = sum_pre;
         sum_pre -= prime.nth(len);
 
-        for i in len..(max_len+1) {
+        for i in len..(max_len + 1) {
             if prime.check(sum) {
                 return Some(sum);
             }

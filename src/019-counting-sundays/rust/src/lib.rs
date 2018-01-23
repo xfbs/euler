@@ -12,7 +12,12 @@ pub struct Date {
 
 impl Date {
     pub fn new(weekday: u32, day: u32, month: u32, year: u32) -> Self {
-        Date {weekday: weekday, day: day, month: month, year: year}
+        Date {
+            weekday: weekday,
+            day: day,
+            month: month,
+            year: year,
+        }
     }
 
     pub fn is_leap_year(&self) -> bool {
@@ -28,7 +33,7 @@ impl Date {
                 } else {
                     28
                 }
-            },
+            }
             _ => 31,
         }
     }
@@ -42,7 +47,7 @@ impl Date {
                 self.year
             },
             month: (self.month + 1) % 12,
-            weekday: (self.weekday + (self.month_length() - self.day + 1)) % 7
+            weekday: (self.weekday + (self.month_length() - self.day + 1)) % 7,
         }
     }
 }
@@ -61,7 +66,6 @@ impl PartialEq for Date {
     }
 }
 
-
 impl PartialOrd for Date {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         match self.year.partial_cmp(&other.year) {
@@ -74,11 +78,11 @@ impl PartialOrd for Date {
                     Some(Ordering::Less) => Some(Ordering::Less),
                     Some(Ordering::Greater) => Some(Ordering::Greater),
                     Some(Ordering::Equal) => Some(Ordering::Equal),
-                    _ => None
+                    _ => None,
                 },
-                _ => None
+                _ => None,
             },
-            _ => None
+            _ => None,
         }
     }
 }

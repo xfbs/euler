@@ -1,7 +1,10 @@
 pub fn solve() -> u64 {
     // for all bases between one and 10000 (base can't be bigger than this),
     // find the largest pandigital
-    (1..10000).filter_map(|n| pandigital_multiple(n)).max().unwrap()
+    (1..10000)
+        .filter_map(|n| pandigital_multiple(n))
+        .max()
+        .unwrap()
 }
 
 // for a given base, return it's pandigital (or None if none exists)
@@ -34,7 +37,7 @@ pub fn pandigital_multiple(base: u32) -> Option<u64> {
 }
 
 pub fn make_pandigital_multiple(base: u32, n: u8) -> u64 {
-    (2..(n+1)).fold(base as u64, |pandigital, c| {
+    (2..(n + 1)).fold(base as u64, |pandigital, c| {
         let cur = base as u64 * c as u64;
         let mut mag = 1;
 

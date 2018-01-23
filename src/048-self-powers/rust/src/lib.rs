@@ -1,9 +1,7 @@
 pub fn solve(max: u32, digits: u32) -> u64 {
     let m = 10u64.pow(digits);
 
-    (1..(max+1)).fold(0u64, |memo, c| {
-        (memo + pow(c as u64, c as u64, m)) % m
-    })
+    (1..(max + 1)).fold(0u64, |memo, c| (memo + pow(c as u64, c as u64, m)) % m)
 }
 
 fn pow(n: u64, e: u64, m: u64) -> u64 {
@@ -48,7 +46,7 @@ fn shift(n: u64, a: u8, m: u64) -> u64 {
 
 #[test]
 fn test_mult() {
-    assert_eq!(mult(3456, 30, 120000), 3456*30);
+    assert_eq!(mult(3456, 30, 120000), 3456 * 30);
     assert_eq!(mult(3456, 30, 10000), 3680);
 }
 
@@ -77,8 +75,20 @@ fn test_shift() {
 
 #[test]
 fn test_solve() {
-    assert_eq!(solve(5, 10), 1+2*2+3*3*3+4*4*4*4+5*5*5*5*5);
-    assert_eq!(solve(5, 3), (1+2*2+3*3*3+4*4*4*4+5*5*5*5*5) % 1000);
-    assert_eq!(solve(5, 2), (1+2*2+3*3*3+4*4*4*4+5*5*5*5*5) % 100);
-    assert_eq!(solve(5, 1), (1+2*2+3*3*3+4*4*4*4+5*5*5*5*5) % 10);
+    assert_eq!(
+        solve(5, 10),
+        1 + 2 * 2 + 3 * 3 * 3 + 4 * 4 * 4 * 4 + 5 * 5 * 5 * 5 * 5
+    );
+    assert_eq!(
+        solve(5, 3),
+        (1 + 2 * 2 + 3 * 3 * 3 + 4 * 4 * 4 * 4 + 5 * 5 * 5 * 5 * 5) % 1000
+    );
+    assert_eq!(
+        solve(5, 2),
+        (1 + 2 * 2 + 3 * 3 * 3 + 4 * 4 * 4 * 4 + 5 * 5 * 5 * 5 * 5) % 100
+    );
+    assert_eq!(
+        solve(5, 1),
+        (1 + 2 * 2 + 3 * 3 * 3 + 4 * 4 * 4 * 4 + 5 * 5 * 5 * 5 * 5) % 10
+    );
 }

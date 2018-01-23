@@ -1,4 +1,4 @@
-pub trait Palindrome : PartialEq + Clone {
+pub trait Palindrome: PartialEq + Clone {
     fn reversed(&self) -> Self;
     fn is_palindrome(&self) -> bool {
         *self == self.reversed()

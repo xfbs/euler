@@ -1,5 +1,6 @@
 pub fn solve(words: &mut Vec<String>) -> usize {
-    words.iter()
+    words
+        .iter()
         .map(|word| worth(word))
         .filter(|worth| is_triangular_number(*worth as u64))
         .count()
@@ -17,8 +18,12 @@ fn is_triangular_number(y: u64) -> bool {
 #[test]
 fn test_solve() {
     assert_eq!(solve(&mut vec!["A".to_string()]), 1);
-    assert_eq!(solve(&mut vec![
-                     "A".to_string(),
-                     "Z".to_string(),
-                     "SKY".to_string()]), 2);
+    assert_eq!(
+        solve(&mut vec![
+            "A".to_string(),
+            "Z".to_string(),
+            "SKY".to_string(),
+        ]),
+        2
+    );
 }
