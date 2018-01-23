@@ -1,12 +1,12 @@
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 #pragma once
 
 typedef struct {
-    uint8_t *data;
-    size_t cap;
-    size_t len;
+  uint8_t *data;
+  size_t cap;
+  size_t len;
 } vec8_t;
 
 vec8_t vec8_new(size_t len, uint8_t fill);

@@ -1,12 +1,12 @@
-#include <stdlib.h>
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
 #pragma once
 
 typedef struct {
-    uint32_t *primes;
-    size_t len;
-    size_t cap;
+  uint32_t *primes;
+  size_t len;
+  size_t cap;
 } prime_t;
 
 prime_t prime_new();

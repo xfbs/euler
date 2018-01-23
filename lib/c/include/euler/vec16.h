@@ -1,11 +1,11 @@
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
 #pragma once
 
 typedef struct {
-    uint16_t *data;
-    size_t cap;
-    size_t len;
+  uint16_t *data;
+  size_t cap;
+  size_t len;
 } vec16_t;
 
 vec16_t vec16_new(size_t len, uint16_t fill);

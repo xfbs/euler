@@ -1,5 +1,5 @@
-#include <stdint.h>
 #include <math.h>
+#include <stdint.h>
 #pragma once
 
 static const double PHI = 1.61803398875;

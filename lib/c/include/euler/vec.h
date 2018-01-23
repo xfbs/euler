@@ -3,9 +3,9 @@
 #pragma once
 
 typedef struct {
-    void **data;
-    size_t cap;
-    size_t len;
+  void **data;
+  size_t cap;
+  size_t len;
 } vec_t;
 
 vec_t vec_new(size_t len, void *fill);

@@ -1,11 +1,11 @@
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdlib.h>
 #pragma once
 
 typedef struct {
-    uint64_t *field;
-    size_t len;
+  uint64_t *field;
+  size_t len;
 } bitvec_t;
 
 bitvec_t bitvec_new(size_t l);

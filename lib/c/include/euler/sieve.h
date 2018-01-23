@@ -1,11 +1,11 @@
-#include <stdint.h>
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 #pragma once
 
 typedef struct {
-    bool *state;
-    size_t len;
+  bool *state;
+  size_t len;
 } sieve_t;
 
 sieve_t sieve_new(size_t size);
