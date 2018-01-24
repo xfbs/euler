@@ -22,8 +22,10 @@ matrix:
       before_script: opam init && source ~/.bashrc && opam install ocamlfind ounit
       addons:
           apt:
+              sources:
+                  - ppa:avsm/ppa
               packages:
-                  - ocaml-nox
+                  - ocaml
                   - opam
 notifications:
   email: false
