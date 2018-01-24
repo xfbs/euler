@@ -23,7 +23,7 @@ matrix:
       addons:
           apt:
               sources:
-                  - ppa:avsm/ppa
+                  - avsm
               packages:
                   - ocaml
                   - opam
