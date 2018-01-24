@@ -1,11 +1,17 @@
-default: main
+OCAMLBUILD = ocamlbuild -use-ocamlfind
 
-main: main.native
+main: bin/main
 
-test: test.native
+test: bin/test
+	./bin/test
 
-%.native: 
-	ocamlbuild $@
-	mv $@ $*
+clean:
+	$(RM) -r bin/* _build
 
-.PHONY: test default
+bin/%: %.native
+	mv $< $@
+
+%.native:
+	$(OCAMLBUILD) $@
+
+.PHONY: test default clean
