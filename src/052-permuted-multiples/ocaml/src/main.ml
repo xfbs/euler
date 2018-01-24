@@ -1,4 +1,4 @@
 open Printf
 open Solver
 
-let main = printf "%i\n" (solve 6);;
+let main = printf "%i\n" (solve 6)

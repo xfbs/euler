@@ -1,5 +1,6 @@
-OCAMLBUILD = ocamlbuild -use-ocamlfind
-SOURCES    = $(wildcard src/**) $(wildcard test/**)
+OCAMLBUILD  = ocamlbuild -use-ocamlfind
+OCAMLFORMAT = ocamlformat --inplace
+SOURCES     = $(wildcard src/**) $(wildcard test/**)
 
 build: bin/main
 
@@ -12,10 +13,13 @@ solve: bin/main
 clean:
 	$(RM) -r bin/* _build
 
+fmt:
+	$(OCAMLFORMAT) $(SOURCES)
+
 bin/%: %.native $(SOURCES)
 	mv $< $@
 
 %.native:
 	$(OCAMLBUILD) $@
 
-.PHONY: build test solve clean
+.PHONY: build test solve clean fmt
