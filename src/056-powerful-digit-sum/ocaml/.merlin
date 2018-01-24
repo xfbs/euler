@@ -1,0 +1,7 @@
+PRJ solver
+S src
+S test
+PKG ounit
+B _build
+B _build/src
+B _build/test
