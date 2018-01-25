@@ -201,6 +201,8 @@ Read the source code of the Makefile for more details.
 
 ### ToDo
 
+  - [ ] install and run pfff as static code analyzer, add `make fmt` targets to
+    makefiles
   - [ ] change implementation of euler/prime.h and other prime generators to use
         a prime sieve internally to generates the primes faster.
   - [ ] problem `022` and `042` share code (`weight()` function), export?
@@ -251,6 +253,8 @@ bundled into the repository:
   - [ovenpasta/thunderchez](https://github.com/ovenpasta/thunderchez) in
     [`lib/chez/thunderchez/`](lib/chez/thunderchez/), a collection of libraries
     for chez productivity
+  - [catch2](https://github.com/catchorg/Catch2), a C++ unit testing framework,
+    I have included the license in [`lib/cpp/CATCH2.md`](lib/cpp/CATCH2.md)
 
 ## Planned Languages:
 
