@@ -1,5 +1,5 @@
 OPTIMIZE = -O2
-CXXFLAGS = -std=c++11 -Wall -pedantic -Iinclude $(OPTIMIZE)
+CXXFLAGS = -std=c++1z -Wall -pedantic -Iinclude $(OPTIMIZE)
 LDFLAGS  = -lm $(OPTIMIZE)
 FILES    = prime
 TARGET   = lib/libeuler.a
