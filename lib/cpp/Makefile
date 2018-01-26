@@ -1,7 +1,7 @@
 OPTIMIZE = -O2
 CXXFLAGS = -std=c++1z -Wall -pedantic -Iinclude $(OPTIMIZE)
 LDFLAGS  = -lm $(OPTIMIZE)
-FILES    = prime
+FILES    = prime digits
 TARGET   = lib/libeuler.a
 
 build: $(TARGET)
@@ -12,6 +12,7 @@ clean:
 test: test/all
 	@./test/all
 
+# FIXME: dependency on .hpp files
 test/all: $(FILES:%=src/%.o) $(FILES:%=test/%_test.o) test/all.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 

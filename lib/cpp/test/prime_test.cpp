@@ -1,13 +1,14 @@
 #include <algorithm>
 #include <catch/catch.hpp>
 #include <euler/prime.hpp>
+using namespace euler;
 
 TEST_CASE("primes can be allocated", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 }
 
 TEST_CASE("can return any given prime", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 
   SECTION("initial primes are available") {
     REQUIRE(primes.nth(0) == 2);
@@ -27,7 +28,7 @@ TEST_CASE("can return any given prime", "[Prime]") {
 }
 
 TEST_CASE("which returns the index of the prime", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 
   SECTION("of primes that exist") {
     REQUIRE(primes.which(0) == SIZE_MAX);
@@ -58,7 +59,7 @@ TEST_CASE("which returns the index of the prime", "[Prime]") {
 }
 
 TEST_CASE("can check if a number is prime or not", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 
   SECTION("of small primes") {
     REQUIRE(primes.check(0) == false);
@@ -82,7 +83,7 @@ TEST_CASE("can check if a number is prime or not", "[Prime]") {
 }
 
 TEST_CASE("can find out how many primes are smaller than a number", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 
   SECTION("with small primes") {
     REQUIRE(primes.below(0) == 0);
@@ -103,7 +104,7 @@ TEST_CASE("can find out how many primes are smaller than a number", "[Prime]") {
 }
 
 TEST_CASE("the operators that are supplied work", "[Prime]") {
-  auto primes = euler::Prime();
+  auto primes = Prime();
 
   SECTION("when using find_if") {
     REQUIRE(*std::find_if(
