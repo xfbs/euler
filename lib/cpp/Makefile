@@ -1,7 +1,7 @@
 OPTIMIZE = -O2
 CXXFLAGS = -std=c++1z -Wall -pedantic -Iinclude $(OPTIMIZE)
-LDFLAGS  = -lm $(OPTIMIZE)
-FILES    = prime digits
+LDFLAGS  = -lm -lc++ $(OPTIMIZE)
+FILES    = prime digits iterators
 TARGET   = lib/libeuler.a
 
 build: $(TARGET)

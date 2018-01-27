@@ -114,6 +114,7 @@ TEST_CASE("turns digits into numbers", "[number_from_digits]") {
 
   SECTION("with large numbers") {
     REQUIRE(number_from_digits(digits(304543580), digits(0)) == 304543580);
-    REQUIRE(number_from_digits(reverse_digits(192345), reverse_digits(0)) == 543291);
+    REQUIRE(number_from_digits(reverse_digits(192345), reverse_digits(0)) ==
+            543291);
   }
 }

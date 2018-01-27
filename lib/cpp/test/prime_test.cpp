@@ -3,9 +3,7 @@
 #include <euler/prime.hpp>
 using namespace euler;
 
-TEST_CASE("primes can be allocated", "[Prime]") {
-  auto primes = Prime();
-}
+TEST_CASE("primes can be allocated", "[Prime]") { auto primes = Prime(); }
 
 TEST_CASE("can return any given prime", "[Prime]") {
   auto primes = Prime();
