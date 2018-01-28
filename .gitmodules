@@ -1,3 +1,6 @@
 [submodule "lib/crystal/minitest"]
 	path = lib/crystal/minitest
 	url = https://github.com/ysbaddaden/minitest.cr
+[submodule "lib/cpp/lib/cpp/catch2"]
+	path = lib/cpp/lib/cpp/catch2
+	url = https://github.com/catchorg/Catch2.git

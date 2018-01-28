@@ -253,8 +253,7 @@ bundled into the repository:
   - [ovenpasta/thunderchez](https://github.com/ovenpasta/thunderchez) in
     [`lib/chez/thunderchez/`](lib/chez/thunderchez/), a collection of libraries
     for chez productivity
-  - [catch2](https://github.com/catchorg/Catch2), a C++ unit testing framework,
-    I have included the license in [`lib/cpp/CATCH2.md`](lib/cpp/CATCH2.md)
+  - [catch2](https://github.com/catchorg/Catch2), a C++ unit testing framework.
 
 ## Planned Languages:
 
