@@ -1,14 +1,12 @@
 #include "solve.hpp"
 #include <euler/digits.hpp>
-#include <euler/prime.hpp>
-#include <range/v3/all.hpp>
+#include <range/v3/algorithm.hpp>
+#include <range/v3/view.hpp>
 using namespace ranges;
 using namespace euler;
 
 uint8_t family_size(Prime &primes, uint64_t prime, uint64_t digit) {
-  auto is_prime = [&primes](uint64_t num) {
-    return primes.check(num);
-  };
+  auto is_prime = [&primes](uint64_t num) { return primes.check(num); };
 
   // replace all occurences of `digit` in `prime` with `replacement`.
   auto replace_digit_with = [prime, digit](uint64_t replacement) {
@@ -20,9 +18,8 @@ uint8_t family_size(Prime &primes, uint64_t prime, uint64_t digit) {
 
   // generates a list of possible replacements of the digit, skip the digit
   // itself, and from that generate the replaced prime candidates.
-  auto members = view::ints(0, 10) |
-                 view::filter([digit](uint64_t cur) { return cur != digit; }) |
-                 view::transform(replace_digit_with);
+  auto members =
+      view::ints((int)digit + 1, 10) | view::transform(replace_digit_with);
 
   // we know that the number itself is prime, so add one to the amount of prime
   // candidates that are prime.
@@ -30,7 +27,15 @@ uint8_t family_size(Prime &primes, uint64_t prime, uint64_t digit) {
 }
 
 bool check_family(Prime &primes, uint64_t prime, uint8_t family) {
-  return any_of(unique_digits(prime) | view::take(11 - family),
+  // we are only interested in finding the smallest prime of a family. if we are
+  // looking for a 5-family prime, we know that the smallest of the digist must
+  // be 10 - 5 = 5. therefore, we can filter the digit replacement candidates
+  // like this.
+  auto correct_size = [family](uint64_t digit) {
+    return digit <= (10 - family);
+  };
+
+  return any_of(unique_digits(prime) | view::filter(correct_size),
                 [&primes, prime, family](uint64_t digit) {
                   return family == family_size(primes, prime, digit);
                 });

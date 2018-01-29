@@ -25,7 +25,7 @@ fmt: $(SOURCES) $(TARGETS) $(HEADERS)
 bin/%: bin/%.o $(SOURCES:%.cpp=%.o)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-test/all: test/all.o $(SOURCES:%.cpp=%.o) $(SOURCES:src/%.cpp=test/%_test.o)
+test/all: $(SOURCES:%.cpp=%.o) test/all.o $(SOURCES:src/%.cpp=test/%_test.o)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 $(LIBEULER):
