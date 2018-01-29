@@ -7,6 +7,8 @@ LIBEULER = $(LIBDIR)/lib/libeuler.a
 SOURCES  = $(wildcard src/*.cpp)
 HEADERS  = $(wildcard src/*.hpp)
 TARGETS  = $(wildcard bin/*.cpp)
+TESTS    = $(wildcard test/*.cpp)
+OBJECTS  = $(SOURCES:%.cpp=%.o)
 
 build: $(TARGETS:%.cpp=%)
 
@@ -19,14 +21,14 @@ test: test/all
 clean:
 	$(RM) src/*.o test/*_test bin/main
 
-fmt: $(SOURCES) $(TARGETS) $(HEADERS)
+fmt: $(SOURCES) $(TARGETS) $(HEADERS) $(TESTS)
 	clang-format -i $^
 
-bin/%: bin/%.o $(SOURCES:%.cpp=%.o)
+bin/%: bin/%.o $(OBJECTS)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-test/all: $(SOURCES:%.cpp=%.o) test/all.o $(SOURCES:src/%.cpp=test/%_test.o)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+test/all: $(OBJECTS) $(LIBEULER) $(TESTS:%.cpp=%.o)
+	$(CXX) -o $@ $(OBJECTS) $(TESTS:%.cpp=%.o) $(LDFLAGS)
 
 $(LIBEULER):
 	cd $(LIBDIR) && make
