@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cstdint>
+#include <range/v3/view_facade.hpp>
 #include <vector>
 #pragma once
 
@@ -27,6 +28,27 @@ class Prime {
     reference operator*() const;
   };
 
+  class primes_view : public ranges::view_facade<primes_view> {
+    friend ranges::range_access;
+
+    // current number
+    size_t pos = 0;
+    Prime &primes;
+
+    // return current digit
+    uint64_t read() const { return primes.nth(pos); }
+
+    // check if we have reached the end
+    bool equal(ranges::default_sentinel) const { return false; }
+
+    // advance to next digit
+    void next() { pos += 1; }
+
+  public:
+    // reverse_digits() = default;
+    explicit primes_view(Prime &p) : primes(p) {}
+  };
+
 public:
   Prime();
   uint64_t nth(size_t pos);
@@ -36,5 +58,6 @@ public:
 
   iterator begin();
   iterator end();
+  primes_view view();
 };
 } // namespace euler

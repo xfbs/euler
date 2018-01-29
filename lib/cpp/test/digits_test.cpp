@@ -9,9 +9,7 @@ TEST_CASE("returns the reverse digits of a number", "[reverse_digits]") {
   SECTION("zero does not have any digits") {
     auto digits = reverse_digits(0);
 
-    for_each(digits, [](uint64_t digit) {
-        REQUIRE(false);
-    });
+    for_each(digits, [](uint64_t digit) { REQUIRE(false); });
 
     REQUIRE(digits.begin() == digits.end());
   }

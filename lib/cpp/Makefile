@@ -1,7 +1,9 @@
 OPTIMIZE = -O2
-CXXFLAGS = -std=c++1z -Wall -pedantic -Iinclude $(OPTIMIZE)
-LDFLAGS  = -lm -lc++ $(OPTIMIZE)
-FILES    = prime digits
+CXXFLAGS = -std=c++17 -Wall -pedantic -Iinclude $(OPTIMIZE)
+LDFLAGS  = -Llib -lm -lc++ $(OPTIMIZE)
+SOURCES  = $(wildcard src/*.cpp)
+HEADERS  = $(wildcard include/euler/*.hpp)
+TESTS    = $(wildcard test/*_test.cpp)
 TARGET   = lib/libeuler.a
 
 build: $(TARGET)
@@ -12,15 +14,17 @@ clean:
 test: test/all
 	@./test/all
 
-# FIXME: dependency on .hpp files
-test/all: $(FILES:%=src/%.o) $(FILES:%=test/%_test.o) test/all.o
-	$(CXX) -o $@ $^ $(LDFLAGS)
-
-fmt: $(FILES:%=src/%.cpp) $(FILES:%=test/%_test.cpp) $(FILES:%=include/euler/%.hpp)
+fmt: $(SOURCES) $(HEADERS) $(TESTS)
 	clang-format -i $^
 
-$(TARGET): $(FILES:%=src/%.o) $(FILES:%=include/euler/%.hpp)
-	ar cr $@ $(FILES:%=src/*.o)
+repl: $(TARGET)
+	cling $(CXXFLAGS) $(LDFLAGS) -leuler
+
+test/all: $(TESTS:%.cpp=%.o) $(TARGET) test/all.o
+	$(CXX) -o $@ $(TESTS:%.cpp=%.o) test/all.o $(LDFLAGS) -leuler
+
+$(TARGET): $(SOURCES:%.cpp=%.o) $(HEADERS)
+	ar cr $@ $(SOURCES:%.cpp=%.o)
 	ranlib $@
 
-.PHONY: build test clean fmt
+.PHONY: build test clean fmt repl

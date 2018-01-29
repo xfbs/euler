@@ -95,3 +95,5 @@ Prime::iterator &Prime::iterator::operator++() {
   pos++;
   return *this;
 }
+
+Prime::primes_view Prime::view() { return Prime::primes_view(*this); }
