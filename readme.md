@@ -254,6 +254,10 @@ bundled into the repository:
     [`lib/chez/thunderchez/`](lib/chez/thunderchez/), a collection of libraries
     for chez productivity
   - [catch2](https://github.com/catchorg/Catch2), a C++ unit testing framework.
+  - [range-v3](https://github.com/ericniebler/range-v3), a much improved ranges
+    library for C++ enabling functional-style comprehensions.
+  - [c-style](https://github.com/mcinglis/c-style), guidelines for C
+    development.
 
 ## Planned Languages:
 
@@ -288,6 +292,7 @@ bundled into the repository:
     syntax, also quite usable.
   - [luajit](https://luajit.org/luajit.html), because I'm already familiar with
     lua and it claims to be the 'fastest dynamic language'.
+  - [dlang](https://dlang.org/), because I've always been interested by it.
 
 Verdict: there are far too many dope programming languages out there. I will try
 my luck with these few, but whichever I choose, there will be ten others just as
