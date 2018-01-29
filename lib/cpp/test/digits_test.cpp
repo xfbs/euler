@@ -1,8 +1,60 @@
-#include <algorithm>
 #include <catch/catch.hpp>
 #include <euler/digits.hpp>
+#include <range/v3/all.hpp>
 using namespace euler;
+using namespace ranges;
 
+TEST_CASE("returns the reverse digits of a number", "[reverse_digits]") {
+
+  SECTION("zero does not have any digits") {
+    auto digits = reverse_digits(0);
+
+    for_each(digits, [](uint64_t digit) {
+        REQUIRE(false);
+    });
+
+    REQUIRE(digits.begin() == digits.end());
+  }
+
+  SECTION("for short numbers") {
+    auto digits = reverse_digits(4);
+    auto cur = digits.begin();
+    auto end = digits.end();
+    REQUIRE(*cur == 4);
+    REQUIRE(++cur == end);
+    REQUIRE(*cur == 0);
+    REQUIRE(cur == end);
+
+    digits = reverse_digits(9);
+    cur = digits.begin();
+    end = digits.end();
+    REQUIRE(*cur == 9);
+    cur++;
+    REQUIRE(*cur == 0);
+    REQUIRE(cur == end);
+  }
+
+  SECTION("for longer numbers") {
+    auto digits = reverse_digits(235465);
+    auto cur = digits.begin();
+    auto end = digits.end();
+
+    REQUIRE(*cur == 5);
+    ++cur;
+    REQUIRE(*cur == 6);
+    ++cur;
+    REQUIRE(*cur == 4);
+    ++cur;
+    REQUIRE(*cur == 5);
+    cur++;
+    REQUIRE(*cur == 3);
+    cur++;
+    REQUIRE(*cur == 2);
+    cur++;
+    REQUIRE(cur == end);
+  }
+}
+/*
 TEST_CASE("returns the digits of a number", "[digits]") {
   auto end = digits(0);
 
@@ -118,3 +170,4 @@ TEST_CASE("turns digits into numbers", "[number_from_digits]") {
             543291);
   }
 }
+*/
