@@ -24,8 +24,8 @@ clean:
 fmt: $(SOURCES) $(TARGETS) $(HEADERS) $(TESTS)
 	clang-format -i $^
 
-bin/%: bin/%.o $(OBJECTS)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+bin/%: bin/%.o $(OBJECTS) $(LIBEULER)
+	$(CXX) -o $@ $< $(OBJECTS) $(LDFLAGS)
 
 test/all: $(OBJECTS) $(LIBEULER) $(TESTS:%.cpp=%.o)
 	$(CXX) -o $@ $(OBJECTS) $(TESTS:%.cpp=%.o) $(LDFLAGS)
