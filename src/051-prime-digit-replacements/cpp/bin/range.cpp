@@ -21,4 +21,13 @@ int main() {
   auto cand = view::ints(1) | view::transform(doub);
   auto e = find_if( cand, is_six );
   cout << "find-six: " << *e << endl;
+
+  auto odd_perfect_square = front(
+    view::ints
+    | view::transform([](int a){return a * a;}) // make perfect squares
+    | view::filter([](int a){return a % 2 == 1;}) // keep odd ones
+    | view::drop_exactly(2)); // we don't care about 1 and 9
+
+  cout << odd_perfect_square << endl;
+
 }
