@@ -29,6 +29,7 @@ matrix:
               sources:
                   - avsm
               packages:
+                  - aspcud
                   - ocaml
                   - opam
 notifications:

@@ -1,6 +1,6 @@
 OPTIMIZE = -O2
 CXXFLAGS = -std=c++17 -Wall -pedantic -Iinclude $(OPTIMIZE)
-LDFLAGS  = -Llib -lm -lc++ $(OPTIMIZE)
+LDFLAGS  = -Llib -lm $(OPTIMIZE)
 SOURCES  = $(wildcard src/*.cpp)
 HEADERS  = $(wildcard include/euler/*.hpp)
 TESTS    = $(wildcard test/*_test.cpp)
