@@ -5,6 +5,7 @@ mod divisors;
 mod rotations;
 mod digits;
 mod palindrome;
+mod permutations;
 mod factorial;
 
 pub use gcd_lcm::GcdLcm;
@@ -16,3 +17,4 @@ pub use palindrome::ToPalindrome;
 pub use rotations::ToRotations;
 pub use divisors::ToDivisors;
 pub use factorial::factorial;
+pub use permutations::permutations;
