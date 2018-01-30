@@ -1,7 +1,7 @@
 DATAFILE = $(wildcard ../*.txt)
 LIBDIR   = ../../../lib/cpp
 OPTIMIZE = -O3
-CPPFLAGS = -Isrc -I$(LIBDIR)/include -std=c++17 -Wall -pedantic $(OPTIMISE)
+CPPFLAGS = -Isrc -I$(LIBDIR)/include -std=c++17 -Wall -pedantic $(OPTIMIZE)
 LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMIZE)
 LIBEULER = $(LIBDIR)/lib/libeuler.a
 SOURCES  = $(wildcard src/*.cpp)

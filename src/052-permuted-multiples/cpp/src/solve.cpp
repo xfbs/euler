@@ -18,7 +18,7 @@ uint64_t solve(uint8_t minmul, uint8_t maxmul) {
 }
 
 bool check_permuted_multiple(uint64_t base, uint8_t minmul, uint8_t maxmul) {
-  auto multiples = view::ints((int)minmul, (int)maxmul + 1)
+  auto multiples = view::ints((int) minmul, (int) maxmul + 1)
     | view::transform([base](int mul) { return base * mul; })
     | view::transform([](int num){ return sort_digits(num); });
 
@@ -33,12 +33,20 @@ bool check_permuted_multiple(uint64_t base, uint8_t minmul, uint8_t maxmul) {
 }
 
 uint64_t sort_digits(uint64_t number) {
-  const auto cast_to_u8 = [](uint64_t digit) {
-    return (uint8_t) digit;
-  };
+  std::array<uint8_t, 20> sorted_digits;
+  size_t digits_count = 0;
 
-  auto sorted_digits = to_vector(digits(number) | view::transform(cast_to_u8))
-    | action::sort;
+  // collect all digits
+  for_each(digits(number), [&sorted_digits, &digits_count](uint64_t digit) {
+    sorted_digits[digits_count++] = digit;
+  });
+
+  // sort the digits
+  sorted_digits | view::take(digits_count) | action::sort;
+
+  const auto join = [](uint64_t prev, uint8_t cur) {
+    return 10 * prev + cur;
+  };
 
   // when reconstituting the digits, we start out with a 1. why? because if the
   // number is 1002, it becomes 0012, indistinguishable from 10002, which
@@ -46,7 +54,5 @@ uint64_t sort_digits(uint64_t number) {
   // respectively, which means we can differentiate between them.
   // a better solution would be to reverse sort, such that they would become
   // 2100 and 21000, this is left as an exercise for the reader.
-  return accumulate(sorted_digits, 1, [](uint64_t memo, uint8_t cur) {
-      return 10 * memo + cur;
-      });
+  return accumulate(sorted_digits | view::take(digits_count), 1, join);
 }
