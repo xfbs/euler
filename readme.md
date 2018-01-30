@@ -199,33 +199,6 @@ make overview
 
 Read the source code of the Makefile for more details.
 
-### ToDo
-
-  - [ ] install and run pfff as static code analyzer, add `make fmt` targets to
-    makefiles
-  - [ ] change implementation of euler/prime.h and other prime generators to use
-        a prime sieve internally to generates the primes faster.
-  - [ ] problem `022` and `042` share code (`weight()` function), export?
-  - [ ] run formatters over all of the code
-  - [ ] problem 049, change algorithm to be more efficient
-  - [X] export `010/rust` sieve code
-  - [X] free `010/rust` from `bit-vec`
-  - [ ] remove `euler/bitvec.h` dependencies in C solutions if not necessary
-  - [X] properly test `lib/rust/euler/prime.rs`
-  - [ ] comment and clean up all solutions
-  - [ ] implement tests for all problems
-  - [ ] improve execution speed on some ruby/python solutions
-  - [ ] change from `python3` to `pypy3` for a little speed boost
-      - probably not a good idea, stock python3 should do us okay
-  - [X] rename `simple_prime.h` to just `prime.h`
-  - [ ] add `sieve.h` from problem `010/c`
-  - [ ] problems 30 and 34 are quite similar, export library code?
-  - [ ] don't symlink for shared code, make libraries own their code
-  - [ ] consider porting to `premake` to allow for IDE compatibility?
-  - [ ] solve all problems up to problem 100
-  - [ ] add solutions in another language (scheme, ocaml, cpp)
-  - [ ] port all of crystal solution's minitest to specs (because builtin)
-
 ## Other Repositories
 
 There are some other people putting their solutions to project euler problems
