@@ -19,7 +19,7 @@ test: test/all
 	@./test/all
 
 clean:
-	$(RM) src/*.o test/*_test bin/main
+	$(RM) $(TARGETS:%.cpp=%) bin/*.o src/*.o test/*.o test/all
 
 fmt: $(SOURCES) $(TARGETS) $(HEADERS) $(TESTS)
 	clang-format -i $^
