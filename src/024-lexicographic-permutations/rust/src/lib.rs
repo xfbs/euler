@@ -1,3 +1,6 @@
+extern crate euler;
+use euler::factorial;
+
 pub fn solve(n: usize) -> u64 {
     let v = nth_permutation(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9], n - 1);
     v.iter().fold(0, |m, c| (m * 10) + (*c as u64))
@@ -13,23 +16,6 @@ fn nth_permutation(mut arr: Vec<u8>, mut n: usize) -> Vec<u8> {
     }
 
     result
-}
-
-fn factorial(n: u64) -> u64 {
-    (1..n + 1).fold(1, |p, n| p * n)
-}
-
-#[test]
-fn test_factorial() {
-    assert_eq!(factorial(0), 1);
-    assert_eq!(factorial(1), 1);
-    assert_eq!(factorial(2), 2);
-    assert_eq!(factorial(3), 6);
-    assert_eq!(factorial(4), 24);
-    assert_eq!(factorial(5), 120);
-    assert_eq!(factorial(6), 720);
-    assert_eq!(factorial(7), 5040);
-    assert_eq!(factorial(8), 40320);
 }
 
 #[test]
