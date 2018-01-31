@@ -1,5 +1,5 @@
 OPTIMIZE = -O3
-CFLAGS   = -std=c99 -Wall -pedantic -Iinclude $(OPTIMIZE)
+CFLAGS   = -std=c11 -Wall -pedantic -Iinclude $(OPTIMIZE)
 LDFLAGS  = -lm $(OPTIMIZE)
 SOURCES  = $(wildcard src/*.c)
 TARGET   = lib/libeuler.a
