@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['cap',['cap',['../structvec16__t.html#a90ce2aa452faa09643c0cdb4ea33467d',1,'vec16_t::cap()'],['../structvec32__t.html#aff45843ce5b83e6e1e7aafd737d8f088',1,'vec32_t::cap()'],['../structvec64__t.html#a91ca09e5d73db3e3b0ffc327ea9b1e5e',1,'vec64_t::cap()'],['../structvec8__t.html#aed8a591ad427c219a96d69d38b6dbfad',1,'vec8_t::cap()'],['../structvecp__t.html#a19870cf7cfd452f91df6008d3bfaae8b',1,'vecp_t::cap()']]],
-  ['collatz_5fcache_5ft',['collatz_cache_t',['../structcollatz__cache__t.html',1,'']]]
+  ['data',['data',['../structvec16__t.html#ab6d2eb88d67608a633ae266e6583d377',1,'vec16_t::data()'],['../structvec32__t.html#ad9d39821cd0b949586788128964d7fcd',1,'vec32_t::data()'],['../structvec64__t.html#a934bb0a261a546592707dbd9a1ea295b',1,'vec64_t::data()'],['../structvec8__t.html#a18468fc5bd175593383502d1693e0b0d',1,'vec8_t::data()'],['../structvecp__t.html#a47a57ad5f9c31d311cd0000305d187cc',1,'vecp_t::data()']]],
+  ['divisor_5fsum',['divisor_sum',['../group__math.html#ga945660688fe596d7b18b3876afb7d04d',1,'divisor_sum(uint32_t num):&#160;math.c'],['../group__math.html#ga945660688fe596d7b18b3876afb7d04d',1,'divisor_sum(uint32_t num):&#160;math.c']]]
 ];

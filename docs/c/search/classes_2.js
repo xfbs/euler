@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prime_5ft',['prime_t',['../structprime__t.html',1,'']]]
+  ['sieve_5ft',['sieve_t',['../structsieve__t.html',1,'']]]
 ];

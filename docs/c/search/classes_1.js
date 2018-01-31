@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['collatz_5fcache_5ft',['collatz_cache_t',['../structcollatz__cache__t.html',1,'']]]
+  ['prime_5ft',['prime_t',['../structprime__t.html',1,'']]]
 ];

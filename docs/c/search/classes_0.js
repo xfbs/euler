@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bitvec_5ft',['bitvec_t',['../structbitvec__t.html',1,'']]]
+  ['collatz_5fcache_5ft',['collatz_cache_t',['../structcollatz__cache__t.html',1,'']]]
 ];
