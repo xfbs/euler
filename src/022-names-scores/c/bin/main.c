@@ -1,6 +1,7 @@
 #include "solve.h"
 #include <euler/vec.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
@@ -9,7 +10,7 @@ int main(int argc, char *argv[]) {
   }
 
   FILE *data_file = fopen(argv[1], "r");
-  vec_t v = vec_new(0, NULL);
+  vecp_t v = vecp_new(0, NULL);
   char *str;
 
   while (!feof(data_file)) {
@@ -23,6 +24,7 @@ int main(int argc, char *argv[]) {
   }
 
   printf("%llu\n", solve(&v));
+  vec_free(&v);
 
   return 0;
 }

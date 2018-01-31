@@ -1,5 +1,6 @@
 #include "solve.h"
 #include <stdio.h>
+#include <euler/vec.h>
 
 static int alphabetical(const void *_a, const void *_b) {
   const char *a = *(const char **)_a;
@@ -23,7 +24,7 @@ uint64_t weight(const char *str) {
   return w;
 }
 
-uint64_t solve(vec_t *v) {
+uint64_t solve(vecp_t *v) {
   vec_sort(v, alphabetical);
 
   uint64_t sum = 0;

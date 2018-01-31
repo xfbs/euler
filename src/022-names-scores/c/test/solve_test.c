@@ -9,7 +9,7 @@ void test_weight() {
 }
 
 void test_solve() {
-  vec_t v = vec_new(0, NULL);
+  vecp_t v = vecp_new(0, NULL);
   vec_push(&v, "A");
   vec_push(&v, "Z");
   vec_push(&v, "COLIN");
