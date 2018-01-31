@@ -10,7 +10,7 @@
 DATAFILE = $(wildcard ../*.txt)
 LIBDIR   = ../../../lib/c
 OPTIMISE = -O3
-CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c99 -Wall -pedantic $(OPTIMISE)
+CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMISE)
 LDFLAGS  = -lm $(OPTIMISE)
 SOURCES  = $(wildcard src/*.c)
 LIBEULER = $(LIBDIR)/lib/libeuler.a
