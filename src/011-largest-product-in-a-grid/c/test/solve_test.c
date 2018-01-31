@@ -1,18 +1,18 @@
-#include "euler/vec8.h"
+#include <euler/vec.h>
 #include "solve.h"
 #include <euler/test.h>
 
-vec_t setup() {
+vecp_t setup() {
   uint8_t nums[4][4] = {{1, 2, 3, 4}, {2, 4, 6, 7}, {4, 5, 8, 9}, {1, 4, 2, 3}};
 
-  vec_t v = vec_new(0, NULL);
+  vecp_t v = vecp_new(0, NULL);
 
   for (size_t x = 0; x < 4; x++) {
     vec8_t *row = vec8_alloc(0, 0);
     vec_push(&v, row);
 
     for (size_t y = 0; y < 4; y++) {
-      vec8_push(row, nums[x][y]);
+      vec_push(row, nums[x][y]);
     }
   }
 
@@ -20,7 +20,7 @@ vec_t setup() {
 }
 
 void test_get() {
-  vec_t v = setup();
+  vecp_t v = setup();
 
   assert(get(&v, 0, 0) == 1);
   assert(get(&v, 0, 1) == 2);
@@ -45,7 +45,7 @@ void test_get() {
 }
 
 void test_max_product() {
-  vec_t v = setup();
+  vecp_t v = setup();
 
   assert(max_product(&v, 0, 1, 0) == 1);
   assert(max_product(&v, 1, 0, 0) == 1);
@@ -85,7 +85,7 @@ void test_max_product() {
 }
 
 void test_solve() {
-  vec_t v = setup();
+  vecp_t v = setup();
 
   assert(solve(&v, 0) == 1);
   assert(solve(&v, 1) == 9);

@@ -11,7 +11,8 @@ int main(int argc, char *argv[]) {
   }
 
   FILE *data_file = fopen(argv[1], "r");
-  vec_t grid = vec_new(1, (void *)vec8_alloc(0, 0));
+  vecp_t grid = vecp_new(0, NULL);
+  vec_push(&grid, (void *)vec8_alloc(0, 0));
 
   while (true) {
     int peek = ' ';
