@@ -1,5 +1,5 @@
-#include <stdlib.h>
-#include <string.h>
+#include <stddef.h>
+#include <stdint.h>
 #pragma once
 
 typedef struct {
@@ -11,6 +11,7 @@ typedef struct {
 vec_t vec_new(size_t len, void *fill);
 void *vec_get(vec_t *v, size_t pos);
 void vec_set(vec_t *v, size_t pos, void *data);
+void vec_reserve(vec_t *v, size_t size);
 size_t vec_push(vec_t *v, void *data);
 size_t vec_len(vec_t *v);
 void vec_sort(vec_t *v, int (*comp)(const void *, const void *));
