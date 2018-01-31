@@ -92,6 +92,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga945660688fe596d7b18b3876afb7d04d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga945660688fe596d7b18b3876afb7d04d">divisor_sum</a> (uint32_t num)</td></tr>
 <tr class="memdesc:ga945660688fe596d7b18b3876afb7d04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sum of the divisors of num  <a href="#ga945660688fe596d7b18b3876afb7d04d">More...</a><br /></td></tr>
 <tr class="separator:ga945660688fe596d7b18b3876afb7d04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab27b834fa4a087e9ff06fe14e0f9f72f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gab27b834fa4a087e9ff06fe14e0f9f72f">is_palindrome</a> (uint64_t num)</td></tr>
+<tr class="memdesc:gab27b834fa4a087e9ff06fe14e0f9f72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the given number is a palindrome.  <a href="#gab27b834fa4a087e9ff06fe14e0f9f72f">More...</a><br /></td></tr>
+<tr class="separator:gab27b834fa4a087e9ff06fe14e0f9f72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gac3dfcfc17fb1b6980030f7d24042eab5">nth_pandigital</a> (uint8_t n, uint32_t nth)</td></tr>
+<tr class="memdesc:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the <code>nth</code> pandigital of length <code>n</code>  <a href="#gac3dfcfc17fb1b6980030f7d24042eab5">More...</a><br /></td></tr>
+<tr class="separator:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7cd9202d5dd752e03acc41fbb126edf3"><td class="memItemLeft" align="right" valign="top"><a id="ga7cd9202d5dd752e03acc41fbb126edf3"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_even_fibonacci</b> (uint64_t fibo)</td></tr>
 <tr class="separator:ga7cd9202d5dd752e03acc41fbb126edf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +203,34 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_even_fibonac
 <div class="fragment"><div class="line">assert(<a class="code" href="group__math.html#ga05d1ac8d90873705cd22e1c83345fa71">gcd</a>(2, 3) == 1);</div><div class="line">assert(<a class="code" href="group__math.html#ga05d1ac8d90873705cd22e1c83345fa71">gcd</a>(14, 12) == 2);</div><div class="line">assert(<a class="code" href="group__math.html#ga05d1ac8d90873705cd22e1c83345fa71">gcd</a>(55, 11) == 11);</div></div><!-- fragment --> 
 </div>
 </div>
+<a id="gab27b834fa4a087e9ff06fe14e0f9f72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab27b834fa4a087e9ff06fe14e0f9f72f">&#9670;&nbsp;</a></span>is_palindrome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_palindrome </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks if the given number is a palindrome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>the number to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the number is a palindrome, <code>false</code> otherwise.</dd></dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line">assert(<a class="code" href="group__math.html#gab27b834fa4a087e9ff06fe14e0f9f72f">is_palindrome</a>(12321) == <span class="keyword">true</span>);</div><div class="line">assert(<a class="code" href="group__math.html#gab27b834fa4a087e9ff06fe14e0f9f72f">is_palindrome</a>(445644) == <span class="keyword">false</span>);</div></div><!-- fragment --> 
+</div>
+</div>
 <a id="ga7c134cbca78faf2c291ba4bd43bf44ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga7c134cbca78faf2c291ba4bd43bf44ca">&#9670;&nbsp;</a></span>lcm()</h2>
 
@@ -235,6 +269,45 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_even_fibonac
 <dl class="section return"><dt>Returns</dt><dd>the least common multiple of <code>a</code> and <code>b</code>.</dd></dl>
 <h2>Examples</h2>
 <div class="fragment"><div class="line">assert(<a class="code" href="group__math.html#ga7c134cbca78faf2c291ba4bd43bf44ca">lcm</a>(10, 5) == 10);</div><div class="line">assert(<a class="code" href="group__math.html#ga7c134cbca78faf2c291ba4bd43bf44ca">lcm</a>(3, 5) == 15);</div><div class="line">assert(<a class="code" href="group__math.html#ga7c134cbca78faf2c291ba4bd43bf44ca">lcm</a>(6, 14) == 42);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gac3dfcfc17fb1b6980030f7d24042eab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3dfcfc17fb1b6980030f7d24042eab5">&#9670;&nbsp;</a></span>nth_pandigital()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t nth_pandigital </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>nth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return the <code>nth</code> pandigital of length <code>n</code> </p>
+<p>a pandigital is a number making use of all numbers from 0 to <code>n</code> exactly once, therefore it is a permutation of the set [0..n].</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>how long the pandigital should be </td></tr>
+    <tr><td class="paramname">nth</td><td>which permutation to return </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>examples </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
