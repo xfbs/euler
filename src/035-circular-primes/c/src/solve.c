@@ -5,17 +5,28 @@ uint32_t solve(size_t max) {
   prime_t p = prime_new();
   size_t primes = prime_below(&p, max);
 
-  // bitvec to store the cyclic primes we found
-  bitvec_t b = bitvec_new(primes);
-
-  for (size_t i = 0; i < primes; i++) {
-    check_prime_cycle(&p, &b, i);
+  // initialize array to keep track which primes are cyclic
+  bool cyclic[primes];
+  for(size_t pos = 0; pos < primes; pos++) {
+    cyclic[pos] = false;
   }
 
-  return bitvec_count(&b);
+  for (size_t i = 0; i < primes; i++) {
+    check_prime_cycle(&p, cyclic, i);
+  }
+
+  // count all cyclic primes and return result
+  uint32_t count = 0;
+  for(size_t pos = 0; pos < primes; pos++) {
+    if(cyclic[pos]) {
+      count += 1;
+    }
+  }
+
+  return count;
 }
 
-void check_prime_cycle(prime_t *p, bitvec_t *b, size_t cur) {
+void check_prime_cycle(prime_t *p, bool cyclic[], size_t cur) {
   uint32_t num = prime_nth(p, cur);
   uint32_t max = 1;
   size_t mag = 0;
@@ -36,12 +47,13 @@ void check_prime_cycle(prime_t *p, bitvec_t *b, size_t cur) {
     num += leading;
 
     index[i] = prime_which(p, num);
-    if (index[i] == SIZE_MAX)
+    if (index[i] == SIZE_MAX) {
       return;
+    }
   }
 
   // flag all cyclic primes
   for (size_t i = 0; i < mag; i++) {
-    bitvec_set(b, index[i]);
+    cyclic[index[i]] = true;
   }
 }
