@@ -98,6 +98,8 @@ void test_sieve_below() {
   assert(sieve_below(&p, 10) == 4);
   assert(sieve_below(&p, 20) == 8);
   assert(sieve_below(&p, 100) == 25);
+
+  sieve_free(&p);
 }
 
 TESTS() {
