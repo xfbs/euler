@@ -20,6 +20,9 @@ clean:
 fmt: $(SOURCES)
 	$(CRYSTAL) tool format
 
+doc:
+	$(CRYSTAL) docs --output=../../../doc/lib/crystal
+
 # build test unit test executable
 bin/test: $(CONFIG) $(SOURCES) $(TESTS)
 	$(SHARDS) build test
