@@ -96,6 +96,8 @@ void test_prime_below() {
   assert(prime_below(&p, 10) == 4);
   assert(prime_below(&p, 20) == 8);
   assert(prime_below(&p, 100) == 25);
+
+  prime_free(&p);
 }
 
 TESTS() {
