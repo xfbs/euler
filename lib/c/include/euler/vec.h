@@ -9,6 +9,7 @@
 #include <euler/vec8.h>
 #include <euler/vec16.h>
 #include <euler/vec32.h>
+#include <euler/vec64.h>
 #include <euler/vecp.h>
 
 //! @defgroup vec vec
@@ -17,7 +18,7 @@
 //! @details
 //! the macros in this file serve as generic functions that can be used in place
 //! of the specialized functions of each vector type.
-//! @see vecp, vec8, vec16, vec32
+//! @see vecp, vec8, vec16, vec32, vec64
 //! @{
 
 //! `free()`'s the data held inside a vector.
@@ -27,8 +28,10 @@
 //! this function only releases the data held inside the vector, not the
 //! vector itself.
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_free()`, `vec8_free()`, `vec16_free()`, `vec32_free()`.
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`.
+//! @see `vecp_free()`, `vec8_free()`, `vec16_free()`, `vec32_free()`,
+//! `vec64_free()`
 //!
 //! ## Examples
 //!
@@ -58,7 +61,8 @@
   vecp_t*: vecp_free, \
   vec8_t*: vec8_free, \
   vec16_t*: vec16_free, \
-  vec32_t*: vec32_free)(v)
+  vec32_t*: vec32_free, \
+  vec64_t*: vec64_free)(v)
 
 //! gets an element from a vector.
 //!
@@ -66,8 +70,9 @@
 //! @param pos which element to return
 //! @return element at `pos`
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_get()`, `vec8_get()`, `vec16_get()`, `vec32_get()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_get()`, `vec8_get()`, `vec16_get()`, `vec32_get()`, `vec64_get()`
 //! @warning
 //! this method does not check if the given `pos` is a legal position inside the
 //! vector, accessing `pos` outside the length of the vector may lead to
@@ -106,7 +111,8 @@
   vecp_t*: vecp_get, \
   vec8_t*: vec8_get, \
   vec16_t*: vec16_get, \
-  vec32_t*: vec32_get)(v, pos)
+  vec32_t*: vec32_get, \
+  vec64_t*: vec64_get)(v, pos)
 
 //! sets the element at the specified position to `data`.
 //!
@@ -115,8 +121,9 @@
 //! @param data new data for the position
 //! @return previous value at `pos`
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_set()`, `vec8_set()`, `vec16_set()`, `vec32_set()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_set()`, `vec8_set()`, `vec16_set()`, `vec32_set()`, `vec64_set()`
 //! @warning
 //! this method does not check if the given `pos` is a legal position inside the
 //! vector, accessing `pos` outside the length of the vector may lead to
@@ -161,15 +168,17 @@
   vecp_t*: vecp_set, \
   vec8_t*: vec8_set, \
   vec16_t*: vec16_set, \
-  vec32_t*: vec32_set)(v, pos, data)
+  vec32_t*: vec32_set, \
+  vec64_t*: vec64_set)(v, pos, data)
 
 //! get the length of a vector.
 //!
 //! @param v vector to get length of
 //! @return length of `v`
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_len()`, `vec8_len()`, `vec16_len()`, `vec32_len()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_len()`, `vec8_len()`, `vec16_len()`, `vec32_len()`, `vec64_len()`
 //!
 //! ## Examples
 //!
@@ -192,7 +201,8 @@
   vecp_t*: vecp_len, \
   vec8_t*: vec8_len, \
   vec16_t*: vec16_len, \
-  vec32_t*: vec32_len)(v)
+  vec32_t*: vec32_len, \
+  vec64_t*: vec64_len)(v)
 
 //! push a value onto the end of a vector.
 //!
@@ -200,8 +210,10 @@
 //! @param data value to push onto the end
 //! @return new size of the vector
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_push()`, `vec8_push()`, `vec16_push()`, `vec32_push()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_push()`, `vec8_push()`, `vec16_push()`, `vec32_push()`,
+//! `vec64_push()`.
 //! @note
 //! if you know that you will push a large amount of data onto the vector, you
 //! may want to call `vec_reserve()` to make space for it.
@@ -228,15 +240,18 @@
   vecp_t*: vecp_push, \
   vec8_t*: vec8_push, \
   vec16_t*: vec16_push, \
-  vec32_t*: vec32_push)(v, data)
+  vec32_t*: vec32_push, \
+  vec64_t*: vec64_push)(v, data)
 
 //! reserves the given amount of space for adding new elements.
 //!
 //! @param v the vector to reserve space for
 //! @param size how much additional space to reserve
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_reserve()`, `vec8_reserve()`, `vec16_reserve()`, `vec32_reserve()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`.
+//! @see `vecp_reserve()`, `vec8_reserve()`, `vec16_reserve()`, `vec32_reserve()`,
+//! `vec64_reserve()`.
 //!
 //! when adding large amount of data to a vector, and when the size of the data
 //! is known in advance, this method can be used to reserve space for the data
@@ -265,14 +280,17 @@
   vecp_t*: vecp_reserve, \
   vec8_t*: vec8_reserve, \
   vec16_t*: vec16_reserve, \
-  vec32_t*: vec32_reserve)(v, num)
+  vec32_t*: vec32_reserve, \
+  vec64_t*: vec64_reserve)(v, num)
 
 //! removes all the elements in a vector.
 //!
 //! @param v the vector to clear
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_clear()`, `vec8_clear()`, `vec16_clear()`, `vec32_clear()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_clear()`, `vec8_clear()`, `vec16_clear()`, `vec32_clear()`,
+//! `vec64_clear()`
 //! @warning
 //! internally, this resets the vector's size to 0, but it does not shrink the
 //! array used to hold the data.
@@ -296,7 +314,8 @@
   vecp_t*: vecp_clear, \
   vec8_t*: vec8_clear, \
   vec16_t*: vec16_clear, \
-  vec32_t*: vec32_clear)(v)
+  vec32_t*: vec32_clear, \
+  vec64_t*: vec64_clear)(v)
 
 //! perform reverse lookup on vector
 //!
@@ -305,8 +324,10 @@
 //! @return index of `data` in `v`, or `SIZE_MAX` if `data` does not exist in
 //! `v`.
 //! @info
-//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vecp_index()`, `vec8_index()`, `vec16_index()`, `vec32_index()`
+//! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
+//! `vec64_t`
+//! @see `vecp_index()`, `vec8_index()`, `vec16_index()`, `vec32_index()`,
+//! `vec64_index()`
 //!
 //! for a given vector `v` and element `data`, searches the vector for
 //! occurences of `data`, returning the index of the first occurence or
@@ -333,15 +354,16 @@
   vecp_t*: vecp_index, \
   vec8_t*: vec8_index, \
   vec16_t*: vec16_index, \
-  vec32_t*: vec32_index)(v, data)
+  vec32_t*: vec32_index, \
+  vec64_t*: vec64_index)(v, data)
 
 //! computes the sum of elements in the vector.
 //!
 //! @param v vector with elements to add
 //! @return sum of all elements in `v`
 //! @info
-//! compatible with vectors of types `vec8_t`, `vec16_t`, `vec32_t`.
-//! @see `vec8_sum()`, `vec16_sum()`, `vec32_sum()`
+//! compatible with vectors of types `vec8_t`, `vec16_t`, `vec32_t`, `vec64_t`.
+//! @see `vec8_sum()`, `vec16_sum()`, `vec32_sum()`, `vec64_sum()`
 //!
 //! ## Examples
 //!
@@ -361,6 +383,7 @@
 #define vec_sum(v) _Generic(v,  \
   vec8_t*: vec8_sum, \
   vec16_t*: vec16_sum, \
-  vec32_t*: vec32_sum)(v)
+  vec32_t*: vec32_sum, \
+  vec64_t*: vec64_sum)(v)
 
 //! @}

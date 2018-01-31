@@ -1,5 +1,6 @@
 #include "euler/prime.h"
 #include <math.h>
+#include <stdlib.h>
 
 prime_t prime_new() {
   prime_t p;

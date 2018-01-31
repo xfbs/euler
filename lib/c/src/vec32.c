@@ -27,8 +27,8 @@ vec32_t vec32_new(size_t len, uint32_t fill) {
   v.data = calloc(v.cap, sizeof(uint32_t));
 
   // we don't need to initialize the array if it should be filled with zeroes.
-  if(fill != 0) {
-    for(size_t i = 0; i < len; i++) {
+  if (fill != 0) {
+    for (size_t i = 0; i < len; i++) {
       v.data[i] = fill;
     }
   }
@@ -43,8 +43,8 @@ vec32_t *vec32_alloc(size_t len, uint32_t fill) {
 }
 
 void vec32_reserve(vec32_t *v, size_t size) {
-  if((v->cap - v->len) < size) {
-    while((v->cap - v->len) < size) {
+  if ((v->cap - v->len) < size) {
+    while ((v->cap - v->len) < size) {
       v->cap *= 2;
     }
 

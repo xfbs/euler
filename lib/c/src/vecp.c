@@ -27,8 +27,8 @@ vecp_t vecp_new(size_t len, void *fill) {
   v.data = calloc(v.cap, sizeof(void *));
 
   // we don't need to initialize the array if it should be filled with zeroes.
-  if(fill != NULL) {
-    for(size_t i = 0; i < len; i++) {
+  if (fill != NULL) {
+    for (size_t i = 0; i < len; i++) {
       v.data[i] = fill;
     }
   }
@@ -43,8 +43,8 @@ vecp_t *vecp_alloc(size_t len, void *fill) {
 }
 
 void vecp_reserve(vecp_t *v, size_t size) {
-  if((v->cap - v->len) < size) {
-    while((v->cap - v->len) < size) {
+  if ((v->cap - v->len) < size) {
+    while ((v->cap - v->len) < size) {
       v->cap *= 2;
     }
 

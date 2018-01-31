@@ -27,8 +27,8 @@ vec16_t vec16_new(size_t len, uint16_t fill) {
   v.data = calloc(v.cap, sizeof(uint16_t));
 
   // we don't need to initialize the array if it should be filled with zeroes.
-  if(fill != 0) {
-    for(size_t i = 0; i < len; i++) {
+  if (fill != 0) {
+    for (size_t i = 0; i < len; i++) {
       v.data[i] = fill;
     }
   }
@@ -43,8 +43,8 @@ vec16_t *vec16_alloc(size_t len, uint16_t fill) {
 }
 
 void vec16_reserve(vec16_t *v, size_t size) {
-  if((v->cap - v->len) < size) {
-    while((v->cap - v->len) < size) {
+  if ((v->cap - v->len) < size) {
+    while ((v->cap - v->len) < size) {
       v->cap *= 2;
     }
 
