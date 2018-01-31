@@ -20,6 +20,10 @@ test: $(SOURCES:src/%.c=test/%_test)
 fmt: $(wildcard include/**.h src/*.c test/*.c)
 	clang-format -i $^
 
+# generates documentation in ../../doc/lib/c
+doc:
+	doxygen config.doxygen
+
 # take the sources and produce a library file
 $(TARGET): $(SOURCES:%.c=%.o)
 	ar cr $@ $^
@@ -29,4 +33,4 @@ $(TARGET): $(SOURCES:%.c=%.o)
 test/%_test: test/%_test.o $(SOURCES:%.c=%.o)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-.PHONY: build test clean fmt
+.PHONY: build test clean fmt doc

@@ -63,7 +63,10 @@ size_t vec16_push(vec16_t *v, uint16_t data) {
 }
 
 void vec16_free(vec16_t *v) {
+  // release data
   free(v->data);
+
+  // reset everything to trigger segfault if vec is used by accident
   v->data = NULL;
   v->cap = 0;
   v->len = 0;
