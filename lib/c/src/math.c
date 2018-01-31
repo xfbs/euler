@@ -19,7 +19,7 @@ uint32_t divisor_sum(uint32_t num) {
 uint64_t next_even_fibonacci(uint64_t fibo) { return fibo * PHI3 + 0.5; }
 
 uint64_t factorial(uint8_t nth) {
-  static uint64_t cache[18] = {0};
+  static uint64_t cache[19] = {0};
   if (nth <= 1)
     return 1;
 
