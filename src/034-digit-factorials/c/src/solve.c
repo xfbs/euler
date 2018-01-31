@@ -1,5 +1,5 @@
 #include "solve.h"
-#include <euler/factorial.h>
+#include <euler/math.h>
 
 uint64_t solve(uint64_t max) {
   // pre-populate a list of all the factorials we will need

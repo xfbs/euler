@@ -1,5 +1,5 @@
 #include "solve.h"
-#include <euler/palindrome.h>
+#include <euler/math.h>
 #include <math.h>
 
 uint32_t solve(uint32_t digits) {

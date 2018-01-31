@@ -1,6 +1,6 @@
 #include "solve.h"
-#include <euler/factorial.h>
-#include <euler/pandigital.h>
+#include <euler/math.h>
+#include <euler/math.h>
 #include <euler/prime.h>
 
 uint32_t solve(uint8_t max) {

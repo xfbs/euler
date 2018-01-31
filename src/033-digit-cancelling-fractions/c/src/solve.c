@@ -1,5 +1,5 @@
 #include "solve.h"
-#include <euler/gcd_lcm.h>
+#include <euler/math.h>
 
 uint32_t solve() {
   uint32_t numerator = 1;

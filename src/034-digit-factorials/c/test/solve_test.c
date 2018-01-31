@@ -1,5 +1,5 @@
 #include "solve.h"
-#include <euler/factorial.h>
+#include <euler/math.h>
 #include <euler/test.h>
 
 void test_is_curious_number() {

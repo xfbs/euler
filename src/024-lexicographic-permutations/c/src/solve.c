@@ -1,6 +1,6 @@
 #include "solve.h"
 #include <euler/bitvec.h>
-#include <euler/factorial.h>
+#include <euler/math.h>
 
 uint64_t solve(uint32_t max) {
   // keeps track of which numbers 0..9 are taken already.

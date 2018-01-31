@@ -1,17 +1,21 @@
 OCAMLBUILD = ocamlbuild -use-ocamlfind
+SOURCES    = $(wildcard src/**)
 
-main: bin/main
+build: bin/main
 
 test: bin/test
 	./bin/test
 
+solve: bin/main
+	./bin/main
+
 clean:
 	$(RM) -r bin/* _build
 
-bin/%: %.native
+bin/%: %.native $(SOURCES)
 	mv $< $@
 
 %.native:
 	$(OCAMLBUILD) $@
 
-.PHONY: test default clean
+.PHONY: build test solve clean
