@@ -4,6 +4,7 @@
 //! @copyright MIT license
 //! @brief assorted math functions not part of that standard library.
 #include <stdint.h>
+#include <stdbool.h>
 #pragma once
 
 //! @defgroup math math
@@ -80,6 +81,29 @@ uint64_t factorial(uint8_t nth);
 //! assert(divisor_sum(284) == 220);
 //! ```
 uint32_t divisor_sum(uint32_t num);
+
+//! checks if the given number is a palindrome.
+//!
+//! @param num the number to check
+//! @return `true` if the number is a palindrome, `false` otherwise.
+//!
+//! ## Examples
+//!
+//! ```c
+//! assert(is_palindrome(12321) == true);
+//! assert(is_palindrome(445644) == false);
+//! ```
+bool is_palindrome(uint64_t num);
+
+//! return the `nth` pandigital of length `n`
+//!
+//! a pandigital is a number making use of all numbers from 0 to `n` exactly
+//! once, therefore it is a permutation of the set [0..n].
+//!
+//! @param n how long the pandigital should be
+//! @param nth which permutation to return
+//! @todo examples
+uint32_t nth_pandigital(uint8_t n, uint32_t nth);
 
 //! golden ration (used for calculating fibonacci numbers)
 static const double PHI = 1.61803398875;
