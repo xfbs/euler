@@ -1,4 +1,4 @@
-# Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler) [![GitHub release](https://img.shields.io/github/tag/xfbs/euler.svg)]()
+# Project Euler Solutions [![Build Status](https://travis-ci.org/xfbs/euler.svg?branch=master)](https://travis-ci.org/xfbs/euler) [![GitHub release](https://img.shields.io/github/tag/xfbs/euler.svg)]() [![Documentation](https://img.shields.io/badge/docs-published-green.svg?style=flat)](https://xfbs.github.io/euler)
 
 This is a repository of solutions to [Project Euler](https://projecteuler.net/)
 problems. All of these solutions are written by me in an attempt to fool around
