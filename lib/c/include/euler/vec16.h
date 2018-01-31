@@ -1,17 +1,15 @@
 //! @file vec16.h
-//!
 //! `uint16_t` vector data structure and associated functions.
-//!
-//! use this data structure if you want a vector of `uint16_t` with dynamic
-//! resizing. you may want to use the general interfact for vectors, defined in
-//! <vec.h>.
-
 #include <stddef.h>
 #include <stdint.h>
 #pragma once
 
+//! @defgroup vec16 uint16_t vector functions
+//! @{
+
 //! vector of uint16_t data type.
 //!
+//! @warning
 //! this should not be used directly - use the associated vector functions to
 //! mutate this.
 typedef struct {
@@ -90,6 +88,40 @@ vec16_t vec16_new(size_t len, uint16_t fill);
 //! free(vec);
 //! ```
 vec16_t *vec16_alloc(size_t len, uint16_t fill);
+
+//! `free()`'s the data held inside a `vec16_t`.
+//!
+//! @param v the vector that will have it's data released.
+//! @warning
+//! this function only releases the data held inside a `vec16_t`, not the
+//! `vec16_t` itself. if the `vec16_t` has been produced by `vec16_alloc()`,
+//! `free()` must also be called on it to release the structure itself.
+//!
+//! ## Examples
+//!
+//! freeing a vector on the stack
+//!
+//! ```c
+//! // allocate vector on the stack
+//! vec16_t vec = vec16_new(0, 0);
+//!
+//! // free vector contents
+//! vec16_free(&vec);
+//! ```
+//!
+//! freeing a vector on the heap
+//!
+//! ```c
+//! // allocate new vector on the heap
+//! vec16_t *vec = vec16_alloc(0, 0);
+//!
+//! // free vector contents
+//! vec16_free(vec);
+//!
+//! // free vector itself
+//! free(vec);
+//! ```
+void vec16_free(vec16_t *v);
 
 //! gets an element of the `uint16_t` vector.
 //!
@@ -180,6 +212,25 @@ uint16_t vec16_get(const vec16_t *v, size_t pos);
 //! ```
 uint16_t vec16_set(vec16_t *v, size_t pos, uint16_t data);
 
+//! get the length of a vector.
+//!
+//! @param v vector to get length of
+//! @return length of `v`
+//!
+//! ## Examples
+//!
+//! get length of pre-filled vector
+//!
+//! ```c
+//! // creates a vec with length 2
+//! vec16_t vec = vec16_new(2, 0);
+//!
+//! // checks length
+//! assert(vec16_len(&vec) == 2);
+//! vec16_free(&vec);
+//! ```
+size_t vec16_len(const vec16_t *v);
+
 //! push a value onto the end of the `uint16_t` vector.
 //!
 //! @param v vector to push onto
@@ -209,25 +260,6 @@ uint16_t vec16_set(vec16_t *v, size_t pos, uint16_t data);
 //! ```
 size_t vec16_push(vec16_t *v, uint16_t data);
 
-//! get the length of a vector.
-//!
-//! @param v vector to get length of
-//! @return length of `v`
-//!
-//! ## Examples
-//!
-//! get length of pre-filled vector
-//!
-//! ```c
-//! // creates a vec with length 2
-//! vec16_t vec = vec16_new(2, 0);
-//!
-//! // checks length
-//! assert(vec16_len(&vec) == 2);
-//! vec16_free(&vec);
-//! ```
-size_t vec16_len(const vec16_t *v);
-
 //! reserves the given amount of space for adding new elements.
 //!
 //! @param v the vector to reserve space for
@@ -256,40 +288,6 @@ size_t vec16_len(const vec16_t *v);
 //! vec16_free(&vec);
 //! ```
 void vec16_reserve(vec16_t *v, size_t size);
-
-//! `free()`'s the data held inside a `vec16_t`.
-//!
-//! @param v the vector that will have it's data released.
-//! @warning
-//! this function only releases the data held inside a `vec16_t`, not the
-//! `vec16_t` itself. if the `vec16_t` has been produced by `vec16_alloc()`,
-//! `free()` must also be called on it to release the structure itself.
-//!
-//! ## Examples
-//!
-//! freeing a vector on the stack
-//!
-//! ```c
-//! // allocate vector on the stack
-//! vec16_t vec = vec16_new(0, 0);
-//!
-//! // free vector contents
-//! vec16_free(&vec);
-//! ```
-//!
-//! freeing a vector on the heap
-//!
-//! ```c
-//! // allocate new vector on the heap
-//! vec16_t *vec = vec16_alloc(0, 0);
-//!
-//! // free vector contents
-//! vec16_free(vec);
-//!
-//! // free vector itself
-//! free(vec);
-//! ```
-void vec16_free(vec16_t *v);
 
 //! removes all the elements in a vector.
 //!
@@ -367,3 +365,5 @@ size_t vec16_index(const vec16_t *v, uint16_t data);
 //! assert(vec16_sum(&vec) == 167);
 //! ```
 uint64_t vec16_sum(const vec16_t *v);
+
+//! @}

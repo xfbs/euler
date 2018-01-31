@@ -58,7 +58,7 @@ size_t vec16_push(vec16_t *v, uint16_t data) {
   v->len++;
 
   // set the data of the new element
-  vec16_set(v, vec_len(v) - 1, data);
+  vec16_set(v, vec16_len(v) - 1, data);
   return vec16_len(v);
 }
 
