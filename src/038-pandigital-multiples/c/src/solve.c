@@ -1,5 +1,6 @@
 #include "solve.h"
-#include <euler/bitvec.h>
+#include <stdbool.h>
+
 
 uint64_t solve() {
   uint64_t max = 0;
@@ -33,35 +34,32 @@ uint64_t make_pandigital_multiple(uint32_t base, uint8_t n) {
 }
 
 uint64_t pandigital_multiple(uint32_t base) {
-  bitvec_t taken = bitvec_new(10);
+  bool taken[10] = {false};
 
   for (uint8_t n = 1; n < 10; n++) {
     uint32_t num = base * n;
 
     while (num != 0) {
-      if ((num % 10) == 0 || bitvec_get(&taken, num % 10)) {
-        bitvec_free(&taken);
+      if ((num % 10) == 0 || taken[num % 10]) {
         return 0;
       }
 
-      bitvec_set(&taken, num % 10);
+      taken[num % 10] = true;
       num /= 10;
     }
 
     if (n > 1) {
       for (uint8_t digit = 1; digit < 10; digit++) {
-        if (!bitvec_get(&taken, digit)) {
+        if (!taken[digit]) {
           num = 1;
         }
       }
 
       if (num == 0) {
-        bitvec_free(&taken);
         return make_pandigital_multiple(base, n);
       }
     }
   }
 
-  bitvec_free(&taken);
   return 0;
 }
