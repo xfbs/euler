@@ -24,4 +24,10 @@ clean:
 fmt: $(wildcard src/**.rs)
 	$(CARGO) fmt
 
+doc:
+	$(CARGO) doc
+	$(RM) -rf ../../../doc/lib/rust
+	mv target/doc ../../../doc/lib/rust
+
+
 .PHONY: test clean fmt
