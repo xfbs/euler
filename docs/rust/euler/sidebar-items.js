@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["factorial",""],["permutations",""]],"struct":[["Prime",""],["Sieve",""]],"trait":[["GcdLcm",""],["IsPalindrome",""],["ToDigits",""],["ToDivisors",""],["ToPalindrome",""],["ToRotations",""]]});
