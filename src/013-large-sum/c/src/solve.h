@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include <euler/vec.h>
+#include <euler/vecp.h>
 #pragma once
 
-uint64_t solve(vec_t *numbers);
+uint64_t solve(vecp_t *numbers);
