@@ -3,7 +3,7 @@
 //! @date 2018
 //! @copyright MIT license
 //! @brief functions for generating prime numbers.
-//! @default these functions provide an easy interface for generating sequential
+//! @detail these functions provide an easy interface for generating sequential
 //! prime numbers.
 #include <stdbool.h>
 #include <stdint.h>
