@@ -1,10 +1,10 @@
 #include "solve.h"
-#include <euler/bitvec.h>
 #include <euler/math.h>
 
+// FIXME: use nth_pandigital maybe?
 uint64_t solve(uint32_t max) {
   // keeps track of which numbers 0..9 are taken already.
-  bitvec_t taken = bitvec_new(10);
+  bool taken[10] = {false};
 
   // the final result
   uint32_t num = 0;
@@ -21,22 +21,21 @@ uint64_t solve(uint32_t max) {
     // find out which digit was chosen
     uint32_t digit = 0;
     while (choice > 0) {
-      if (!bitvec_get(&taken, digit)) {
+      if (!taken[digit]) {
         choice--;
       }
       digit++;
     }
 
-    while (bitvec_get(&taken, digit))
+    while (taken[digit]) {
       digit++;
+    }
 
     // mark current digit as chosen
-    bitvec_set(&taken, digit);
+    taken[digit] = true;
 
     num += digit;
   }
-
-  bitvec_free(&taken);
 
   return num;
 }
