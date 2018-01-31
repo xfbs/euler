@@ -1,5 +1,5 @@
 #include <euler/math.h>
 #pragma once
 
-int solve(int max, int div1, int div2);
-int sum_divisible(int max, int divisor);
+uint32_t solve(uint32_t max, uint32_t a, uint32_t b);
+uint32_t sum_divisible(uint32_t max, uint32_t divisor);
