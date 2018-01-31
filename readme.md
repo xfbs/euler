@@ -1,3 +1,5 @@
+# About
+
 This is a repository of solutions to [Project Euler](https://projecteuler.net/)
 problems. All of these solutions are written by me in an attempt to fool around
 with mathematics and sharpen my programming skills in a few languages.
@@ -29,6 +31,14 @@ with mathematics and sharpen my programming skills in a few languages.
     external libraries into this repository.
   - The **simpler** the solution is, in terms of lines of code and complexity,
     the better.
+
+## Progress
+
+See [`progress.md`](progress.md) for more information.
+
+## Getting Started
+
+See [`contributing.md`](contributing.md) for more information.
 
 ## Languages
 
@@ -113,3 +123,7 @@ bundled into the repository:
     library for C++ enabling functional-style comprehensions.
   - [c-style](https://github.com/mcinglis/c-style), guidelines for C
     development.
+
+## License
+
+See [`license.md`](license.md) for more information. 
