@@ -29,10 +29,17 @@ gem install bcrypt
 
 ### On macOS
 
+Use homebrew to install all the essentials, and then use rubygems to install the
+ruby dependency:
+
 ```bash
 $ brew install ruby python3 crystal-lang rust
 $ gem install bcrypt
 ```
+
+### On Ubuntu
+
+*TODO*, check `.travis.yml` for how I set up the ubuntu CI machines.
 
 ### Caveat
 
