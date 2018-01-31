@@ -82,6 +82,6 @@ size_t vecp_index(const vecp_t *v, void *data) {
   return SIZE_MAX;
 }
 
-void vecp_sort(vecp_t *v, int (*comp)(const void *, const void *)) {
-  qsort(v->data, v->len, sizeof(void *), comp);
+void vecp_sort(vecp_t *v, vecp_compare cmp) {
+  qsort(v->data, v->len, sizeof(void *), cmp);
 }

@@ -25,6 +25,13 @@ typedef struct {
   size_t len;
 } vecp_t;
 
+//! comparison function between two elements.
+//!
+//! functions that have this type can be used as sorting functions with
+//! vecp_sort(). functions are expected to behave in the same way as comparison
+//! functions for the `qsort()` function of the standard library.
+typedef int (*vecp_compare)(const void *, const void *);
+
 //! creates a new pointer vector.
 //!
 //! @param len length of the vecp
@@ -369,5 +376,13 @@ void vecp_clear(vecp_t *v);
 //! assert(vecp_index(&vec, &d) == SIZE_MAX);
 //! ```
 size_t vecp_index(const vecp_t *v, void *ptr);
+
+//! sort the vector according to the function provided.
+//!
+//! @param v vector to sort.
+//! @param cmp comparison function between elements.
+//!
+//! @todo example
+void vecp_sort(vecp_t *v, vecp_compare cmp);
 
 //! @}

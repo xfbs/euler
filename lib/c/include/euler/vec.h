@@ -386,4 +386,13 @@
   vec32_t*: vec32_sum, \
   vec64_t*: vec64_sum)(v)
 
+//! sort the vector according to the function provided.
+//!
+//! @param v vector to sort.
+//! @param cmp comparison function between elements.
+//!
+//! @todo implement for other vectors
+#define vec_sort(v, cmp) _Generic(v, \
+  vecp_t*: vecp_sort)(v, cmp)
+
 //! @}
