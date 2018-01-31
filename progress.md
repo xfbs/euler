@@ -1,4 +1,4 @@
-## Progress
+# Progress
 
 Here is a table of the current status of the project. The numbers represent how
 many miliseconds the implementation takes to compute the correct answer (blank
