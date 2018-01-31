@@ -4,12 +4,12 @@
 void test_sieve_new() {
   sieve_t p = sieve_new(100);
   assert(p.len == 100);
-  assert(p.state);
+  assert(p.state != NULL);
   sieve_free(&p);
 }
 
 void test_sieve_nth() {
-  sieve_t p = sieve_new(182);
+  sieve_t p = sieve_new(200);
 
   assert(sieve_nth(&p, 0) == 2);
   assert(sieve_nth(&p, 1) == 3);

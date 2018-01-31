@@ -13,12 +13,12 @@ sieve_t sieve_new(size_t size) {
 
   uint64_t p = 2;
   while ((p * p) < size) {
-    for (uint64_t f = p; f <= (size / p); f++) {
+    for (uint64_t f = p; (p * f) < size; f++) {
       sieve.state[p * f] = false;
     }
 
     p++;
-    while (!sieve.state[p])
+    while (p < size && !sieve.state[p])
       p++;
   }
 
