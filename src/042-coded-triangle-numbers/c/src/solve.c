@@ -1,8 +1,9 @@
 #include "solve.h"
 #include <math.h>
 #include <stdio.h>
+#include <euler/vec.h>
 
-uint64_t solve(vec_t *v) {
+uint64_t solve(vecp_t *v) {
   uint64_t sum = 0;
 
   for (size_t i = 0; i < vec_len(v); i++) {

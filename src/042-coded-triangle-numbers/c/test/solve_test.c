@@ -1,5 +1,6 @@
 #include "solve.h"
 #include <euler/test.h>
+#include <euler/vec.h>
 
 void test_weight() {
   assert(weight("COLIN") == 53);
@@ -9,7 +10,7 @@ void test_weight() {
 }
 
 void test_solve() {
-  vec_t v = vec_new(0, NULL);
+  vecp_t v = vecp_new(0, NULL);
   vec_push(&v, "A");
   vec_push(&v, "Z");
   vec_push(&v, "COLIN");
@@ -45,5 +46,6 @@ void test_is_triangle_number() {
 TESTS() {
   RUN(test_weight);
   RUN(test_is_triangle_number);
+  // FIXME
   // RUN(test_solve);
 }
