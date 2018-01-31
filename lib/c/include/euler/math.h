@@ -6,7 +6,7 @@
 #include <stdint.h>
 #pragma once
 
-//! @defgroup math
+//! @defgroup math math
 //! @brief assorted math functions not part of the standard library
 //! @{
 
@@ -65,11 +65,28 @@ uint64_t gcd(uint64_t a, uint64_t b);
 //! ```
 uint64_t factorial(uint8_t nth);
 
+//! sum of the divisors of num
+//!
+//! calculates the sum of proper divisors of num, meaning all divisors lower
+//! than num itself.
+//!
+//! @param num a number
+//! @return sum of all divisors of `num` that are not equal to `num`.
+//!
+//! ## Examples
+//!
+//! ```c
+//! assert(divisor_sum(220) == 284);
+//! assert(divisor_sum(284) == 220);
+//! ```
 uint32_t divisor_sum(uint32_t num);
 
+//! golden ration (used for calculating fibonacci numbers)
 static const double PHI = 1.61803398875;
+
 #define PHI3 (PHI * PHI * PHI)
 
+// FIXME: change to fibonacci(n)
 uint64_t next_even_fibonacci(uint64_t fibo);
 
 //! @}
