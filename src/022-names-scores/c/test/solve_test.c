@@ -1,5 +1,6 @@
 #include "solve.h"
 #include <euler/test.h>
+#include <euler/vec.h>
 
 void test_weight() {
   assert(weight("COLIN") == 53);
