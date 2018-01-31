@@ -4,7 +4,8 @@
 #include <stdint.h>
 #pragma once
 
-//! @defgroup vec32 uint32_t vector functions
+//! @defgroup vec32 vec32
+//! @brief data type and functions for handling vectors of `uint32_t`
 //! @{
 
 //! vector of uint32_t data type.

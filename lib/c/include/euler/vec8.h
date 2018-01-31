@@ -4,7 +4,8 @@
 #include <stdint.h>
 #pragma once
 
-//! @defgroup vec8 uint8_t vector functions
+//! @defgroup vec8 vec8
+//! @brief data type and functions for handling vectors of `uint8_t`
 //! @{
 
 //! vector of uint8_t data type.

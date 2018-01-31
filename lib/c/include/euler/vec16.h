@@ -4,7 +4,8 @@
 #include <stdint.h>
 #pragma once
 
-//! @defgroup vec16 uint16_t vector functions
+//! @defgroup vec16 vec16
+//! @brief data type and functions for handling vectors of `uint16_t`
 //! @{
 
 //! vector of uint16_t data type.
