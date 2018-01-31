@@ -14,11 +14,11 @@ git pull
 cd ..
 
 # copy readme, contributing, progress
-echo "# About" > readme.md
-tail -n+2 euler/readme.md >> readme.md
+echo "# About" > index.md
+tail -n+2 euler/readme.md >> index.md
 cp euler/contributing.md contributing.md
 cp euler/progress.md progress.md
-git add readme.md contributing.md progress.md
+git add index.md contributing.md progress.md
 
 # generate docs for lib/c
 cd euler/lib/c
