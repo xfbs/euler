@@ -19,8 +19,9 @@ impl Permutations {
     /// was `[3, 1, 4, 2]`, the iterator would return `[2, 0, 3, 1]` for that
     /// permutation.
     ///
-    /// You'll probably want to use `euler::permutations()` to call this
-    /// function, which is more concise.
+    /// You'll probably want to use
+    /// [`euler::permutations()`](fn.permutations.html) to call this function,
+    /// which is more concise.
     ///
     /// ## Examples
     ///
@@ -71,7 +72,7 @@ impl Iterator for Permutations {
 
 /// Returns an iterator over the `nth` permutation of `count` elements.
 ///
-/// See `Permutations::of()` for more information.
+/// See [`Permutations::of()`](struct.Permutations.html) for more information.
 ///
 /// ## Examples
 ///
