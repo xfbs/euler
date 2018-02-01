@@ -1,6 +1,7 @@
 extern crate euler;
 use euler::factorial;
 
+// FIXME: rewrite using euler::permutations
 pub fn solve(n: usize) -> u64 {
     let v = nth_permutation(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9], n - 1);
     v.iter().fold(0, |m, c| (m * 10) + (*c as u64))
@@ -10,7 +11,7 @@ fn nth_permutation(mut arr: Vec<u8>, mut n: usize) -> Vec<u8> {
     let mut result = vec![];
 
     while arr.len() > 0 {
-        let permutations = factorial(arr.len() as u64 - 1) as usize;
+        let permutations = factorial(arr.len() as u64 - 1).unwrap() as usize;
         result.push(arr.remove(n / permutations));
         n %= permutations;
     }
