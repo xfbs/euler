@@ -8,7 +8,7 @@ pub fn solve(digit: u8) -> u64 {
 
     for n_iter in 0..digit {
         let n = digit - n_iter;
-        let fact = factorial(n as u64);
+        let fact = factorial(n as u64).unwrap();
 
         for nth_iter in 0..fact {
             let nth = fact - nth_iter - 1;
