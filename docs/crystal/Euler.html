@@ -60,6 +60,11 @@
 
 
 
+  <h2>Overview</h2>
+
+  <p>A collection of numerical functions and classes for use with Project Euler
+problems.</p>
+
 
 
 
@@ -76,42 +81,27 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/divisors.cr#L1" target="_blank">euler/divisors.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/divisors.cr#L1" target="_blank">euler/divisors.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/factorial.cr#L1" target="_blank">euler/factorial.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/math.cr#L1" target="_blank">euler/math.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/fibonacci.cr#L1" target="_blank">euler/fibonacci.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/prime.cr#L1" target="_blank">euler/prime.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/palindrome.cr#L1" target="_blank">euler/palindrome.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/sieve.cr#L1" target="_blank">euler/sieve.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/pandigital.cr#L3" target="_blank">euler/pandigital.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/prime.cr#L1" target="_blank">euler/prime.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/sieve.cr#L1" target="_blank">euler/sieve.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler.cr#L3" target="_blank">euler.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler.cr#L5" target="_blank">euler.cr</a>
     
     <br/>
   
@@ -127,10 +117,24 @@
         <strong>PHI</strong> = <code>((<span class="t">Math</span>.sqrt(<span class="n">5</span>)) <span class="o">+</span> <span class="n">1</span>) <span class="o">/</span> <span class="n">2</span></code>
       </dt>
       
+      <dd class="entry-const-doc">
+        <p>The value of phi, the golden ratio.</p>
+
+<p>This is precomputed and stored to efficiently generate fibonacci numbers
+with <code><a href="Euler.html#fibonacci%28n%29-class-method">Euler.fibonacci(n)</a></code>.</p>
+      </dd>
+      
     
       <dt class="entry-const" id="ROOT5">
         <strong>ROOT5</strong> = <code><span class="t">Math</span>.sqrt(<span class="n">5</span>)</code>
       </dt>
+      
+      <dd class="entry-const-doc">
+        <p>The value of the square root of 5.</p>
+
+<p>This is precomputed and stored to efficiently generate fibonacci numbers
+with <code><a href="Euler.html#fibonacci%28n%29-class-method">Euler.fibonacci(n)</a></code>.</p>
+      </dd>
       
     
   </dl>
@@ -145,31 +149,35 @@
       <li class="entry-summary">
         <a href="#divisors%28num%29-class-method" class="signature"><strong>.divisors</strong>(num)</a>
         
-          <div class="summary"><p>returns an iterator over the divisors of num.</p></div>
+          <div class="summary"><p>Returns an iterator over the divisors of <code>num</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#factorial64%28n%29-class-method" class="signature"><strong>.factorial64</strong>(n)</a>
+        <a href="#factorial%28n%29-class-method" class="signature"><strong>.factorial</strong>(n)</a>
         
-          <div class="summary"><p>returns the <code>n</code>th factorial as a UInt64, thus it's limited to factorials up to 20!.</p></div>
+          <div class="summary"><p>Returns the <code>n</code>th factorial as a <code>UInt64</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#fibonacci%28n%29-class-method" class="signature"><strong>.fibonacci</strong>(n)</a>
         
+          <div class="summary"><p>Generates the <code>n</code>th fibonacci number.</p></div>
+        
       </li>
     
       <li class="entry-summary">
-        <a href="#is_palindrome%3F%28num%29-class-method" class="signature"><strong>.is_palindrome?</strong>(num)</a>
+        <a href="#is_palindrome%3F%28num%2Cbase%3D10%29-class-method" class="signature"><strong>.is_palindrome?</strong>(num, base = <span class="n">10</span>)</a>
+        
+          <div class="summary"><p>Checks if a number is a palindrome.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#pandigital%28len%2Cnth%29-class-method" class="signature"><strong>.pandigital</strong>(len, nth)</a>
         
-          <div class="summary"><p>generates the <code>nth</code> pandigital of length <code>len</code>, or in other words, the <code>nth</code> permutations of <code>1, 2, ..., len</code> as a number.</p></div>
+          <div class="summary"><p>Generates the <code>nth</code> pandigital of length <code>len</code>.</p></div>
         
       </li>
     
@@ -198,31 +206,51 @@
         <a class="method-permalink" href="#divisors%28num%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>returns an iterator over the divisors of num.</p></div>
+        <div class="doc"><p>Returns an iterator over the divisors of <code>num</code>.</p>
+
+<p>Constructs and returns a new instance of <code><a href="Euler/Divisors.html">Euler::Divisors</a>(T)</code>, where <code>T</code> is
+the type of <code>num</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code>divisors(<span class="n">10</span>).sum <span class="o">==</span> <span class="n">8</span>   <span class="c"># ==&gt; true</span>
+divisors(<span class="n">11</span>).count <span class="o">==</span> <span class="n">1</span> <span class="c"># ==&gt; true</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/divisors.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/divisors.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="factorial64(n)-class-method">
+    <div class="entry-detail" id="factorial(n)-class-method">
       <div class="signature">
         
-        def self.<strong>factorial64</strong>(n)
+        def self.<strong>factorial</strong>(n)
 
-        <a class="method-permalink" href="#factorial64%28n%29-class-method">#</a>
+        <a class="method-permalink" href="#factorial%28n%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>returns the <code>n</code>th factorial as a UInt64, thus it's limited to factorials up
-to 20!.</p></div>
+        <div class="doc"><p>Returns the <code>n</code>th factorial as a <code>UInt64</code>.</p>
+
+<p>Using the cache <code>@@factorials</code>, we look up the <code>n</code>th factorial and return it
+as a <code>UInt64</code>. The caller must promise to not call this function with <code>n >
+20</code>. <code>UInt64</code> would overflow with 21!, so we don't store those factorials,
+meaning that calling it would result in a crash.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="t">Euler</span>.factorial(<span class="n">0</span>).should eq <span class="n">1</span>
+<span class="t">Euler</span>.factorial(<span class="n">1</span>).should eq <span class="n">1</span>
+<span class="t">Euler</span>.factorial(<span class="n">2</span>).should eq <span class="n">2</span>
+<span class="t">Euler</span>.factorial(<span class="n">3</span>).should eq <span class="n">6</span>
+<span class="t">Euler</span>.factorial(<span class="n">6</span>).should eq <span class="n">720</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/factorial.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/math.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -235,26 +263,53 @@ to 20!.</p></div>
         <a class="method-permalink" href="#fibonacci%28n%29-class-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/fibonacci.cr#L5" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_palindrome?(num)-class-method">
-      <div class="signature">
-        
-        def self.<strong>is_palindrome?</strong>(num)
+        <div class="doc"><p>Generates the <code>n</code>th fibonacci number.</p>
 
-        <a class="method-permalink" href="#is_palindrome%3F%28num%29-class-method">#</a>
-      </div>
+<p>This uses a fast algorithm based on exponentiation of <code><a href="Euler.html#PHI">Euler::PHI</a></code> to
+generate the <code>n</code>th fibonacci number.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="t">Euler</span>.fibonacci(<span class="n">1</span>).should eq <span class="n">1</span>
+<span class="t">Euler</span>.fibonacci(<span class="n">2</span>).should eq <span class="n">1</span>
+<span class="t">Euler</span>.fibonacci(<span class="n">3</span>).should eq <span class="n">2</span>
+<span class="t">Euler</span>.fibonacci(<span class="n">4</span>).should eq <span class="n">3</span>
+<span class="t">Euler</span>.fibonacci(<span class="n">5</span>).should eq <span class="n">5</span>
+<span class="t">Euler</span>.fibonacci(<span class="n">6</span>).should eq <span class="n">8</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/palindrome.cr#L2" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/math.cr#L57" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_palindrome?(num,base=10)-class-method">
+      <div class="signature">
+        
+        def self.<strong>is_palindrome?</strong>(num, base = <span class="n">10</span>)
+
+        <a class="method-permalink" href="#is_palindrome%3F%28num%2Cbase%3D10%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Checks if a number is a palindrome.</p>
+
+<p>Quickly checks if a number is a palindrome, meaning that it's digits are the
+same read backwards as they are read forwards. For example, 1023201 is a
+palindrome (in base 10).
+Numbers can be checked for being palindromes in other bases, too.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="t">Euler</span>.is_palindrome(<span class="n">12321</span>).should be_true
+<span class="t">Euler</span>.is_palindrome(<span class="n">1002101</span>).should be_false
+<span class="t">Euler</span>.is_palindrome(<span class="n">5</span>, <span class="n">2</span>).should be_true</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/math.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -267,13 +322,20 @@ to 20!.</p></div>
         <a class="method-permalink" href="#pandigital%28len%2Cnth%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>generates the <code>nth</code> pandigital of length <code>len</code>, or in other words, the <code>nth</code>
-permutations of <code>1, 2, ..., len</code> as a number.</p></div>
+        <div class="doc"><p>Generates the <code>nth</code> pandigital of length <code>len</code>.</p>
+
+<p>Works by generating the <code>nth</code> permutation of 1..<code>len</code>, and returning that as
+a number.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="t">Euler</span>.pandigital(len: <span class="n">5</span>, nth: <span class="n">3</span>).should eq <span class="n">12453</span>
+<span class="t">Euler</span>.pandigital(len: <span class="n">9</span>, nth: <span class="n">0</span>).should eq <span class="n">123456789</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/pandigital.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/math.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>

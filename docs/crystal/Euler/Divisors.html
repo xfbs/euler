@@ -64,7 +64,18 @@
 
   <h2>Overview</h2>
 
-  <p>an iterator over the divisors of a number (returns the divisors unsorted)</p>
+  <p>An iterator over the divisors of a number.</p>
+
+<p>This is not the most efficient code as it just brute forces divisors from
+one until the square root of the number. It returns all proper divisors —
+meaning divisors that are smaller than the number itself.</p>
+
+<p>The order in which this iterator returns the divisors in unspecified — if
+you need them to be sorted, you have to do that manually.</p>
+
+<p>You can use this class directly, or you can use the <code><a href="../Euler.html#divisors%28num%29-class-method">Euler.divisors</a>()</code>
+function which just wraps it and saves you from having to type
+<code>Euler::Divisors.new(num)</code>.</p>
 
 
 
@@ -89,7 +100,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/divisors.cr#L3" target="_blank">euler/divisors.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/divisors.cr#L14" target="_blank">euler/divisors.cr</a>
     
     <br/>
   
@@ -104,7 +115,7 @@
       <li class="entry-summary">
         <a href="#new%28num%3AT%29-class-method" class="signature"><strong>.new</strong>(num : T)</a>
         
-          <div class="summary"><p>creates a new iterator instance over the divisors of <code>num</code>.</p></div>
+          <div class="summary"><p>Creates a new iterator instance over the divisors of <code>num</code>.</p></div>
         
       </li>
     
@@ -120,7 +131,7 @@
       <li class="entry-summary">
         <a href="#next-instance-method" class="signature"><strong>#next</strong></a>
         
-          <div class="summary"><p>returns the next divisors, the order in which the divisors are returned is undefined.</p></div>
+          <div class="summary"><p>Returns the next divisor, or Iterator::Stop to signal that there aren't any left.</p></div>
         
       </li>
     
@@ -185,12 +196,23 @@
         <a class="method-permalink" href="#new%28num%3AT%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>creates a new iterator instance over the divisors of <code>num</code>.</p></div>
+        <div class="doc"><p>Creates a new iterator instance over the divisors of <code>num</code>.</p>
+
+<p>Since this class is generic, whatever type <code>num</code> has is also the type of
+the divisors that will be returned. Note that this class probably won't
+work with floating-point variables, so make sure <code>num</code> is an integral
+type.</p>
+
+<h2>Examples</h2>
+
+<pre><code>divisors <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Divisors</span>.<span class="k">new</span>(<span class="n">55</span>)
+divisors[<span class="n">0</span>] <span class="o">==</span> <span class="n">1</span> <span class="c"># ==&gt; true</span>
+divisors[<span class="n">1</span>] <span class="o">==</span> <span class="n">5</span> <span class="c"># ==&gt; true</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/divisors.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/divisors.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -210,13 +232,23 @@
         <a class="method-permalink" href="#next-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>returns the next divisors, the order in which the divisors are returned is
-undefined.</p></div>
+        <div class="doc"><p>Returns the next divisor, or Iterator::Stop to signal that there aren't
+any left.</p>
+
+<h2>Examples</h2>
+
+<pre><code>div <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Divisors</span>.<span class="k">new</span>(<span class="n">12</span>)
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">1</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">2</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">3</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">4</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">6</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="t">Iterator</span><span class="t">::</span><span class="t">Stop</span> <span class="c"># ==&gt; true</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/0aabe04f7ec612709393b730dfe8d6c47b1db28e/src/euler/divisors.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/1239cc58ea00b531064a878703083aa072f34495/src/euler/divisors.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
