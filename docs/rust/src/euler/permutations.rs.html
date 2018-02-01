@@ -164,7 +164,7 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Permutations</span> {
     <span class="ident">num</span>: <span class="ident">u8</span>,
     <span class="ident">req</span>: <span class="ident">u64</span>,
-    <span class="ident">cur</span>: [<span class="ident">bool</span>; <span class="number">20</span>]
+    <span class="ident">cur</span>: [<span class="ident">bool</span>; <span class="number">20</span>],
 }
 
 <span class="kw">impl</span> <span class="ident">Permutations</span> {
@@ -202,7 +202,7 @@
         <span class="ident">Permutations</span> {
             <span class="ident">num</span>: <span class="ident">count</span> <span class="kw">as</span> <span class="ident">u8</span>,
             <span class="ident">req</span>: <span class="ident">nth</span> <span class="kw">as</span> <span class="ident">u64</span>,
-            <span class="ident">cur</span>: [<span class="bool-val">false</span>; <span class="number">20</span>]
+            <span class="ident">cur</span>: [<span class="bool-val">false</span>; <span class="number">20</span>],
         }
     }
 }

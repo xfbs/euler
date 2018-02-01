@@ -62,7 +62,6 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">math</div>  </div>
@@ -72,12 +71,6 @@ $(function() {
 <p>assorted math functions not part of the standard library  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gaa7c5b3c95638490b5ec65cea2de53ec8"><td class="memItemLeft" align="right" valign="top"><a id="gaa7c5b3c95638490b5ec65cea2de53ec8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PHI3</b>&#160;&#160;&#160;(PHI * PHI * PHI)</td></tr>
-<tr class="separator:gaa7c5b3c95638490b5ec65cea2de53ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga7c134cbca78faf2c291ba4bd43bf44ca"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga7c134cbca78faf2c291ba4bd43bf44ca">lcm</a> (uint64_t a, uint64_t b)</td></tr>
@@ -98,9 +91,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gac3dfcfc17fb1b6980030f7d24042eab5">nth_pandigital</a> (uint8_t n, uint32_t nth)</td></tr>
 <tr class="memdesc:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the <code>nth</code> pandigital of length <code>n</code>  <a href="#gac3dfcfc17fb1b6980030f7d24042eab5">More...</a><br /></td></tr>
 <tr class="separator:gac3dfcfc17fb1b6980030f7d24042eab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7cd9202d5dd752e03acc41fbb126edf3"><td class="memItemLeft" align="right" valign="top"><a id="ga7cd9202d5dd752e03acc41fbb126edf3"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_even_fibonacci</b> (uint64_t fibo)</td></tr>
-<tr class="separator:ga7cd9202d5dd752e03acc41fbb126edf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf5e990d5f90e1d4797e38e1e44ae32e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a> (uint64_t nth)</td></tr>
+<tr class="memdesc:gacf5e990d5f90e1d4797e38e1e44ae32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the <code>nth</code> fibonacci  <a href="#gacf5e990d5f90e1d4797e38e1e44ae32e">More...</a><br /></td></tr>
+<tr class="separator:gacf5e990d5f90e1d4797e38e1e44ae32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>assorted math functions not part of the standard library </p>
@@ -161,6 +154,27 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>next_even_fibonac
 <dl class="section warning"><dt>Warning</dt><dd>since factorials grow extremely fast, any <code>nth</code> larger than 20 leads to an overflow.</dd></dl>
 <h2>Examples</h2>
 <div class="fragment"><div class="line">assert(<a class="code" href="group__math.html#ga821f7fb1655350a055d7e5fd883346e3">factorial</a>(0) == 1);</div><div class="line">assert(<a class="code" href="group__math.html#ga821f7fb1655350a055d7e5fd883346e3">factorial</a>(1) == 1);</div><div class="line">assert(<a class="code" href="group__math.html#ga821f7fb1655350a055d7e5fd883346e3">factorial</a>(2) == 2);</div><div class="line">assert(<a class="code" href="group__math.html#ga821f7fb1655350a055d7e5fd883346e3">factorial</a>(3) == 6);</div><div class="line">assert(<a class="code" href="group__math.html#ga821f7fb1655350a055d7e5fd883346e3">factorial</a>(4) == 24);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gacf5e990d5f90e1d4797e38e1e44ae32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf5e990d5f90e1d4797e38e1e44ae32e">&#9670;&nbsp;</a></span>fibonacci()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t fibonacci </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>nth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>computes the <code>nth</code> fibonacci </p>
+<p>Fibonacci numbers are a sequence that starts with 1, 1 and each successive number is the sum of the previous two numbers. Since computing it like that is very expensive, this function computes the <code>nth</code> fibonacci number in an efficient manner using <code>PHI</code> and <code>ROOT5</code>.</p>
+<div class="fragment"><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(0) == 1);</div><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(1) == 1);</div><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(2) == 2);</div><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(3) == 3);</div><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(4) == 5);</div><div class="line">assert(<a class="code" href="group__math.html#gacf5e990d5f90e1d4797e38e1e44ae32e">fibonacci</a>(5) == 8);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga05d1ac8d90873705cd22e1c83345fa71"></a>
