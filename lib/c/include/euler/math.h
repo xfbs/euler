@@ -105,12 +105,21 @@ bool is_palindrome(uint64_t num);
 //! @todo examples
 uint32_t nth_pandigital(uint8_t n, uint32_t nth);
 
-//! golden ration (used for calculating fibonacci numbers)
-static const double PHI = 1.61803398875;
-
-#define PHI3 (PHI * PHI * PHI)
-
-// FIXME: change to fibonacci(n)
-uint64_t next_even_fibonacci(uint64_t fibo);
+//! computes the `nth` fibonacci
+//!
+//! Fibonacci numbers are a sequence that starts with 1, 1 and each successive
+//! number is the sum of the previous two numbers. Since computing it like that
+//! is very expensive, this function computes the `nth` fibonacci number in an
+//! efficient manner using `PHI` and `ROOT5`.
+//!
+//! ```c
+//! assert(fibonacci(0) == 1);
+//! assert(fibonacci(1) == 1);
+//! assert(fibonacci(2) == 2);
+//! assert(fibonacci(3) == 3);
+//! assert(fibonacci(4) == 5);
+//! assert(fibonacci(5) == 8);
+//! ```
+uint64_t fibonacci(uint64_t nth);
 
 //! @}

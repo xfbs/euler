@@ -45,6 +45,15 @@ void doctest_math_is_palindrome() {
   assert(is_palindrome(445644) == false);
 }
 
+void doctest_math_fibonacci() {
+  assert(fibonacci(0) == 1);
+  assert(fibonacci(1) == 1);
+  assert(fibonacci(2) == 2);
+  assert(fibonacci(3) == 3);
+  assert(fibonacci(4) == 5);
+  assert(fibonacci(5) == 8);
+}
+
 void doctest_modular_arithmetic_sum_mod() {
   uint64_t nums[] = {4, 5, 6, 7, 8};
   assert(sum_mod(nums, 5, 11) == 8);
@@ -243,7 +252,7 @@ void doctest_vec_reserve() {
   vec_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vec_push(&vec, 9);
   }
 
@@ -431,7 +440,7 @@ void doctest_vec16_reserve() {
   vec16_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vec16_push(&vec, 9);
   }
 
@@ -619,7 +628,7 @@ void doctest_vec32_reserve() {
   vec32_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vec32_push(&vec, 9);
   }
 
@@ -807,7 +816,7 @@ void doctest_vec64_reserve() {
   vec64_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vec64_push(&vec, 9);
   }
 
@@ -995,7 +1004,7 @@ void doctest_vec8_reserve() {
   vec8_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vec8_push(&vec, 9);
   }
 
@@ -1203,7 +1212,7 @@ void doctest_vecp_reserve() {
   vecp_reserve(&vec, data_size);
 
   // add data
-  for (size_t cur = 0; cur < data_size; cur++) {
+  for(size_t cur = 0; cur < data_size; cur++) {
     vecp_push(&vec, NULL);
   }
 
@@ -1240,3 +1249,4 @@ void doctest_vecp_index() {
   assert(vecp_index(&vec, &c) == 2);
   assert(vecp_index(&vec, &d) == SIZE_MAX);
 }
+

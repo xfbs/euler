@@ -62,15 +62,16 @@ void test_divisor_sum() {
 }
 
 void test_fibos() {
-  assert(next_even_fibonacci(2) == 8);
-  assert(next_even_fibonacci(8) == 34);
-  assert(next_even_fibonacci(34) == 144);
-  assert(next_even_fibonacci(144) == 610);
-
-  for (uint64_t cur = 2; cur < 1000000; cur = next_even_fibonacci(cur)) {
-    // make sure it's even
-    assert((cur & 1) == 0);
-  }
+  assert(fibonacci(0) == 1);
+  assert(fibonacci(1) == 1);
+  assert(fibonacci(2) == 2);
+  assert(fibonacci(3) == 3);
+  assert(fibonacci(4) == 5);
+  assert(fibonacci(5) == 8);
+  assert(fibonacci(6) == 13);
+  assert(fibonacci(7) == 21);
+  assert(fibonacci(8) == 34);
+  assert(fibonacci(9) == 55);
 }
 
 void test_nth_pandigital() {

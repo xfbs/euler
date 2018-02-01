@@ -1,6 +1,9 @@
 #include <euler/math.h>
 #include <math.h>
 
+static const double PHI = 1.61803398875;
+static const double ROOT5 = 2.236067977;
+
 uint32_t divisor_sum(uint32_t num) {
   uint32_t sum = 0;
 
@@ -16,7 +19,9 @@ uint32_t divisor_sum(uint32_t num) {
   return sum;
 }
 
-uint64_t next_even_fibonacci(uint64_t fibo) { return fibo * PHI3 + 0.5; }
+uint64_t fibonacci(uint64_t nth) {
+  return round(pow(PHI, nth + 1) / ROOT5);
+}
 
 uint64_t factorial(uint8_t nth) {
   static uint64_t cache[19] = {0};

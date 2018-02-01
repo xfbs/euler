@@ -4,6 +4,10 @@ LDFLAGS  = -lm $(OPTIMIZE)
 SOURCES  = $(wildcard src/*.c)
 TESTS    = $(wildcard test/*_test.c) test/all.c test/doc_tests.c
 TARGET   = lib/libeuler.a
+DOXYGEN  = doxygen
+DOXYFILE = config.doxygen
+CFORMAT  = clang-format -i
+CLING	 = cling
 
 build: $(TARGET)
 
@@ -18,11 +22,15 @@ test: test/all
 
 # runs the clang-format code formatter for all files in this lib.
 fmt: $(wildcard include/**.h src/*.c test/*.c)
-	clang-format -i $^
+	$(CFORMAT) $^
 
 # generates documentation in ../../doc/lib/c
 doc:
-	doxygen config.doxygen
+	$(DOXYGEN) $(DOXYFILE)
+
+# start an interactive repl session with cling
+repl:
+	$(CLING) -Llib -leuler
 
 # generate doc tests from the headers
 test/doc_tests.c: $(wildcard include/euler/*.h) test/doc_tests.rb

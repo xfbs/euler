@@ -56,6 +56,7 @@ void doctest_math_gcd();
 void doctest_math_factorial();
 void doctest_math_divisor_sum();
 void doctest_math_is_palindrome();
+void doctest_math_fibonacci();
 void doctest_modular_arithmetic_sum_mod();
 void doctest_modular_arithmetic_mult_mod();
 void doctest_modular_arithmetic_shift_mod();
@@ -209,6 +210,7 @@ TESTS() {
   RUN(doctest_math_factorial);
   RUN(doctest_math_divisor_sum);
   RUN(doctest_math_is_palindrome);
+  RUN(doctest_math_fibonacci);
   RUN(doctest_modular_arithmetic_sum_mod);
   RUN(doctest_modular_arithmetic_mult_mod);
   RUN(doctest_modular_arithmetic_shift_mod);
