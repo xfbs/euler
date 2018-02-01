@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::GcdLcm;
+use euler::Gcd;
 
 pub fn solve() -> u64 {
     let mut num = 1;
