@@ -48,15 +48,29 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/palindrome.rs.html#4-9' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/palindrome.rs.html#5-25' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait ToPalindrome <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span>{
     fn <a href='#tymethod.to_palindrome' class='fnname'>to_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>Self, Self<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>;
-}</pre>
+}</pre><div class='docblock'><p>Trait to turn a number into a palindrome.</p>
+</div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.to_palindrome' class='method'><span id='to_palindrome.v' class='invisible'><code>fn <a href='#tymethod.to_palindrome' class='fnname'>to_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>Self, Self<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code></span></h3></div>
+        <h3 id='tymethod.to_palindrome' class='method'><span id='to_palindrome.v' class='invisible'><code>fn <a href='#tymethod.to_palindrome' class='fnname'>to_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>Self, Self<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a></code></span></h3><div class='docblock'><p>Turns self into a palindrome.</p>
+
+<p>Returns two palindromes. If the number is <code>abc</code>, the first palindrome
+is <code>abcba</code> (shorter version) and the second if <code>abccba</code> (longer
+version). The parameter <code>base</code> specifies in which base the number
+should be a palindrome.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">ToPalindrome</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">123</span>.<span class="ident">to_palindrome</span>(<span class="number">10</span>), (<span class="number">12321</span>, <span class="number">123321</span>));
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">932</span>.<span class="ident">to_palindrome</span>(<span class="number">10</span>), (<span class="number">93239</span>, <span class="number">932239</span>));</pre>
+</div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>

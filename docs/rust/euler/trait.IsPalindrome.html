@@ -48,15 +48,27 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/palindrome.rs.html#39-44' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/palindrome.rs.html#56-74' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait IsPalindrome <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span>{
     fn <a href='#tymethod.is_palindrome' class='fnname'>is_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>;
-}</pre>
+}</pre><div class='docblock'><p>Trait to check if a number is a palindrome.</p>
+</div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.is_palindrome' class='method'><span id='is_palindrome.v' class='invisible'><code>fn <a href='#tymethod.is_palindrome' class='fnname'>is_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3></div>
+        <h3 id='tymethod.is_palindrome' class='method'><span id='is_palindrome.v' class='invisible'><code>fn <a href='#tymethod.is_palindrome' class='fnname'>is_palindrome</a>(&amp;self, base: Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><div class='docblock'><p>Checks if <code>self</code> is a palindrome in the given base.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">IsPalindrome</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">12321</span>.<span class="ident">is_palindrome</span>(<span class="number">10</span>), <span class="bool-val">true</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">123321</span>.<span class="ident">is_palindrome</span>(<span class="number">10</span>), <span class="bool-val">true</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">93239</span>.<span class="ident">is_palindrome</span>(<span class="number">10</span>), <span class="bool-val">true</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">932239</span>.<span class="ident">is_palindrome</span>(<span class="number">10</span>), <span class="bool-val">true</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">394449</span>.<span class="ident">is_palindrome</span>(<span class="number">10</span>), <span class="bool-val">false</span>);</pre>
+</div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>

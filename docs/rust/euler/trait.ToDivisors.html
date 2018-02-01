@@ -48,15 +48,43 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/divisors.rs.html#50-55' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/divisors.rs.html#52-88' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait ToDivisors <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span>{
     fn <a href='#tymethod.divisors' class='fnname'>divisors</a>(&amp;self) -&gt; Divisors&lt;Self&gt;;
-}</pre>
+}</pre><div class='docblock'><p>Trait to turn a number into an <code>Iterator</code> over its divisors.</p>
+</div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.divisors' class='method'><span id='divisors.v' class='invisible'><code>fn <a href='#tymethod.divisors' class='fnname'>divisors</a>(&amp;self) -&gt; Divisors&lt;Self&gt;</code></span></h3></div>
+        <h3 id='tymethod.divisors' class='method'><span id='divisors.v' class='invisible'><code>fn <a href='#tymethod.divisors' class='fnname'>divisors</a>(&amp;self) -&gt; Divisors&lt;Self&gt;</code></span></h3><div class='docblock'><p>Return an iterator over the divisors of <code>self</code>.</p>
+
+<p>Calling this method will produce an Iterator over the divisors of
+<code>self</code>. The order that the divisors will be returned is undefined.</p>
+
+<p>The iterator will only produce proper divisors of <code>self</code> — that is,
+divisors that divide <code>self</code> evenly and are smaller than <code>self</code>.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">ToDivisors</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">0</span>.<span class="ident">divisors</span>().<span class="ident">count</span>(), <span class="number">0</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">4</span>.<span class="ident">divisors</span>().<span class="ident">count</span>(), <span class="number">2</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">12</span>.<span class="ident">divisors</span>().<span class="ident">sum</span>::<span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>(), [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>].<span class="ident">iter</span>().<span class="ident">sum</span>());</pre>
+
+<h3 id='sorted-divisors' class='section-header'><a href='#sorted-divisors'>Sorted Divisors</a></h3>
+<p>If you need sorted divisors, you need to sort them yourself. For
+example:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">ToDivisors</span>;
+
+<span class="kw">let</span> <span class="ident">num</span> <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">divisors</span> <span class="op">=</span> <span class="ident">num</span>.<span class="ident">divisors</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;&gt;</span>();
+<span class="ident">divisors</span>.<span class="ident">sort</span>();
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">divisors</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>]);</pre>
+</div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>

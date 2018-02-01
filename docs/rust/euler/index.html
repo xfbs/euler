@@ -48,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/lib.rs.html#1-51' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/lib.rs.html#1-49' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='euler' class='section-header'><a href='#euler'>Euler</a></h1>
 <p>This crate is part of <a href="https://xfbs.github.io/euler">xfbs/euler</a>, which aims
@@ -64,29 +64,12 @@ to this library (which is in <code>/lib/rust/euler</code>), there is a <code>Mak
 supports the following targets:</p>
 
 <ul>
-<li><code>make test</code></li>
+<li><p><code>make test</code> to build and run all the tests of this library.</p></li>
+<li><p><code>make fmt</code> to run the crystal code formatter over all of the code in
+ this library.</p></li>
+<li><p><code>make doc</code> to generates these docs. The output will be placed in 
+<code>/doc/lib/rust</code> in the repository.</p></li>
 </ul>
-
-<blockquote>
-<p>Builds and runs all the tests of this library.</p>
-</blockquote>
-
-<ul>
-<li><code>make fmt</code></li>
-</ul>
-
-<blockquote>
-<p>Runs the crystal code formatter over all of the code in this library.</p>
-</blockquote>
-
-<ul>
-<li><code>make doc</code></li>
-</ul>
-
-<blockquote>
-<p>Generates these docs, the output will be placed in <code>doc/lib/crystal</code> in the
-  repository.</p>
-</blockquote>
 
 <p>All code in this library has been developed and tested with Rust <code>1.22.1</code>.
 Since rust is still under development, things may break with future releases
@@ -94,17 +77,38 @@ of the compiler.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Digits.html"
+                                  title='struct euler::Digits'>Digits</a></td>
+                           <td class='docblock-short'>
+                                <p>Iterator over the digits of a number.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Permutations.html"
+                                  title='struct euler::Permutations'>Permutations</a></td>
+                           <td class='docblock-short'>
+                                <p>An iterator over the permutation of elements.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.Prime.html"
                                   title='struct euler::Prime'>Prime</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Prime number generator.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Rotations.html"
+                                  title='struct euler::Rotations'>Rotations</a></td>
+                           <td class='docblock-short'>
+                                <p>Iterator over rotations of a number.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Sieve.html"
                                   title='struct euler::Sieve'>Sieve</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Prime sieve.</p>
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -119,7 +123,7 @@ of the compiler.</p>
                            <td><a class="trait" href="trait.IsPalindrome.html"
                                   title='trait euler::IsPalindrome'>IsPalindrome</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Trait to check if a number is a palindrome.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -133,28 +137,28 @@ of the compiler.</p>
                            <td><a class="trait" href="trait.ToDigits.html"
                                   title='trait euler::ToDigits'>ToDigits</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Trait to convert a number into an iterator over its digits.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.ToDivisors.html"
                                   title='trait euler::ToDivisors'>ToDivisors</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Trait to turn a number into an <code>Iterator</code> over its divisors.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.ToPalindrome.html"
                                   title='trait euler::ToPalindrome'>ToPalindrome</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Trait to turn a number into a palindrome.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.ToRotations.html"
                                   title='trait euler::ToRotations'>ToRotations</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Trait to generate an iterator over the rotations of a number.</p>
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -169,7 +173,7 @@ of the compiler.</p>
                            <td><a class="fn" href="fn.permutations.html"
                                   title='fn euler::permutations'>permutations</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Returns an iterator over the <code>nth</code> permutation of <code>count</code> elements.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

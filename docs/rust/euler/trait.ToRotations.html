@@ -48,15 +48,27 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/rotations.rs.html#74-76' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/rotations.rs.html#97-112' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait ToRotations&lt;T&gt; {
-    fn <a href='#tymethod.rotations' class='fnname'>rotations</a>(&amp;self) -&gt; Rotations&lt;T&gt;;
-}</pre>
+    fn <a href='#tymethod.rotations' class='fnname'>rotations</a>(&amp;self) -&gt; <a class="struct" href="../euler/struct.Rotations.html" title="struct euler::Rotations">Rotations</a>&lt;T&gt;;
+}</pre><div class='docblock'><p>Trait to generate an iterator over the rotations of a number.</p>
+</div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.rotations' class='method'><span id='rotations.v' class='invisible'><code>fn <a href='#tymethod.rotations' class='fnname'>rotations</a>(&amp;self) -&gt; Rotations&lt;T&gt;</code></span></h3></div>
+        <h3 id='tymethod.rotations' class='method'><span id='rotations.v' class='invisible'><code>fn <a href='#tymethod.rotations' class='fnname'>rotations</a>(&amp;self) -&gt; <a class="struct" href="../euler/struct.Rotations.html" title="struct euler::Rotations">Rotations</a>&lt;T&gt;</code></span></h3><div class='docblock'><p>Returns an iterator over the rotations of a number.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">ToRotations</span>;
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rotations</span> <span class="op">=</span> <span class="number">123</span>.<span class="ident">rotations</span>();
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotations</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="number">123</span>));
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotations</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="number">312</span>));
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotations</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="number">231</span>));
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotations</span>.<span class="ident">next</span>(), <span class="prelude-val">None</span>);</pre>
+</div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
