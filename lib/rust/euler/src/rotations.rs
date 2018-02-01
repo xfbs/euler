@@ -1,5 +1,6 @@
 use std::ops::{Add, Div, DivAssign, Mul, MulAssign, Rem};
 
+/// Iterator over rotations of a number.
 #[derive(Debug, Copy, Clone)]
 pub struct Rotations<T> {
     num: T,
@@ -10,6 +11,16 @@ pub struct Rotations<T> {
 }
 
 impl<T: MulAssign + PartialOrd + Copy + From<u8>> Rotations<T> {
+    /// Reverse the direction of the rotations.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToRotations;
+    ///
+    /// assert_eq!(123.rotations().collect::<Vec<u32>>(), vec![123, 312, 231]);
+    /// assert_eq!(123.rotations().reverse().collect::<Vec<u32>>(), vec![123, 231, 312]);
+    /// ```
     pub fn reverse(&self) -> Self {
         let cur = if !self.rev { self.mag } else { 1u8.into() };
 
@@ -22,6 +33,17 @@ impl<T: MulAssign + PartialOrd + Copy + From<u8>> Rotations<T> {
         }
     }
 
+    /// Change the base in which to rotate the number.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToRotations;
+    ///
+    /// let rotated = 0b11011.rotations().base(2u8).collect::<Vec<u32>>();
+    /// let reference = vec![0b11011, 0b11101, 0b11110, 0b1111, 0b10111];
+    /// assert_eq!(rotated, reference);
+    /// ```
     pub fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
         let mut mag = base.into();
         while self.num >= mag {
@@ -71,7 +93,21 @@ where
     }
 }
 
+/// Trait to generate an iterator over the rotations of a number.
 pub trait ToRotations<T> {
+    /// Returns an iterator over the rotations of a number.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToRotations;
+    ///
+    /// let mut rotations = 123.rotations();
+    /// assert_eq!(rotations.next(), Some(123));
+    /// assert_eq!(rotations.next(), Some(312));
+    /// assert_eq!(rotations.next(), Some(231));
+    /// assert_eq!(rotations.next(), None);
+    /// ```
     fn rotations(&self) -> Rotations<T>;
 }
 

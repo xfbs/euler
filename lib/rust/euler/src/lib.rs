@@ -43,6 +43,7 @@ pub use digits::Digits;
 pub use palindrome::IsPalindrome;
 pub use palindrome::ToPalindrome;
 pub use rotations::ToRotations;
+pub use rotations::Rotations;
 pub use divisors::ToDivisors;
 pub use permutations::permutations;
 pub use permutations::Permutations;
