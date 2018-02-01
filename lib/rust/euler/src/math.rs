@@ -44,6 +44,7 @@ const FACTORIALS: [u64; 21] = [
 /// assert_eq!(euler::factorial(0), Some(1));
 /// assert_eq!(euler::factorial(1), Some(1));
 /// assert_eq!(euler::factorial(6), Some(720));
+/// assert_eq!(euler::factorial(21), None);
 /// ```
 pub fn factorial(n: u64) -> Option<u64> {
 	FACTORIALS.get(n as usize).cloned()
