@@ -44,7 +44,7 @@ pub trait Lcm<RHS = Self> {
 
 impl<LHS, RHS> Gcd<RHS> for LHS
 where
-    LHS: Copy + Mul<Output = LHS> + PartialOrd + Rem<Output = LHS> + From<u8>,
+    LHS: Copy + PartialOrd + Rem<Output = LHS> + From<u8>,
     RHS: Copy + Into<LHS>,
 {
     type Output = LHS;
@@ -64,7 +64,7 @@ where
 
 impl<LHS, RHS> Lcm<RHS> for LHS
 where
-    LHS: Copy + Gcd<LHS, Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
+    LHS: Copy + Gcd<Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
     RHS: Copy + Into<LHS>
 {
     type Output = LHS;
