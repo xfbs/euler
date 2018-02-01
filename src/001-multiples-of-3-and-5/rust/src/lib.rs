@@ -1,5 +1,5 @@
 extern crate euler;
-use euler::GcdLcm;
+use euler::Lcm;
 
 // find the sum of all numbers between 0 and max that are divisible
 // by any of the two divisors
