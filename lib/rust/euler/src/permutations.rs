@@ -1,4 +1,4 @@
-use factorial::factorial;
+use math::factorial;
 
 pub struct Permutations {
     num: u8,
