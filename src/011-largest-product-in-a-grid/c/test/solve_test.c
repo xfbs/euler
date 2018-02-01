@@ -1,3 +1,4 @@
+#define EULER_TEST_MAIN
 #include <euler/vec.h>
 #include "solve.h"
 #include <euler/test.h>

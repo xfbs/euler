@@ -27,7 +27,7 @@ solve:
 # build and run all tests. every src/*.c file must have a corresponding
 # test/*_test.c file, which are all built and run.
 test: $(SOURCES:src/%.c=test/%_test)
-	@cd test && ./all.sh
+	./test/solve_test
 
 # clean up temporary files and binaries.
 clean:
