@@ -70,6 +70,20 @@ where
     /// assert_eq!(4.divisors().count(), 2);
     /// assert_eq!(12.divisors().sum::<i32>(), [1, 2, 3, 4, 6].iter().sum());
     /// ```
+    ///
+    /// ### Sorted Divisors
+    ///
+    /// If you need sorted divisors, you need to sort them yourself. For
+    /// example:
+    ///
+    /// ```
+    /// use euler::ToDivisors;
+    ///
+    /// let num = 12;
+    /// let mut divisors = num.divisors().collect::<Vec<u32>>();
+    /// divisors.sort();
+    /// assert_eq!(divisors, vec![1, 2, 3, 4, 6]);
+    /// ```
     fn divisors(&self) -> Divisors<Self>;
 }
 
