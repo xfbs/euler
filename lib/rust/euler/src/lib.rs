@@ -12,18 +12,13 @@
 //! to this library (which is in `/lib/rust/euler`), there is a `Makefile` that
 //! supports the following targets:
 //!
-//!   - `make test`
+//!   - `make test` to build and run all the tests of this library.
 //!
-//! >   Builds and runs all the tests of this library.
+//!   - `make fmt` to run the crystal code formatter over all of the code in
+//!      this library.
 //!
-//!   - `make fmt`
-//!
-//! >   Runs the crystal code formatter over all of the code in this library.
-//!
-//!   - `make doc`
-//!
-//! >   Generates these docs, the output will be placed in `/doc/lib/rust` in
-//! >   the repository.
+//!   - `make doc` to generates these docs. The output will be placed in 
+//!     `/doc/lib/rust` in the repository.
 //!
 //! All code in this library has been developed and tested with Rust `1.22.1`.
 //! Since rust is still under development, things may break with future releases
@@ -50,3 +45,4 @@ pub use palindrome::ToPalindrome;
 pub use rotations::ToRotations;
 pub use divisors::ToDivisors;
 pub use permutations::permutations;
+pub use permutations::Permutations;
