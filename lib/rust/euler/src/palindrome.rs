@@ -1,10 +1,26 @@
 use digits::ToDigits;
 use std::ops::{Add, Div, DivAssign, Mul, MulAssign, Rem, RemAssign};
 
+/// Trait to turn a number into a palindrome.
 pub trait ToPalindrome
 where
     Self: Sized,
 {
+    /// Turns self into a palindrome.
+    ///
+    /// Returns two palindromes. If the number is `abc`, the first palindrome
+    /// is `abcba` (shorter version) and the second if `abccba` (longer
+    /// version). The parameter `base` specifies in which base the number
+    /// should be a palindrome.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToPalindrome;
+    ///
+    /// assert_eq!(123.to_palindrome(10), (12321, 123321));
+    /// assert_eq!(932.to_palindrome(10), (93239, 932239));
+    /// ```
     fn to_palindrome(&self, base: Self) -> (Self, Self);
 }
 
@@ -36,10 +52,24 @@ where
     }
 }
 
+/// Trait to check if a number is a palindrome.
 pub trait IsPalindrome
 where
     Self: Sized,
 {
+    /// Checks if `self` is a palindrome in the given base.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::IsPalindrome;
+    ///
+    /// assert_eq!(12321.is_palindrome(), true);
+    /// assert_eq!(123321.is_palindrome(), true);
+    /// assert_eq!(93239.is_palindrome(), true);
+    /// assert_eq!(932239.is_palindrome(), true);
+    /// assert_eq!(394449.is_palindrome(), false);
+    /// ```
     fn is_palindrome(&self, base: Self) -> bool;
 }
 
