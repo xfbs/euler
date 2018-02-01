@@ -56,6 +56,33 @@ pub trait Gcd<RHS = Self> {
     type Output;
 
     /// Computes the greatest common multiple of two numbers.
+    ///
+    /// Implementation uses Euclid's battle-tested algorithm.
+    ///
+    /// ## Examples
+    ///
+    /// ### Compute Gcds of integers
+    ///
+    /// ```
+    /// use euler::Gcd;
+    ///
+    /// assert_eq!(3.gcd(5), 1);
+    /// assert_eq!(13.gcd(23), 1);
+    /// assert_eq!(10.gcd(15), 5);
+    /// assert_eq!(44.gcd(100), 4);
+    /// ```
+    ///
+    /// ### Compute Gcds of integers of different types
+    ///
+    /// You can also get the Gcd of two different types, as long as the `RHS`
+    /// type implements `Into<LHS>`.
+    ///
+    /// ```
+    /// use euler::Gcd;
+    ///
+    /// assert_eq!(5i64.gcd(9u32), 1);
+    /// assert_eq!(504u64.gcd(994u32), 14);
+    /// ```
     fn gcd(&self, b: RHS) -> Self::Output;
 }
 
@@ -66,10 +93,37 @@ pub trait Lcm<RHS = Self> {
     type Output;
 
     /// Computes the least common multiple of two numbers.
+    ///
+    /// Implementation uses `Gcd`, so it only works for types which implement the
+    /// `Gcd` trait.
+    ///
+    /// ## Examples
+    ///
+    /// ### Compute Lcm of integers
+    ///
+    /// ```
+    /// use euler::Lcm;
+    ///
+    /// assert_eq!(5.lcm(3), 15);
+    /// assert_eq!(5.lcm(15), 15);
+    /// assert_eq!(5.lcm(32), 160);
+    /// assert_eq!(244.lcm(124), 7564);
+    /// ```
+    ///
+    /// ### Compute Lcm of integers of different types
+    ///
+    /// Just like the `Gcd` trait, you can get the Lcm of two integers with
+    /// different types so long as the `RHS` type implements `Into<LHS>`.
+    ///
+    /// ```
+    /// use euler::Lcm;
+    ///
+    /// assert_eq!(22u32.lcm(56u16), 616);
+    /// assert_eq!(76i64.lcm(14i8), 532);
+    /// ```
     fn lcm(&self, b: RHS) -> Self::Output;
 }
 
-/// Implements Gcd for types that are compatible using Euclid's method.
 impl<LHS, RHS> Gcd<RHS> for LHS
 where
     LHS: Copy + PartialOrd + Rem<Output = LHS> + From<u8>,
@@ -77,7 +131,6 @@ where
 {
     type Output = LHS;
 
-    /// Computes the greatest common divisor of two numbers.
     fn gcd(&self, rhs: RHS) -> Self::Output {
         let mut a = *self;
         let mut b = rhs.into();
@@ -91,8 +144,6 @@ where
     }
 }
 
-/// Implements Lcm for types that are compatible using the greatest common
-/// divisor trait.
 impl<LHS, RHS> Lcm<RHS> for LHS
 where
     LHS: Copy + Gcd<Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
