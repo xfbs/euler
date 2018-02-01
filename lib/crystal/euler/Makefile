@@ -5,9 +5,9 @@ SOURCES = $(wildcard src/*.cr src/*/*.cr)
 TESTS	= $(wildcard test/*_test.cr)
 CONFIG  = shard.yml
 
-# build and run the unit tests from `test/`
-test: bin/test
-	@./bin/test --verbose
+# build and run the tests from 'spec'
+test:
+	$(CRYSTAL) spec
 
 # clean the project folder. shards places temporary files in the `.shards` and
 # `lib` directories, and the executables are in `bin/`. also deletes shard.lock
@@ -22,9 +22,5 @@ fmt: $(SOURCES)
 
 doc:
 	$(CRYSTAL) docs --output=../../../doc/lib/crystal
-
-# build test unit test executable
-bin/test: $(CONFIG) $(SOURCES) $(TESTS)
-	$(SHARDS) build test
 
 .PHONY: test clean fmt

@@ -43,4 +43,3 @@ describe "Euler::Divisors" do
                                                  20, 30]
   end
 end
-
