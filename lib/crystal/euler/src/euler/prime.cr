@@ -1,24 +1,62 @@
 module Euler
+  # Prime generator class.
   class Prime
     include Iterator(Int32)
 
-    # initializes new prime empty prime generator, with 2 and 3 pre-generated.
+    # Creates a new empty prime generator.
+    #
+    # ## Examples
+    #
+    # ```
+    # primes = Euler::Prime.new
+    # ```
     def initialize
       @primes = [2, 3]
     end
 
-    # returns the nth prime, either by looking it up in it's cache or by
-    # generating all primes up to it. for large `p`, this is a very slow
-    # operation.
-    def nth(p)
-      while @primes.size <= p
+    # Returns the `n`th prime.
+    #
+    # Internally, it generates all primes up to `n`, and then returns the prime
+    # at position `n`. This means that for large `n`, it is a slow operation.
+    # However, since all the primes up to `n` are cached, subsequent lookups
+    # will be faster.
+    #
+    # Note that this function starts counting at 0, meaning that the first prime
+    # is at `nth(0)`.
+    #
+    # ## Examples
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # # get first few primes
+    # primes.nth(0).should eq 2
+    # primes.nth(1).should eq 3
+    # primes.nth(2).should eq 5
+    # primes.nth(99).should eq 541
+    # ```
+    def nth(n)
+      while @primes.size <= n
         self.next
       end
 
-      @primes.unsafe_at(p)
+      @primes.unsafe_at(n)
     end
 
-    # generates the next prime that is larger than all cached primes.
+    # Generates the next prime.
+    #
+    # This method generates (at least one) new prime and returns it.
+    #
+    # ## Example
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # primes.next.should eq 5
+    # primes.next.should eq 7
+    # ```
     def next
       cur = @primes.last + 2
       while !check_fast?(cur)
@@ -28,15 +66,41 @@ module Euler
       cur
     end
 
-    # returns an iterator over the prime numbers. when `#nth()` is called while
-    # iterating over the iterator, it might mess it up with the current
-    # implementation.
+    # Returns an iterator over the prime numbers.
+    #
+    # Note that this iterator assumes that you do not call `nth()` or other
+    # methods that may mutate the state of the primes array while iterating over
+    # it.
+    #
+    # ## Examples
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # primes.iter.take(10).sum.should eq 129
+    # primes.iter.take_while{ |n| n < 100 }.last.should eq 97
+    # ```
     def iter
       @primes.each.chain(self)
     end
 
-    # checks if a number is prime, assuming that we already generated primes up
-    # to `sqrt(n)`. use `#check?()` if you are not absolutely sure that is true.
+    # Checks if a number is prime, assuming that we already have all primes up
+    # to `sqrt(n)`
+    #
+    # Tries to divide the number by all primes up to `sqrt(n)`, returns `true`
+    # if it can't find a divisor meaning that the number is prime, and `false`
+    # otherwise.
+    #
+    # ## Examples
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # primes.check(77).should be_false
+    # primes.check(97).should be_true
+    # ```
     def check_fast?(n)
       max = Math.sqrt(n).to_i
       pos = 0
@@ -50,8 +114,21 @@ module Euler
       true
     end
 
-    # checks if a number is prime by testing if any prime numbers up to
-    # `sqrt(n)` are proper divisors of it.
+    # Checks if a number is prime.
+    #
+    # Tries to divide the number by all primes up to `sqrt(n)`, returns `true`
+    # if it can't find a divisor meaning that the number is prime, and `false`
+    # otherwise.
+    #
+    # ## Examples
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # primes.check(77).should be_false
+    # primes.check(97).should be_true
+    # ```
     def check?(n)
       max = Math.sqrt(n).to_i
 
@@ -62,13 +139,30 @@ module Euler
       check_fast? n
     end
 
-    # returns `nil` if n is not prime, or a number `i` such that `#nth(i) == n`.
-    def index(n)
-      while n > @primes.last
+    # Performs a reverse lookup on a prime.
+    #
+    # Given a prime `p`, find out at which position it is (meaning find an `n`
+    # such that `nth(n) == p` is true, or returns `nil`.
+    #
+    # ## Examples
+    #
+    # ```
+    # # new prime generator
+    # primes = Euler::Prime.new
+    #
+    # prime.index(2).should eq 0
+    # prime.index(3).should eq 1
+    # prime.index(4).should be_nil
+    # prime.index(5).should eq 2
+    # prime.index(6).should be_nil
+    # ```
+    def index(p)
+      while p > @primes.last
         self.next
       end
 
-      i = @primes.bsearch_index { |p, i| p >= n }
+      i = @primes.bsearch_index { |c, i| c >= p }
+
       if i.nil? || @primes[i.to_u] == n
         i
       else
