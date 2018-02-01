@@ -1,10 +1,21 @@
 use std::vec::Vec;
 
+/// Prime number generator.
 pub struct Prime {
     list: Vec<u64>,
 }
 
 impl Prime {
+    /// Construct a new prime number generator.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::Prime;
+    ///
+    /// let mut primes = Prime::new();
+    /// assert_eq!(primes.nth(4), 7);
+    /// ```
     pub fn new() -> Self {
         Prime { list: vec![2, 3] }
     }
@@ -20,7 +31,7 @@ impl Prime {
         last
     }
 
-    pub fn check_fast(&self, num: u64) -> Result<bool, ()> {
+    fn check_fast(&self, num: u64) -> Result<bool, ()> {
         let root = (num as f64).sqrt() as u64;
 
         for prime in self.list.iter() {
@@ -35,6 +46,18 @@ impl Prime {
         Err(())
     }
 
+    /// Generates `nth` prime.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::Prime;
+    ///
+    /// let mut primes = Prime::new();
+    /// assert_eq!(primes.nth(8), 19);
+    /// assert_eq!(primes.nth(9), 23);
+    /// assert_eq!(primes.nth(10), 29);
+    /// ```
     pub fn nth(&mut self, n: usize) -> u64 {
         while self.list.len() < n {
             self.next();
@@ -43,6 +66,21 @@ impl Prime {
         self.list[n - 1]
     }
 
+    /// Checks if a number is prime.
+    ///
+    /// Tries to divide by all primes smaller or equal to the square root of
+    /// the number, returns true if it found a divisor or false if the number
+    /// is prime.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::Prime;
+    ///
+    /// let mut primes = Prime::new();
+    /// assert_eq!(primes.check(97), true);
+    /// assert_eq!(primes.check(99), false);
+    /// ```
     pub fn check(&mut self, num: u64) -> bool {
         let root = (num as f64).sqrt() as u64;
 
