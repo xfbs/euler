@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stddef.h>
-#include "euler/vecp.h"
+#include <euler/vecp.h>
 #pragma once
 
 uint64_t get(vecp_t *grid, int64_t x, int64_t y);

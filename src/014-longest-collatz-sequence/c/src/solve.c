@@ -1,5 +1,5 @@
 #include "solve.h"
-#include "euler/collatz.h"
+#include <euler/collatz.h>
 
 uint32_t solve(uint32_t limit) {
   // the collatz cache basically memoizes the collatz function for efficiency
@@ -11,6 +11,6 @@ uint32_t solve(uint32_t limit) {
   }
 
   uint32_t longest = collatz_longest(cache);
-  free(cache.table);
+  collatz_free(&cache);
   return longest;
 }

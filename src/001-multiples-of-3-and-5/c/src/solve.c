@@ -1,4 +1,5 @@
 #include "solve.h"
+#include <euler/math.h>
 
 uint32_t solve(uint32_t max, uint32_t div1, uint32_t div2) {
   return sum_divisible(max, div1) + sum_divisible(max, div2) -
