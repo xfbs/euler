@@ -1,5 +1,6 @@
 use std::ops::{AddAssign, Div, Mul, Rem};
 
+/// An iterator over the divisors of a number.
 #[derive(Debug, Copy, Clone)]
 pub struct Divisors<T> {
     num: T,
@@ -47,10 +48,28 @@ where
     }
 }
 
+/// Trait to turn a number into an `Iterator` over its divisors.
 pub trait ToDivisors
 where
     Self: Sized,
 {
+    /// Return an iterator over the divisors of `self`.
+    ///
+    /// Calling this method will produce an Iterator over the divisors of
+    /// `self`. The order that the divisors will be returned is undefined.
+    ///
+    /// The iterator will only produce proper divisors of `self` — that is,
+    /// divisors that divide `self` evenly and are smaller than `self`.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToDivisors;
+    ///
+    /// assert_eq!(0.divisors().count(), 0);
+    /// assert_eq!(4.divisors().count(), 2);
+    /// assert_eq!(12.divisors().sum::<i32>(), [1, 2, 3, 4, 6].iter().sum());
+    /// ```
     fn divisors(&self) -> Divisors<Self>;
 }
 
