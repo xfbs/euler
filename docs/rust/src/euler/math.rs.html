@@ -185,6 +185,57 @@
 <span id="140">140</span>
 <span id="141">141</span>
 <span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ops</span>::{<span class="ident">Div</span>, <span class="ident">Mul</span>, <span class="ident">Rem</span>};
 
@@ -244,6 +295,33 @@
     <span class="kw">type</span> <span class="ident">Output</span>;
 
     <span class="doccomment">/// Computes the greatest common multiple of two numbers.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Implementation uses Euclid&#39;s battle-tested algorithm.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Examples</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ### Compute Gcds of integers</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// use euler::Gcd;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// assert_eq!(3.gcd(5), 1);</span>
+    <span class="doccomment">/// assert_eq!(13.gcd(23), 1);</span>
+    <span class="doccomment">/// assert_eq!(10.gcd(15), 5);</span>
+    <span class="doccomment">/// assert_eq!(44.gcd(100), 4);</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ### Compute Gcds of integers of different types</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can also get the Gcd of two different types, as long as the `RHS`</span>
+    <span class="doccomment">/// type implements `Into&lt;LHS&gt;`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// use euler::Gcd;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// assert_eq!(5i64.gcd(9u32), 1);</span>
+    <span class="doccomment">/// assert_eq!(504u64.gcd(994u32), 14);</span>
+    <span class="doccomment">/// ```</span>
     <span class="kw">fn</span> <span class="ident">gcd</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">b</span>: <span class="ident">RHS</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span>;
 }
 
@@ -254,10 +332,37 @@
     <span class="kw">type</span> <span class="ident">Output</span>;
 
     <span class="doccomment">/// Computes the least common multiple of two numbers.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Implementation uses `Gcd`, so it only works for types which implement the</span>
+    <span class="doccomment">/// `Gcd` trait.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Examples</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ### Compute Lcm of integers</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// use euler::Lcm;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// assert_eq!(5.lcm(3), 15);</span>
+    <span class="doccomment">/// assert_eq!(5.lcm(15), 15);</span>
+    <span class="doccomment">/// assert_eq!(5.lcm(32), 160);</span>
+    <span class="doccomment">/// assert_eq!(244.lcm(124), 7564);</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ### Compute Lcm of integers of different types</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Just like the `Gcd` trait, you can get the Lcm of two integers with</span>
+    <span class="doccomment">/// different types so long as the `RHS` type implements `Into&lt;LHS&gt;`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// use euler::Lcm;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// assert_eq!(22u32.lcm(56u16), 616);</span>
+    <span class="doccomment">/// assert_eq!(76i64.lcm(14i8), 532);</span>
+    <span class="doccomment">/// ```</span>
     <span class="kw">fn</span> <span class="ident">lcm</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">b</span>: <span class="ident">RHS</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span>;
 }
 
-<span class="doccomment">/// Implements Gcd for types that are compatible using Euclid&#39;s method.</span>
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">LHS</span>, <span class="ident">RHS</span><span class="op">&gt;</span> <span class="ident">Gcd</span><span class="op">&lt;</span><span class="ident">RHS</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">LHS</span>
 <span class="kw">where</span>
     <span class="ident">LHS</span>: <span class="ident">Copy</span> <span class="op">+</span> <span class="ident">PartialOrd</span> <span class="op">+</span> <span class="ident">Rem</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="ident">LHS</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
@@ -265,7 +370,6 @@
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">LHS</span>;
 
-    <span class="doccomment">/// Computes the greatest common divisor of two numbers.</span>
     <span class="kw">fn</span> <span class="ident">gcd</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">RHS</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">*</span><span class="self">self</span>;
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">rhs</span>.<span class="ident">into</span>();
@@ -279,8 +383,6 @@
     }
 }
 
-<span class="doccomment">/// Implements Lcm for types that are compatible using the greatest common</span>
-<span class="doccomment">/// divisor trait.</span>
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">LHS</span>, <span class="ident">RHS</span><span class="op">&gt;</span> <span class="ident">Lcm</span><span class="op">&lt;</span><span class="ident">RHS</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">LHS</span>
 <span class="kw">where</span>
     <span class="ident">LHS</span>: <span class="ident">Copy</span> <span class="op">+</span> <span class="ident">Gcd</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="ident">LHS</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Div</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="ident">LHS</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="ident">LHS</span><span class="op">&gt;</span>,

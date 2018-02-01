@@ -48,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/euler/math.rs.html#63-70' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/euler/math.rs.html#90-125' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Lcm&lt;RHS&nbsp;=&nbsp;Self&gt; {
     type <a href='#associatedtype.Output' class="type">Output</a>;
     fn <a href='#tymethod.lcm' class='fnname'>lcm</a>(&amp;self, b: RHS) -&gt; Self::<a class="type" href="../euler/trait.Lcm.html#associatedtype.Output" title="type euler::Lcm::Output">Output</a>;
@@ -66,6 +66,29 @@ numbers.</p>
             </h2>
             <div class='methods'>
         <h3 id='tymethod.lcm' class='method'><span id='lcm.v' class='invisible'><code>fn <a href='#tymethod.lcm' class='fnname'>lcm</a>(&amp;self, b: RHS) -&gt; Self::<a class="type" href="../euler/trait.Lcm.html#associatedtype.Output" title="type euler::Lcm::Output">Output</a></code></span></h3><div class='docblock'><p>Computes the least common multiple of two numbers.</p>
+
+<p>Implementation uses <code>Gcd</code>, so it only works for types which implement the
+<code>Gcd</code> trait.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<h3 id='compute-lcm-of-integers' class='section-header'><a href='#compute-lcm-of-integers'>Compute Lcm of integers</a></h3>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">Lcm</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">5</span>.<span class="ident">lcm</span>(<span class="number">3</span>), <span class="number">15</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">5</span>.<span class="ident">lcm</span>(<span class="number">15</span>), <span class="number">15</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">5</span>.<span class="ident">lcm</span>(<span class="number">32</span>), <span class="number">160</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">244</span>.<span class="ident">lcm</span>(<span class="number">124</span>), <span class="number">7564</span>);</pre>
+
+<h3 id='compute-lcm-of-integers-of-different-types' class='section-header'><a href='#compute-lcm-of-integers-of-different-types'>Compute Lcm of integers of different types</a></h3>
+<p>Just like the <code>Gcd</code> trait, you can get the Lcm of two integers with
+different types so long as the <code>RHS</code> type implements <code>Into&lt;LHS&gt;</code>.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">euler</span>::<span class="ident">Lcm</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">22u32</span>.<span class="ident">lcm</span>(<span class="number">56u16</span>), <span class="number">616</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">76i64</span>.<span class="ident">lcm</span>(<span class="number">14i8</span>), <span class="number">532</span>);</pre>
 </div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
