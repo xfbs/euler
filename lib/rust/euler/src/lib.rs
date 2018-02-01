@@ -14,8 +14,8 @@
 //!
 //!   - `make test` to build and run all the tests of this library.
 //!
-//!   - `make fmt` to run the crystal code formatter over all of the code in
-//!      this library.
+//!   - `make fmt` to run `cargo fmt`, the rust code formatter, over all of the
+//!     code in this library.
 //!
 //!   - `make doc` to generates these docs. The output will be placed in
 //!     `/doc/lib/rust` in the repository.
