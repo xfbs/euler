@@ -22,8 +22,8 @@
 //!
 //!   - `make doc`
 //!
-//! >   Generates these docs, the output will be placed in `doc/lib/crystal` in the
-//! >   repository.
+//! >   Generates these docs, the output will be placed in `/doc/lib/rust` in
+//! >   the repository.
 //!
 //! All code in this library has been developed and tested with Rust `1.22.1`.
 //! Since rust is still under development, things may break with future releases
@@ -44,6 +44,7 @@ pub use math::factorial;
 pub use prime::Prime;
 pub use sieve::Sieve;
 pub use digits::ToDigits;
+pub use digits::Digits;
 pub use palindrome::IsPalindrome;
 pub use palindrome::ToPalindrome;
 pub use rotations::ToRotations;

@@ -1,5 +1,6 @@
 use std::ops::{Add, Div, DivAssign, Mul, MulAssign, Rem, RemAssign};
 
+/// Iterator over the digits of a number.
 #[derive(Debug, Copy, Clone)]
 pub struct Digits<T> {
     num: T,
@@ -9,6 +10,19 @@ pub struct Digits<T> {
 }
 
 impl<T: DivAssign + MulAssign + PartialOrd + Copy + From<u8>> Digits<T> {
+    /// Reverse the order that the digits are being output.
+    ///
+    /// Calling this method on the `Digits` struct causes the digits to be
+    /// output in reverse order.
+    ///
+    /// ## Example
+    ///
+    /// ```
+    /// use euler::ToDigits;
+    ///
+    /// assert_eq!(123.digits().collect::<Vec<i32>>(), vec![1, 2, 3]);
+    /// assert_eq!(123.digits().reverse().collect::<Vec<i32>>(), vec![3, 2, 1]);
+    /// ```
     pub fn reverse(&self) -> Self {
         Digits {
             num: self.num,
@@ -18,6 +32,19 @@ impl<T: DivAssign + MulAssign + PartialOrd + Copy + From<u8>> Digits<T> {
         }
     }
 
+    /// Change base in which digits are being output.
+    ///
+    /// By default, digits are being output in base 10. With this method a
+    /// different base can be selected.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToDigits;
+    ///
+    /// assert_eq!(123.digits().collect::<Vec<u32>>(), vec![1, 2, 3]);
+    /// assert_eq!(27.digits().base(2u8).collect::<Vec<u32>>(), vec![1, 1, 0, 1, 1]);
+    /// ```
     pub fn base<B: Copy + Into<T>>(&self, base: B) -> Self {
         let mut mag = 1u8.into();
         while self.num >= mag {
@@ -73,7 +100,21 @@ where
     }
 }
 
+/// Trait to convert a number into an iterator over its digits.
 pub trait ToDigits<T> {
+    /// Convert self into an iterator over the digits.
+    ///
+    /// Returns an iterator over the digits of self. If the type of `self` is
+    /// `u32`, then the type of the iterated digits will also be `u32`.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// use euler::ToDigits;
+    ///
+    /// assert_eq!(1234.digits().collect::<Vec<u32>>(), vec![1, 2, 3, 4]);
+    /// assert_eq!(8328.digits().collect::<Vec<u32>>(), vec![8, 3, 2, 8]);
+    /// ```
     fn digits(&self) -> Digits<T>;
 }
 
