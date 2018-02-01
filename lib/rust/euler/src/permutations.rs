@@ -4,7 +4,7 @@ use math::factorial;
 pub struct Permutations {
     num: u8,
     req: u64,
-    cur: [bool; 20]
+    cur: [bool; 20],
 }
 
 impl Permutations {
@@ -42,7 +42,7 @@ impl Permutations {
         Permutations {
             num: count as u8,
             req: nth as u64,
-            cur: [false; 20]
+            cur: [false; 20],
         }
     }
 }

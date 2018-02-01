@@ -9,7 +9,7 @@ use std::ops::{Div, Mul, Rem};
 /// Ideally at some point these should be computed by a `const fn`, but since
 /// that hasn't arrived in rust stable yet as of `1.22.1`, this will do.
 const FACTORIALS: [u64; 21] = [
-	1,
+    1,
     1,
     2,
     6,
@@ -29,7 +29,7 @@ const FACTORIALS: [u64; 21] = [
     355687428096000,
     6402373705728000,
     121645100408832000,
-    2432902008176640000
+    2432902008176640000,
 ];
 
 /// Returns the `n`th factorial.
@@ -47,7 +47,7 @@ const FACTORIALS: [u64; 21] = [
 /// assert_eq!(euler::factorial(21), None);
 /// ```
 pub fn factorial(n: u64) -> Option<u64> {
-	FACTORIALS.get(n as usize).cloned()
+    FACTORIALS.get(n as usize).cloned()
 }
 
 /// The greatest common divisor of two types.
@@ -148,7 +148,7 @@ where
 impl<LHS, RHS> Lcm<RHS> for LHS
 where
     LHS: Copy + Gcd<Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
-    RHS: Copy + Into<LHS>
+    RHS: Copy + Into<LHS>,
 {
     type Output = LHS;
 
@@ -191,4 +191,3 @@ fn test_factorial() {
     assert_eq!(factorial(8), Some(40320));
     assert_eq!(factorial(21), None);
 }
-
