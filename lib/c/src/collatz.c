@@ -59,3 +59,7 @@ uint32_t collatz_longest(collatz_cache_t cache) {
 
   return index + 2;
 }
+
+void collatz_free(collatz_cache_t *c) {
+  free(c->table);
+}
