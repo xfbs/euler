@@ -236,6 +236,7 @@
 <span id="191">191</span>
 <span id="192">192</span>
 <span id="193">193</span>
+<span id="194">194</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ops</span>::{<span class="ident">Div</span>, <span class="ident">Mul</span>, <span class="ident">Rem</span>};
 
@@ -283,6 +284,7 @@
 <span class="doccomment">/// assert_eq!(euler::factorial(0), Some(1));</span>
 <span class="doccomment">/// assert_eq!(euler::factorial(1), Some(1));</span>
 <span class="doccomment">/// assert_eq!(euler::factorial(6), Some(720));</span>
+<span class="doccomment">/// assert_eq!(euler::factorial(21), None);</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">factorial</span>(<span class="ident">n</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span> {
 	<span class="ident">FACTORIALS</span>.<span class="ident">get</span>(<span class="ident">n</span> <span class="kw">as</span> <span class="ident">usize</span>).<span class="ident">cloned</span>()
