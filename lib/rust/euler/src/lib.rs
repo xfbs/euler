@@ -7,7 +7,8 @@ mod digits;
 mod palindrome;
 mod permutations;
 
-pub use math::GcdLcm;
+pub use math::Gcd;
+pub use math::Lcm;
 pub use math::factorial;
 pub use prime::Prime;
 pub use sieve::Sieve;

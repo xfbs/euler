@@ -30,15 +30,21 @@ pub fn factorial(n: u64) -> u64 {
 }
 
 
-pub trait GcdLcm<RHS = Self> {
+pub trait Gcd<RHS = Self> {
     type Output;
+
     fn gcd(&self, b: RHS) -> Self::Output;
+}
+
+pub trait Lcm<RHS = Self> {
+    type Output;
+
     fn lcm(&self, b: RHS) -> Self::Output;
 }
 
-impl<LHS, RHS> GcdLcm<RHS> for LHS
+impl<LHS, RHS> Gcd<RHS> for LHS
 where
-    LHS: Copy + Div<Output = LHS> + Mul<Output = LHS> + PartialOrd + Rem<Output = LHS> + From<u8>,
+    LHS: Copy + Mul<Output = LHS> + PartialOrd + Rem<Output = LHS> + From<u8>,
     RHS: Copy + Into<LHS>,
 {
     type Output = LHS;
@@ -54,6 +60,14 @@ where
 
         a
     }
+}
+
+impl<LHS, RHS> Lcm<RHS> for LHS
+where
+    LHS: Copy + Gcd<LHS, Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
+    RHS: Copy + Into<LHS>
+{
+    type Output = LHS;
 
     fn lcm(&self, rhs: RHS) -> Self::Output {
         let rhs = rhs.into();
