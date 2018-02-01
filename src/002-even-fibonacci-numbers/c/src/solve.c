@@ -1,13 +1,12 @@
 #include "solve.h"
+#include <euler/math.h>
 
-int solve(int max) {
-  uint64_t cur = 2;
+uint64_t solve(uint64_t max) {
   uint64_t sum = 0;
 
-  while (cur < max) {
-    sum += cur;
-    cur = next_even_fibonacci(cur);
+  for(uint32_t cur = 2; fibonacci(cur) < max; cur += 3) {
+    sum += fibonacci(cur);
   }
 
-  return (int)sum;
+  return sum;
 }
