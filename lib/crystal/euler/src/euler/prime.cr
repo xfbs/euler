@@ -163,7 +163,7 @@ module Euler
 
       i = @primes.bsearch_index { |c, i| c >= p }
 
-      if i.nil? || @primes[i.to_u] == n
+      if i.nil? || @primes[i.to_u] == p
         i
       else
         nil
