@@ -1,4 +1,4 @@
-require "euler/palindrome"
+require "euler/math"
 
 module Solver
   def self.solve(digits)

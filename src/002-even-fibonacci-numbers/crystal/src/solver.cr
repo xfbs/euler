@@ -1,4 +1,4 @@
-require "euler/fibonacci"
+require "euler/math"
 
 module Solver
   def self.solve(n)

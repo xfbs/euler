@@ -1,4 +1,4 @@
-require "euler/factorial"
+require "euler/math"
 
 module Solver
   # find the sum of all numbers where the sum of the factorial of the digits is
@@ -7,7 +7,7 @@ module Solver
   # here is to basically try all numbers and see if they fit
   def self.solve
     # generate factorials of digits in advance
-    nums = (0..9).map { |n| Euler.factorial64(n) }
+    nums = (0..9).map { |n| Euler.factorial(n) }
 
     total = 0
 

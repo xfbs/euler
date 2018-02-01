@@ -1,4 +1,4 @@
-require "euler/factorial"
+require "euler/math"
 
 module Solver
   def self.solve(array, index)
@@ -7,7 +7,7 @@ module Solver
 
   def self.permutation(array, nth)
     return array if array.size < 2
-    p = Euler.factorial64(array.size - 1)
+    p = Euler.factorial(array.size - 1)
     o = nth / p
     c = array.delete_at(o)
     [c] + permutation(array, nth % p)
