@@ -50,7 +50,6 @@ uint64_t gcd(uint64_t a, uint64_t b) {
   return a;
 }
 
-
 uint32_t nth_pandigital(uint8_t n, uint32_t nth) {
   // the finished pandigital
   uint32_t num = 0;

@@ -61,7 +61,6 @@ void test_divisor_sum() {
   assert(divisor_sum(284) == 220);
 }
 
-
 void test_fibos() {
   assert(next_even_fibonacci(2) == 8);
   assert(next_even_fibonacci(8) == 34);
