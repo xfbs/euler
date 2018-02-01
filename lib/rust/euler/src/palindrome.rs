@@ -64,11 +64,11 @@ where
     /// ```
     /// use euler::IsPalindrome;
     ///
-    /// assert_eq!(12321.is_palindrome(), true);
-    /// assert_eq!(123321.is_palindrome(), true);
-    /// assert_eq!(93239.is_palindrome(), true);
-    /// assert_eq!(932239.is_palindrome(), true);
-    /// assert_eq!(394449.is_palindrome(), false);
+    /// assert_eq!(12321.is_palindrome(10), true);
+    /// assert_eq!(123321.is_palindrome(10), true);
+    /// assert_eq!(93239.is_palindrome(10), true);
+    /// assert_eq!(932239.is_palindrome(10), true);
+    /// assert_eq!(394449.is_palindrome(10), false);
     /// ```
     fn is_palindrome(&self, base: Self) -> bool;
 }
