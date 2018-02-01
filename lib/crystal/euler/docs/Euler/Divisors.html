@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/xfbs/euler">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Euler::Divisors(T) - github.com/xfbs/euler</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent open current" data-id="github.com/xfbs/euler/Euler" data-name="euler">
+      <a href="../Euler.html">Euler</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/xfbs/euler/Euler/Divisors" data-name="euler::divisors(t)">
+      <a href="../Euler/Divisors.html">Divisors</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/xfbs/euler/Euler/Prime" data-name="euler::prime">
+      <a href="../Euler/Prime.html">Prime</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/xfbs/euler/Euler/Sieve" data-name="euler::sieve">
+      <a href="../Euler/Sieve.html">Sieve</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Euler::Divisors(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Euler/Divisors.html">Euler::Divisors(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>An iterator over the divisors of a number.</p>
+
+<p>This is not the most efficient code as it just brute forces divisors from
+one until the square root of the number. It returns all proper divisors —
+meaning divisors that are smaller than the number itself.</p>
+
+<p>The order in which this iterator returns the divisors in unspecified — if
+you need them to be sorted, you have to do that manually.</p>
+
+<p>You can use this class directly, or you can use the <code><a href="../Euler.html#divisors%28num%29-class-method">Euler.divisors</a>()</code>
+function which just wraps it and saves you from having to type
+<code>Euler::Divisors.new(num)</code>.</p>
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Iterator(T)</li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/xfbs/euler/blob/e47208b7f87fefe85e575fc0e3238cbe943468b9/src/euler/divisors.cr#L14" target="_blank">euler/divisors.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28num%3AT%29-class-method" class="signature"><strong>.new</strong>(num : T)</a>
+        
+          <div class="summary"><p>Creates a new iterator instance over the divisors of <code>num</code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#next-instance-method" class="signature"><strong>#next</strong></a>
+        
+          <div class="summary"><p>Returns the next divisor, or Iterator::Stop to signal that there aren't any left.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(num:T)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(num : T)
+
+        <a class="method-permalink" href="#new%28num%3AT%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a new iterator instance over the divisors of <code>num</code>.</p>
+
+<p>Since this class is generic, whatever type <code>num</code> has is also the type of
+the divisors that will be returned. Note that this class probably won't
+work with floating-point variables, so make sure <code>num</code> is an integral
+type.</p>
+
+<h2>Examples</h2>
+
+<pre><code>divisors <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Divisors</span>.<span class="k">new</span>(<span class="n">55</span>)
+divisors[<span class="n">0</span>] <span class="o">==</span> <span class="n">1</span> <span class="c"># ==&gt; true</span>
+divisors[<span class="n">1</span>] <span class="o">==</span> <span class="n">5</span> <span class="c"># ==&gt; true</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/xfbs/euler/blob/e47208b7f87fefe85e575fc0e3238cbe943468b9/src/euler/divisors.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="next-instance-method">
+      <div class="signature">
+        
+        def <strong>next</strong>
+
+        <a class="method-permalink" href="#next-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the next divisor, or Iterator::Stop to signal that there aren't
+any left.</p>
+
+<h2>Examples</h2>
+
+<pre><code>div <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Divisors</span>.<span class="k">new</span>(<span class="n">12</span>)
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">1</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">2</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">3</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">4</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="n">6</span> <span class="c"># ==&gt; true</span>
+div.<span class="k">next</span> <span class="o">==</span> <span class="t">Iterator</span><span class="t">::</span><span class="t">Stop</span> <span class="c"># ==&gt; true</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/xfbs/euler/blob/e47208b7f87fefe85e575fc0e3238cbe943468b9/src/euler/divisors.cr#L52" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
