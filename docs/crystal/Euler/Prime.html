@@ -62,6 +62,10 @@
 
 
 
+  <h2>Overview</h2>
+
+  <p>Prime generator class.</p>
+
 
 
 
@@ -85,7 +89,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L2" target="_blank">euler/prime.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L3" target="_blank">euler/prime.cr</a>
     
     <br/>
   
@@ -100,7 +104,7 @@
       <li class="entry-summary">
         <a href="#new-class-method" class="signature"><strong>.new</strong></a>
         
-          <div class="summary"><p>initializes new prime empty prime generator, with 2 and 3 pre-generated.</p></div>
+          <div class="summary"><p>Creates a new empty prime generator.</p></div>
         
       </li>
     
@@ -116,42 +120,42 @@
       <li class="entry-summary">
         <a href="#check%3F%28n%29-instance-method" class="signature"><strong>#check?</strong>(n)</a>
         
-          <div class="summary"><p>checks if a number is prime by testing if any prime numbers up to <code>sqrt(n)</code> are proper divisors of it.</p></div>
+          <div class="summary"><p>Checks if a number is prime.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#check_fast%3F%28n%29-instance-method" class="signature"><strong>#check_fast?</strong>(n)</a>
         
-          <div class="summary"><p>checks if a number is prime, assuming that we already generated primes up to <code>sqrt(n)</code>.</p></div>
+          <div class="summary"><p>Checks if a number is prime, assuming that we already have all primes up to <code>sqrt(n)</code></p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#index%28n%29-instance-method" class="signature"><strong>#index</strong>(n)</a>
+        <a href="#index%28p%29-instance-method" class="signature"><strong>#index</strong>(p)</a>
         
-          <div class="summary"><p>returns <code>nil</code> if n is not prime, or a number <code>i</code> such that <code><a href="../Euler/Prime.html#nth%28p%29-instance-method">#nth(i)</a> == n</code>.</p></div>
+          <div class="summary"><p>Performs a reverse lookup on a prime.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#iter-instance-method" class="signature"><strong>#iter</strong></a>
         
-          <div class="summary"><p>returns an iterator over the prime numbers.</p></div>
+          <div class="summary"><p>Returns an iterator over the prime numbers.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#next-instance-method" class="signature"><strong>#next</strong></a>
         
-          <div class="summary"><p>generates the next prime that is larger than all cached primes.</p></div>
+          <div class="summary"><p>Generates the next prime.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#nth%28p%29-instance-method" class="signature"><strong>#nth</strong>(p)</a>
+        <a href="#nth%28n%29-instance-method" class="signature"><strong>#nth</strong>(n)</a>
         
-          <div class="summary"><p>returns the nth prime, either by looking it up in it's cache or by generating all primes up to it.</p></div>
+          <div class="summary"><p>Returns the <code>n</code>th prime.</p></div>
         
       </li>
     
@@ -216,12 +220,16 @@
         <a class="method-permalink" href="#new-class-method">#</a>
       </div>
       
-        <div class="doc"><p>initializes new prime empty prime generator, with 2 and 3 pre-generated.</p></div>
+        <div class="doc"><p>Creates a new empty prime generator.</p>
+
+<h2>Examples</h2>
+
+<pre><code>primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -241,13 +249,24 @@
         <a class="method-permalink" href="#check%3F%28n%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>checks if a number is prime by testing if any prime numbers up to
-<code>sqrt(n)</code> are proper divisors of it.</p></div>
+        <div class="doc"><p>Checks if a number is prime.</p>
+
+<p>Tries to divide the number by all primes up to <code>sqrt(n)</code>, returns <code>true</code>
+if it can't find a divisor meaning that the number is prime, and <code>false</code>
+otherwise.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+primes.check(<span class="n">77</span>).should be_false
+primes.check(<span class="n">97</span>).should be_true</code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L55" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L132" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -260,31 +279,57 @@
         <a class="method-permalink" href="#check_fast%3F%28n%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>checks if a number is prime, assuming that we already generated primes up
-to <code>sqrt(n)</code>. use <code><a href="../Euler/Prime.html#check%3F%28n%29-instance-method">#check?</a>()</code> if you are not absolutely sure that is true.</p></div>
+        <div class="doc"><p>Checks if a number is prime, assuming that we already have all primes up
+to <code>sqrt(n)</code></p>
+
+<p>Tries to divide the number by all primes up to <code>sqrt(n)</code>, returns <code>true</code>
+if it can't find a divisor meaning that the number is prime, and <code>false</code>
+otherwise.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+primes.check(<span class="n">77</span>).should be_false
+primes.check(<span class="n">97</span>).should be_true</code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L40" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="index(n)-instance-method">
+    <div class="entry-detail" id="index(p)-instance-method">
       <div class="signature">
         
-        def <strong>index</strong>(n)
+        def <strong>index</strong>(p)
 
-        <a class="method-permalink" href="#index%28n%29-instance-method">#</a>
+        <a class="method-permalink" href="#index%28p%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>returns <code>nil</code> if n is not prime, or a number <code>i</code> such that <code><a href="../Euler/Prime.html#nth%28p%29-instance-method">#nth(i)</a> == n</code>.</p></div>
+        <div class="doc"><p>Performs a reverse lookup on a prime.</p>
+
+<p>Given a prime <code>p</code>, find out at which position it is (meaning find an <code>n</code>
+such that <code>nth(n) == p</code> is true, or returns <code>nil</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+prime.index(<span class="n">2</span>).should eq <span class="n">0</span>
+prime.index(<span class="n">3</span>).should eq <span class="n">1</span>
+prime.index(<span class="n">4</span>).should be_nil
+prime.index(<span class="n">5</span>).should eq <span class="n">2</span>
+prime.index(<span class="n">6</span>).should be_nil</code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L159" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -297,14 +342,24 @@ to <code>sqrt(n)</code>. use <code><a href="../Euler/Prime.html#check%3F%28n%29-
         <a class="method-permalink" href="#iter-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>returns an iterator over the prime numbers. when <code><a href="../Euler/Prime.html#nth%28p%29-instance-method">#nth</a>()</code> is called while
-iterating over the iterator, it might mess it up with the current
-implementation.</p></div>
+        <div class="doc"><p>Returns an iterator over the prime numbers.</p>
+
+<p>Note that this iterator assumes that you do not call <code>nth()</code> or other
+methods that may mutate the state of the primes array while iterating over
+it.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+primes.iter.take(<span class="n">10</span>).sum.should eq <span class="n">129</span>
+primes.iter.take_while{ <span class="o">|</span>n<span class="o">|</span> n <span class="o"><</span> <span class="n">100</span> }.last.should eq <span class="n">97</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -317,32 +372,59 @@ implementation.</p></div>
         <a class="method-permalink" href="#next-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>generates the next prime that is larger than all cached primes.</p></div>
+        <div class="doc"><p>Generates the next prime.</p>
+
+<p>This method generates (at least one) new prime and returns it.</p>
+
+<h2>Example</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+primes.<span class="k">next</span>.should eq <span class="n">5</span>
+primes.<span class="k">next</span>.should eq <span class="n">7</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="nth(p)-instance-method">
+    <div class="entry-detail" id="nth(n)-instance-method">
       <div class="signature">
         
-        def <strong>nth</strong>(p)
+        def <strong>nth</strong>(n)
 
-        <a class="method-permalink" href="#nth%28p%29-instance-method">#</a>
+        <a class="method-permalink" href="#nth%28n%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>returns the nth prime, either by looking it up in it's cache or by
-generating all primes up to it. for large <code>p</code>, this is a very slow
-operation.</p></div>
+        <div class="doc"><p>Returns the <code>n</code>th prime.</p>
+
+<p>Internally, it generates all primes up to <code>n</code>, and then returns the prime
+at position <code>n</code>. This means that for large <code>n</code>, it is a slow operation.
+However, since all the primes up to <code>n</code> are cached, subsequent lookups
+will be faster.</p>
+
+<p>Note that this function starts counting at 0, meaning that the first prime
+is at <code><a href="../Euler/Prime.html#nth%28n%29-instance-method">#nth(0)</a></code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+primes <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Prime</span>.<span class="k">new</span>
+
+<span class="c"># get first few primes</span>
+primes.nth(<span class="n">0</span>).should eq <span class="n">2</span>
+primes.nth(<span class="n">1</span>).should eq <span class="n">3</span>
+primes.nth(<span class="n">2</span>).should eq <span class="n">5</span>
+primes.nth(<span class="n">99</span>).should eq <span class="n">541</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/a8f3570a27df7ce6a55c02bf21b4bb09ff037d4a/src/euler/prime.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/prime.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
