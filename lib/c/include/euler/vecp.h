@@ -211,7 +211,7 @@ void *vecp_get(const vecp_t *v, size_t pos);
 //! assert(vecp_set(&vec, 0, &a) == NULL);
 //!
 //! // check if set worked
-//! assert(vecp_get(&vec, 0) == NULL);
+//! assert(vecp_get(&vec, 0) == &a);
 //! vecp_free(&vec);
 //! ```
 //!

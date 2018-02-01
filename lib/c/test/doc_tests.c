@@ -57,7 +57,7 @@ void doctest_modular_arithmetic_mult_mod() {
 }
 
 void doctest_modular_arithmetic_shift_mod() {
-  assert(shift_mod(55, 4, 99) == 11);
+  assert(shift_mod(55, 4, 99) == 88);
   assert(shift_mod(1424, 12, 13945) == 3694);
 }
 
@@ -1143,7 +1143,7 @@ void doctest_vecp_set_1() {
   assert(vecp_set(&vec, 0, &a) == NULL);
   
   // check if set worked
-  assert(vecp_get(&vec, 0) == NULL);
+  assert(vecp_get(&vec, 0) == &a);
   vecp_free(&vec);
 }
 

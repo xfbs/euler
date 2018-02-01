@@ -62,7 +62,7 @@ uint64_t mult_mod(uint64_t a, uint64_t b, uint64_t mod);
 //! ## Examples
 //!
 //! ```c
-//! assert(shift_mod(55, 4, 99) == 11);
+//! assert(shift_mod(55, 4, 99) == 88);
 //! assert(shift_mod(1424, 12, 13945) == 3694);
 //! ```
 uint64_t shift_mod(uint64_t num, uint8_t amount, uint64_t mod);
