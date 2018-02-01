@@ -1,6 +1,13 @@
 use std::ops::{Div, Mul, Rem};
 
-// FIXME: once const fn is stable, implement this as such.
+/// Pre-computed factorials.
+///
+/// Since it's rather expensive to recompute them every time, and a u64 can only
+/// hold factorials up to 20! anyways, they are pre-computed and stored in this
+/// global.
+///
+/// Ideally at some point these should be computed by a `const fn`, but since
+/// that hasn't arrived in rust stable yet as of `1.22.1`, this will do.
 const FACTORIALS: [u64; 21] = [
 	1,
     1,
@@ -25,23 +32,44 @@ const FACTORIALS: [u64; 21] = [
     2432902008176640000
 ];
 
-pub fn factorial(n: u64) -> u64 {
-	FACTORIALS[n as usize]
+/// Returns the `n`th factorial.
+///
+/// Looks the factorial up in `FACTORIALS`, so it's cheap to generate
+/// factorials. Note however that this method will only return factorials up to
+/// 20! — anything bigger than that will not fit into an `u64`.
+///
+/// ## Examples
+///
+/// ```
+/// assert_eq!(euler::factorial(0), Some(1));
+/// assert_eq!(euler::factorial(1), Some(1));
+/// assert_eq!(euler::factorial(6), Some(720));
+/// ```
+pub fn factorial(n: u64) -> Option<u64> {
+	FACTORIALS.get(n as usize).cloned()
 }
 
-
+/// The greatest common divisor of two types.
 pub trait Gcd<RHS = Self> {
+    /// The resulting type of computing the greatest common divisor of two
+    /// numbers.
     type Output;
 
+    /// Computes the greatest common multiple of two numbers.
     fn gcd(&self, b: RHS) -> Self::Output;
 }
 
+/// The least common multiple of two types.
 pub trait Lcm<RHS = Self> {
+    /// The resulting type of computing the least common multiple of two
+    /// numbers.
     type Output;
 
+    /// Computes the least common multiple of two numbers.
     fn lcm(&self, b: RHS) -> Self::Output;
 }
 
+/// Implements Gcd for types that are compatible using Euclid's method.
 impl<LHS, RHS> Gcd<RHS> for LHS
 where
     LHS: Copy + PartialOrd + Rem<Output = LHS> + From<u8>,
@@ -49,6 +77,7 @@ where
 {
     type Output = LHS;
 
+    /// Computes the greatest common divisor of two numbers.
     fn gcd(&self, rhs: RHS) -> Self::Output {
         let mut a = *self;
         let mut b = rhs.into();
@@ -62,6 +91,8 @@ where
     }
 }
 
+/// Implements Lcm for types that are compatible using the greatest common
+/// divisor trait.
 impl<LHS, RHS> Lcm<RHS> for LHS
 where
     LHS: Copy + Gcd<Output = LHS> + Div<Output = LHS> + Mul<Output = LHS>,
@@ -97,14 +128,15 @@ fn gcd_works() {
 
 #[test]
 fn test_factorial() {
-    assert_eq!(factorial(0), 1);
-    assert_eq!(factorial(1), 1);
-    assert_eq!(factorial(2), 2);
-    assert_eq!(factorial(3), 6);
-    assert_eq!(factorial(4), 24);
-    assert_eq!(factorial(5), 120);
-    assert_eq!(factorial(6), 720);
-    assert_eq!(factorial(7), 5040);
-    assert_eq!(factorial(8), 40320);
+    assert_eq!(factorial(0), Some(1));
+    assert_eq!(factorial(1), Some(1));
+    assert_eq!(factorial(2), Some(2));
+    assert_eq!(factorial(3), Some(6));
+    assert_eq!(factorial(4), Some(24));
+    assert_eq!(factorial(5), Some(120));
+    assert_eq!(factorial(6), Some(720));
+    assert_eq!(factorial(7), Some(5040));
+    assert_eq!(factorial(8), Some(40320));
+    assert_eq!(factorial(21), None);
 }
 

@@ -15,7 +15,7 @@ impl Iterator for Permutations {
             None
         } else {
             self.num -= 1;
-            let fact = factorial(self.num as u64);
+            let fact = factorial(self.num as u64).unwrap();
             let choice = self.req / fact;
             self.req %= fact;
             let chosen = (0..20)
