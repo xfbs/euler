@@ -10,5 +10,3 @@ void test_collatz() {
   assert(17 == collatz_length(7, cache));
   free(cache.table);
 }
-
-TESTS() { RUN(test_collatz); }

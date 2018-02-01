@@ -118,16 +118,3 @@ void test_palin() {
   assert(is_palindrome(6060) == false);
   assert(is_palindrome(123454321) == true);
 }
-
-TESTS() {
-  RUN(test_fibos);
-  RUN(test_lcm);
-  RUN(test_gcd);
-  RUN(test_factorial);
-  RUN(test_speed);
-  RUN(test_overflow);
-  RUN(test_divisor_sum);
-  RUN(test_nth_pandigital);
-  RUN(test_palin);
-}
-

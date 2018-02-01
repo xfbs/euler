@@ -96,7 +96,7 @@
 //!
 //! ```c
 //! // creates a new empty vec8
-//! vec16_t vec = vec16(0, 0);
+//! vec16_t vec = vec16_new(0, 0);
 //!
 //! // push some data into it
 //! vec_push(&vec, 15);
@@ -160,7 +160,7 @@
 //! vec_set(&vec, 1, 200);
 //!
 //! // check values
-//! assert(vec_set(&vec, 0) == 100);
+//! assert(vec_get(&vec, 0) == 100);
 //! assert(vec_get(&vec, 1) == 200);
 //! vec_free(&vec);
 //! ```

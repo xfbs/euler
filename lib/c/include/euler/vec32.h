@@ -152,7 +152,7 @@ void vec32_free(vec32_t *v);
 //!
 //! ```c
 //! // creates a new empty vec32
-//! vec32_t vec = vec32(0, 0);
+//! vec32_t vec = vec32_new(0, 0);
 //!
 //! // push some data into it
 //! vec32_push(&vec, 15);
@@ -196,7 +196,7 @@ uint32_t vec32_get(const vec32_t *v, size_t pos);
 //!
 //! ```c
 //! // creates a new empty vec32
-//! vec32_t vec = vec32(0, 0);
+//! vec32_t vec = vec32_new(0, 0);
 //!
 //! // push some data into it
 //! vec32_push(&vec, 15);
@@ -207,7 +207,7 @@ uint32_t vec32_get(const vec32_t *v, size_t pos);
 //! vec32_set(&vec, 1, 200);
 //!
 //! // check values
-//! assert(vec32_set(&vec, 0) == 100);
+//! assert(vec32_get(&vec, 0) == 100);
 //! assert(vec32_get(&vec, 1) == 200);
 //! vec32_free(&vec);
 //! ```
@@ -310,7 +310,7 @@ void vec32_reserve(vec32_t *v, size_t size);
 //! vec32_clear(&vec);
 //!
 //! // check
-//! assert(ve16_len(&vec) == 0);
+//! assert(vec32_len(&vec) == 0);
 //! vec32_free(&vec);
 //! ```
 void vec32_clear(vec32_t *v);

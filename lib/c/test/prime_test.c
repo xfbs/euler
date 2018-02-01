@@ -99,12 +99,3 @@ void test_prime_below() {
 
   prime_free(&p);
 }
-
-TESTS() {
-  RUN(test_prime_new);
-  RUN(test_prime_free);
-  RUN(test_prime_nth);
-  RUN(test_prime_which);
-  RUN(test_prime_check);
-  RUN(test_prime_below);
-}

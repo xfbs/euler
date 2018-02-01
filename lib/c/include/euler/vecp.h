@@ -172,7 +172,7 @@ void vecp_free(vecp_t *v);
 //! int a, b;
 //!
 //! // creates a new empty vecp
-//! vecp_t vec = vecp(0, NULL);
+//! vecp_t vec = vecp_new(0, NULL);
 //!
 //! // push some data into it
 //! vecp_push(&vec, &a);
@@ -219,7 +219,7 @@ void *vecp_get(const vecp_t *v, size_t pos);
 //!
 //! ```c
 //! // creates a new empty vecp
-//! vecp_t vec = vecp(0, NULL);
+//! vecp_t vec = vecp_new(0, NULL);
 //!
 //! // data to point to
 //! int a, b;
@@ -233,7 +233,7 @@ void *vecp_get(const vecp_t *v, size_t pos);
 //! vecp_set(&vec, 1, &b);
 //!
 //! // check values
-//! assert(vecp_set(&vec, 0) == &a);
+//! assert(vecp_get(&vec, 0) == &a);
 //! assert(vecp_get(&vec, 1) == &b);
 //! vecp_free(&vec);
 //! ```
@@ -339,7 +339,7 @@ void vecp_reserve(vecp_t *v, size_t size);
 //! vecp_clear(&vec);
 //!
 //! // check
-//! assert(ve16_len(&vec) == 0);
+//! assert(vecp_len(&vec) == 0);
 //! vecp_free(&vec);
 //! ```
 void vecp_clear(vecp_t *v);

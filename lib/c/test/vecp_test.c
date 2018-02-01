@@ -174,15 +174,3 @@ void test_vecp_len_generic() {
   assert(vec_len(&v) == 6);
   vec_free(&v);
 }
-
-TESTS() {
-  RUN(test_vecp_new);
-  RUN(test_vecp_get);
-  RUN(test_vecp_get_generic);
-  RUN(test_vecp_set);
-  RUN(test_vecp_set_generic);
-  RUN(test_vecp_push);
-  RUN(test_vecp_push_generic);
-  RUN(test_vecp_len);
-  RUN(test_vecp_len_generic);
-}

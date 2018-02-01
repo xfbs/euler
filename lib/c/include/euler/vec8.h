@@ -152,7 +152,7 @@ void vec8_free(vec8_t *v);
 //!
 //! ```c
 //! // creates a new empty vec8
-//! vec8_t vec = vec8(0, 0);
+//! vec8_t vec = vec8_new(0, 0);
 //!
 //! // push some data into it
 //! vec8_push(&vec, 15);
@@ -196,7 +196,7 @@ uint8_t vec8_get(const vec8_t *v, size_t pos);
 //!
 //! ```c
 //! // creates a new empty vec8
-//! vec8_t vec = vec8(0, 0);
+//! vec8_t vec = vec8_new(0, 0);
 //!
 //! // push some data into it
 //! vec8_push(&vec, 15);
@@ -207,7 +207,7 @@ uint8_t vec8_get(const vec8_t *v, size_t pos);
 //! vec8_set(&vec, 1, 200);
 //!
 //! // check values
-//! assert(vec8_set(&vec, 0) == 100);
+//! assert(vec8_get(&vec, 0) == 100);
 //! assert(vec8_get(&vec, 1) == 200);
 //! vec8_free(&vec);
 //! ```
@@ -310,7 +310,7 @@ void vec8_reserve(vec8_t *v, size_t size);
 //! vec8_clear(&vec);
 //!
 //! // check
-//! assert(ve16_len(&vec) == 0);
+//! assert(vec8_len(&vec) == 0);
 //! vec8_free(&vec);
 //! ```
 void vec8_clear(vec8_t *v);

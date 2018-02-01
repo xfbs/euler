@@ -78,11 +78,3 @@ void test_vec16_len() {
   assert(vec16_len(&v) == 6);
   vec16_free(&v);
 }
-
-TESTS() {
-  RUN(test_vec16_new);
-  RUN(test_vec16_get);
-  RUN(test_vec16_set);
-  RUN(test_vec16_push);
-  RUN(test_vec16_len);
-}

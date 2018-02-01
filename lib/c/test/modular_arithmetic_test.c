@@ -63,10 +63,3 @@ void test_sum_mod() {
   assert(0x02079ea59516a466 == sum_mod(data, 11, 0x08e92a6b156f8fc3));
   assert(0x128732b41fe55bc6 == sum_mod(data, 10, 0x16d9dee3ef3911d8));
 }
-
-TESTS() {
-  RUN(test_shift_mod);
-  RUN(test_mult_mod);
-  RUN(test_pow_mod);
-  RUN(test_sum_mod);
-}

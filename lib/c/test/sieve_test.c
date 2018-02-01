@@ -101,11 +101,3 @@ void test_sieve_below() {
 
   sieve_free(&p);
 }
-
-TESTS() {
-  RUN(test_sieve_new);
-  RUN(test_sieve_nth);
-  RUN(test_sieve_which);
-  RUN(test_sieve_check);
-  RUN(test_sieve_below);
-}

@@ -152,7 +152,7 @@ void vec64_free(vec64_t *v);
 //!
 //! ```c
 //! // creates a new empty vec64
-//! vec64_t vec = vec64(0, 0);
+//! vec64_t vec = vec64_new(0, 0);
 //!
 //! // push some data into it
 //! vec64_push(&vec, 15);
@@ -196,7 +196,7 @@ uint64_t vec64_get(const vec64_t *v, size_t pos);
 //!
 //! ```c
 //! // creates a new empty vec64
-//! vec64_t vec = vec64(0, 0);
+//! vec64_t vec = vec64_new(0, 0);
 //!
 //! // push some data into it
 //! vec64_push(&vec, 15);
@@ -207,7 +207,7 @@ uint64_t vec64_get(const vec64_t *v, size_t pos);
 //! vec64_set(&vec, 1, 200);
 //!
 //! // check values
-//! assert(vec64_set(&vec, 0) == 100);
+//! assert(vec64_get(&vec, 0) == 100);
 //! assert(vec64_get(&vec, 1) == 200);
 //! vec64_free(&vec);
 //! ```
@@ -310,7 +310,7 @@ void vec64_reserve(vec64_t *v, size_t size);
 //! vec64_clear(&vec);
 //!
 //! // check
-//! assert(ve16_len(&vec) == 0);
+//! assert(vec64_len(&vec) == 0);
 //! vec64_free(&vec);
 //! ```
 void vec64_clear(vec64_t *v);

@@ -93,11 +93,3 @@ void test_vec8_len() {
   assert(vec8_len(&v) == 6);
   vec8_free(&v);
 }
-
-TESTS() {
-  RUN(test_vec8_new);
-  RUN(test_vec8_get);
-  RUN(test_vec8_set);
-  RUN(test_vec8_push);
-  RUN(test_vec8_len);
-}

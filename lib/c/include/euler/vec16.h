@@ -152,7 +152,7 @@ void vec16_free(vec16_t *v);
 //!
 //! ```c
 //! // creates a new empty vec16
-//! vec16_t vec = vec16(0, 0);
+//! vec16_t vec = vec16_new(0, 0);
 //!
 //! // push some data into it
 //! vec16_push(&vec, 15);
@@ -196,7 +196,7 @@ uint16_t vec16_get(const vec16_t *v, size_t pos);
 //!
 //! ```c
 //! // creates a new empty vec16
-//! vec16_t vec = vec16(0, 0);
+//! vec16_t vec = vec16_new(0, 0);
 //!
 //! // push some data into it
 //! vec16_push(&vec, 15);
@@ -207,7 +207,7 @@ uint16_t vec16_get(const vec16_t *v, size_t pos);
 //! vec16_set(&vec, 1, 200);
 //!
 //! // check values
-//! assert(vec16_set(&vec, 0) == 100);
+//! assert(vec16_get(&vec, 0) == 100);
 //! assert(vec16_get(&vec, 1) == 200);
 //! vec16_free(&vec);
 //! ```
@@ -310,7 +310,7 @@ void vec16_reserve(vec16_t *v, size_t size);
 //! vec16_clear(&vec);
 //!
 //! // check
-//! assert(ve16_len(&vec) == 0);
+//! assert(vec16_len(&vec) == 0);
 //! vec16_free(&vec);
 //! ```
 void vec16_clear(vec16_t *v);

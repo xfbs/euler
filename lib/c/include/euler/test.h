@@ -59,10 +59,12 @@
 void _tests();
 const char *_get_file_name();
 
+#ifdef EULER_TEST_MAIN
 int main(int argc, char *argv[]) {
   printf("Running %s...\n", _get_file_name());
   _tests();
   return 0;
 }
+#endif
 
 //! @}
