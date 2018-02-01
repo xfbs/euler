@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["factorial",""],["permutations",""]],"struct":[["Prime",""],["Sieve",""]],"trait":[["GcdLcm",""],["IsPalindrome",""],["ToDigits",""],["ToDivisors",""],["ToPalindrome",""],["ToRotations",""]]});
+initSidebarItems({"fn":[["factorial","Returns the `n`th factorial."],["permutations",""]],"struct":[["Prime",""],["Sieve",""]],"trait":[["Gcd","The greatest common divisor of two types."],["IsPalindrome",""],["Lcm","The least common multiple of two types."],["ToDigits",""],["ToDivisors",""],["ToPalindrome",""],["ToRotations",""]]});

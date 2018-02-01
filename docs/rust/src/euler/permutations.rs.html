@@ -105,7 +105,7 @@
 <span id="60">60</span>
 <span id="61">61</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="ident">factorial</span>::<span class="ident">factorial</span>;
+<span class="kw">use</span> <span class="ident">math</span>::<span class="ident">factorial</span>;
 
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Permutations</span> {
     <span class="ident">num</span>: <span class="ident">u8</span>,
@@ -122,7 +122,7 @@
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
             <span class="self">self</span>.<span class="ident">num</span> <span class="op">-=</span> <span class="number">1</span>;
-            <span class="kw">let</span> <span class="ident">fact</span> <span class="op">=</span> <span class="ident">factorial</span>(<span class="self">self</span>.<span class="ident">num</span> <span class="kw">as</span> <span class="ident">u64</span>);
+            <span class="kw">let</span> <span class="ident">fact</span> <span class="op">=</span> <span class="ident">factorial</span>(<span class="self">self</span>.<span class="ident">num</span> <span class="kw">as</span> <span class="ident">u64</span>).<span class="ident">unwrap</span>();
             <span class="kw">let</span> <span class="ident">choice</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">req</span> <span class="op">/</span> <span class="ident">fact</span>;
             <span class="self">self</span>.<span class="ident">req</span> <span class="op">%=</span> <span class="ident">fact</span>;
             <span class="kw">let</span> <span class="ident">chosen</span> <span class="op">=</span> (<span class="number">0</span>..<span class="number">20</span>)

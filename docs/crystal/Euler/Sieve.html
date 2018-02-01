@@ -62,6 +62,14 @@
 
 
 
+  <h2>Overview</h2>
+
+  <p>Prime sieve class</p>
+
+<p>This prime sieve can be used to efficiently generate large numbers of
+primes. It takes more space than <code><a href="../Euler/Prime.html">Euler::Prime</a></code>, but requires less
+time.</p>
+
 
 
 
@@ -85,7 +93,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/sieve.cr#L2" target="_blank">euler/sieve.cr</a>
+      <a href="https://github.com/xfbs/euler/blob/8c8d1c8583944776c73f9c3e289f169ad3178315/src/euler/sieve.cr#L7" target="_blank">euler/sieve.cr</a>
     
     <br/>
   
@@ -100,7 +108,7 @@
       <li class="entry-summary">
         <a href="#new%28max%29-class-method" class="signature"><strong>.new</strong>(max)</a>
         
-          <div class="summary"><p>creates a new prime sieve capable of holding <code>max</code> primes.</p></div>
+          <div class="summary"><p>Creates a new prime sieve instance.</p></div>
         
       </li>
     
@@ -116,7 +124,7 @@
       <li class="entry-summary">
         <a href="#each%28%26block%29-instance-method" class="signature"><strong>#each</strong>(&block)</a>
         
-          <div class="summary"><p>iterate over each prime number in the sieve</p></div>
+          <div class="summary"><p>Iterate over all the primes.</p></div>
         
       </li>
     
@@ -171,12 +179,26 @@
         <a class="method-permalink" href="#new%28max%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>creates a new prime sieve capable of holding <code>max</code> primes.</p></div>
+        <div class="doc"><p>Creates a new prime sieve instance.</p>
+
+<p>Unlike the <code><a href="../Euler/Prime.html">Euler::Prime</a></code> generator, which can dynamically generate
+primes, this generator needs to know in advance up to which number it
+should check for primes.</p>
+
+<p>Constructing a Prime::Sieve with a <code>max</code> of 200 means that numbers up to
+200 will be checked for primality.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+sieve <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Sieve</span>.<span class="k">new</span>(<span class="n">100</span>)
+
+sieve.count.should eq <span class="n">25</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/sieve.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/8c8d1c8583944776c73f9c3e289f169ad3178315/src/euler/sieve.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -196,12 +218,23 @@
         <a class="method-permalink" href="#each%28%26block%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>iterate over each prime number in the sieve</p></div>
+        <div class="doc"><p>Iterate over all the primes.</p>
+
+<p>For convenience, this generator uses <code>Enumerable(UInt64)</code> to provide a
+simple interface for iterating over all of the primes.</p>
+
+<h2>Examples</h2>
+
+<pre><code><span class="c"># new prime generator</span>
+sieve <span class="o">=</span> <span class="t">Euler</span><span class="t">::</span><span class="t">Sieve</span>.<span class="k">new</span>(<span class="n">1000</span>)
+
+<span class="c"># sum up primes (sum is an Enumerable(T) method)</span>
+sieve.sum.should eq <span class="n">76127</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/xfbs/euler/blob/97d2f101a97e4ad41eecb3988d8bab801e6076ea/src/euler/sieve.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/xfbs/euler/blob/8c8d1c8583944776c73f9c3e289f169ad3178315/src/euler/sieve.cr#L55" target="_blank">View source</a>]
         
       </div>
     </div>
