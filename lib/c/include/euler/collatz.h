@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #pragma once
 
+// TODO: replace with vec32?
 typedef struct {
   uint32_t *table;
   uint32_t limit;

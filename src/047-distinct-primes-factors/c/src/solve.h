@@ -1,6 +1,5 @@
 #include <euler/prime.h>
-#include <stdbool.h>
-#include <stdint.h>
+#include <euler/common.h>
 #pragma once
 
 // finds the first number of the first `cnt` consecutive integers to have `cnt`

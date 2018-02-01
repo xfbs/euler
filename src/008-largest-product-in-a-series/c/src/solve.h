@@ -1,5 +1,4 @@
-#include <stdint.h>
-#include <stddef.h>
+#include <euler/common.h>
 #include <euler/vec8.h>
 #pragma once
 

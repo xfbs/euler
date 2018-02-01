@@ -1,6 +1,4 @@
-#include <stdbool.h>
-#include <stdint.h>
-#include <stddef.h>
+#include <euler/common.h>
 #pragma once
 
 typedef enum {

@@ -1,4 +1,5 @@
 #include "solve.h"
+#include <stdlib.h>
 
 uint64_t solve(size_t x, size_t y) {
   // allocate new cache object, using calloc so the memory comes pre-zeroed.

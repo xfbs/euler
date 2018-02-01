@@ -1,7 +1,7 @@
-#include <stdint.h>
-#include <stdlib.h>
+#include <euler/common.h>
 #pragma once
 
+// TODO: rewrite with vecp/vec64
 typedef struct {
     uint64_t **cache;
     size_t x;

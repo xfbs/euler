@@ -1,7 +1,7 @@
-#include <stdint.h>
-#include <stddef.h>
+#include <euler/common.h>
 #pragma once
 
+// TODO: rewrite to use vec32
 typedef struct {
     uint32_t *data;
     size_t rows;

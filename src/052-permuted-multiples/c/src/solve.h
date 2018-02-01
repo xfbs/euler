@@ -1,7 +1,7 @@
-#include <stdint.h>
-#include <stdbool.h>
+#include <euler/common.h>
 #pragma once
 
+// TODO: candidate for euler?
 typedef struct {
     // how many digits are there in this number? eg. 0 if the number is 0, 1 if
     // the number is 1..9, 2 if the the number is 10..99

@@ -1,5 +1,4 @@
-#include <stdint.h>
-#include <stdbool.h>
+#include <euler/common.h>
 #pragma once
 
 uint32_t solve();
