@@ -57,7 +57,7 @@ into `test/doc_test.c`. Any time it encounters a commented block like
 
 It tries its best to figure out which function this code snippet is for (using
 some very simple regexes) and then it constructs a testing method for that,
-nameing the method something like `doctest_filename_methodname`.
+naming the method something like `doctest_filename_methodname`.
 
 Then there is a third script, `test/all.rb`, which generates the necessary
 `main` method for all the tests in `test/all.c`, by parsing all `*_test.c`
@@ -72,32 +72,24 @@ the C sources and the tests with the following sequence of commands:
 First, any previously compiled object files and binaries need to be cleared out
 with
 
-```
-make clean
-```
+    make clean
 
 Then, the code needs to be recompiled with instrumentation and run. For this,
 the `OPTIMIZE` flag of the `Makefile` provides a convenient way to pass options
 both to the compiler and the linker.
 
-```
-make test OPTIMIZE="-O0 -fprofile-instr-generate -fcoverage-mapping"
-```
+    make test OPTIMIZE="-O0 -fprofile-instr-generate -fcoverage-mapping"
 
 Now there will be a `default.profraw` file in the current directory. This file
 needs to be processed further with `llvm-proftool` to make it readable. If there
 were multiple binaries to run different tests, then this tool would enable
 merging both run data into one coverage report.
 
-```
-llvm-proftool merge default.profraw -output output.cov
-```
+    llvm-proftool merge default.profraw -output output.cov
 
 And finally the coverage report can be viewed with `llvm-cov report`. 
 
-```
-llvm-cov report -instr-profile output.cov ./test/all
-```
+    llvm-cov report -instr-profile output.cov ./test/all
 
 There is additionally `llvm-cov show`, which can be used to view a line-by-line
 overview over what is touched turing testing and what isn't.
