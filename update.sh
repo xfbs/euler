@@ -44,5 +44,13 @@ rm -rf docs/rust
 cp -r euler/doc/lib/rust docs/rust
 git add docs/rust
 
+# generate docs for lib/ruby
+cd euler/lib/ruby
+make doc
+cd ../../../
+rm -rf docts/ruby
+cp -r euler/doc/lib/ruby docs/ruby
+git add docs/ruby
+
 git commit -m "updates documentation"
 echo "all done, ready to push!"
