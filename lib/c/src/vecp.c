@@ -1,32 +1,34 @@
 #include <euler/vecp.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h> // FIXME
 
-#define element_equal ptr_cmp
-#define vec_get vecp_get
-#define vec_set vecp_set
-#define vec_len vecp_len
-#define vec_clear vecp_clear
-#define vec_new vecp_new
-#define vec_alloc vecp_alloc
+// which method to autogenerate and their names
+#define default_cmp ptr_cmp
+#define vec_get     vecp_get
+#define vec_set     vecp_set
+#define vec_len     vecp_len
+#define vec_clear   vecp_clear
+#define vec_new     vecp_new
+#define vec_alloc   vecp_alloc
 #define vec_reserve vecp_reserve
-#define vec_push vecp_push
-#define vec_free vecp_free
+#define vec_push    vecp_push
+#define vec_free    vecp_free
 
-typedef void *element_type;
-typedef vecp_t vector_type;
-typedef vecp_cmp element_cmp;
+// define types for autogeneration to work
+typedef vecp_t      vec_t;
+typedef void *      elem_t;
+typedef vecp_cmp    elem_cmp;
 
+// autogenerate methods
 #include "vec_impl.h"
 
-#define vec_index vecp_index
+// which methods we will manually implement
+#define vec_index   vecp_index
 #define vec_lsearch vecp_lsearch
 #define vec_bsearch vecp_bsearch
-#define vec_sort vecp_sort
+#define vec_sort    vecp_sort
 
 static int search_cmp(const void *_a, const void *_b) {
-  const element_type *b = _b;
+  const elem_t *b = _b;
   if (_a < *b)
     return -1;
   if (_a == *b)
@@ -35,23 +37,23 @@ static int search_cmp(const void *_a, const void *_b) {
 }
 
 typedef struct {
-  element_cmp cmp;
+  elem_cmp cmp;
   void *data;
 } custom_cmp_info;
 
 static int custom_cmp(const void *_a, const void *_b) {
   const custom_cmp_info *info = _a;
-  const element_type *b = _b;
+  const elem_t *b = _b;
 
   return info->cmp(info->data, *b);
 }
 
-size_t vec_index(const vector_type *v, element_type data) {
+size_t vec_index(const vec_t *v, elem_t data) {
   // perform a linear search with a simple comparison
   return vec_lsearch(v, data, NULL);
 }
 
-size_t vec_lsearch(const vector_type *v, void *data, const element_cmp cmp) {
+size_t vec_lsearch(const vec_t *v, void *data, const elem_cmp cmp) {
   if(cmp) {
     for(size_t pos = 0; pos < vec_len(v); pos++) {
       if(0 == cmp(data, vec_get(v, pos))) {
@@ -69,21 +71,21 @@ size_t vec_lsearch(const vector_type *v, void *data, const element_cmp cmp) {
   return SIZE_MAX;
 }
 
-size_t vec_bsearch(const vector_type *v, void *_data, element_cmp _cmp) {
+size_t vec_bsearch(const vec_t *v, void *_data, elem_cmp _cmp) {
   custom_cmp_info cmp_data = {.cmp = _cmp, .data = _data};
-  const element_cmp cmp = _cmp ? custom_cmp : search_cmp;
+  const elem_cmp cmp = _cmp ? custom_cmp : search_cmp;
   void *data = _cmp ? &cmp_data : _data;
 
   // use built-in bsearch
-  element_type *elem = bsearch(data, v->data, vec_len(v), element_size, cmp);
+  elem_t *elem = bsearch(data, v->data, vec_len(v), element_size, cmp);
 
   // return SIZE_MAX if we didn't find anything
   return elem ? elem - v->data : SIZE_MAX;
 }
 
-void vec_sort(vector_type *v, element_cmp _cmp) {
+void vec_sort(vec_t *v, elem_cmp _cmp) {
   // use default cmp if user passes NULL
-  const element_cmp cmp = _cmp ? _cmp : default_cmp;
+  const elem_cmp cmp = _cmp ? _cmp : default_cmp;
 
   // use built-in (quick?) sort
   qsort(v->data, v->len, element_size, cmp);

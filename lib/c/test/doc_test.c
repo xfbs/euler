@@ -1557,6 +1557,12 @@ void doctest_vecp_sort() {
   // sort vector: after this, vec contains sorted pointers to a, b, d and d.
   vecp_sort(&vec, NULL);
 
+  // check order of pointers
+  assert(vecp_get(&vec, 0) == (void *) 0xAABBCCDD);
+  assert(vecp_get(&vec, 1) == (void *) 0xC0FFEBAD);
+  assert(vecp_get(&vec, 2) == (void *) 0xCAEFBABE);
+  assert(vecp_get(&vec, 3) == (void *) 0xDEADBEEF);
+
   // release
   vecp_free(&vec);
 }

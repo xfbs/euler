@@ -391,10 +391,8 @@ size_t vecp_index(const vecp_t *v, void *ptr);
 //! element for which the comparison function indicates that the elements are
 //! equal.
 //!
-//! FIXME this is false:
 //! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
-//! which assumes that all elements and `data` are `const char *` strings,
-//! and uses `strcmp` to compare them.
+//! which just compares the pointers' numerical values directly.
 //!
 //! ## Examples
 //!
@@ -431,8 +429,7 @@ size_t vecp_lsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //! It returns an index to an element that is equal to `data`.
 //!
 //! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
-//! which assumes that all elements and `data` are `const char *` strings,
-//! and uses `strcmp` to compare them.
+//! which just compares the pointers' numerical values directly.
 //!
 //! ## Examples
 //!
@@ -503,13 +500,14 @@ size_t vecp_bsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //! Sorts the vector in-place using the provided comparison function.
 //!
 //! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
-//! which assumes that all elements and `data` are `const char *` strings,
-//! and uses `strcmp` to compare them.
+//! which just compares the pointers' numerical values directly.
 //!
 //! @param v vector to sort.
 //! @param cmp comparison function between elements.
 //!
 //! ## Examples
+//!
+//! Sort pointers by numerical value
 //!
 //! ```c
 //! // new empty vector
@@ -524,8 +522,19 @@ size_t vecp_bsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //! // sort vector: after this, vec contains sorted pointers to a, b, d and d.
 //! vecp_sort(&vec, NULL);
 //!
+//! // check order of pointers
+//! assert(vecp_get(&vec, 0) == (void *) 0xAABBCCDD);
+//! assert(vecp_get(&vec, 1) == (void *) 0xC0FFEBAD);
+//! assert(vecp_get(&vec, 2) == (void *) 0xCAEFBABE);
+//! assert(vecp_get(&vec, 3) == (void *) 0xDEADBEEF);
+//!
 //! // release
 //! vecp_free(&vec);
+//! ```
+//!
+//! Sort strings with `strcmp()`
+//!
+//! ```c
 //! ```
 void vecp_sort(vecp_t *v, vecp_cmp cmp);
 
