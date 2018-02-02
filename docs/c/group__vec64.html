@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vec64</div>  </div>
@@ -77,6 +78,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvec64__t.html">vec64_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of uint64_t data type.  <a href="structvec64__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga936a35a8f3d8de7843ad2548199b6127"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga936a35a8f3d8de7843ad2548199b6127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="#ga936a35a8f3d8de7843ad2548199b6127">More...</a><br /></td></tr>
+<tr class="separator:ga936a35a8f3d8de7843ad2548199b6127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,12 +117,39 @@ Functions</h2></td></tr>
 <tr class="memitem:gae7798a3c06f4586d61b4b8ce1b8f2064"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#gae7798a3c06f4586d61b4b8ce1b8f2064">vec64_index</a> (const <a class="el" href="structvec64__t.html">vec64_t</a> *v, uint64_t data)</td></tr>
 <tr class="memdesc:gae7798a3c06f4586d61b4b8ce1b8f2064"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="#gae7798a3c06f4586d61b4b8ce1b8f2064">More...</a><br /></td></tr>
 <tr class="separator:gae7798a3c06f4586d61b4b8ce1b8f2064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8def84e25b27a179c9f67b35befc8438"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#ga8def84e25b27a179c9f67b35befc8438">vec64_lsearch</a> (const <a class="el" href="structvec64__t.html">vec64_t</a> *v, void *data, <a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga8def84e25b27a179c9f67b35befc8438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="#ga8def84e25b27a179c9f67b35befc8438">More...</a><br /></td></tr>
+<tr class="separator:ga8def84e25b27a179c9f67b35befc8438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34bb4672d0c68ad2c56b67628618d5b4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#ga34bb4672d0c68ad2c56b67628618d5b4">vec64_bsearch</a> (const <a class="el" href="structvec64__t.html">vec64_t</a> *v, void *data, <a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga34bb4672d0c68ad2c56b67628618d5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="#ga34bb4672d0c68ad2c56b67628618d5b4">More...</a><br /></td></tr>
+<tr class="separator:ga34bb4672d0c68ad2c56b67628618d5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43509bc509bb4510fc9d7f8e2d6226cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#ga43509bc509bb4510fc9d7f8e2d6226cb">vec64_sort</a> (<a class="el" href="structvec64__t.html">vec64_t</a> *v, <a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga43509bc509bb4510fc9d7f8e2d6226cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="#ga43509bc509bb4510fc9d7f8e2d6226cb">More...</a><br /></td></tr>
+<tr class="separator:ga43509bc509bb4510fc9d7f8e2d6226cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae46efa3c161fd03004577e3444eac38b"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec64.html#gae46efa3c161fd03004577e3444eac38b">vec64_sum</a> (const <a class="el" href="structvec64__t.html">vec64_t</a> *v)</td></tr>
 <tr class="memdesc:gae46efa3c161fd03004577e3444eac38b"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the sum of the vector.  <a href="#gae46efa3c161fd03004577e3444eac38b">More...</a><br /></td></tr>
 <tr class="separator:gae46efa3c161fd03004577e3444eac38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>data type and functions for handling vectors of <code>uint64_t</code> </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga936a35a8f3d8de7843ad2548199b6127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga936a35a8f3d8de7843ad2548199b6127">&#9670;&nbsp;</a></span>vec64_cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* vec64_cmp) (const void *, const void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison function between two elements. </p>
+<p>Functions that have this type can be used as sorting functions with <code><a class="el" href="group__vec64.html#ga43509bc509bb4510fc9d7f8e2d6226cb" title="Sort the vector. ">vec64_sort()</a></code>, or as comparison functions for <code><a class="el" href="group__vec64.html#ga34bb4672d0c68ad2c56b67628618d5b4" title="Perform a binary search on the vector. ">vec64_bsearch()</a></code>. Functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga8d7ddfb2653d25bfb3457a7d77d5c1d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8d7ddfb2653d25bfb3457a7d77d5c1d7">&#9670;&nbsp;</a></span>vec64_alloc()</h2>
@@ -157,6 +191,56 @@ Functions</h2></td></tr>
 <p>creating a new empty uint64_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates an empty vec64</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> *vec = <a class="code" href="group__vec64.html#ga8d7ddfb2653d25bfb3457a7d77d5c1d7">vec64_alloc</a>(0, 0);</div><div class="line"></div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --><p>creating a pre-filled uint64_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec64</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> *vec = <a class="code" href="group__vec64.html#ga8d7ddfb2653d25bfb3457a7d77d5c1d7">vec64_alloc</a>(10, 99);</div><div class="line"></div><div class="line">assert(<a class="code" href="group__vec64.html#gaa37d64b0858e8181ea08b8a5572b3ed0">vec64_len</a>(vec) == 10);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(vec, 0) == 99);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(vec, 9) == 99);</div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga34bb4672d0c68ad2c56b67628618d5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga34bb4672d0c68ad2c56b67628618d5b4">&#9670;&nbsp;</a></span>vec64_bsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec64_bsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec64__t.html">vec64_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a binary search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a binary search on the sorted vector using <code>cmp</code> as a comparison function. Note that if the vector is not sorted, this function will not work, then you must use <code><a class="el" href="group__vec64.html#ga8def84e25b27a179c9f67b35befc8438" title="Perform a linear search on the vector. ">vec64_lsearch()</a></code>.</p>
+<p>It returns an index to an element that is equal to <code>data</code>.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint64_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<p>Find an element in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> vec = <a class="code" href="group__vec64.html#ga22ff65878c1a3cb51821769f3456dbe2">vec64_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec64.html#ga43509bc509bb4510fc9d7f8e2d6226cb">vec64_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// bsearch only works for sorted vectors, so sort it</span></div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// find &#39;9&#39;</span></div><div class="line">uint64_t target = 9;</div><div class="line">assert(<a class="code" href="group__vec64.html#ga34bb4672d0c68ad2c56b67628618d5b4">vec64_bsearch</a>(&amp;vec, &amp;target, NULL) == 2);</div><div class="line"></div><div class="line"><span class="comment">// find an element that doesn&#39;t exist</span></div><div class="line">target = 0;</div><div class="line">assert(<a class="code" href="group__vec64.html#ga34bb4672d0c68ad2c56b67628618d5b4">vec64_bsearch</a>(&amp;vec, &amp;target, NULL) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga5ad17baf8b89cf0ccb188c7215e29a35"></a>
@@ -329,6 +413,55 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="comment">// creates a vec with length 2</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> vec = <a class="code" href="group__vec64.html#ga22ff65878c1a3cb51821769f3456dbe2">vec64_new</a>(2, 0);</div><div class="line"></div><div class="line"><span class="comment">// checks length</span></div><div class="line">assert(<a class="code" href="group__vec64.html#gaa37d64b0858e8181ea08b8a5572b3ed0">vec64_len</a>(&amp;vec) == 2);</div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
+<a id="ga8def84e25b27a179c9f67b35befc8438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8def84e25b27a179c9f67b35befc8438">&#9670;&nbsp;</a></span>vec64_lsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec64_lsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec64__t.html">vec64_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a linear search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a linear search on the vector, meaning that it will traverse it in order and compare all elements to <code>data</code> using <code>cmp</code>, a comparison function supplied by the user. Returns the index of the first element for which the comparison function indicates that the elements are equal.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint64_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="ga22ff65878c1a3cb51821769f3456dbe2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga22ff65878c1a3cb51821769f3456dbe2">&#9670;&nbsp;</a></span>vec64_new()</h2>
 
@@ -498,6 +631,45 @@ Functions</h2></td></tr>
 <p>set elements in a pre-filled <code><a class="el" href="structvec64__t.html" title="vector of uint64_t data type. ">vec64_t</a></code></p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec64</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> vec = <a class="code" href="group__vec64.html#ga22ff65878c1a3cb51821769f3456dbe2">vec64_new</a>(10, 99);</div><div class="line"></div><div class="line"><span class="comment">// returns previous element</span></div><div class="line">assert(<a class="code" href="group__vec64.html#ga60e27c91205824a69af18edc81b95bbe">vec64_set</a>(&amp;vec, 0, 15) == 99);</div><div class="line"></div><div class="line"><span class="comment">// check if set worked</span></div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 0) == 15);</div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(&amp;vec);</div></div><!-- fragment --><p>set elements in a <code><a class="el" href="structvec64__t.html" title="vector of uint64_t data type. ">vec64_t</a></code> that has been pushed to</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a new empty vec64</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> vec = <a class="code" href="group__vec64.html#ga22ff65878c1a3cb51821769f3456dbe2">vec64_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// push some data into it</span></div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 15);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 95);</div><div class="line"></div><div class="line"><span class="comment">// set new values</span></div><div class="line"><a class="code" href="group__vec64.html#ga60e27c91205824a69af18edc81b95bbe">vec64_set</a>(&amp;vec, 0, 100);</div><div class="line"><a class="code" href="group__vec64.html#ga60e27c91205824a69af18edc81b95bbe">vec64_set</a>(&amp;vec, 1, 200);</div><div class="line"></div><div class="line"><span class="comment">// check values</span></div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 0) == 100);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 1) == 200);</div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(&amp;vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga43509bc509bb4510fc9d7f8e2d6226cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43509bc509bb4510fc9d7f8e2d6226cb">&#9670;&nbsp;</a></span>vec64_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vec64_sort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvec64__t.html">vec64_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec64.html#ga936a35a8f3d8de7843ad2548199b6127">vec64_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sort the vector. </p>
+<p>Sorts the vector in-place using the provided comparison function. If <code>NULL</code> is passed as comparison function, then falls back to a built-in comparison function that sorts the numbers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to sort. </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec64__t.html">vec64_t</a> vec = <a class="code" href="group__vec64.html#ga22ff65878c1a3cb51821769f3456dbe2">vec64_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec64.html#ga549c42f6a8c2d398db528a496b897dae">vec64_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec64.html#ga43509bc509bb4510fc9d7f8e2d6226cb">vec64_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// check that it&#39;s sorted</span></div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec64.html#ga8139ee10745e7b530f55ca5577276481">vec64_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec64.html#gac78eed35aa91894b017f32b7273e19e3">vec64_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="gae46efa3c161fd03004577e3444eac38b"></a>

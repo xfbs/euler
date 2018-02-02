@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vec8</div>  </div>
@@ -77,6 +78,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvec8__t.html">vec8_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of uint8_t data type.  <a href="structvec8__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga856dc2904722553966de176727c199b8"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga856dc2904722553966de176727c199b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="#ga856dc2904722553966de176727c199b8">More...</a><br /></td></tr>
+<tr class="separator:ga856dc2904722553966de176727c199b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,12 +117,39 @@ Functions</h2></td></tr>
 <tr class="memitem:ga7a658379dbf1d0d70faf29eecd241eec"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga7a658379dbf1d0d70faf29eecd241eec">vec8_index</a> (const <a class="el" href="structvec8__t.html">vec8_t</a> *v, uint8_t data)</td></tr>
 <tr class="memdesc:ga7a658379dbf1d0d70faf29eecd241eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="#ga7a658379dbf1d0d70faf29eecd241eec">More...</a><br /></td></tr>
 <tr class="separator:ga7a658379dbf1d0d70faf29eecd241eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10e2bc10b68b448e46fa2ea42000f343"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga10e2bc10b68b448e46fa2ea42000f343">vec8_lsearch</a> (const <a class="el" href="structvec8__t.html">vec8_t</a> *v, void *data, <a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga10e2bc10b68b448e46fa2ea42000f343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="#ga10e2bc10b68b448e46fa2ea42000f343">More...</a><br /></td></tr>
+<tr class="separator:ga10e2bc10b68b448e46fa2ea42000f343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cb896445d964ec5836cbebd5ba21372"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga2cb896445d964ec5836cbebd5ba21372">vec8_bsearch</a> (const <a class="el" href="structvec8__t.html">vec8_t</a> *v, void *data, <a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga2cb896445d964ec5836cbebd5ba21372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="#ga2cb896445d964ec5836cbebd5ba21372">More...</a><br /></td></tr>
+<tr class="separator:ga2cb896445d964ec5836cbebd5ba21372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96c952067d0d68d4a7be693749fbca90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga96c952067d0d68d4a7be693749fbca90">vec8_sort</a> (<a class="el" href="structvec8__t.html">vec8_t</a> *v, <a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga96c952067d0d68d4a7be693749fbca90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="#ga96c952067d0d68d4a7be693749fbca90">More...</a><br /></td></tr>
+<tr class="separator:ga96c952067d0d68d4a7be693749fbca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9fe2987ae63ed7b999bf1ef1568bfc87"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec8.html#ga9fe2987ae63ed7b999bf1ef1568bfc87">vec8_sum</a> (const <a class="el" href="structvec8__t.html">vec8_t</a> *v)</td></tr>
 <tr class="memdesc:ga9fe2987ae63ed7b999bf1ef1568bfc87"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the sum of the vector.  <a href="#ga9fe2987ae63ed7b999bf1ef1568bfc87">More...</a><br /></td></tr>
 <tr class="separator:ga9fe2987ae63ed7b999bf1ef1568bfc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>data type and functions for handling vectors of <code>uint8_t</code> </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga856dc2904722553966de176727c199b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga856dc2904722553966de176727c199b8">&#9670;&nbsp;</a></span>vec8_cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* vec8_cmp) (const void *, const void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison function between two elements. </p>
+<p>Functions that have this type can be used as sorting functions with <code><a class="el" href="group__vec8.html#ga96c952067d0d68d4a7be693749fbca90" title="Sort the vector. ">vec8_sort()</a></code>, or as comparison functions for <code><a class="el" href="group__vec8.html#ga2cb896445d964ec5836cbebd5ba21372" title="Perform a binary search on the vector. ">vec8_bsearch()</a></code>. Functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga4f57c08d2e0ded624658cb50e0b7ad58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga4f57c08d2e0ded624658cb50e0b7ad58">&#9670;&nbsp;</a></span>vec8_alloc()</h2>
@@ -157,6 +191,56 @@ Functions</h2></td></tr>
 <p>creating a new empty uint8_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates an empty vec8</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> *vec = <a class="code" href="group__vec8.html#ga4f57c08d2e0ded624658cb50e0b7ad58">vec8_alloc</a>(0, 0);</div><div class="line"></div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --><p>creating a pre-filled uint8_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec8</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> *vec = <a class="code" href="group__vec8.html#ga4f57c08d2e0ded624658cb50e0b7ad58">vec8_alloc</a>(10, 99);</div><div class="line"></div><div class="line">assert(<a class="code" href="group__vec8.html#ga8089b722aaea8870cba0055551f59548">vec8_len</a>(vec) == 10);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(vec, 0) == 99);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(vec, 9) == 99);</div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga2cb896445d964ec5836cbebd5ba21372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2cb896445d964ec5836cbebd5ba21372">&#9670;&nbsp;</a></span>vec8_bsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec8_bsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec8__t.html">vec8_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a binary search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a binary search on the sorted vector using <code>cmp</code> as a comparison function. Note that if the vector is not sorted, this function will not work, then you must use <code><a class="el" href="group__vec8.html#ga10e2bc10b68b448e46fa2ea42000f343" title="Perform a linear search on the vector. ">vec8_lsearch()</a></code>.</p>
+<p>It returns an index to an element that is equal to <code>data</code>.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint8_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<p>Find an element in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> vec = <a class="code" href="group__vec8.html#ga2b3ee07e242cf4df21e609706346a39c">vec8_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec8.html#ga96c952067d0d68d4a7be693749fbca90">vec8_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// bsearch only works for sorted vectors, so sort it</span></div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// find &#39;9&#39;</span></div><div class="line">uint32_t target = 9;</div><div class="line">assert(<a class="code" href="group__vec8.html#ga2cb896445d964ec5836cbebd5ba21372">vec8_bsearch</a>(&amp;vec, &amp;target, NULL) == 2);</div><div class="line"></div><div class="line"><span class="comment">// find an element that doesn&#39;t exist</span></div><div class="line">target = 0;</div><div class="line">assert(<a class="code" href="group__vec8.html#ga2cb896445d964ec5836cbebd5ba21372">vec8_bsearch</a>(&amp;vec, &amp;target, NULL) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="gae20b6fb0164caf6b45cb47b84a9d1484"></a>
@@ -329,6 +413,55 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="comment">// creates a vec with length 2</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> vec = <a class="code" href="group__vec8.html#ga2b3ee07e242cf4df21e609706346a39c">vec8_new</a>(2, 0);</div><div class="line"></div><div class="line"><span class="comment">// checks length</span></div><div class="line">assert(<a class="code" href="group__vec8.html#ga8089b722aaea8870cba0055551f59548">vec8_len</a>(&amp;vec) == 2);</div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
+<a id="ga10e2bc10b68b448e46fa2ea42000f343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10e2bc10b68b448e46fa2ea42000f343">&#9670;&nbsp;</a></span>vec8_lsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec8_lsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec8__t.html">vec8_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a linear search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a linear search on the vector, meaning that it will traverse it in order and compare all elements to <code>data</code> using <code>cmp</code>, a comparison function supplied by the user. Returns the index of the first element for which the comparison function indicates that the elements are equal.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint32_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="ga2b3ee07e242cf4df21e609706346a39c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga2b3ee07e242cf4df21e609706346a39c">&#9670;&nbsp;</a></span>vec8_new()</h2>
 
@@ -498,6 +631,46 @@ Functions</h2></td></tr>
 <p>set elements in a pre-filled <code><a class="el" href="structvec8__t.html" title="vector of uint8_t data type. ">vec8_t</a></code></p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec8</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> vec = <a class="code" href="group__vec8.html#ga2b3ee07e242cf4df21e609706346a39c">vec8_new</a>(10, 99);</div><div class="line"></div><div class="line"><span class="comment">// returns previous element</span></div><div class="line">assert(<a class="code" href="group__vec8.html#gaa0ccc0478e7698e66cc826252f42a4b2">vec8_set</a>(&amp;vec, 0, 15) == 99);</div><div class="line"></div><div class="line"><span class="comment">// check if set worked</span></div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 0) == 15);</div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(&amp;vec);</div></div><!-- fragment --><p>set elements in a <code><a class="el" href="structvec8__t.html" title="vector of uint8_t data type. ">vec8_t</a></code> that has been pushed to</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a new empty vec8</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> vec = <a class="code" href="group__vec8.html#ga2b3ee07e242cf4df21e609706346a39c">vec8_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// push some data into it</span></div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 15);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 95);</div><div class="line"></div><div class="line"><span class="comment">// set new values</span></div><div class="line"><a class="code" href="group__vec8.html#gaa0ccc0478e7698e66cc826252f42a4b2">vec8_set</a>(&amp;vec, 0, 100);</div><div class="line"><a class="code" href="group__vec8.html#gaa0ccc0478e7698e66cc826252f42a4b2">vec8_set</a>(&amp;vec, 1, 200);</div><div class="line"></div><div class="line"><span class="comment">// check values</span></div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 0) == 100);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 1) == 200);</div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(&amp;vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga96c952067d0d68d4a7be693749fbca90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga96c952067d0d68d4a7be693749fbca90">&#9670;&nbsp;</a></span>vec8_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vec8_sort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvec8__t.html">vec8_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec8.html#ga856dc2904722553966de176727c199b8">vec8_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sort the vector. </p>
+<p>Sorts the vector in-place using the provided comparison function.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint8_t</code>, and compares each element with that.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to sort. </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec8__t.html">vec8_t</a> vec = <a class="code" href="group__vec8.html#ga2b3ee07e242cf4df21e609706346a39c">vec8_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec8.html#ga5e3ccc3be13421bc252db838d468552b">vec8_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec8.html#ga96c952067d0d68d4a7be693749fbca90">vec8_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// check that it&#39;s sorted</span></div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec8.html#ga68e1c7604033bdc63ad36b1e5202d43f">vec8_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec8.html#ga5e708235b53f9bd408e30d6e965dad64">vec8_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga9fe2987ae63ed7b999bf1ef1568bfc87"></a>

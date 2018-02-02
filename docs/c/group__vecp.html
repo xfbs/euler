@@ -81,9 +81,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:gac5956008ab2a6f3aceb85528fa9703c8"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#gac5956008ab2a6f3aceb85528fa9703c8">vecp_compare</a>) (const void *, const void *)</td></tr>
-<tr class="memdesc:gac5956008ab2a6f3aceb85528fa9703c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">comparison function between two elements.  <a href="#gac5956008ab2a6f3aceb85528fa9703c8">More...</a><br /></td></tr>
-<tr class="separator:gac5956008ab2a6f3aceb85528fa9703c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39c28469c4ac710d91e67b9a34fdae81"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga39c28469c4ac710d91e67b9a34fdae81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="#ga39c28469c4ac710d91e67b9a34fdae81">More...</a><br /></td></tr>
+<tr class="separator:ga39c28469c4ac710d91e67b9a34fdae81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -117,27 +117,33 @@ Functions</h2></td></tr>
 <tr class="memitem:ga9595cc1ff30f7b339c75b269b501302c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#ga9595cc1ff30f7b339c75b269b501302c">vecp_index</a> (const <a class="el" href="structvecp__t.html">vecp_t</a> *v, void *ptr)</td></tr>
 <tr class="memdesc:ga9595cc1ff30f7b339c75b269b501302c"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="#ga9595cc1ff30f7b339c75b269b501302c">More...</a><br /></td></tr>
 <tr class="separator:ga9595cc1ff30f7b339c75b269b501302c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31cdc83ef621f90d86602a5d68e5018f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#ga31cdc83ef621f90d86602a5d68e5018f">vecp_sort</a> (<a class="el" href="structvecp__t.html">vecp_t</a> *v, <a class="el" href="group__vecp.html#gac5956008ab2a6f3aceb85528fa9703c8">vecp_compare</a> cmp)</td></tr>
-<tr class="memdesc:ga31cdc83ef621f90d86602a5d68e5018f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sort the vector according to the function provided.  <a href="#ga31cdc83ef621f90d86602a5d68e5018f">More...</a><br /></td></tr>
-<tr class="separator:ga31cdc83ef621f90d86602a5d68e5018f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3418a9142947e2d375366fe83c9e9944"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#ga3418a9142947e2d375366fe83c9e9944">vecp_lsearch</a> (const <a class="el" href="structvecp__t.html">vecp_t</a> *v, void *data, <a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga3418a9142947e2d375366fe83c9e9944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="#ga3418a9142947e2d375366fe83c9e9944">More...</a><br /></td></tr>
+<tr class="separator:ga3418a9142947e2d375366fe83c9e9944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadec1adb1e2ed0f530ca1bb50bd0cdf67"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a> (const <a class="el" href="structvecp__t.html">vecp_t</a> *v, void *data, <a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gadec1adb1e2ed0f530ca1bb50bd0cdf67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="#gadec1adb1e2ed0f530ca1bb50bd0cdf67">More...</a><br /></td></tr>
+<tr class="separator:gadec1adb1e2ed0f530ca1bb50bd0cdf67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8008f2c4120be3ce701480b6722de1f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vecp.html#ga8008f2c4120be3ce701480b6722de1f9">vecp_sort</a> (<a class="el" href="structvecp__t.html">vecp_t</a> *v, <a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga8008f2c4120be3ce701480b6722de1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="#ga8008f2c4120be3ce701480b6722de1f9">More...</a><br /></td></tr>
+<tr class="separator:ga8008f2c4120be3ce701480b6722de1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>a data type and functions for handling pointer vectors </p>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="gac5956008ab2a6f3aceb85528fa9703c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac5956008ab2a6f3aceb85528fa9703c8">&#9670;&nbsp;</a></span>vecp_compare</h2>
+<a id="ga39c28469c4ac710d91e67b9a34fdae81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39c28469c4ac710d91e67b9a34fdae81">&#9670;&nbsp;</a></span>vecp_cmp</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int(* vecp_compare) (const void *, const void *)</td>
+          <td class="memname">typedef int(* vecp_cmp) (const void *, const void *)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>comparison function between two elements. </p>
-<p>functions that have this type can be used as sorting functions with <a class="el" href="group__vecp.html#ga31cdc83ef621f90d86602a5d68e5018f" title="sort the vector according to the function provided. ">vecp_sort()</a>. functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
+<p>Comparison function between two elements. </p>
+<p>Functions that have this type can be used as sorting functions with <code><a class="el" href="group__vecp.html#ga8008f2c4120be3ce701480b6722de1f9" title="Sort the vector. ">vecp_sort()</a></code>, or as comparison functions for <code><a class="el" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67" title="Perform a binary search on the vector. ">vecp_bsearch()</a></code>. Functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
 
 </div>
 </div>
@@ -182,6 +188,57 @@ Functions</h2></td></tr>
 <p>creating a new empty pointer vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates an empty vecp</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> *vec = <a class="code" href="group__vecp.html#gafedb3e994742c81dabd9254e82df1f32">vecp_alloc</a>(0, NULL);</div><div class="line"></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --><p>creating a pre-filled pointer vector</p>
 <div class="fragment"><div class="line"><span class="comment">// element to point to</span></div><div class="line"><span class="keywordtype">int</span> a;</div><div class="line"></div><div class="line"><span class="comment">// creates a pre-filled vecp</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> *vec = <a class="code" href="group__vecp.html#gafedb3e994742c81dabd9254e82df1f32">vecp_alloc</a>(10, &amp;a);</div><div class="line"></div><div class="line">assert(<a class="code" href="group__vecp.html#gaff5edeb7762f5cc2b9a2029eed7173a9">vecp_len</a>(vec) == 10);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(vec, 0) == &amp;a);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(vec, 9) == &amp;a);</div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gadec1adb1e2ed0f530ca1bb50bd0cdf67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadec1adb1e2ed0f530ca1bb50bd0cdf67">&#9670;&nbsp;</a></span>vecp_bsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vecp_bsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvecp__t.html">vecp_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a binary search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a binary search on the sorted vector using <code>cmp</code> as a comparison function. Note that if the vector is not sorted, this function will not work, then you must use <code><a class="el" href="group__vecp.html#ga3418a9142947e2d375366fe83c9e9944" title="Perform a linear search on the vector. ">vecp_lsearch()</a></code>.</p>
+<p>It returns an index to an element that is equal to <code>data</code>.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which just compares the pointers' numerical values directly.</p>
+<h2>Examples</h2>
+<p>Find an element in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// targets</span></div><div class="line"><span class="keywordtype">void</span> *a = (<span class="keywordtype">void</span> *) 0xABCDEF1;</div><div class="line"><span class="keywordtype">void</span> *b = (<span class="keywordtype">void</span> *) 0xABCDEF2;</div><div class="line"><span class="keywordtype">void</span> *c = (<span class="keywordtype">void</span> *) 0xABCDEF3;</div><div class="line"><span class="keywordtype">void</span> *d = (<span class="keywordtype">void</span> *) 0xABCDEF4;</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, a);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, b);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, c);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, d);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><span class="comment">//vecp_sort(&amp;vec, NULL);</span></div><div class="line"></div><div class="line"><span class="comment">// check that all pointers exist</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, a, NULL) != SIZE_MAX);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, b, NULL) != SIZE_MAX);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, c, NULL) != SIZE_MAX);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, d, NULL) != SIZE_MAX);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, (<span class="keywordtype">void</span> *) 0x2AAA899, NULL) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// check if the get the correct element back</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, <a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, a, NULL)) == a);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, <a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, b, NULL)) == b);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, <a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, c, NULL)) == c);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, <a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, d, NULL)) == d);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --><p>Find a string in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new emprt vector</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// add strings (pre-sorted)</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;another&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;birthday&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;comes&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;deliberately&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// find the indexes of the words</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, <span class="stringliteral">&quot;another&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 0);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, <span class="stringliteral">&quot;birthday&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 1);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, <span class="stringliteral">&quot;comes&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 2);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, <span class="stringliteral">&quot;deliberately&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 3);</div><div class="line">assert(<a class="code" href="group__vecp.html#gadec1adb1e2ed0f530ca1bb50bd0cdf67">vecp_bsearch</a>(&amp;vec, <span class="stringliteral">&quot;easy&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="gaa97e5a7af7a68cfe979be914059cad8c"></a>
@@ -352,6 +409,54 @@ Functions</h2></td></tr>
 <h2>Examples</h2>
 <p>get length of pre-filled vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a vec with length 2</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(2, NULL);</div><div class="line"></div><div class="line"><span class="comment">// checks length</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gaff5edeb7762f5cc2b9a2029eed7173a9">vecp_len</a>(&amp;vec) == 2);</div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga3418a9142947e2d375366fe83c9e9944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3418a9142947e2d375366fe83c9e9944">&#9670;&nbsp;</a></span>vecp_lsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vecp_lsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvecp__t.html">vecp_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a linear search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a linear search on the vector, meaning that it will traverse it in order and compare all elements to <code>data</code> using <code>cmp</code>, a comparison function supplied by the user. Returns the index of the first element for which the comparison function indicates that the elements are equal.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which just compares the pointers' numerical values directly.</p>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// new pointer vector</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// some strings</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;Hello&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;vecp_test&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;World&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;12345qwerty&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;World&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// find the strings. note that lsearch always returns the first match.</span></div><div class="line">assert(<a class="code" href="group__vecp.html#ga3418a9142947e2d375366fe83c9e9944">vecp_lsearch</a>(&amp;vec, <span class="stringliteral">&quot;Hello&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 0);</div><div class="line">assert(<a class="code" href="group__vecp.html#ga3418a9142947e2d375366fe83c9e9944">vecp_lsearch</a>(&amp;vec, <span class="stringliteral">&quot;World&quot;</span>, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp) == 2);</div><div class="line"></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga66d25b286116e3ea4a4d603fb993709b"></a>
@@ -525,8 +630,8 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="comment">// creates a new empty vecp</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// data to point to</span></div><div class="line"><span class="keywordtype">int</span> a, b;</div><div class="line"></div><div class="line"><span class="comment">// push some data into it</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, NULL);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// set new values</span></div><div class="line"><a class="code" href="group__vecp.html#ga1df3082f4ff790be0823fc0dd6a0de16">vecp_set</a>(&amp;vec, 0, &amp;a);</div><div class="line"><a class="code" href="group__vecp.html#ga1df3082f4ff790be0823fc0dd6a0de16">vecp_set</a>(&amp;vec, 1, &amp;b);</div><div class="line"></div><div class="line"><span class="comment">// check values</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 0) == &amp;a);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 1) == &amp;b);</div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
-<a id="ga31cdc83ef621f90d86602a5d68e5018f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga31cdc83ef621f90d86602a5d68e5018f">&#9670;&nbsp;</a></span>vecp_sort()</h2>
+<a id="ga8008f2c4120be3ce701480b6722de1f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8008f2c4120be3ce701480b6722de1f9">&#9670;&nbsp;</a></span>vecp_sort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +645,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__vecp.html#gac5956008ab2a6f3aceb85528fa9703c8">vecp_compare</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>&#160;</td>
           <td class="paramname"><em>cmp</em>&#160;</td>
         </tr>
         <tr>
@@ -551,7 +656,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sort the vector according to the function provided. </p>
+<p>Sort the vector. </p>
+<p>Sorts the vector in-place using the provided comparison function.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which just compares the pointers' numerical values directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>vector to sort. </td></tr>
@@ -559,8 +666,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>example </dd></dl>
-
+<h2>Examples</h2>
+<p>Sort pointers by numerical value</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, (<span class="keywordtype">void</span> *) 0xDEADBEEF);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, (<span class="keywordtype">void</span> *) 0xCAEFBABE);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, (<span class="keywordtype">void</span> *) 0xC0FFEBAD);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, (<span class="keywordtype">void</span> *) 0xAABBCCDD);</div><div class="line"></div><div class="line"><span class="comment">// sort vector: after this, vec contains sorted pointers to a, b, d and d.</span></div><div class="line"><a class="code" href="group__vecp.html#ga8008f2c4120be3ce701480b6722de1f9">vecp_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// check order of pointers</span></div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 0) == (<span class="keywordtype">void</span> *) 0xAABBCCDD);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 1) == (<span class="keywordtype">void</span> *) 0xC0FFEBAD);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 2) == (<span class="keywordtype">void</span> *) 0xCAEFBABE);</div><div class="line">assert(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 3) == (<span class="keywordtype">void</span> *) 0xDEADBEEF);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --><p>Sort strings with <code>strcmp()</code></p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvecp__t.html">vecp_t</a> vec = <a class="code" href="group__vecp.html#ga66d25b286116e3ea4a4d603fb993709b">vecp_new</a>(0, NULL);</div><div class="line"></div><div class="line"><span class="comment">// add some strings to vector</span></div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;Hello&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;Testing&quot;</span>);</div><div class="line"><a class="code" href="group__vecp.html#gaaa5ed7fdb6db2505ea0717f84799741c">vecp_push</a>(&amp;vec, <span class="stringliteral">&quot;Andersson&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// sort strings in vector with strcmp</span></div><div class="line"><a class="code" href="group__vecp.html#ga8008f2c4120be3ce701480b6722de1f9">vecp_sort</a>(&amp;vec, (<a class="code" href="group__vecp.html#ga39c28469c4ac710d91e67b9a34fdae81">vecp_cmp</a>) strcmp);</div><div class="line"></div><div class="line">assert(0 == strcmp(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 0), <span class="stringliteral">&quot;Andersson&quot;</span>));</div><div class="line">assert(0 == strcmp(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 1), <span class="stringliteral">&quot;Hello&quot;</span>));</div><div class="line">assert(0 == strcmp(<a class="code" href="group__vecp.html#gafced8564ae5657e319cacd8f8213a099">vecp_get</a>(&amp;vec, 2), <span class="stringliteral">&quot;Testing&quot;</span>));</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vecp.html#ga48f65493f10925767720ea7c30c67be5">vecp_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->

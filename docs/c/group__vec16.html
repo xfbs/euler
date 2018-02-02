@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vec16</div>  </div>
@@ -77,6 +78,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvec16__t.html">vec16_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of uint16_t data type.  <a href="structvec16__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="#ga8ab168a09b4fd5afd95898ef14bb6152">More...</a><br /></td></tr>
+<tr class="separator:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,12 +117,39 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1d1a7af3f4755886c996d1474da70f31"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga1d1a7af3f4755886c996d1474da70f31">vec16_index</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, uint16_t data)</td></tr>
 <tr class="memdesc:ga1d1a7af3f4755886c996d1474da70f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="#ga1d1a7af3f4755886c996d1474da70f31">More...</a><br /></td></tr>
 <tr class="separator:ga1d1a7af3f4755886c996d1474da70f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga647ea5601d94db41fedbcc16a30ff47b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga647ea5601d94db41fedbcc16a30ff47b">vec16_lsearch</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, void *data, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga647ea5601d94db41fedbcc16a30ff47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="#ga647ea5601d94db41fedbcc16a30ff47b">More...</a><br /></td></tr>
+<tr class="separator:ga647ea5601d94db41fedbcc16a30ff47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a6519f4800fed4b63e8d6b200c79036"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036">vec16_bsearch</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, void *data, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga9a6519f4800fed4b63e8d6b200c79036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="#ga9a6519f4800fed4b63e8d6b200c79036">More...</a><br /></td></tr>
+<tr class="separator:ga9a6519f4800fed4b63e8d6b200c79036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c">vec16_sort</a> (<a class="el" href="structvec16__t.html">vec16_t</a> *v, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="#gaf26b2447e09e1fe7aa0b4084f08e567c">More...</a><br /></td></tr>
+<tr class="separator:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga53c60a65009e117964d44fdc18093484"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga53c60a65009e117964d44fdc18093484">vec16_sum</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v)</td></tr>
 <tr class="memdesc:ga53c60a65009e117964d44fdc18093484"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the sum of the vector.  <a href="#ga53c60a65009e117964d44fdc18093484">More...</a><br /></td></tr>
 <tr class="separator:ga53c60a65009e117964d44fdc18093484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>data type and functions for handling vectors of <code>uint16_t</code> </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga8ab168a09b4fd5afd95898ef14bb6152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ab168a09b4fd5afd95898ef14bb6152">&#9670;&nbsp;</a></span>vec16_cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* vec16_cmp) (const void *, const void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison function between two elements. </p>
+<p>Functions that have this type can be used as sorting functions with <code><a class="el" href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c" title="Sort the vector. ">vec16_sort()</a></code>, or as comparison functions for <code><a class="el" href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036" title="Perform a binary search on the vector. ">vec16_bsearch()</a></code>. Functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga99d66c20ad4137d56fa458847b0f2055"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga99d66c20ad4137d56fa458847b0f2055">&#9670;&nbsp;</a></span>vec16_alloc()</h2>
@@ -157,6 +191,56 @@ Functions</h2></td></tr>
 <p>creating a new empty uint16_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates an empty vec16</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> *vec = <a class="code" href="group__vec16.html#ga99d66c20ad4137d56fa458847b0f2055">vec16_alloc</a>(0, 0);</div><div class="line"></div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --><p>creating a pre-filled uint16_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec16</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> *vec = <a class="code" href="group__vec16.html#ga99d66c20ad4137d56fa458847b0f2055">vec16_alloc</a>(10, 99);</div><div class="line"></div><div class="line">assert(<a class="code" href="group__vec16.html#gaa7906741a690123bfec63e47eb7b1896">vec16_len</a>(vec) == 10);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(vec, 0) == 99);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(vec, 9) == 99);</div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga9a6519f4800fed4b63e8d6b200c79036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a6519f4800fed4b63e8d6b200c79036">&#9670;&nbsp;</a></span>vec16_bsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec16_bsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec16__t.html">vec16_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a binary search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a binary search on the sorted vector using <code>cmp</code> as a comparison function. Note that if the vector is not sorted, this function will not work, then you must use <code><a class="el" href="group__vec16.html#ga647ea5601d94db41fedbcc16a30ff47b" title="Perform a linear search on the vector. ">vec16_lsearch()</a></code>.</p>
+<p>It returns an index to an element that is equal to <code>data</code>.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint16_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<p>Find an element in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> vec = <a class="code" href="group__vec16.html#ga33ced4dd9819dcf1dd44101b8b3ccb39">vec16_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c">vec16_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// bsearch only works for sorted vectors, so sort it</span></div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// find &#39;9&#39;</span></div><div class="line">uint32_t target = 9;</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036">vec16_bsearch</a>(&amp;vec, &amp;target, NULL) == 2);</div><div class="line"></div><div class="line"><span class="comment">// find an element that doesn&#39;t exist</span></div><div class="line">target = 0;</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036">vec16_bsearch</a>(&amp;vec, &amp;target, NULL) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga9ed63ecb4d7cdac0f2fa3c33c14f70e3"></a>
@@ -329,6 +413,55 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="comment">// creates a vec with length 2</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> vec = <a class="code" href="group__vec16.html#ga33ced4dd9819dcf1dd44101b8b3ccb39">vec16_new</a>(2, 0);</div><div class="line"></div><div class="line"><span class="comment">// checks length</span></div><div class="line">assert(<a class="code" href="group__vec16.html#gaa7906741a690123bfec63e47eb7b1896">vec16_len</a>(&amp;vec) == 2);</div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
+<a id="ga647ea5601d94db41fedbcc16a30ff47b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga647ea5601d94db41fedbcc16a30ff47b">&#9670;&nbsp;</a></span>vec16_lsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec16_lsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec16__t.html">vec16_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a linear search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a linear search on the vector, meaning that it will traverse it in order and compare all elements to <code>data</code> using <code>cmp</code>, a comparison function supplied by the user. Returns the index of the first element for which the comparison function indicates that the elements are equal.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint32_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="ga33ced4dd9819dcf1dd44101b8b3ccb39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga33ced4dd9819dcf1dd44101b8b3ccb39">&#9670;&nbsp;</a></span>vec16_new()</h2>
 
@@ -498,6 +631,46 @@ Functions</h2></td></tr>
 <p>set elements in a pre-filled <code><a class="el" href="structvec16__t.html" title="vector of uint16_t data type. ">vec16_t</a></code></p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec16</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> vec = <a class="code" href="group__vec16.html#ga33ced4dd9819dcf1dd44101b8b3ccb39">vec16_new</a>(10, 99);</div><div class="line"></div><div class="line"><span class="comment">// returns previous element</span></div><div class="line">assert(<a class="code" href="group__vec16.html#ga1cafa1e11d403715172725b4ac25b9e7">vec16_set</a>(&amp;vec, 0, 15) == 99);</div><div class="line"></div><div class="line"><span class="comment">// check if set worked</span></div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 0) == 15);</div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(&amp;vec);</div></div><!-- fragment --><p>set elements in a <code><a class="el" href="structvec16__t.html" title="vector of uint16_t data type. ">vec16_t</a></code> that has been pushed to</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a new empty vec16</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> vec = <a class="code" href="group__vec16.html#ga33ced4dd9819dcf1dd44101b8b3ccb39">vec16_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// push some data into it</span></div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 15);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 95);</div><div class="line"></div><div class="line"><span class="comment">// set new values</span></div><div class="line"><a class="code" href="group__vec16.html#ga1cafa1e11d403715172725b4ac25b9e7">vec16_set</a>(&amp;vec, 0, 100);</div><div class="line"><a class="code" href="group__vec16.html#ga1cafa1e11d403715172725b4ac25b9e7">vec16_set</a>(&amp;vec, 1, 200);</div><div class="line"></div><div class="line"><span class="comment">// check values</span></div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 0) == 100);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 1) == 200);</div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(&amp;vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gaf26b2447e09e1fe7aa0b4084f08e567c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf26b2447e09e1fe7aa0b4084f08e567c">&#9670;&nbsp;</a></span>vec16_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vec16_sort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvec16__t.html">vec16_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sort the vector. </p>
+<p>Sorts the vector in-place using the provided comparison function.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint16_t</code>, and compares each element with that.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to sort. </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec16__t.html">vec16_t</a> vec = <a class="code" href="group__vec16.html#ga33ced4dd9819dcf1dd44101b8b3ccb39">vec16_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec16.html#ga66f30e046968a2dd6d58903494092ee6">vec16_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c">vec16_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// check that it&#39;s sorted</span></div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec16.html#ga9c97811fafa548c7eeade89caeb45a23">vec16_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec16.html#ga1ff80a64e663001f8f0baecfe2857c60">vec16_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga53c60a65009e117964d44fdc18093484"></a>

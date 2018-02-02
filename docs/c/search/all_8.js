@@ -9,5 +9,6 @@ var searchData=
   ['prime_5fnew',['prime_new',['../group__prime.html#ga64326e7337fe28ddbb8d3bf5bf5bac24',1,'prime_new():&#160;prime.c'],['../group__prime.html#ga64326e7337fe28ddbb8d3bf5bf5bac24',1,'prime_new():&#160;prime.c']]],
   ['prime_5fnth',['prime_nth',['../group__prime.html#ga6853c069f21e6c44d5c44d4d92de2ed5',1,'prime_nth(prime_t *p, size_t n):&#160;prime.c'],['../group__prime.html#ga6853c069f21e6c44d5c44d4d92de2ed5',1,'prime_nth(prime_t *p, size_t n):&#160;prime.c']]],
   ['prime_5ft',['prime_t',['../structprime__t.html',1,'']]],
-  ['prime_5fwhich',['prime_which',['../group__prime.html#gac8df20a781def428afa1c43f70d88ee5',1,'prime_which(prime_t *p, uint32_t pr):&#160;prime.c'],['../group__prime.html#gac8df20a781def428afa1c43f70d88ee5',1,'prime_which(prime_t *p, uint32_t pr):&#160;prime.c']]]
+  ['prime_5fwhich',['prime_which',['../group__prime.html#gac8df20a781def428afa1c43f70d88ee5',1,'prime_which(prime_t *p, uint32_t pr):&#160;prime.c'],['../group__prime.html#gac8df20a781def428afa1c43f70d88ee5',1,'prime_which(prime_t *p, uint32_t pr):&#160;prime.c']]],
+  ['primes',['primes',['../structprime__t.html#ab36d8effcfe43a4fd3bd8dbccf4e3ee8',1,'prime_t']]]
 ];

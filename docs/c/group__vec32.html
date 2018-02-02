@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vec32</div>  </div>
@@ -77,6 +78,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvec32__t.html">vec32_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of uint32_t data type.  <a href="structvec32__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga097a00634a6c3e0ffc940a66cdb4372b"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga097a00634a6c3e0ffc940a66cdb4372b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="#ga097a00634a6c3e0ffc940a66cdb4372b">More...</a><br /></td></tr>
+<tr class="separator:ga097a00634a6c3e0ffc940a66cdb4372b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,12 +117,39 @@ Functions</h2></td></tr>
 <tr class="memitem:ga501c08c5ef1ac66d18f1b49e3cbe1907"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#ga501c08c5ef1ac66d18f1b49e3cbe1907">vec32_index</a> (const <a class="el" href="structvec32__t.html">vec32_t</a> *v, uint32_t data)</td></tr>
 <tr class="memdesc:ga501c08c5ef1ac66d18f1b49e3cbe1907"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="#ga501c08c5ef1ac66d18f1b49e3cbe1907">More...</a><br /></td></tr>
 <tr class="separator:ga501c08c5ef1ac66d18f1b49e3cbe1907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0bc87eea6742431cf8f684e53aae55d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#gae0bc87eea6742431cf8f684e53aae55d">vec32_lsearch</a> (const <a class="el" href="structvec32__t.html">vec32_t</a> *v, void *data, <a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gae0bc87eea6742431cf8f684e53aae55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="#gae0bc87eea6742431cf8f684e53aae55d">More...</a><br /></td></tr>
+<tr class="separator:gae0bc87eea6742431cf8f684e53aae55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac998930271d887cbea7e373df8a8fc1a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#gac998930271d887cbea7e373df8a8fc1a">vec32_bsearch</a> (const <a class="el" href="structvec32__t.html">vec32_t</a> *v, void *data, <a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gac998930271d887cbea7e373df8a8fc1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="#gac998930271d887cbea7e373df8a8fc1a">More...</a><br /></td></tr>
+<tr class="separator:gac998930271d887cbea7e373df8a8fc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf69a97655fb0fb7c4fbae95afe917712"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#gaf69a97655fb0fb7c4fbae95afe917712">vec32_sort</a> (<a class="el" href="structvec32__t.html">vec32_t</a> *v, <a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gaf69a97655fb0fb7c4fbae95afe917712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="#gaf69a97655fb0fb7c4fbae95afe917712">More...</a><br /></td></tr>
+<tr class="separator:gaf69a97655fb0fb7c4fbae95afe917712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga89637765155d397aae3fdb1102f9a416"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec32.html#ga89637765155d397aae3fdb1102f9a416">vec32_sum</a> (const <a class="el" href="structvec32__t.html">vec32_t</a> *v)</td></tr>
 <tr class="memdesc:ga89637765155d397aae3fdb1102f9a416"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the sum of the vector.  <a href="#ga89637765155d397aae3fdb1102f9a416">More...</a><br /></td></tr>
 <tr class="separator:ga89637765155d397aae3fdb1102f9a416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>data type and functions for handling vectors of <code>uint32_t</code> </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga097a00634a6c3e0ffc940a66cdb4372b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga097a00634a6c3e0ffc940a66cdb4372b">&#9670;&nbsp;</a></span>vec32_cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* vec32_cmp) (const void *, const void *)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison function between two elements. </p>
+<p>Functions that have this type can be used as sorting functions with <code><a class="el" href="group__vec32.html#gaf69a97655fb0fb7c4fbae95afe917712" title="Sort the vector. ">vec32_sort()</a></code>, or as comparison functions for <code><a class="el" href="group__vec32.html#gac998930271d887cbea7e373df8a8fc1a" title="Perform a binary search on the vector. ">vec32_bsearch()</a></code>. Functions are expected to behave in the same way as comparison functions for the <code>qsort()</code> function of the standard library. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga8105427fa7427284878c0238a1af6a7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8105427fa7427284878c0238a1af6a7b">&#9670;&nbsp;</a></span>vec32_alloc()</h2>
@@ -157,6 +191,56 @@ Functions</h2></td></tr>
 <p>creating a new empty uint32_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates an empty vec32</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> *vec = <a class="code" href="group__vec32.html#ga8105427fa7427284878c0238a1af6a7b">vec32_alloc</a>(0, 0);</div><div class="line"></div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --><p>creating a pre-filled uint32_t vector</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec32</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> *vec = <a class="code" href="group__vec32.html#ga8105427fa7427284878c0238a1af6a7b">vec32_alloc</a>(10, 99);</div><div class="line"></div><div class="line">assert(<a class="code" href="group__vec32.html#ga67d98adff29507dd90378dbb912eb4a6">vec32_len</a>(vec) == 10);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(vec, 0) == 99);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(vec, 9) == 99);</div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(vec);</div><div class="line">free(vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gac998930271d887cbea7e373df8a8fc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac998930271d887cbea7e373df8a8fc1a">&#9670;&nbsp;</a></span>vec32_bsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec32_bsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec32__t.html">vec32_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a binary search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a binary search on the sorted vector using <code>cmp</code> as a comparison function. Note that if the vector is not sorted, this function will not work, then you must use <code><a class="el" href="group__vec32.html#gae0bc87eea6742431cf8f684e53aae55d" title="Perform a linear search on the vector. ">vec32_lsearch()</a></code>.</p>
+<p>It returns an index to an element that is equal to <code>data</code>.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint32_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<p>Find an element in a sorted vector.</p>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> vec = <a class="code" href="group__vec32.html#gaf1a2d7190285201f639b907122247545">vec32_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec32.html#gaf69a97655fb0fb7c4fbae95afe917712">vec32_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// bsearch only works for sorted vectors, so sort it</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// find &#39;9&#39;</span></div><div class="line">uint32_t target = 9;</div><div class="line">assert(<a class="code" href="group__vec32.html#gac998930271d887cbea7e373df8a8fc1a">vec32_bsearch</a>(&amp;vec, &amp;target, NULL) == 2);</div><div class="line"></div><div class="line"><span class="comment">// find an element that doesn&#39;t exist</span></div><div class="line">target = 0;</div><div class="line">assert(<a class="code" href="group__vec32.html#gac998930271d887cbea7e373df8a8fc1a">vec32_bsearch</a>(&amp;vec, &amp;target, NULL) == SIZE_MAX);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="gaaf61b2174c5442e8e0c3141deb300a48"></a>
@@ -329,6 +413,55 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="comment">// creates a vec with length 2</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> vec = <a class="code" href="group__vec32.html#gaf1a2d7190285201f639b907122247545">vec32_new</a>(2, 0);</div><div class="line"></div><div class="line"><span class="comment">// checks length</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga67d98adff29507dd90378dbb912eb4a6">vec32_len</a>(&amp;vec) == 2);</div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
+<a id="gae0bc87eea6742431cf8f684e53aae55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0bc87eea6742431cf8f684e53aae55d">&#9670;&nbsp;</a></span>vec32_lsearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t vec32_lsearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structvec32__t.html">vec32_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a linear search on the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to search </td></tr>
+    <tr><td class="paramname">data</td><td>data to search for </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an index to the found element, or <code>SIZE_MAX</code></dd></dl>
+<p>This function performs a linear search on the vector, meaning that it will traverse it in order and compare all elements to <code>data</code> using <code>cmp</code>, a comparison function supplied by the user. Returns the index of the first element for which the comparison function indicates that the elements are equal.</p>
+<p>If <code>NULL</code> is passed as <code>cmp</code>, then the built-in comparison function is used, which assumes that <code>data</code> is a pointer to <code>uint32_t</code>, and compares each element with that.</p>
+<h2>Examples</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="gaf1a2d7190285201f639b907122247545"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf1a2d7190285201f639b907122247545">&#9670;&nbsp;</a></span>vec32_new()</h2>
 
@@ -498,6 +631,45 @@ Functions</h2></td></tr>
 <p>set elements in a pre-filled <code><a class="el" href="structvec32__t.html" title="vector of uint32_t data type. ">vec32_t</a></code></p>
 <div class="fragment"><div class="line"><span class="comment">// creates a pre-filled vec32</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> vec = <a class="code" href="group__vec32.html#gaf1a2d7190285201f639b907122247545">vec32_new</a>(10, 99);</div><div class="line"></div><div class="line"><span class="comment">// returns previous element</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga3b4d78afc51457c7099377c6fbc23052">vec32_set</a>(&amp;vec, 0, 15) == 99);</div><div class="line"></div><div class="line"><span class="comment">// check if set worked</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 0) == 15);</div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(&amp;vec);</div></div><!-- fragment --><p>set elements in a <code><a class="el" href="structvec32__t.html" title="vector of uint32_t data type. ">vec32_t</a></code> that has been pushed to</p>
 <div class="fragment"><div class="line"><span class="comment">// creates a new empty vec32</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> vec = <a class="code" href="group__vec32.html#gaf1a2d7190285201f639b907122247545">vec32_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// push some data into it</span></div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 15);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 95);</div><div class="line"></div><div class="line"><span class="comment">// set new values</span></div><div class="line"><a class="code" href="group__vec32.html#ga3b4d78afc51457c7099377c6fbc23052">vec32_set</a>(&amp;vec, 0, 100);</div><div class="line"><a class="code" href="group__vec32.html#ga3b4d78afc51457c7099377c6fbc23052">vec32_set</a>(&amp;vec, 1, 200);</div><div class="line"></div><div class="line"><span class="comment">// check values</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 0) == 100);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 1) == 200);</div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(&amp;vec);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gaf69a97655fb0fb7c4fbae95afe917712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf69a97655fb0fb7c4fbae95afe917712">&#9670;&nbsp;</a></span>vec32_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vec32_sort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvec32__t.html">vec32_t</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__vec32.html#ga097a00634a6c3e0ffc940a66cdb4372b">vec32_cmp</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sort the vector. </p>
+<p>Sorts the vector in-place using the provided comparison function. If <code>NULL</code> is passed as comparison function, then falls back to a built-in comparison function that sorts the numbers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vector to sort. </td></tr>
+    <tr><td class="paramname">cmp</td><td>comparison function between elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// new empty vector</span></div><div class="line"><a class="code" href="structvec32__t.html">vec32_t</a> vec = <a class="code" href="group__vec32.html#gaf1a2d7190285201f639b907122247545">vec32_new</a>(0, 0);</div><div class="line"></div><div class="line"><span class="comment">// adds some data to it</span></div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 9);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 5);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 14);</div><div class="line"><a class="code" href="group__vec32.html#gaf637a5dd4fc2d47514b6cdd1b9341c82">vec32_push</a>(&amp;vec, 1);</div><div class="line"></div><div class="line"><span class="comment">// sort vector</span></div><div class="line"><a class="code" href="group__vec32.html#gaf69a97655fb0fb7c4fbae95afe917712">vec32_sort</a>(&amp;vec, NULL);</div><div class="line"></div><div class="line"><span class="comment">// check that it&#39;s sorted</span></div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 0) == 1);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 1) == 5);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 2) == 9);</div><div class="line">assert(<a class="code" href="group__vec32.html#ga852aee55c3f73da78fc057a2ec82ffb5">vec32_get</a>(&amp;vec, 3) == 14);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__vec32.html#ga3f86a12d44f57c1b5729aebad12dc796">vec32_free</a>(&amp;vec);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga89637765155d397aae3fdb1102f9a416"></a>

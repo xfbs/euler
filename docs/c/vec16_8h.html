@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">vec16.h File Reference</div>  </div>
@@ -85,6 +86,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvec16__t.html">vec16_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of uint16_t data type.  <a href="structvec16__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a>) (const void *, const void *)</td></tr>
+<tr class="memdesc:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison function between two elements.  <a href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">More...</a><br /></td></tr>
+<tr class="separator:ga8ab168a09b4fd5afd95898ef14bb6152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -118,6 +125,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1d1a7af3f4755886c996d1474da70f31"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga1d1a7af3f4755886c996d1474da70f31">vec16_index</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, uint16_t data)</td></tr>
 <tr class="memdesc:ga1d1a7af3f4755886c996d1474da70f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform reverse lookup on vector  <a href="group__vec16.html#ga1d1a7af3f4755886c996d1474da70f31">More...</a><br /></td></tr>
 <tr class="separator:ga1d1a7af3f4755886c996d1474da70f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga647ea5601d94db41fedbcc16a30ff47b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga647ea5601d94db41fedbcc16a30ff47b">vec16_lsearch</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, void *data, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga647ea5601d94db41fedbcc16a30ff47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a linear search on the vector.  <a href="group__vec16.html#ga647ea5601d94db41fedbcc16a30ff47b">More...</a><br /></td></tr>
+<tr class="separator:ga647ea5601d94db41fedbcc16a30ff47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a6519f4800fed4b63e8d6b200c79036"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036">vec16_bsearch</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v, void *data, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:ga9a6519f4800fed4b63e8d6b200c79036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a binary search on the vector.  <a href="group__vec16.html#ga9a6519f4800fed4b63e8d6b200c79036">More...</a><br /></td></tr>
+<tr class="separator:ga9a6519f4800fed4b63e8d6b200c79036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c">vec16_sort</a> (<a class="el" href="structvec16__t.html">vec16_t</a> *v, <a class="el" href="group__vec16.html#ga8ab168a09b4fd5afd95898ef14bb6152">vec16_cmp</a> cmp)</td></tr>
+<tr class="memdesc:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the vector.  <a href="group__vec16.html#gaf26b2447e09e1fe7aa0b4084f08e567c">More...</a><br /></td></tr>
+<tr class="separator:gaf26b2447e09e1fe7aa0b4084f08e567c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga53c60a65009e117964d44fdc18093484"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vec16.html#ga53c60a65009e117964d44fdc18093484">vec16_sum</a> (const <a class="el" href="structvec16__t.html">vec16_t</a> *v)</td></tr>
 <tr class="memdesc:ga53c60a65009e117964d44fdc18093484"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the sum of the vector.  <a href="group__vec16.html#ga53c60a65009e117964d44fdc18093484">More...</a><br /></td></tr>
 <tr class="separator:ga53c60a65009e117964d44fdc18093484"><td class="memSeparator" colspan="2">&#160;</td></tr>
