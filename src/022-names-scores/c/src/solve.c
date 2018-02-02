@@ -1,19 +1,6 @@
 #include "solve.h"
-#include <stdio.h>
 #include <euler/vec.h>
-
-static int alphabetical(const void *_a, const void *_b) {
-  const char *a = *(const char **)_a;
-  const char *b = *(const char **)_b;
-  size_t i = 0;
-  while (a[i] != '\0' && b[i] != '\0' && a[i] == b[i])
-    i++;
-  if (a[i] == b[i])
-    return 0;
-  if (a[i] < b[i])
-    return -1;
-  return 1;
-}
+#include <string.h>
 
 uint64_t weight(const char *str) {
   uint64_t w = 0;
@@ -25,7 +12,7 @@ uint64_t weight(const char *str) {
 }
 
 uint64_t solve(vecp_t *v) {
-  vec_sort(v, alphabetical);
+  vec_sort(v, (vecp_cmp) strcmp);
 
   uint64_t sum = 0;
   for (size_t i = 0; i < vec_len(v); i++) {
