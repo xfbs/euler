@@ -18,9 +18,9 @@ uint64_t solve(uint32_t avoid) {
       uint32_t third = second + offset;
 
       // make sure all the numbers are prime
-      if (SIZE_MAX == prime_which(&p, second))
+      if (!prime_check(&p, second))
         continue;
-      if (SIZE_MAX == prime_which(&p, third))
+      if (!prime_check(&p, third))
         continue;
 
       // make sure all are permutations of each other
