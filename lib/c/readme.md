@@ -29,12 +29,9 @@ targets:
 
 There are some variables that can be used to customize the build:
 
-  - `CC` chooses a different C compiler. Use like so:
-
-```
-# build with clang++-5.0.1
-make CC="clang++-5.0.1"
-```
+  - `CC` chooses a different C compiler. For example, running
+    `make CC="clang-5.0"` will use `clang-5.0` as compiler instead of `cc`, the
+    system standard.
 
   - `OPTIMIZE` gets passed to both the compiler (`CFLAGS`) and the linker
     (`LDFLAGS`). This can be used to set custom optimization options, for
@@ -50,24 +47,22 @@ that there is a very tiny C unit testing helper in `include/euler/test.h`. This
 is used to write the tests in the `test/` folder. 
 
 Additionally, there is a script, `test/doc_test.rb`, which is used by the
-Makefile to automatically extract tests from the documentation. Any time it
-encounters a commented block like
+Makefile to automatically extract tests from the documentation and place them
+into `test/doc_test.c`. Any time it encounters a commented block like
 
-```c
-//! \`\`\`c
-//! int a = 5;
-//! assert(a == 5);
-//! \`\`\`
-```
+    //! ```c
+    //! int a = 5;
+    //! assert(a == 5);
+    //! ```
 
 It tries its best to figure out which function this code snippet is for (using
 some very simple regexes) and then it constructs a testing method for that,
 nameing the method something like `doctest_filename_methodname`.
 
 Then there is a third script, `test/all.rb`, which generates the necessary
-`main` method for all the tests, by parsing all `*_test.c` files in `test/`,
-and parsing it for lines like `void your_test()`. This script is run
-automatically by the `Makefile`, too. 
+`main` method for all the tests in `test/all.c`, by parsing all `*_test.c`
+files in `test/`, and parsing it for lines like `void your_test()`. This script
+is run automatically by the `Makefile`, too. 
 
 #### Test Coverage
 
