@@ -1544,7 +1544,7 @@ void doctest_vecp_bsearch_2() {
   vecp_free(&vec);
 }
 
-void doctest_vecp_sort() {
+void doctest_vecp_sort_1() {
   // new empty vector
   vecp_t vec = vecp_new(0, NULL);
 
@@ -1562,6 +1562,26 @@ void doctest_vecp_sort() {
   assert(vecp_get(&vec, 1) == (void *) 0xC0FFEBAD);
   assert(vecp_get(&vec, 2) == (void *) 0xCAEFBABE);
   assert(vecp_get(&vec, 3) == (void *) 0xDEADBEEF);
+
+  // release
+  vecp_free(&vec);
+}
+
+void doctest_vecp_sort_2() {
+  // new empty vector
+  vecp_t vec = vecp_new(0, NULL);
+
+  // add some strings to vector
+  vecp_push(&vec, "Hello");
+  vecp_push(&vec, "Testing");
+  vecp_push(&vec, "Andersson");
+
+  // sort strings in vector with strcmp
+  vecp_sort(&vec, (vecp_cmp) strcmp);
+
+  assert(0 == strcmp(vecp_get(&vec, 0), "Andersson"));
+  assert(0 == strcmp(vecp_get(&vec, 1), "Hello"));
+  assert(0 == strcmp(vecp_get(&vec, 2), "Testing"));
 
   // release
   vecp_free(&vec);

@@ -535,6 +535,23 @@ size_t vecp_bsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //! Sort strings with `strcmp()`
 //!
 //! ```c
+//! // new empty vector
+//! vecp_t vec = vecp_new(0, NULL);
+//!
+//! // add some strings to vector
+//! vecp_push(&vec, "Hello");
+//! vecp_push(&vec, "Testing");
+//! vecp_push(&vec, "Andersson");
+//!
+//! // sort strings in vector with strcmp
+//! vecp_sort(&vec, (vecp_cmp) strcmp);
+//!
+//! assert(0 == strcmp(vecp_get(&vec, 0), "Andersson"));
+//! assert(0 == strcmp(vecp_get(&vec, 1), "Hello"));
+//! assert(0 == strcmp(vecp_get(&vec, 2), "Testing"));
+//!
+//! // release
+//! vecp_free(&vec);
 //! ```
 void vecp_sort(vecp_t *v, vecp_cmp cmp);
 

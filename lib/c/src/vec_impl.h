@@ -1,8 +1,6 @@
 // generic vector implementation
 
 const static size_t initial_capacity = 256;
-const static size_t element_size = sizeof(elem_t);
-const static size_t vector_size  = sizeof(vec_t);
 
 #ifdef default_cmp
 static int default_cmp(const void *_a, const void *_b) {
@@ -47,7 +45,7 @@ vec_t vec_new(size_t len, elem_t fill) {
 
   // allocate data of given capacity, calloc ensures that the data is
   // zero-initialized.
-  v.data = calloc(v.cap, element_size);
+  v.data = calloc(v.cap, sizeof(elem_t));
 
   // we don't need to initialize the array if it should be filled with zeroes.
   if (fill != 0) {
@@ -62,7 +60,7 @@ vec_t vec_new(size_t len, elem_t fill) {
 
 #ifdef vec_alloc
 vec_t *vec_alloc(size_t len, elem_t fill) {
-  vec_t *v = malloc(vector_size);
+  vec_t *v = malloc(sizeof(vec_t));
   *v = vec_new(len, fill);
   return v;
 }
@@ -75,7 +73,7 @@ void vec_reserve(vec_t *v, size_t size) {
       v->cap *= 2;
     }
 
-    v->data = realloc(v->data, v->cap * element_size);
+    v->data = realloc(v->data, v->cap * sizeof(elem_t));
   }
 }
 #endif
@@ -132,7 +130,7 @@ size_t vec_bsearch(const vec_t *v, void *data, elem_cmp _cmp) {
   const elem_cmp cmp = _cmp ? _cmp : default_cmp;
 
   // use built-in bsearch
-  elem_t *elem = bsearch(data, v->data, vec_len(v), element_size, cmp);
+  elem_t *elem = bsearch(data, v->data, vec_len(v), sizeof(elem_t), cmp);
 
   // return SIZE_MAX if we didn't find anything
   return elem ? elem - v->data : SIZE_MAX;
@@ -145,7 +143,7 @@ void vec_sort(vec_t *v, elem_cmp _cmp) {
   const elem_cmp cmp = _cmp ? _cmp : default_cmp;
 
   // use built-in (quick?) sort
-  qsort(v->data, v->len, element_size, cmp);
+  qsort(v->data, v->len, sizeof(elem_t), cmp);
 }
 #endif
 
