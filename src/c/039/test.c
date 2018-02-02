@@ -7,5 +7,5 @@ void test_solutions_count() {
   assert(solutions_count(12) == 1);
 }
 
-void test_solve() { assert(solve(12) == 12); }
+void test_solve_039() { assert(solve_039(12) == 12); }
 

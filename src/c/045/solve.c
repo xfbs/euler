@@ -7,7 +7,7 @@ uint64_t pentagonal(uint32_t p) { return (3LL * p - 1) * p / 2; }
 
 uint64_t hexagonal(uint32_t h) { return (2LL * h - 1) * h; }
 
-uint64_t solve(uint32_t t, uint32_t p, uint32_t h) {
+uint64_t solve_045(uint32_t t, uint32_t p, uint32_t h) {
   uint64_t tt = triangular(t);
   uint64_t pp = pentagonal(p);
   uint64_t hh = hexagonal(h);

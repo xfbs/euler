@@ -4,7 +4,7 @@ static const size_t factors_size = 10240;
 
 void make_factors(prime_t *p, size_t off, uint8_t f[], uint8_t ct);
 
-uint64_t solve(uint8_t count) {
+uint64_t solve_047(uint8_t count) {
   // factors is a `window` of numbers from `window_offset` to
   // `window_offset + window_size`. it keeps a list of how many prime factors
   // each number has (up to `count + 1`, anything above we don't care about).

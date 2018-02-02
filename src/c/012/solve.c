@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(size_t max) {
+uint32_t solve_012(size_t max) {
   uint32_t triangle = 1;
   uint32_t index = 1;
   prime_t p = prime_new();

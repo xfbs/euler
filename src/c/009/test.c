@@ -2,7 +2,7 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() { assert(60 == solve(12)); }
+void test_solve_009() { assert(60 == solve_009(12)); }
 
 void test_is_pythagorean_triplet() {
   assert(is_pythagorean_triplet(3, 4, 5) == true);

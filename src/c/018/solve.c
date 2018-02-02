@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(triangle_t *t) {
+uint32_t solve_018(triangle_t *t) {
   while (t->rows != 1) {
     triangle_simplify(t);
   }

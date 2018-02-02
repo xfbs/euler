@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(uint32_t value) {
+uint32_t solve_031(uint32_t value) {
   uint32_t coins[] = {200, 100, 50, 20, 10, 5, 2, 1, 0};
   return change(coins, value, 0);
 }

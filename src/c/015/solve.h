@@ -8,5 +8,5 @@ typedef struct {
     size_t y;
 } cache_t;
 
-uint64_t solve(size_t x, size_t y);
+uint64_t solve_015(size_t x, size_t y);
 uint64_t paths(cache_t cache, size_t x, size_t y);

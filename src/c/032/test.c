@@ -11,5 +11,5 @@ void test_pandigital_product() {
   assert(pandigital_product(39, 187) == 0);
 }
 
-void test_solve() {}
+void test_solve_032() {}
 

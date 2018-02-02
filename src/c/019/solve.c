@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(date_t start, date_t end) {
+uint32_t solve_019(date_t start, date_t end) {
   int count = (start.day == 1 && start.weekday == SUNDAY) ? 1 : 0;
 
   while (start.year < end.year || start.month < end.month) {

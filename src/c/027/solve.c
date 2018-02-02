@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <stdbool.h>
 
-int32_t solve(int32_t max) {
+int32_t solve_027(int32_t max) {
   int32_t product = 1;
   uint32_t run = 0;
   prime_t p = prime_new();

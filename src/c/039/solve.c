@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(uint32_t max) {
+uint32_t solve_039(uint32_t max) {
   uint32_t res = 0;
   uint32_t val = 0;
 

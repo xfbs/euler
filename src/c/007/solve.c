@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <euler/prime.h>
 
-uint64_t solve(uint32_t pos) {
+uint64_t solve_007(uint32_t pos) {
   prime_t p = prime_new();
 
   // generate nth prime (subtract pos by one because prime_nth is

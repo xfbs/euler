@@ -9,5 +9,5 @@ void test_check_fraction() {
   assert(!check_fraction(1, 2, 3, 4));
 }
 
-void test_solve() { assert(solve() > 1); }
+void test_solve_033() { assert(solve_033() > 1); }
 

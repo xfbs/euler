@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-uint32_t solve() {
+uint32_t solve_032() {
   vec16_t products = vec16_new(0, 0);
 
   for (uint32_t a = 1; a < 99; a++) {

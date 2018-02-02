@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-  printf("%i\n", solve(10000));
+  printf("%i\n", solve_021(10000));
 
   return 0;
 }

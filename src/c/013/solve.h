@@ -2,4 +2,4 @@
 #include <euler/vecp.h>
 #pragma once
 
-uint64_t solve(vecp_t *numbers);
+uint64_t solve_013(vecp_t *numbers);

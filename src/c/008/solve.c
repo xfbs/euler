@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint64_t solve(vec8_t *v, size_t len) {
+uint64_t solve_008(vec8_t *v, size_t len) {
   // find sequence of contiguous, non-zero numbers of length len
   size_t run = 0;
   size_t start = vec8_len(v);

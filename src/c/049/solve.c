@@ -2,7 +2,7 @@
 #include <euler/prime.h>
 #include <stddef.h>
 
-uint64_t solve(uint32_t avoid) {
+uint64_t solve_049(uint32_t avoid) {
   prime_t p = prime_new();
 
   // gen all primes up to 10000

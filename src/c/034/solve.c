@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <euler/math.h>
 
-uint64_t solve(uint64_t max) {
+uint64_t solve_034(uint64_t max) {
   // pre-populate a list of all the factorials we will need
   uint64_t factorials[10];
   for (uint8_t i = 0; i < 10; i++)

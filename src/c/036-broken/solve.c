@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <stdio.h>
 
-uint32_t solve(uint32_t max) {
+uint32_t solve_036(uint32_t max) {
   uint32_t sum = 0;
 
   for (uint32_t i = 0; i < max; i++) {

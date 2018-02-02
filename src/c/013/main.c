@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  printf("%llu\n", solve(&v));
+  printf("%llu\n", solve_013(&v));
   vec_free(&v);
 
   return 0;

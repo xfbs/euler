@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint64_t solve(uint64_t max) {
+uint64_t solve_028(uint64_t max) {
   uint64_t sum = 1;
   uint64_t cur = 1;
 

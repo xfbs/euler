@@ -30,7 +30,7 @@ uint64_t max_product(vecp_t *grid, int8_t dir_x, int8_t dir_y, size_t len) {
   return max;
 }
 
-uint64_t solve(vecp_t *grid, size_t len) {
+uint64_t solve_011(vecp_t *grid, size_t len) {
   uint64_t max = 0;
   int8_t dirs[4][2] = {{0, 1}, {1, 0}, {1, 1}, {1, -1}};
 

@@ -2,7 +2,7 @@
 #include <math.h>
 #include <euler/prime.h>
 
-uint64_t solve(uint64_t num) {
+uint64_t solve_003(uint64_t num) {
   prime_t primes = prime_new();
 
   uint64_t cur = 2;

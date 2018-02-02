@@ -35,7 +35,7 @@ typedef struct {
     int year;
 } date_t;
 
-uint32_t solve(date_t start, date_t end);
+uint32_t solve_019(date_t start, date_t end);
 bool is_leap_year(date_t date);
 size_t month_length(date_t date);
 date_t next_month(date_t date);

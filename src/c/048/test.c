@@ -2,10 +2,10 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() {
-  assert(10405071317 == solve(10, 11));
-  assert(405071317 == solve(10, 10));
-  assert(71317 == solve(10, 5));
+void test_solve_048() {
+  assert(10405071317 == solve_048(10, 11));
+  assert(405071317 == solve_048(10, 10));
+  assert(71317 == solve_048(10, 5));
 }
 
 

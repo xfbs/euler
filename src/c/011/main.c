@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     vec_push(&grid, (void *)vec8_alloc(0, 0));
   }
 
-  printf("%llu\n", solve(&grid, 4));
+  printf("%llu\n", solve_011(&grid, 4));
 
   return 0;
 }

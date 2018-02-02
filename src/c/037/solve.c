@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(size_t max) {
+uint32_t solve_037(size_t max) {
   prime_t p = prime_new();
   uint32_t sum = 0;
 

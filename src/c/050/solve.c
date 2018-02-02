@@ -2,7 +2,7 @@
 #include <euler/prime.h>
 #include <stddef.h>
 
-uint64_t solve(uint64_t max) {
+uint64_t solve_050(uint64_t max) {
   prime_t p = prime_new();
 
   // find the max len

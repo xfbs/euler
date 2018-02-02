@@ -2,7 +2,7 @@
 #include <euler/math.h>
 #include <stdbool.h>
 
-uint32_t solve(size_t max) {
+uint32_t solve_023(size_t max) {
   uint8_t possible[max];
   for (size_t i = 0; i < max; i++)
     possible[i] = false;

@@ -2,12 +2,12 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() {
-  assert(solve(50, 10, 25) == 175);
-  assert(solve(50, 25, 10) == 175);
-  assert(solve(55, 10, 25) == 175);
-  assert(solve(55, 25, 10) == 175);
-  assert(solve(9, 3, 5) == 23);
+void test_solve_001() {
+  assert(solve_001(50, 10, 25) == 175);
+  assert(solve_001(50, 25, 10) == 175);
+  assert(solve_001(55, 10, 25) == 175);
+  assert(solve_001(55, 25, 10) == 175);
+  assert(solve_001(9, 3, 5) == 23);
 }
 
 void test_sum() {

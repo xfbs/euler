@@ -14,8 +14,8 @@ void test_quadratic_prime_run() {
   prime_free(&p);
 }
 
-void test_solve() {
-  assert(-126479 == solve(1700));
-  assert(-41 == solve(42));
+void test_solve_027() {
+  assert(-126479 == solve_027(1700));
+  assert(-41 == solve_027(42));
 }
 

@@ -16,7 +16,7 @@ bool is_p(uint64_t x) { return p(p_inverse(x)) == x; }
 
 uint64_t b(uint64_t n) { return (3 * n * n + 5 * n) / 2; }
 
-uint64_t solve() {
+uint64_t solve_044() {
   for (uint64_t i = 1;; i++) {
     // calculate p(i)
     uint64_t p_i = p(i);

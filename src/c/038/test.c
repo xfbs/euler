@@ -18,8 +18,8 @@ void test_pandigital_multiple() {
   assert(pandigital_multiple(9) == 918273645);
 }
 
-void test_solve() {
-  assert(solve() >= 123456789);
-  assert(solve() <= 987654321);
+void test_solve_038() {
+  assert(solve_038() >= 123456789);
+  assert(solve_038() <= 987654321);
 }
 

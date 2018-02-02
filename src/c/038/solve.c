@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 
-uint64_t solve() {
+uint64_t solve_038() {
   uint64_t max = 0;
 
   for (uint32_t base = 0; base < 10000; base++) {

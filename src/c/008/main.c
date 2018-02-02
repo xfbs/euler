@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     vec8_push(&v, c - '0');
   }
 
-  printf("%llu\n", solve(&v, 13));
+  printf("%llu\n", solve_008(&v, 13));
 
   return 0;
 }

@@ -77,10 +77,10 @@ void test_triangle_simplify() {
   assert(triangle_get(t, 0, 0) == 23);
 }
 
-void test_solve() {
+void test_solve_018() {
   uint32_t sample[] = {3, 7, 4, 2, 4, 6, 8, 5, 9, 3};
 
   triangle_t t = {&sample[0], 4};
-  assert(solve(&t) == 23);
+  assert(solve_018(&t) == 23);
 }
 

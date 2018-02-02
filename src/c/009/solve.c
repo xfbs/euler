@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(uint32_t n) {
+uint32_t solve_009(uint32_t n) {
   for (uint32_t c = (n - 3) / 3; c < (n - 1); c++) {
     for (uint32_t b = (n - c - 1) / 2; (c < n - c) ? (b < c) : (b < (n - c));
          b++) {

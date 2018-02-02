@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-uint64_t solve() {
+uint64_t solve_046() {
   prime_t p = prime_new();
 
   uint64_t num = 1;

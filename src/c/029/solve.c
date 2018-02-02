@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-uint32_t solve(uint32_t max_a, uint32_t max_b) {
+uint32_t solve_029(uint32_t max_a, uint32_t max_b) {
   // if all powers were equal, this is what the sum would be
   uint32_t sum = (max_a - 1) * (max_b - 1);
 

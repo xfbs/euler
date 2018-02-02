@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <stdlib.h>
 
-uint64_t solve(size_t x, size_t y) {
+uint64_t solve_015(size_t x, size_t y) {
   // allocate new cache object, using calloc so the memory comes pre-zeroed.
   // we allocate a two-dimensional array that is x+1 by y+1
   cache_t cache;

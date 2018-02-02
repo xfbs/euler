@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
   } while (!feof(data_file));
 
   triangle_t t = {buffer, rows};
-  printf("%i\n", solve(&t));
+  printf("%i\n", solve_018(&t));
 
   return 0;
 }

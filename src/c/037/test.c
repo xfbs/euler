@@ -15,10 +15,10 @@ void test_truncatable() {
   prime_free(&p);
 }
 
-void test_solve() {
+void test_solve_037() {
   prime_t p = prime_new();
 
-  assert(23 == solve(1));
+  assert(23 == solve_037(1));
 
   prime_free(&p);
 }

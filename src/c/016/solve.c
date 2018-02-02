@@ -1,7 +1,7 @@
 #include "solve.h"
 #include "euler/vec8.h"
 
-uint64_t solve(size_t exp) {
+uint64_t solve_016(size_t exp) {
   vec8_t num = vec8_new(1, 1);
 
   // compute 2^exp

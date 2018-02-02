@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-uint64_t solve() {
+uint64_t solve_052() {
   for (uint64_t exp = 100;; exp *= 10) {
     uint64_t max = (10 * exp) / 6;
     for (uint64_t num = exp; num <= max; num++) {

@@ -3,7 +3,7 @@
 #include <euler/math.h>
 #include <euler/prime.h>
 
-uint32_t solve(uint8_t max) {
+uint32_t solve_041(uint8_t max) {
   prime_t p = prime_new();
 
   for (uint8_t n = max; n > 0; n--) {

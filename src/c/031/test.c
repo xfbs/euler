@@ -2,14 +2,14 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() {
-  assert(solve(0) == 1);
-  assert(solve(1) == 1);
-  assert(solve(2) == 2);
-  assert(solve(3) == 2);
-  assert(solve(4) == 3);
-  assert(solve(5) == 4);
-  assert(solve(6) == 5);
+void test_solve_031() {
+  assert(solve_031(0) == 1);
+  assert(solve_031(1) == 1);
+  assert(solve_031(2) == 2);
+  assert(solve_031(3) == 2);
+  assert(solve_031(4) == 3);
+  assert(solve_031(5) == 4);
+  assert(solve_031(6) == 5);
 }
 
 void test_change() {

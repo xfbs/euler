@@ -2,10 +2,10 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() {
-  assert(3 == solve(1));
-  assert(39 == solve(10));
-  assert(864 == solve(100));
+void test_solve_017() {
+  assert(3 == solve_017(1));
+  assert(39 == solve_017(10));
+  assert(864 == solve_017(100));
 }
 
 void test_number_letter_count() {

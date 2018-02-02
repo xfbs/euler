@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <euler/sieve.h>
 
-uint64_t solve(uint64_t max) {
+uint64_t solve_010(uint64_t max) {
   sieve_t sieve = sieve_new(max);
   uint64_t sum = 0;
 

@@ -85,14 +85,14 @@ void test_max_product() {
   assert(max_product(&v, -1, 1, 5) == 0);
 }
 
-void test_solve() {
+void test_solve_011() {
   vecp_t v = setup();
 
-  assert(solve(&v, 0) == 1);
-  assert(solve(&v, 1) == 9);
-  assert(solve(&v, 2) == 8 * 9);
-  assert(solve(&v, 3) == 5 * 8 * 9);
-  assert(solve(&v, 4) == 4 * 5 * 8 * 9);
-  assert(solve(&v, 5) == 0);
+  assert(solve_011(&v, 0) == 1);
+  assert(solve_011(&v, 1) == 9);
+  assert(solve_011(&v, 2) == 8 * 9);
+  assert(solve_011(&v, 3) == 5 * 8 * 9);
+  assert(solve_011(&v, 4) == 4 * 5 * 8 * 9);
+  assert(solve_011(&v, 5) == 0);
 }
 

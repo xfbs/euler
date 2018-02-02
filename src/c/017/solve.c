@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve(uint32_t num) {
+uint32_t solve_017(uint32_t num) {
   uint32_t sum = 0;
 
   for (uint32_t i = 1; i <= num; i++) {

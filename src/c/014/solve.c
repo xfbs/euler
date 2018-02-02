@@ -1,7 +1,7 @@
 #include "solve.h"
 #include <euler/collatz.h>
 
-uint32_t solve(uint32_t limit) {
+uint32_t solve_014(uint32_t limit) {
   // the collatz cache basically memoizes the collatz function for efficiency
   collatz_cache_t cache = collatz_cache(limit);
 

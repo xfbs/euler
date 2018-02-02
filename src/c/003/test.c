@@ -1,4 +1,4 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() { assert(solve(13195) == 29); }
+void test_solve_003() { assert(solve_003(13195) == 29); }

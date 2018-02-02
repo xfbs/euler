@@ -4,7 +4,7 @@
 
 // finds the first number of the first `cnt` consecutive integers to have `cnt`
 // distinct prime factors each.
-uint64_t solve(uint8_t cnt);
+uint64_t solve_047(uint8_t cnt);
 
 // checks if a given number is the first number is a sequence that is `count`
 // long where each number has `count` prime factors that are distinct.

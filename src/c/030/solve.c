@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <string.h>
 
-uint32_t solve() {
+uint32_t solve_030() {
   // TODO: can we simplify this?
   uint8_t nums[6] = {2, 0, 0, 0, 0, 0};
   uint32_t sum = 0;

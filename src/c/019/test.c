@@ -69,9 +69,9 @@ void test_next_month() {
   assert(eq(date, SUNDAY, 1, JANUARY, 2017));
 }
 
-void test_solve() {
+void test_solve_019() {
   date_t start = {FRIDAY, 1, JANUARY, 2016};
   date_t end = {THURSDAY, 1, DECEMBER, 2016};
-  assert(solve(start, end) == 1);
+  assert(solve_019(start, end) == 1);
 }
 

@@ -39,5 +39,5 @@ void test_is_permuted_multiple() {
   assert(!is_permuted_multiple(34329));
 }
 
-void test_solve() { assert(is_permuted_multiple(solve())); }
+void test_solve_052() { assert(is_permuted_multiple(solve_052())); }
 

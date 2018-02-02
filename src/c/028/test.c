@@ -2,9 +2,9 @@
 #include "solve.h"
 #include <euler/test.h>
 
-void test_solve() {
-  assert(solve(3) == 25);
-  assert(solve(5) == 101);
+void test_solve_028() {
+  assert(solve_028(3) == 25);
+  assert(solve_028(5) == 101);
 }
 
 

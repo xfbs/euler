@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   // i guessed the weekday here, but it shouldn't matter anyways.
   date_t end = {MONDAY, 31, DECEMBER, 2000};
 
-  printf("%i\n", solve(start, end));
+  printf("%i\n", solve_019(start, end));
 
   return 0;
 }

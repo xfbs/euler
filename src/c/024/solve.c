@@ -2,7 +2,7 @@
 #include <euler/math.h>
 
 // FIXME: use nth_pandigital maybe?
-uint64_t solve(uint32_t max) {
+uint64_t solve_024(uint32_t max) {
   // keeps track of which numbers 0..9 are taken already.
   bool taken[10] = {false};
 

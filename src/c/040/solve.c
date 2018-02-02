@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint32_t solve() {
+uint32_t solve_040() {
   uint32_t solution = champernowne_digit(0) * champernowne_digit(9) *
                       champernowne_digit(99) * champernowne_digit(999) *
                       champernowne_digit(9999) * champernowne_digit(99999) *

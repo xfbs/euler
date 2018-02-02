@@ -15,11 +15,11 @@ void test_is_curious_number() {
   assert(false == is_curious_number(factorials, 9));
 }
 
-void test_solve() {
-  assert(0 == solve(0));
-  assert(0 == solve(1));
-  assert(0 == solve(2));
-  assert(0 == solve(3));
-  assert(145 == solve(145));
+void test_solve_034() {
+  assert(0 == solve_034(0));
+  assert(0 == solve_034(1));
+  assert(0 == solve_034(2));
+  assert(0 == solve_034(3));
+  assert(145 == solve_034(145));
 }
 

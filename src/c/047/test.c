@@ -24,8 +24,8 @@ void test_distinct_prime_factors() {
   }
 }
 
-void test_solve() {
-  assert(solve(2) == 14);
-  assert(solve(3) == 644);
+void test_solve_047() {
+  assert(solve_047(2) == 14);
+  assert(solve_047(3) == 644);
 }
 

@@ -1,6 +1,6 @@
 #include "solve.h"
 
-uint64_t solve(uint64_t max, uint64_t digits) {
+uint64_t solve_048(uint64_t max, uint64_t digits) {
   uint64_t mod = pow(10, digits);
   uint64_t series[max];
 

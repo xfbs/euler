@@ -12,7 +12,7 @@ typedef struct {
 } digits_t;
 
 // find a number x such that 2x, 3x, 4x, 5x, and 6x contain the same digits.
-uint64_t solve();
+uint64_t solve_052();
 
 // for a given number x, check if 2x, 3x, 4x, 5x and 6x contain the same digits
 bool is_permuted_multiple(uint64_t x);

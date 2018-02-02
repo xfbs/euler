@@ -11,7 +11,7 @@ uint64_t weight(const char *str) {
   return w;
 }
 
-uint64_t solve(vecp_t *v) {
+uint64_t solve_022(vecp_t *v) {
   vec_sort(v, (vecp_cmp) strcmp);
 
   uint64_t sum = 0;
