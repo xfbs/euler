@@ -34,3 +34,7 @@
 ## Project
 
   - [ ] come up with a mechanism to record performance data
+  - [ ] restructute files. into: `lib/` (shared libraries),
+        `src/c/`, `src/ruby`, etc. (one folder per language) for solutions,
+        `doc/problems/000-problem-name.md` for each problem, have a dedicated
+        checker with built-in solutions to check the answers.
