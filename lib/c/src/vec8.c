@@ -1,93 +1,31 @@
-#include "euler/vec8.h"
+#include <euler/vec8.h>
 #include <stdlib.h>
-#define CAPSIZE 256
 
-uint8_t vec8_get(const vec8_t *v, size_t pos) { return v->data[pos]; }
+#define element_equal uint8_cmp
+#define vec_get vec8_get
+#define vec_set vec8_set
+#define vec_len vec8_len
+#define vec_clear vec8_clear
+#define vec_new vec8_new
+#define vec_alloc vec8_alloc
+#define vec_reserve vec8_reserve
+#define vec_push vec8_push
+#define vec_free vec8_free
+#define vec_index vec8_index
+#define vec_lsearch vec8_lsearch
+#define vec_bsearch vec8_bsearch
+#define vec_sort vec8_sort
+#define vec_sum vec8_sum
 
-uint8_t vec8_set(vec8_t *v, size_t pos, uint8_t data) {
-  uint8_t prev = v->data[pos];
-  v->data[pos] = data;
-  return prev;
-}
+#define IS_INTEGRAL
 
-size_t vec8_len(const vec8_t *v) { return v->len; }
+const static size_t initial_capacity = 256;
+typedef uint8_t element_type;
+typedef vec8_t vector_type;
+typedef vec8_cmp element_cmp;
+const static size_t element_size = sizeof(element_type);
+const static size_t vector_size  = sizeof(vector_type);
+static int element_equal(const void *, const void *);
+const static element_cmp default_cmp = element_equal;
 
-void vec8_clear(vec8_t *v) { v->len = 0; }
-
-vec8_t vec8_new(size_t len, uint8_t fill) {
-  vec8_t v = {.data = NULL, .cap = CAPSIZE, .len = len};
-
-  // make sure capacity is bigger than initial length
-  while (v.cap < len) {
-    v.cap *= 2;
-  }
-
-  // allocate data of given capacity, calloc ensures that the data is
-  // zero-initialized.
-  v.data = calloc(v.cap, sizeof(uint8_t));
-
-  // we don't need to initialize the array if it should be filled with zeroes.
-  if (fill != 0) {
-    for (size_t i = 0; i < len; i++) {
-      v.data[i] = fill;
-    }
-  }
-
-  return v;
-}
-
-vec8_t *vec8_alloc(size_t len, uint8_t fill) {
-  vec8_t *v = malloc(sizeof(vec8_t));
-  *v = vec8_new(len, fill);
-  return v;
-}
-
-void vec8_reserve(vec8_t *v, size_t size) {
-  if ((v->cap - v->len) < size) {
-    while ((v->cap - v->len) < size) {
-      v->cap *= 2;
-    }
-
-    v->data = realloc(v->data, v->cap * sizeof(uint8_t));
-  }
-}
-
-size_t vec8_push(vec8_t *v, uint8_t data) {
-  // grow the length of the vector
-  vec8_reserve(v, 1);
-  v->len++;
-
-  // set the data of the new element
-  vec8_set(v, vec8_len(v) - 1, data);
-  return vec8_len(v);
-}
-
-void vec8_free(vec8_t *v) {
-  // release data
-  free(v->data);
-
-  // reset everything to trigger segfault if vec is used by accident
-  v->data = NULL;
-  v->cap = 0;
-  v->len = 0;
-}
-
-size_t vec8_index(const vec8_t *v, uint8_t data) {
-  for (size_t pos = 0; pos < vec8_len(v); pos++) {
-    if (vec8_get(v, pos) == data) {
-      return pos;
-    }
-  }
-
-  return SIZE_MAX;
-}
-
-uint64_t vec8_sum(const vec8_t *v) {
-  uint64_t sum = 0;
-
-  for (size_t pos = 0; pos < vec8_len(v); pos++) {
-    sum += vec8_get(v, pos);
-  }
-
-  return sum;
-}
+#include "vec_impl.h"

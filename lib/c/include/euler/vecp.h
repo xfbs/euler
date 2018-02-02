@@ -25,12 +25,13 @@ typedef struct {
   size_t len;
 } vecp_t;
 
-//! comparison function between two elements.
+//! Comparison function between two elements.
 //!
-//! functions that have this type can be used as sorting functions with
-//! vecp_sort(). functions are expected to behave in the same way as comparison
-//! functions for the `qsort()` function of the standard library.
-typedef int (*vecp_compare)(const void *, const void *);
+//! Functions that have this type can be used as sorting functions with
+//! `vecp_sort()`, or as comparison functions for `vecp_bsearch()`. Functions
+//! are expected to behave in the same way as comparison functions for the
+//! `qsort()` function of the standard library.
+typedef int (*vecp_cmp)(const void *, const void *);
 
 //! creates a new pointer vector.
 //!
@@ -377,12 +378,123 @@ void vecp_clear(vecp_t *v);
 //! ```
 size_t vecp_index(const vecp_t *v, void *ptr);
 
-//! sort the vector according to the function provided.
+//! Perform a linear search on the vector.
+//!
+//! @param v vector to search
+//! @param data data to search for
+//! @param cmp comparison function between elements and data
+//! @return an index to the found element, or `SIZE_MAX`
+//!
+//! This function performs a linear search on the vector, meaning that it will
+//! traverse it in order and compare all elements to `data` using `cmp`, a
+//! comparison function supplied by the user. Returns the index of the first
+//! element for which the comparison function indicates that the elements are
+//! equal.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that all elements and `data` are `const char *` strings,
+//! and uses `strcmp` to compare them.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // new pointer vector
+//! vecp_t vec = vecp_new(0, NULL);
+//!
+//! // push some strings to vector
+//! vecp_push(&vec, "Hello");
+//! vecp_push(&vec, "World");
+//! vecp_push(&vec, "vecp test");
+//!
+//! // FIXME
+//! // find the string "Hello"
+//! //assert(vecp_lsearch(&vec, "Hello", (vecp_cmp) strcmp) == 0);
+//! //assert(vecp_lsearch(&vec, "World", (vecp_cmp) strcmp) == 1);
+//!
+//! vecp_free(&vec);
+//! ```
+size_t vecp_lsearch(const vecp_t *v, void *data, vecp_cmp cmp);
+
+//! Perform a binary search on the vector.
+//!
+//! @param v vector to search
+//! @param data data to search for
+//! @param cmp comparison function between elements and data
+//! @return an index to the found element, or `SIZE_MAX`
+//!
+//! This function performs a binary search on the sorted vector using `cmp`
+//! as a comparison function. Note that if the vector is not sorted, this
+//! function will not work, then you must use `vecp_lsearch()`.
+//!
+//! It returns an index to an element that is equal to `data`.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that all elements and `data` are `const char *` strings,
+//! and uses `strcmp` to compare them.
+//!
+//! ## Examples
+//!
+//! Find an element in a sorted vector.
+//!
+//! ```c
+//! // new empty vector
+//! vecp_t vec = vecp_new(0, 0);
+//!
+//! // targets
+//! int a, b, c, d;
+//!
+//! // adds some data to it
+//! vecp_push(&vec, &a);
+//! vecp_push(&vec, &b);
+//! vecp_push(&vec, &c);
+//! vecp_push(&vec, &d);
+//!
+//! // sort vector
+//! vecp_sort(&vec, NULL);
+//!
+//! // FIXME
+//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &a, NULL)) == &a);
+//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &b, NULL)) == &b);
+//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &c, NULL)) == &c);
+//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &d, NULL)) == &d);
+//!
+//! // release
+//! vecp_free(&vec);
+//! ```
+size_t vecp_bsearch(const vecp_t *v, void *data, vecp_cmp cmp);
+
+//! Sort the vector.
+//!
+//! Sorts the vector in-place using the provided comparison function.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that all elements and `data` are `const char *` strings,
+//! and uses `strcmp` to compare them.
 //!
 //! @param v vector to sort.
 //! @param cmp comparison function between elements.
 //!
-//! @todo example
-void vecp_sort(vecp_t *v, vecp_compare cmp);
+//! ## Examples
+//!
+//! ```c
+//! // new empty vector
+//! vecp_t vec = vecp_new(0, 0);
+//!
+//! // targets
+//! int a, b, c, d;
+//!
+//! // adds some data to it
+//! vecp_push(&vec, &a);
+//! vecp_push(&vec, &b);
+//! vecp_push(&vec, &c);
+//! vecp_push(&vec, &d);
+//!
+//! // sort vector: after this, vec contains sorted pointers to a, b, d and d.
+//! vecp_sort(&vec, NULL);
+//!
+//! // release
+//! vecp_free(&vec);
+//! ```
+void vecp_sort(vecp_t *v, vecp_cmp cmp);
 
 //! @}

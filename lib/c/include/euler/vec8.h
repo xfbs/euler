@@ -24,6 +24,14 @@ typedef struct {
   size_t len;
 } vec8_t;
 
+//! Comparison function between two elements.
+//!
+//! Functions that have this type can be used as sorting functions with
+//! `vec8_sort()`, or as comparison functions for `vec8_bsearch()`. Functions
+//! are expected to behave in the same way as comparison functions for the
+//! `qsort()` function of the standard library.
+typedef int (*vec8_cmp)(const void *, const void *);
+
 //! creates a new `vec8_t`.
 //!
 //! @param len length of the vec8
@@ -344,6 +352,118 @@ void vec8_clear(vec8_t *v);
 //! assert(vec8_index(&vec, 20) == SIZE_MAX);
 //! ```
 size_t vec8_index(const vec8_t *v, uint8_t data);
+
+//! Perform a linear search on the vector.
+//!
+//! @param v vector to search
+//! @param data data to search for
+//! @param cmp comparison function between elements and data
+//! @return an index to the found element, or `SIZE_MAX`
+//!
+//! This function performs a linear search on the vector, meaning that it will
+//! traverse it in order and compare all elements to `data` using `cmp`, a
+//! comparison function supplied by the user. Returns the index of the first
+//! element for which the comparison function indicates that the elements are
+//! equal.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that `data` is a pointer to `uint32_t`, and compares each
+//! element with that.
+//!
+//! ## Examples
+//!
+//! @todo
+size_t vec8_lsearch(const vec8_t *v, void *data, vec8_cmp cmp);
+
+//! Perform a binary search on the vector.
+//!
+//! @param v vector to search
+//! @param data data to search for
+//! @param cmp comparison function between elements and data
+//! @return an index to the found element, or `SIZE_MAX`
+//!
+//! This function performs a binary search on the sorted vector using `cmp`
+//! as a comparison function. Note that if the vector is not sorted, this
+//! function will not work, then you must use `vec8_lsearch()`.
+//!
+//! It returns an index to an element that is equal to `data`.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that `data` is a pointer to `uint8_t`, and compares each
+//! element with that.
+//!
+//! ## Examples
+//!
+//! Find an element in a sorted vector.
+//!
+//! ```c
+//! // new empty vector
+//! vec8_t vec = vec8_new(0, 0);
+//!
+//! // adds some data to it
+//! vec8_push(&vec, 9);
+//! vec8_push(&vec, 5);
+//! vec8_push(&vec, 14);
+//! vec8_push(&vec, 1);
+//!
+//! // sort vector
+//! vec8_sort(&vec, NULL);
+//!
+//! // bsearch only works for sorted vectors, so sort it
+//! assert(vec8_get(&vec, 0) == 1);
+//! assert(vec8_get(&vec, 1) == 5);
+//! assert(vec8_get(&vec, 2) == 9);
+//! assert(vec8_get(&vec, 3) == 14);
+//!
+//! // find '9'
+//! uint32_t target = 9;
+//! assert(vec8_bsearch(&vec, &target, NULL) == 2);
+//!
+//! // find an element that doesn't exist
+//! target = 0;
+//! assert(vec8_bsearch(&vec, &target, NULL) == SIZE_MAX);
+//!
+//! // release
+//! vec8_free(&vec);
+//! ```
+size_t vec8_bsearch(const vec8_t *v, void *data, vec8_cmp cmp);
+
+//! Sort the vector.
+//!
+//! Sorts the vector in-place using the provided comparison function.
+//!
+//! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
+//! which assumes that `data` is a pointer to `uint8_t`, and compares each
+//! element with that.
+//!
+//! @param v vector to sort.
+//! @param cmp comparison function between elements.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // new empty vector
+//! vec8_t vec = vec8_new(0, 0);
+//!
+//! // adds some data to it
+//! vec8_push(&vec, 9);
+//! vec8_push(&vec, 5);
+//! vec8_push(&vec, 14);
+//! vec8_push(&vec, 1);
+//!
+//! // sort vector
+//! vec8_sort(&vec, NULL);
+//!
+//! // check that it's sorted
+//! assert(vec8_get(&vec, 0) == 1);
+//! assert(vec8_get(&vec, 1) == 5);
+//! assert(vec8_get(&vec, 2) == 9);
+//! assert(vec8_get(&vec, 3) == 14);
+//!
+//! // release
+//! vec8_free(&vec);
+//! ```
+void vec8_sort(vec8_t *v, vec8_cmp cmp);
 
 //! computes the sum of the vector.
 //!
