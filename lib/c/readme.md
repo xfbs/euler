@@ -20,7 +20,9 @@ targets:
   - `make test` to build and run all the tests of this library.
 
   - `make fmt` to run the `clang-format` code formatter  over all of the code
-     in this library.
+    in this library. This is useful when adding code to be sure that it's
+    well-formatted, especially when using an editor that isn't set up quite
+    right.
 
   - `make doc` generate these docs, the output will be placed in
     `/doc/lib/c` in the repository.
@@ -35,18 +37,75 @@ make CC="clang++-5.0.1"
 ```
 
   - `OPTIMIZE` gets passed to both the compiler (`CFLAGS`) and the linker
-    (`LDFLAGS`). You can use this to set custom optimization options or other
-    flags:
+    (`LDFLAGS`). This can be used to set custom optimization options, for
+    example. `make OPTIMIZE="-O3"` compiles the code with full optimizations
+    enabled. It can also be used with special compiler features: running
+    `make OPTIMIZE="-O0 -g -fsanitize=address"` will enable `clang`'s
+    AddressSanitizer.
+
+### Testing
+
+Note that the testing process is a big of a fragile mess. The way it works is
+that there is a very tiny C unit testing helper in `include/euler/test.h`. This
+is used to write the tests in the `test/` folder. 
+
+Additionally, there is a script, `test/doc_test.rb`, which is used by the
+Makefile to automatically extract tests from the documentation. Any time it
+encounters a commented block like
+
+```c
+//! \`\`\`c
+//! int a = 5;
+//! assert(a == 5);
+//! \`\`\`
+```
+
+It tries its best to figure out which function this code snippet is for (using
+some very simple regexes) and then it constructs a testing method for that,
+nameing the method something like `doctest_filename_methodname`.
+
+Then there is a third script, `test/all.rb`, which generates the necessary
+`main` method for all the tests, by parsing all `*_test.c` files in `test/`,
+and parsing it for lines like `void your_test()`. This script is run
+automatically by the `Makefile`, too. 
+
+#### Test Coverage
+
+Using `clang`, basic coverage information can be (semi-easily) generated from
+the C sources and the tests with the following sequence of commands:
+
+First, any previously compiled object files and binaries need to be cleared out
+with
 
 ```
-# compile with full optimization
-make OPTIMIZE="-O3"
+make clean
 ```
 
+Then, the code needs to be recompiled with instrumentation and run. For this,
+the `OPTIMIZE` flag of the `Makefile` provides a convenient way to pass options
+both to the compiler and the linker.
+
 ```
-# make a debug build and enable clang address sanitizer
-make OPTIMIZE="-O0 -g -fsanitize=address"
+make test OPTIMIZE="-O0 -fprofile-instr-generate -fcoverage-mapping"
 ```
+
+Now there will be a `default.profraw` file in the current directory. This file
+needs to be processed further with `llvm-proftool` to make it readable. If there
+were multiple binaries to run different tests, then this tool would enable
+merging both run data into one coverage report.
+
+```
+llvm-proftool merge default.profraw -output output.cov
+```
+
+And finally the coverage report can be viewed with `llvm-cov report`. 
+
+```
+llvm-cov report -instr-profile output.cov ./test/all
+```
+
+There is additionally `llvm-cov show`, which can be used to view a line-by-line
+overview over what is touched turing testing and what isn't.
 
 ### Compatibility
 

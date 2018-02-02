@@ -30,3 +30,7 @@
   - [ ] solve all problems up to problem 100
   - [ ] add solutions in another language (scheme, ocaml, cpp)
   - [ ] port all of crystal solution's minitest to specs (because builtin)
+
+## Project
+
+  - [ ] come up with a mechanism to record performance data
