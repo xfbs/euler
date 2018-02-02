@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -84,9 +84,3 @@ void test_solve() {
   assert(solve(&t) == 23);
 }
 
-TESTS() {
-  RUN(test_triangle_get);
-  RUN(test_triangle_set);
-  RUN(test_triangle_simplify);
-  RUN(test_solve);
-}

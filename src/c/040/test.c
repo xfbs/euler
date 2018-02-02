@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -24,4 +24,4 @@ void test_chapernowne_digit() {
   assert(champernowne_digit(18) == 4);
 }
 
-TESTS() { RUN(test_chapernowne_digit); }
+

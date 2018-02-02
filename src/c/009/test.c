@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -13,7 +13,3 @@ void test_is_pythagorean_triplet() {
   assert(is_pythagorean_triplet(48, 55, 74) == false);
 }
 
-TESTS() {
-  RUN(test_solve);
-  RUN(test_is_pythagorean_triplet);
-}

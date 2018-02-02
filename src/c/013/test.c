@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 #include <euler/vec.h>
@@ -10,4 +10,4 @@ void test_solve() {
   assert(solve(&v) == 1234567890LL);
 }
 
-TESTS() { RUN(test_solve); }
+

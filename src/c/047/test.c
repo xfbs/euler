@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -29,7 +29,3 @@ void test_solve() {
   assert(solve(3) == 644);
 }
 
-TESTS() {
-  RUN(test_distinct_prime_factors);
-  RUN(test_solve);
-}

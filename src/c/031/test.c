@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -36,7 +36,3 @@ void test_change() {
   assert(change(coins4, 5, 0) == 1);
 }
 
-TESTS() {
-  RUN(test_solve);
-  RUN(test_change);
-}

@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -13,7 +13,3 @@ void test_number_letter_count() {
   assert(35 == number_letter_count(3451));
 }
 
-TESTS() {
-  RUN(test_solve);
-  RUN(test_number_letter_count);
-}

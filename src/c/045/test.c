@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -7,4 +7,4 @@ void test_solve() {
   assert(solve(200, 100, 100) == 40755);
 }
 
-TESTS() { RUN(test_solve); }
+

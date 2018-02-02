@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 #include <euler/vec.h>
@@ -20,7 +20,3 @@ void test_solve() {
   vec_free(&v);
 }
 
-TESTS() {
-  RUN(test_weight);
-  RUN(test_solve);
-}

@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -23,7 +23,3 @@ void test_solve() {
   prime_free(&p);
 }
 
-TESTS() {
-  RUN(test_truncatable);
-  RUN(test_solve);
-}

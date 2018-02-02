@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -46,8 +46,3 @@ void test_solve_big() {
   assert(solve(20, 16) == 7307872110);
 }
 
-TESTS() {
-  RUN(test_solve_easy);
-  RUN(test_solve_harder);
-  RUN(test_solve_big);
-}

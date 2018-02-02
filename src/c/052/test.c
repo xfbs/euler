@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -41,8 +41,3 @@ void test_is_permuted_multiple() {
 
 void test_solve() { assert(is_permuted_multiple(solve())); }
 
-TESTS() {
-  RUN(test_num_to_digits);
-  RUN(test_is_permuted_multiple);
-  RUN(test_solve);
-}

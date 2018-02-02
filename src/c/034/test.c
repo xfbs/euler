@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/math.h>
 #include <euler/test.h>
@@ -23,7 +23,3 @@ void test_solve() {
   assert(145 == solve(145));
 }
 
-TESTS() {
-  RUN(test_is_curious_number);
-  RUN(test_solve);
-}

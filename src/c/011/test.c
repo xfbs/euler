@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include <euler/vec.h>
 #include "solve.h"
 #include <euler/test.h>
@@ -96,8 +96,3 @@ void test_solve() {
   assert(solve(&v, 5) == 0);
 }
 
-TESTS() {
-  RUN(test_get);
-  RUN(test_max_product);
-  RUN(test_solve);
-}

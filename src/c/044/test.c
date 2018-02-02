@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -56,9 +56,3 @@ void test_base() {
   assert(34 == b(4));
 }
 
-TESTS() {
-  RUN(test_pentagon_number);
-  RUN(test_pentagon_inverse);
-  RUN(test_is_pentagon_number);
-  RUN(test_base);
-}

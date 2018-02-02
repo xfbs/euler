@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -24,4 +24,4 @@ void test_is_palindrome() {
   assert(is_palindrome(73, 2));
 }
 
-TESTS() { RUN(test_is_palindrome); }
+

@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -23,8 +23,3 @@ void test_solve() {
   assert(solve() <= 987654321);
 }
 
-TESTS() {
-  RUN(test_make_pandigital_multiple);
-  RUN(test_pandigital_multiple);
-  RUN(test_solve);
-}

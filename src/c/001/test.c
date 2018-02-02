@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -17,9 +17,4 @@ void test_sum() {
   assert(sum_divisible(43, 51) == 0);
   assert(sum_divisible(50, 10) == 150);
   assert(sum_divisible(50, 25) == 75);
-}
-
-TESTS() {
-  RUN(test_sum);
-  RUN(test_solve);
 }

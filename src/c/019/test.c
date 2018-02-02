@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -75,9 +75,3 @@ void test_solve() {
   assert(solve(start, end) == 1);
 }
 
-TESTS() {
-  RUN(test_leap_year);
-  RUN(test_month_length);
-  RUN(test_next_month);
-  RUN(test_solve);
-}

@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 #include <euler/vec.h>
@@ -44,9 +44,3 @@ void test_is_triangle_number() {
   assert(!is_triangle_number(22));
 }
 
-TESTS() {
-  RUN(test_weight);
-  RUN(test_is_triangle_number);
-  // FIXME
-  // RUN(test_solve);
-}

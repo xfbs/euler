@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -11,7 +11,3 @@ void test_check_fraction() {
 
 void test_solve() { assert(solve() > 1); }
 
-TESTS() {
-  RUN(test_check_fraction);
-  RUN(test_solve);
-}

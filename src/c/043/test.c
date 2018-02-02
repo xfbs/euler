@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -8,4 +8,4 @@ void test_pandigital() {
   assert(1406357289LL == pandigital(406, 357, 289));
 }
 
-TESTS() { RUN(test_pandigital); }
+

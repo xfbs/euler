@@ -1,4 +1,4 @@
-#define EULER_TEST_MAIN
+
 #include "solve.h"
 #include <euler/test.h>
 
@@ -15,4 +15,4 @@ void test_factors() {
   assert(factor_count(&p, 36) == 9);
 }
 
-TESTS() { RUN(test_factors); }
+
