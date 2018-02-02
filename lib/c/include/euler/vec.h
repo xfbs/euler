@@ -21,7 +21,7 @@
 //! @see vecp, vec8, vec16, vec32, vec64
 //! @{
 
-//! `free()`'s the data held inside a vector.
+//! `free()`s the data held inside a vector.
 //!
 //! @param v the vector that will have its data released.
 //! @warning
