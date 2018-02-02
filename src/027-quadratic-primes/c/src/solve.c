@@ -27,7 +27,7 @@ uint32_t quadratic_prime_run(prime_t *p, int32_t a, int32_t b) {
   uint32_t n = 0;
   while (true) {
     int32_t cur = n * n + n * a + b;
-    if (cur < 2 || prime_which(p, cur) == SIZE_MAX)
+    if (cur < 2 || !prime_check(p, cur))
       break;
     n++;
   }
