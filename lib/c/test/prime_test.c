@@ -3,11 +3,9 @@
 
 void test_prime_new() {
   prime_t p = prime_new();
-  assert(p.cap > 0);
-  assert(p.primes);
-  for (size_t l = 0; l < p.len; l++) {
-    assert(p.primes[l]);
-  }
+
+  assert(vec32_get(&p.primes, 0) == 2);
+  assert(vec32_get(&p.primes, 1) == 3);
 
   prime_free(&p);
 }
