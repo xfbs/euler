@@ -5,9 +5,8 @@
 //! @brief functions for generating prime numbers.
 //! @detail these functions provide an easy interface for generating sequential
 //! prime numbers.
-#include <stdbool.h>
-#include <stdint.h>
-#include <stddef.h>
+#include <euler/common.h>
+#include <euler/vec32.h>
 #pragma once
 
 //! @defgroup prime prime
@@ -15,11 +14,9 @@
 //! @{
 
 //! primes struct, used for caching generated primes.
-//! @todo change to use vec32 internally
 typedef struct {
-  uint32_t *primes;
-  size_t len;
-  size_t cap;
+  //! A list of prime numbers.
+  vec32_t primes;
 } prime_t;
 
 //! make new prime generation instance.
