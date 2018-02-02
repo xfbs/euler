@@ -17,7 +17,7 @@
 #define vec_sort vec64_sort
 #define vec_sum vec64_sum
 
-#define IS_INTEGRAL
+static int element_equal(const void *, const void *);
 
 const static size_t initial_capacity = 256;
 typedef uint64_t element_type;
@@ -25,7 +25,6 @@ typedef vec64_t vector_type;
 typedef vec64_cmp element_cmp;
 const static size_t element_size = sizeof(element_type);
 const static size_t vector_size  = sizeof(vector_type);
-static int element_equal(const void *, const void *);
 const static element_cmp default_cmp = element_equal;
 
 #include "vec_impl.h"

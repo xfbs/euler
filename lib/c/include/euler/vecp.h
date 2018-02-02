@@ -391,6 +391,7 @@ size_t vecp_index(const vecp_t *v, void *ptr);
 //! element for which the comparison function indicates that the elements are
 //! equal.
 //!
+//! FIXME this is false:
 //! If `NULL` is passed as `cmp`, then the built-in comparison function is used,
 //! which assumes that all elements and `data` are `const char *` strings,
 //! and uses `strcmp` to compare them.
@@ -401,15 +402,16 @@ size_t vecp_index(const vecp_t *v, void *ptr);
 //! // new pointer vector
 //! vecp_t vec = vecp_new(0, NULL);
 //!
-//! // push some strings to vector
+//! // some strings
 //! vecp_push(&vec, "Hello");
+//! vecp_push(&vec, "vecp_test");
 //! vecp_push(&vec, "World");
-//! vecp_push(&vec, "vecp test");
+//! vecp_push(&vec, "12345qwerty");
+//! vecp_push(&vec, "World");
 //!
-//! // FIXME
-//! // find the string "Hello"
-//! //assert(vecp_lsearch(&vec, "Hello", (vecp_cmp) strcmp) == 0);
-//! //assert(vecp_lsearch(&vec, "World", (vecp_cmp) strcmp) == 1);
+//! // find the strings. note that lsearch always returns the first match.
+//! assert(vecp_lsearch(&vec, "Hello", (vecp_cmp) strcmp) == 0);
+//! assert(vecp_lsearch(&vec, "World", (vecp_cmp) strcmp) == 2);
 //!
 //! vecp_free(&vec);
 //! ```
@@ -438,25 +440,58 @@ size_t vecp_lsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //!
 //! ```c
 //! // new empty vector
-//! vecp_t vec = vecp_new(0, 0);
+//! vecp_t vec = vecp_new(0, NULL);
 //!
 //! // targets
-//! int a, b, c, d;
+//! void *a = (void *) 0xABCDEF1;
+//! void *b = (void *) 0xABCDEF2;
+//! void *c = (void *) 0xABCDEF3;
+//! void *d = (void *) 0xABCDEF4;
 //!
 //! // adds some data to it
-//! vecp_push(&vec, &a);
-//! vecp_push(&vec, &b);
-//! vecp_push(&vec, &c);
-//! vecp_push(&vec, &d);
+//! vecp_push(&vec, a);
+//! vecp_push(&vec, b);
+//! vecp_push(&vec, c);
+//! vecp_push(&vec, d);
 //!
 //! // sort vector
-//! vecp_sort(&vec, NULL);
+//! //vecp_sort(&vec, NULL);
 //!
-//! // FIXME
-//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &a, NULL)) == &a);
-//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &b, NULL)) == &b);
-//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &c, NULL)) == &c);
-//! //assert(vecp_get(&vec, vecp_bsearch(&vec, &d, NULL)) == &d);
+//! // check that all pointers exist
+//! assert(vecp_bsearch(&vec, a, NULL) != SIZE_MAX);
+//! assert(vecp_bsearch(&vec, b, NULL) != SIZE_MAX);
+//! assert(vecp_bsearch(&vec, c, NULL) != SIZE_MAX);
+//! assert(vecp_bsearch(&vec, d, NULL) != SIZE_MAX);
+//! assert(vecp_bsearch(&vec, (void *) 0x2AAA899, NULL) == SIZE_MAX);
+//!
+//! // check if the get the correct element back
+//! assert(vecp_get(&vec, vecp_bsearch(&vec, a, NULL)) == a);
+//! assert(vecp_get(&vec, vecp_bsearch(&vec, b, NULL)) == b);
+//! assert(vecp_get(&vec, vecp_bsearch(&vec, c, NULL)) == c);
+//! assert(vecp_get(&vec, vecp_bsearch(&vec, d, NULL)) == d);
+//!
+//! // release
+//! vecp_free(&vec);
+//! ```
+//!
+//! Find a string in a sorted vector.
+//!
+//! ```c
+//! // new emprt vector
+//! vecp_t vec = vecp_new(0, NULL);
+//!
+//! // add strings (pre-sorted)
+//! vecp_push(&vec, "another");
+//! vecp_push(&vec, "birthday");
+//! vecp_push(&vec, "comes");
+//! vecp_push(&vec, "deliberately");
+//!
+//! // find the indexes of the words
+//! assert(vecp_bsearch(&vec, "another", (vecp_cmp) strcmp) == 0);
+//! assert(vecp_bsearch(&vec, "birthday", (vecp_cmp) strcmp) == 1);
+//! assert(vecp_bsearch(&vec, "comes", (vecp_cmp) strcmp) == 2);
+//! assert(vecp_bsearch(&vec, "deliberately", (vecp_cmp) strcmp) == 3);
+//! assert(vecp_bsearch(&vec, "easy", (vecp_cmp) strcmp) == SIZE_MAX);
 //!
 //! // release
 //! vecp_free(&vec);
@@ -478,16 +513,13 @@ size_t vecp_bsearch(const vecp_t *v, void *data, vecp_cmp cmp);
 //!
 //! ```c
 //! // new empty vector
-//! vecp_t vec = vecp_new(0, 0);
-//!
-//! // targets
-//! int a, b, c, d;
+//! vecp_t vec = vecp_new(0, NULL);
 //!
 //! // adds some data to it
-//! vecp_push(&vec, &a);
-//! vecp_push(&vec, &b);
-//! vecp_push(&vec, &c);
-//! vecp_push(&vec, &d);
+//! vecp_push(&vec, (void *) 0xDEADBEEF);
+//! vecp_push(&vec, (void *) 0xCAEFBABE);
+//! vecp_push(&vec, (void *) 0xC0FFEBAD);
+//! vecp_push(&vec, (void *) 0xAABBCCDD);
 //!
 //! // sort vector: after this, vec contains sorted pointers to a, b, d and d.
 //! vecp_sort(&vec, NULL);
