@@ -1,7 +1,7 @@
 #include <euler/vec8.h>
 #include <stdlib.h>
 
-#define element_equal uint8_cmp
+#define default_cmp uint8_cmp
 #define vec_get vec8_get
 #define vec_set vec8_set
 #define vec_len vec8_len
@@ -17,14 +17,8 @@
 #define vec_sort vec8_sort
 #define vec_sum vec8_sum
 
-static int element_equal(const void *, const void *);
-
-const static size_t initial_capacity = 256;
 typedef uint8_t element_type;
 typedef vec8_t vector_type;
 typedef vec8_cmp element_cmp;
-const static size_t element_size = sizeof(element_type);
-const static size_t vector_size  = sizeof(vector_type);
-const static element_cmp default_cmp = element_equal;
 
 #include "vec_impl.h"

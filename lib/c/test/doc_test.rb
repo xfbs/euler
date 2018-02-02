@@ -13,6 +13,9 @@ inputfiles.each do |inputfile|
   puts "#include <euler/#{file}>"
 end
 
+puts "#include <stdlib.h>"
+puts "#include <string.h>"
+
 puts
 
 # skip test.h - can't test that in a meaningful way

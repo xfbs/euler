@@ -1,7 +1,7 @@
 #include <euler/vec64.h>
 #include <stdlib.h>
 
-#define element_equal uint16_cmp
+#define default_cmp uint16_cmp
 #define vec_get vec64_get
 #define vec_set vec64_set
 #define vec_len vec64_len
@@ -17,14 +17,8 @@
 #define vec_sort vec64_sort
 #define vec_sum vec64_sum
 
-static int element_equal(const void *, const void *);
-
-const static size_t initial_capacity = 256;
 typedef uint64_t element_type;
 typedef vec64_t vector_type;
 typedef vec64_cmp element_cmp;
-const static size_t element_size = sizeof(element_type);
-const static size_t vector_size  = sizeof(vector_type);
-const static element_cmp default_cmp = element_equal;
 
 #include "vec_impl.h"

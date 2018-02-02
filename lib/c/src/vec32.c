@@ -1,7 +1,7 @@
 #include <euler/vec32.h>
 #include <stdlib.h>
 
-#define element_equal uint32_cmp
+#define default_cmp uint32_cmp
 #define vec_get vec32_get
 #define vec_set vec32_set
 #define vec_len vec32_len
@@ -17,14 +17,8 @@
 #define vec_sort vec32_sort
 #define vec_sum vec32_sum
 
-static int element_equal(const void *, const void *);
-
-const static size_t initial_capacity = 256;
 typedef uint32_t element_type;
 typedef vec32_t vector_type;
 typedef vec32_cmp element_cmp;
-const static size_t element_size = sizeof(element_type);
-const static size_t vector_size  = sizeof(vector_type);
-const static element_cmp default_cmp = element_equal;
 
 #include "vec_impl.h"

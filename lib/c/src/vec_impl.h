@@ -4,9 +4,8 @@ const static size_t initial_capacity = 256;
 const static size_t element_size = sizeof(element_type);
 const static size_t vector_size  = sizeof(vector_type);
 
-
-#ifdef element_equal
-static int element_equal(const void *_a, const void *_b) {
+#ifdef default_cmp
+static int default_cmp(const void *_a, const void *_b) {
   const element_type *a = _a;
   const element_type *b = _b;
   if (*a < *b)
@@ -15,8 +14,6 @@ static int element_equal(const void *_a, const void *_b) {
     return 0;
   return 1;
 }
-
-const static element_cmp default_cmp = element_equal;
 #endif
 
 #ifdef vec_get
