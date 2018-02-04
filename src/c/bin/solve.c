@@ -1,5 +1,5 @@
 #include <euler/common.h>
-#include "001.h"
+#include "001-multiples-of-3-and-5.h"
 #include <stdio.h>
 #include <stdlib.h>
 
