@@ -1,19 +1,7 @@
 #include "036.h"
 #include <stdio.h>
 
-uint32_t solve_036(uint32_t max) {
-  uint32_t sum = 0;
-
-  for (uint32_t i = 0; i < max; i++) {
-    if (is_palindrome(i, 2) && is_palindrome(i, 10)) {
-      sum += i;
-    }
-  }
-
-  return sum;
-}
-
-bool is_palindrome(uint32_t num, uint32_t base) {
+bool FIXME_is_palindrome(uint32_t num, uint32_t base) {
   uint32_t mag = 1;
   uint32_t max = base;
 
@@ -36,3 +24,16 @@ bool is_palindrome(uint32_t num, uint32_t base) {
 
   return true;
 }
+
+uint32_t solve_036(uint32_t max) {
+  uint32_t sum = 0;
+
+  for (uint32_t i = 0; i < max; i++) {
+    if (is_palindrome(i, 2) && is_palindrome(i, 10)) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+

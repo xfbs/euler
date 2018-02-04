@@ -15,7 +15,7 @@ uint64_t solve_042(vecp_t *v) {
   return sum;
 }
 
-uint64_t weight(const char *str) {
+uint64_t FIXME_weight(const char *str) {
   uint64_t w = 0;
   for (size_t i = 0; str[i]; i++) {
     w += str[i] - 'A' + 1;
@@ -25,7 +25,7 @@ uint64_t weight(const char *str) {
 }
 
 bool is_triangle_word(const char *word) {
-  uint64_t w = weight(word);
+  uint64_t w = FIXME_weight(word);
   return is_triangle_number(w);
 }
 

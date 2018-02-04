@@ -1,23 +1,21 @@
 LIBDIR   = ../../lib/c
 OPTIMISE = -O3
-CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMISE)
+CFLAGS 	+= -Iinc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMISE)
 LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMISE)
 SOURCES  = $(wildcard src/*.c)
+TESTS    = $(wildcard test/*.c)
 
 build: $(SOURCES:%.c=%.o)
 
-src/%.o: src/%.c src/%.h
-	$(CC) $(CFLAGS) -c $<
-
 #check:
 
-#test: test/test
+test: test/test
 
-#test/test: $(PROBLEMS:%=%/test.o) $(PROBLEMS:%=%/solve.o) test/all.o
-#	$(CC) -o $@ $^ $(LDFLAGS)
+test/test: $(SOURCES:%.c=%.o) $(TESTS:%.c=%.o) test/test.o
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-#test/all.c: $(PROBLEMS:%=%/test.c) test/all.rb
-#	cd test && ruby all.rb > all.c
+test/test.c: $(PROBLEMS:%=%/test.c) test/test.rb
+	cd test && ruby test.rb > test.c
 
 #%/solve: %/solve.o %/main.o
 #	$(CC) -o $@ $^ $(LDFLAGS)
