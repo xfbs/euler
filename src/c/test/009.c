@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "009.h"
 #include <euler/test.h>
 
 void test_solve_009() { assert(60 == solve_009(12)); }

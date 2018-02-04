@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "043.h"
 #include <euler/test.h>
 
 void test_pandigital() {

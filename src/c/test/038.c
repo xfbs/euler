@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "038.h"
 #include <euler/test.h>
 
 void test_make_pandigital_multiple() {

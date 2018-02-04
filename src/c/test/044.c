@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "044.h"
 #include <euler/test.h>
 
 void test_pentagon_number() {

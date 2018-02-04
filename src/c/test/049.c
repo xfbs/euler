@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "049.h"
 #include <euler/test.h>
 
 void test_permutations() {

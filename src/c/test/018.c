@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "018.h"
 #include <euler/test.h>
 
 void test_triangle_get() {

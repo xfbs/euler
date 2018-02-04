@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "002.h"
 #include <euler/test.h>
 
 void test_solve_002() {

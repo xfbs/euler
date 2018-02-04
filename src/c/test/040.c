@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "040.h"
 #include <euler/test.h>
 
 void test_chapernowne_digit() {

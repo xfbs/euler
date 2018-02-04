@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "032.h"
 #include <euler/test.h>
 
 void test_pandigital_product() {

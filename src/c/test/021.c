@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "021.h"
 #include <euler/test.h>
 
 void test_amicable_pair() {

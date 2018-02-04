@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "039.h"
 #include <euler/test.h>
 
 void test_solutions_count() {

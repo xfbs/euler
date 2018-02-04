@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "036.h"
 #include <euler/test.h>
 
 void test_is_palindrome() {

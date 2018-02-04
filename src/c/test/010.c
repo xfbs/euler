@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "010.h"
 #include <euler/test.h>
 
 void test_solve_010() {

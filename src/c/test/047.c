@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "047.h"
 #include <euler/test.h>
 
 void test_distinct_prime_factors() {

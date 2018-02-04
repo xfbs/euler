@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "027.h"
 #include <euler/test.h>
 
 void test_quadratic_prime_run() {

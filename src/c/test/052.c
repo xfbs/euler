@@ -1,5 +1,5 @@
 
-#include "solve.h"
+#include "052.h"
 #include <euler/test.h>
 
 void test_num_to_digits() {
