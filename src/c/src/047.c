@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "047.h"
 
 static const size_t factors_size = 10240;
 

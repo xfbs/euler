@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "010.h"
 #include <euler/sieve.h>
 
 uint64_t solve_010(uint64_t max) {

@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "040.h"
 
 uint32_t solve_040() {
   uint32_t solution = champernowne_digit(0) * champernowne_digit(9) *

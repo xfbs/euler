@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "037.h"
 
 uint32_t solve_037(size_t max) {
   prime_t p = prime_new();

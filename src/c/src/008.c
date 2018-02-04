@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "008.h"
 
 uint64_t solve_008(vec8_t *v, size_t len) {
   // find sequence of contiguous, non-zero numbers of length len

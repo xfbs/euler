@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "017.h"
 
 uint32_t solve_017(uint32_t num) {
   uint32_t sum = 0;

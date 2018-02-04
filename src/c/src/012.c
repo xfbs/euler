@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "012.h"
 
 uint32_t solve_012(size_t max) {
   uint32_t triangle = 1;

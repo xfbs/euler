@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "045.h"
 #include <stdbool.h>
 
 uint64_t triangular(uint32_t t) { return (1LL + t) * t / 2; }

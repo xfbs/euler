@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "034.h"
 #include <euler/math.h>
 
 uint64_t solve_034(uint64_t max) {

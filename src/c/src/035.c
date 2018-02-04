@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "035.h"
 
 uint32_t solve_035(size_t max) {
   // generate all primes below max

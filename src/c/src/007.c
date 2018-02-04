@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "007.h"
 #include <euler/prime.h>
 
 uint64_t solve_007(uint32_t pos) {

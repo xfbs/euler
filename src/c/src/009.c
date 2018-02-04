@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "009.h"
 
 uint32_t solve_009(uint32_t n) {
   for (uint32_t c = (n - 3) / 3; c < (n - 1); c++) {

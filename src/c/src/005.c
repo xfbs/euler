@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "005.h"
 #include <euler/math.h>
 
 uint32_t solve_005(uint32_t max) {

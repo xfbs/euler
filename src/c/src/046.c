@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "046.h"
 #include <euler/prime.h>
 #include <math.h>
 #include <stdbool.h>

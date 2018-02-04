@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "050.h"
 #include <euler/prime.h>
 #include <stddef.h>
 

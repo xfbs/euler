@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "039.h"
 
 uint32_t solve_039(uint32_t max) {
   uint32_t res = 0;

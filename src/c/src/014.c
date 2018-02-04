@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "014.h"
 #include <euler/collatz.h>
 
 uint32_t solve_014(uint32_t limit) {

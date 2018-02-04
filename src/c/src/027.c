@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "027.h"
 #include <stdbool.h>
 
 int32_t solve_027(int32_t max) {

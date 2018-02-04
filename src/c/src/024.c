@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "024.h"
 #include <euler/math.h>
 
 // FIXME: use nth_pandigital maybe?

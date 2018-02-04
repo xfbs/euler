@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "018.h"
 
 uint32_t solve_018(triangle_t *t) {
   while (t->rows != 1) {

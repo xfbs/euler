@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "020.h"
 #include <euler/vec16.h>
 
 uint64_t solve_020(uint32_t exp) {

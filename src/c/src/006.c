@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "006.h"
 
 uint32_t solve_006(uint32_t n) {
   uint32_t n2 = n * n;

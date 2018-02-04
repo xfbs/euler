@@ -1,4 +1,4 @@
-#include "solve.h"
+#include "036.h"
 #include <stdio.h>
 
 uint32_t solve_036(uint32_t max) {
