@@ -5,17 +5,22 @@ LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMISE)
 SOURCES  = $(wildcard src/*.c)
 TESTS    = $(wildcard test/*.c)
 
-build: $(SOURCES:%.c=%.o)
-
-#check:
+build: bin/solve
 
 test: test/test
+	./test/test
 
 test/test: $(SOURCES:%.c=%.o) $(TESTS:%.c=%.o) test/test.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 test/test.c: $(PROBLEMS:%=%/test.c) test/test.rb
 	cd test && ruby test.rb > test.c
+
+bin/%: bin/%.o $(SOURCES:%.c=%.o)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+clean:
+	$(RM) bin/*.o src/*.o test/*.o bin/solve test/test
 
 #%/solve: %/solve.o %/main.o
 #	$(CC) -o $@ $^ $(LDFLAGS)

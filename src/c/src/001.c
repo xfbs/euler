@@ -13,3 +13,13 @@ uint32_t sum_divisible(uint32_t max, uint32_t divisor) {
 
   return (bound * ((bound / divisor) + 1)) / 2;
 }
+
+const char *solve001(void *data) {
+  uint32_t max = 999;
+  uint32_t div1 = 3;
+  uint32_t div2 = 5;
+
+  static char result[256];
+  sprintf(result, "%i", solve_001(max, div1, div2));
+  return result;
+}
