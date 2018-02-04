@@ -2,24 +2,27 @@ LIBDIR   = ../../lib/c
 OPTIMISE = -O3
 CFLAGS 	+= -Isrc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMISE)
 LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMISE)
-PROBLEMS = $(wildcard ???)
+SOURCES  = $(wildcard src/*.c)
 
-build: $(PROBLEMS:%=%/solve)
+build: $(SOURCES:%.c=%.o)
 
-check:
+src/%.o: src/%.c src/%.h
+	$(CC) $(CFLAGS) -c $<
 
-test: test/test
+#check:
 
-test/test: $(PROBLEMS:%=%/test.o) $(PROBLEMS:%=%/solve.o) test/all.o
-	$(CC) -o $@ $^ $(LDFLAGS)
+#test: test/test
 
-test/all.c: $(PROBLEMS:%=%/test.c) test/all.rb
-	cd test && ruby all.rb > all.c
+#test/test: $(PROBLEMS:%=%/test.o) $(PROBLEMS:%=%/solve.o) test/all.o
+#	$(CC) -o $@ $^ $(LDFLAGS)
 
-%/solve: %/solve.o %/main.o
-	$(CC) -o $@ $^ $(LDFLAGS)
+#test/all.c: $(PROBLEMS:%=%/test.c) test/all.rb
+#	cd test && ruby all.rb > all.c
 
-$(LIBEULER):
-	cd $(LIBDIR) && make
+#%/solve: %/solve.o %/main.o
+#	$(CC) -o $@ $^ $(LDFLAGS)
+
+#$(LIBEULER):
+#	cd $(LIBDIR) && make
 
 .PHONY: build solve clean test
