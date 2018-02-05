@@ -21,9 +21,9 @@ cp euler/progress.md progress.md
 git add index.md contributing.md progress.md
 
 # generate docs for lib/c
-cd euler/lib/c
+cd euler/lib/c/euler
 make doc
-cd ../../../
+cd ../../../../
 rm -rf docs/c
 cp -r euler/doc/lib/c/html docs/c
 git add docs/c
