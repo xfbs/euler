@@ -71,42 +71,35 @@ map_hash_t map_hash_str(const char *str) {
   return hash;
 }
 
-void *map_get(map_t *m, const char *str) {
+map_item_t *map_get_item(const map_t *m, const char *str) {
   // compute hash of string
   map_hash_t hash = map_hash_str(str);
 
   // map the hash to a bin
   size_t bin = hash % m->bin_count;
 
-  // get relevant map item
-  map_item_t *item = &m->bins[bin];
-
   // iterate through all items
   for(map_item_t *item = &m->bins[bin]; item != NULL; item = item->next) {
     if(item->hash == hash && 0 == strcmp(str, item->key)) {
-      return item->val;
+      return item;
     }
   }
 
   return NULL;
 }
 
+void *map_get(const map_t *m, const char *str) {
+  map_item_t *item = map_get_item(m, str);
+  return item ? item->val : NULL;
+}
+
+bool map_has(const map_t *m, const char *str) {
+  map_item_t *item = map_get_item(m, str);
+  return item ? true : false;
+}
+
 bool map_set(map_t *m, const char *str, void *val) {
-  // compute hash of string
-  map_hash_t hash = map_hash_str(str);
-
-  // map the hash to a bin
-  size_t bin = hash % m->bin_count;
-
-  // get relevant map item
-  map_item_t *item;
-
-  // iterate through all items
-  for(item = &m->bins[bin]; item != NULL; item = item->next) {
-    if(item->hash == hash && 0 == strcmp(str, item->key)) {
-      break;
-    }
-  }
+  map_item_t *item = map_get_item(m, str);
 
   if(!item) {
     return false;
@@ -117,26 +110,6 @@ bool map_set(map_t *m, const char *str, void *val) {
   item->val = val;
 
   return true;
-}
-
-bool map_has(map_t *m, const char *str) {
-  // compute hash of string
-  map_hash_t hash = map_hash_str(str);
-
-  // map the hash to a bin
-  size_t bin = hash % m->bin_count;
-
-  // get relevant map item
-  map_item_t *item = &m->bins[bin];
-
-  // iterate through all items
-  for(map_item_t *item = &m->bins[bin]; item != NULL; item = item->next) {
-    if(item->hash == hash && 0 == strcmp(str, item->key)) {
-      return true;
-    }
-  }
-
-  return false;
 }
 
 
@@ -209,6 +182,10 @@ bool map_add(map_t *m, const char *str, void *val) {
   return true;
 }
 
-size_t map_len(map_t *hm) {
+size_t map_len(const map_t *hm) {
   return hm->elem_count;
+}
+
+bool map_del(map_t *m, const void *key) {
+  return false;
 }

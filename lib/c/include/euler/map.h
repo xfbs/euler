@@ -1,36 +1,29 @@
-//! @file       map.h
-//! @author     Patrick M. Elsen
-//! @date       2018
-//! @copyright  MIT license
-//! @brief      hashmap data type
-//! @detail     implements a hashmap in C.
-//! @todo       which hashing function do we use?
-//! @todo       do we store things in stack (maybe start with a bin size of 1?)
-//! @todo       how do we generate primes for bin sizes?
-//! @todo       how do we keep the key itself? -> ownership of string!
-//! @todo       can we use some kind of cache to keep map_item_t to prevent
-//!             having to reallocate?
-//! @todo       use primal bin lengths?
+//! Hashmap data type, see @ref map.
+//!
+//! @file   map.h
+//! @todo   which hashing function do we use?
+//! @todo   do we store things in stack (maybe start with a bin size of 1?)
+//! @todo   how do we generate primes for bin sizes?
+//! @todo   how do we keep the key itself? -> ownership of string!
+//! @todo   can we use some kind of cache to keep map_item_t to prevent
+//!         having to reallocate?
+//! @todo   use primal bin lengths?
 #include <euler/common.h>
 #pragma once
 
+//! A hashmap data type.
+//!
 //! @defgroup map map
-//! @brief A hashmap data type
 //! @{
 
 //! The type that hashes have.
 typedef uint64_t map_hash_t;
 
-//! Type of integers that can be stored as values in a hash.
-typedef ptrdiff_t map_int_t;
+//! Custom hashing function.
+typedef map_hash_t map_hash_fn(const void *key);
 
-//! Custom hashing function to use.
-//!
-//! Hash functions should be implemented in a way to not return 0.
-typedef map_hash_t map_hash_fn(void *key);
-
-//! Custom comparison function to use.
-typedef int map_cmp_fn(void *lkey, void *rkey);
+//! Custom comparison function.
+typedef int map_cmp_fn(const void *lkey, const void *rkey);
 
 //! Custom `free()`ing function for keys or elements.
 typedef void map_free_fn(void *data);
@@ -144,7 +137,7 @@ map_hash_t map_hash_str(const char *str);
 //! // release
 //! map_free(&hm);
 //! ```
-void *map_get(map_t *m, const char *str);
+void *map_get(const map_t *m, const char *str);
 
 //! Adds a mapping to the hashmap.
 //!
@@ -229,7 +222,7 @@ bool map_set(map_t *m, const char *key, void *val);
 //! // release
 //! map_free(&hm);
 //! ```
-bool map_has(map_t *m, const char *key);
+bool map_has(const map_t *m, const char *key);
 
 //! Determines the amount of elements in the hashmap.
 //!
@@ -256,9 +249,8 @@ bool map_has(map_t *m, const char *key);
 //! // release
 //! map_free(&hm);
 //! ```
-size_t map_len(map_t *m);
+size_t map_len(const map_t *m);
 
-// rem? del? unset?
-#define map_rem(map, key) 0
+bool map_del(map_t *m, const void *key);
 
 //! @}
