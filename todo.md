@@ -30,6 +30,10 @@
   - [ ] solve all problems up to problem 100
   - [ ] add solutions in another language (scheme, ocaml, cpp)
   - [ ] port all of crystal solution's minitest to specs (because builtin)
+  - [ ] for all C functions, change functions that don't take arguments to be of
+        type `retval funcname(void);`, because otherwise the compiler will allow
+        any number of arguments to be passed.
+  - [ ] in `lib/c/`, rename `modular_arithmetic` to `modarith`.
 
 ## Project
 
