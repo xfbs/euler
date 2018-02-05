@@ -1,29 +1,35 @@
+//! Modular arithmetic functions, see @ref modarith.
 //! @file modular_arithmetic.h
 #include <math.h>
 #include <stdint.h>
 #include <stdlib.h>
 #pragma once
 
-//! @defgroup mod mod
-//! @brief modular arithmetic functions
+//! Modular arithmetic functions.
+//! A group of functions that can be used to perform modular arithmetic.
+//! @defgroup modarith modarith
 //! @{
 
-//! computes `pow(num, ext) % mod`
+//! Computes `pow(num, ext) % mod`
 //!
-//! @param num base
-//! @param exp exponent
-//! @param mod modulus
+//! @param num Base
+//! @param exp Exponent
+//! @param mod Modulus
 //! @return `num` to the power of `exp` modulus `mod`
-//! @todo example
+//!
+//! ## Examples
+//!
+//! ```c
+//! assert(pow_mod(15, 456, 11327) == 2170);
+//! assert(pow_mod(19, 102, 19921) == 11790);
+//! ```
 uint64_t pow_mod(uint64_t num, uint64_t exp, uint64_t mod);
 
-//! computers `(num[0] + num[1] ... + num[len-1]) % mod`
+//! Computers the sum of all integers in `num` modulus `mod`
 //!
-//! sums up an array modulus `mod`
-//!
-//! @param num an array of numbers
-//! @param len the length of the array
-//! @param mod modulus
+//! @param num An array of numbers
+//! @param len Length of the array
+//! @param mod Modulus
 //! @return the sum of all numbers in the array modulus `mod`
 //!
 //! ## Examples
@@ -37,10 +43,10 @@ uint64_t sum_mod(uint64_t num[], size_t len, uint64_t mod);
 
 //! computes `(a * b) % mod`
 //!
-//! @param a a factor
-//! @param b a factor
-//! @param mod modulus
-//! @return the product of `a` and `b` modulus `mod`
+//! @param a Factor
+//! @param b Factor
+//! @param mod Modulus
+//! @return Product of `a` and `b` modulus `mod`
 //!
 //! ## Examples
 //!

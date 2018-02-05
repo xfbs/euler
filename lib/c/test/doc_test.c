@@ -52,7 +52,7 @@ void doctest_map_free_2() {
   map_t hm = map_new();
 
   // set the freeing function for values to be free()
-  map_set_free(&hm, NULL, &free);
+  map_set_free(&hm, NULL, free);
 
   // add something to the hashmap
   assert(map_add(&hm, "key1", malloc(50)));
@@ -67,7 +67,7 @@ void doctest_map_set_free() {
   map_t hm = map_new();
 
   // set the freeing function for values to be free()
-  map_set_free(&hm, NULL, &vec32_free);
+  map_set_free(&hm, NULL, vec32_free);
 
   // add something to the hashmap
   assert(map_add(&hm, "twos", vec32_alloc(12, 2)));
@@ -94,8 +94,12 @@ void doctest_map_get() {
   // new hash map
   map_t hm = map_new();
 
-  // check if string exists
+  // check that get will return NULL because the key doesn't exist.
   assert(map_get(&hm, "key") == NULL);
+
+  // add key to hashmap
+  assert(map_add(&hm, "key", (void *) 0x5656));
+  assert(map_get(&hm, "key") == (void *) 0x5656);
 
   // release
   map_free(&hm);
@@ -256,6 +260,11 @@ void doctest_math_fibonacci() {
   assert(fibonacci(3) == 3);
   assert(fibonacci(4) == 5);
   assert(fibonacci(5) == 8);
+}
+
+void doctest_modular_arithmetic_pow_mod() {
+  assert(pow_mod(15, 456, 11327) == 2170);
+  assert(pow_mod(19, 102, 19921) == 11790);
 }
 
 void doctest_modular_arithmetic_sum_mod() {

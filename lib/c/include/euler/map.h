@@ -33,9 +33,16 @@ struct map_item_t;
 
 //! A map item descriptor.
 typedef struct map_item_t {
+  //! Hash of the key, cached for faster comparison.
   map_hash_t hash;
+
+  //! Key of this item.
   void *key;
+
+  //! Value of this item.
   void *val;
+
+  //! Next item, or `NULL` if end.
   struct map_item_t *next;
 } map_item_t;
 
@@ -164,8 +171,8 @@ void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val);
 
 //! Sets custom hashing function.
 //!
-//! @param hm Hashmap to modify.
-//! @param hash_fun Custom hashing function to use.
+//! @param hm   Hashmap to modify.
+//! @param hash Custom hashing function to use.
 //! @todo example
 void map_set_hash(map_t *hm, map_hash_fn *hash);
 
@@ -197,8 +204,12 @@ map_hash_t map_hash_str(const char *str);
 //! // new hash map
 //! map_t hm = map_new();
 //!
-//! // check if string exists
+//! // check that get will return NULL because the key doesn't exist.
 //! assert(map_get(&hm, "key") == NULL);
+//!
+//! // add key to hashmap
+//! assert(map_add(&hm, "key", (void *) 0x5656));
+//! assert(map_get(&hm, "key") == (void *) 0x5656);
 //!
 //! // release
 //! map_free(&hm);

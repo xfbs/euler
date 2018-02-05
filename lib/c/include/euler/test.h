@@ -59,11 +59,15 @@
 
 //! Checks if two strings are equal.
 //!
-//! @param lhr
-//! @param rhs
+//! Uses `assert()` and `strcmp()` to compare two strings for equality.
+//!
+//! @param lhs The left string to check
+//! @param rhs The right string to check
 //! @todo make generic so it also works for other data types
 #define assert_eq(lhs, rhs) assert(lhs && rhs && 0 == strcmp(lhs, rhs))
 
+//! @cond
+//! These methods are private and do not show up in the documentation.
 void _tests();
 const char *_get_file_name();
 
@@ -74,5 +78,6 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 #endif
+//! @endcond
 
 //! @}

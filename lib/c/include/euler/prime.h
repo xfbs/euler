@@ -1,16 +1,17 @@
+//! Functions for generating prime numbers, see @ref prime.
 //! @file prime.h
-//! @author Patrick M. Elsen
-//! @date 2018
-//! @copyright MIT license
-//! @brief functions for generating prime numbers.
-//! @detail these functions provide an easy interface for generating sequential
-//! prime numbers.
 #include <euler/common.h>
 #include <euler/vec32.h>
 #pragma once
 
+//! Functions for generating prime numbers.
+//!
+//! The functions in this module can be used to generate prime numbers, and
+//! check the primality of numbers. To check if a number is prime, a trivial
+//! algorithm that checks divisibility by all primes below `sqrt(x)` is used.
+//! This might not be very fast for large prime numbers.
+//!
 //! @defgroup prime prime
-//! @brief functions for generating prime numbers.
 //! @{
 
 //! primes struct, used for caching generated primes.

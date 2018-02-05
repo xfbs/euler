@@ -1,24 +1,21 @@
+//! Generic macros for use with the vector data types, see @ref vec.
 //! @file vec.h
-//! @author Patrick M. Elsen
-//! @date 2018
-//! @copyright MIT license
-//! @brief generic macros for use with the vector data types.
-//! @details
-//! the macros in this file serve as generic functions that can be used in place
-//! of the specialized functions of each vector type.
 #include <euler/vec8.h>
 #include <euler/vec16.h>
 #include <euler/vec32.h>
 #include <euler/vec64.h>
 #include <euler/vecp.h>
 
-//! @defgroup vec vec
-//! @brief generic functions to operatr on various vector types implemented as
-//! macros.
-//! @details
-//! the macros in this file serve as generic functions that can be used in place
+//! Generic functions to operate on various vector types implemented as macros.
+//!
+//! The macros in this file serve as generic functions that can be used in place
 //! of the specialized functions of each vector type.
+//!
+//! For example, instead of using `vec32_len()`, you can use `vec_len()`, and
+//! the macro will automatically select the right function to use.
+//!
 //! @see vecp, vec8, vec16, vec32, vec64
+//! @defgroup vec vec
 //! @{
 
 //! `free()`s the data held inside a vector.
@@ -27,7 +24,7 @@
 //! @warning
 //! this function only releases the data held inside the vector, not the
 //! vector itself.
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`.
 //! @see `vecp_free()`, `vec8_free()`, `vec16_free()`, `vec32_free()`,
@@ -69,7 +66,7 @@
 //! @param v vector on which to operate
 //! @param pos which element to return
 //! @return element at `pos`
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_get()`, `vec8_get()`, `vec16_get()`, `vec32_get()`, `vec64_get()`
@@ -120,7 +117,7 @@
 //! @param pos which element to overwrite
 //! @param data new data for the position
 //! @return previous value at `pos`
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_set()`, `vec8_set()`, `vec16_set()`, `vec32_set()`, `vec64_set()`
@@ -175,7 +172,7 @@
 //!
 //! @param v vector to get length of
 //! @return length of `v`
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_len()`, `vec8_len()`, `vec16_len()`, `vec32_len()`, `vec64_len()`
@@ -209,7 +206,7 @@
 //! @param v vector to push onto
 //! @param data value to push onto the end
 //! @return new size of the vector
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_push()`, `vec8_push()`, `vec16_push()`, `vec32_push()`,
@@ -247,7 +244,7 @@
 //!
 //! @param v the vector to reserve space for
 //! @param size how much additional space to reserve
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`.
 //! @see `vecp_reserve()`, `vec8_reserve()`, `vec16_reserve()`, `vec32_reserve()`,
@@ -276,17 +273,17 @@
 //!
 //! vec_free(&vec);
 //! ```
-#define vec_reserve(v, num) _Generic(v,  \
+#define vec_reserve(v, size) _Generic(v,  \
   vecp_t*: vecp_reserve, \
   vec8_t*: vec8_reserve, \
   vec16_t*: vec16_reserve, \
   vec32_t*: vec32_reserve, \
-  vec64_t*: vec64_reserve)(v, num)
+  vec64_t*: vec64_reserve)(v, size)
 
 //! removes all the elements in a vector.
 //!
 //! @param v the vector to clear
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_clear()`, `vec8_clear()`, `vec16_clear()`, `vec32_clear()`,
@@ -323,7 +320,7 @@
 //! @param data element to look up
 //! @return index of `data` in `v`, or `SIZE_MAX` if `data` does not exist in
 //! `v`.
-//! @info
+//! @note
 //! compatible with vectors of types `vecp_t`, `vec8_t`, `vec16_t`, `vec32_t`,
 //! `vec64_t`
 //! @see `vecp_index()`, `vec8_index()`, `vec16_index()`, `vec32_index()`,
@@ -361,7 +358,7 @@
 //!
 //! @param v vector with elements to add
 //! @return sum of all elements in `v`
-//! @info
+//! @note
 //! compatible with vectors of types `vec8_t`, `vec16_t`, `vec32_t`, `vec64_t`.
 //! @see `vec8_sum()`, `vec16_sum()`, `vec32_sum()`, `vec64_sum()`
 //!
