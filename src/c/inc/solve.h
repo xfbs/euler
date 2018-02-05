@@ -9,3 +9,4 @@ struct solve_s {
 };
 
 extern struct solve_s solve[];
+size_t solve_max;

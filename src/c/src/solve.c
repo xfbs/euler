@@ -1,59 +1,55 @@
 #include "solve.h"
 #include "all.h"
-static char result[256];
 
-#define default_arg(type, name, val) type name = val
+#define default_arg(type, name, val)                                           \
+  type name = val
 
-#define typefmt(t) _Generic(t) \
-  int: "%i", \
-  uint32_t: "%u", \
+#define typefmt(t) _Generic( (t),                                              \
+  int: "%i",                                                                   \
+  uint32_t: "%u",                                                              \
   uint64_t: "%llu")
 
-#define solution(val) \
-  sprintf(result, typefmt(val), val) \
+#define solution(val)                                                          \
+  sprintf(result, typefmt(val), val);                                          \
   return result
 
+static char result[256];
 
 const char *solve001(map_t *data) {
   default_arg(uint32_t, max, 999);
   default_arg(uint32_t, div1, 3);
   default_arg(uint32_t, div2, 5);
-
-  /*
-  sprintf(result, "%i", solve_001(max, div1, div2));
-  return result;
-  */
   solution(solve_001(max, div1, div2));
 }
 
 const char *solve002(map_t *data) {
-  sprintf(result, "%llu", solve_002(4000000));
-  return result;
+  default_arg(uint64_t, max, 4000000);
+  solution(solve_002(max));
 }
 
 const char *solve003(map_t *data) {
-  sprintf(result, "%llu", solve_003(600851475143ULL));
-  return result;
+  default_arg(uint64_t, num, 600851475143ULL);
+  solution(solve_003(num));
 }
 
 const char *solve004(map_t *data) {
-  sprintf(result, "%i", solve_004(3));
-  return result;
+  default_arg(uint32_t, digits, 3);
+  solution(solve_004(digits));
 }
 
 const char *solve005(map_t *data) {
-  sprintf(result, "%i", solve_005(20));
-  return result;
+  default_arg(uint32_t, digits, 20);
+  solution(solve_005(digits));
 }
 
 const char *solve006(map_t *data) {
-  sprintf(result, "%i", solve_006(100));
-  return result;
+  default_arg(uint32_t, n, 100);
+  solution(solve_006(n));
 }
 
 const char *solve007(map_t *data) {
-  sprintf(result, "%llu", solve_007(10001));
-  return result;
+  default_arg(uint32_t, pos, 10001);
+  solution(solve_007(pos));
 }
 
 const char *solve008(map_t *data) {
@@ -81,13 +77,13 @@ const char *solve008(map_t *data) {
 }
 
 const char *solve009(map_t *data) {
-  sprintf(result, "%u", solve_009(1000));
-  return result;
+  default_arg(uint32_t, n, 1000);
+  solution(solve_009(n));
 }
 
 const char *solve010(map_t *data) {
-  sprintf(result, "%llu", solve_010(2000000));
-  return result;
+  default_arg(uint64_t, n, 2000000);
+  solution(solve_010(n));
 }
 
 const char *solve011(map_t *data) {
@@ -122,8 +118,8 @@ const char *solve011(map_t *data) {
   return "FIXME";}
 
 const char *solve012(map_t *data) {
-  sprintf(result, "%i", solve_012(500));
-  return result;
+  default_arg(size_t, max, 500);
+  solution(solve_012(max));
 }
 
 const char *solve013(map_t *data) {
@@ -157,23 +153,24 @@ const char *solve013(map_t *data) {
 }
 
 const char *solve014(map_t *data) {
-  sprintf(result, "%i", solve_014(1000000));
-  return result;
+  default_arg(uint32_t, limit, 1000000);
+  solution(solve_014(limit));
 }
 
 const char *solve015(map_t *data) {
-  sprintf(result, "%llu", solve_015(20, 20));
-  return result;
+  default_arg(size_t, x, 20);
+  default_arg(size_t, y, 20);
+  solution(solve_015(x, y));
 }
 
 const char *solve016(map_t *data) {
-  sprintf(result, "%llu", solve_016(1000));
-  return result;
+  default_arg(size_t, exp, 1000);
+  solution(solve_016(exp));
 }
 
 const char *solve017(map_t *data) {
-  sprintf(result, "%u", solve_017(1000));
-  return result;
+  default_arg(uint32_t, num, 1000);
+  solution(solve_017(num));
 }
 
 const char *solve018(map_t *data) {
@@ -226,6 +223,7 @@ const char *solve018(map_t *data) {
 }
 
 const char *solve019(map_t *data) {
+  // TODO
   date_t start = {MONDAY, 1, JANUARY, 1900};
 
   // find 1st Jan 1901
@@ -236,18 +234,17 @@ const char *solve019(map_t *data) {
   // i guessed the weekday here, but it shouldn't matter anyways.
   date_t end = {MONDAY, 31, DECEMBER, 2000};
 
-  sprintf(result, "%i", solve_019(start, end));
-  return result;
+  solution(solve_019(start, end));
 }
 
 const char *solve020(map_t *data) {
-  sprintf(result, "%llu", solve_020(100));
-  return result;
+  default_arg(uint32_t, exp, 100);
+  solution(solve_020(exp));
 }
 
 const char *solve021(map_t *data) {
-  sprintf(result, "%i", solve_021(10000));
-  return result;
+  default_arg(uint32_t, max, 10000);
+  solution(solve_021(max));
 }
 
 const char *solve022(map_t *data) {
@@ -279,93 +276,89 @@ const char *solve022(map_t *data) {
   return "FIXME";}
 
 const char *solve023(map_t *data) {
-  sprintf(result, "%i", solve_023(28123));
-  return result;
+  default_arg(size_t, max, 28123);
+  solution(solve_023(max));
 }
 
 const char *solve024(map_t *data) {
-  sprintf(result, "%llu", solve_024(999999));
-  return result;
+  default_arg(uint32_t, n, 999999);
+  solution(solve_024(n));
 }
 
 const char *solve025(map_t *data) {
-  sprintf(result, "%u", solve_025(1000));
-  return result;
+  default_arg(uint32_t, max, 1000);
+  solution(solve_025(max));
 }
 
 const char *solve027(map_t *data) {
-  sprintf(result, "%i", solve_027(1000));
-  return result;
+  default_arg(int32_t, max, 1000);
+  solution(solve_027(max));
 }
 
 const char *solve028(map_t *data) {
-  sprintf(result, "%llu", solve_028(1001));
-  return result;
+  default_arg(uint64_t, max, 1001);
+  solution(solve_028(max));
 }
 
 const char *solve029(map_t *data) {
-  sprintf(result, "%u", solve_029(100, 100));
-  return result;
+  default_arg(uint32_t, a, 100);
+  default_arg(uint32_t, b, 100);
+  solution(solve_029(a, b));
 }
 
 const char *solve030(map_t *data) {
-  sprintf(result, "%i", solve_030());
-  return result;
+  solution(solve_030());
 }
 
 const char *solve031(map_t *data) {
-  sprintf(result, "%i", solve_031(200));
-  return result;
+  default_arg(uint32_t, value, 200);
+  solution(solve_031(value));
 }
 
 const char *solve032(map_t *data) {
-  sprintf(result, "%i", solve_032(10));
-  return result;
+  solution(solve_032());
 }
 
 const char *solve033(map_t *data) {
-  sprintf(result, "%i", solve_033(10));
-  return result;
+  solution(solve_033());
 }
 
 const char *solve034(map_t *data) {
-  sprintf(result, "%llu", solve_034(2540160));
-  return result;
+  default_arg(uint64_t, max, 2540160);
+  solution(solve_034(max));
 }
 
 const char *solve035(map_t *data) {
-  sprintf(result, "%i", solve_035(1000000));
-  return result;
+  default_arg(size_t, max, 1000000);
+  solution(solve_035(max));
 }
 
 const char *solve036(map_t *data) {
-  sprintf(result, "%i", solve_036(1000000));
-  return result;
+  default_arg(uint32_t, max, 1000000);
+  solution(solve_036(max));
 }
 
 const char *solve037(map_t *data) {
-  sprintf(result, "%i", solve_037(11));
-  return result;
+  default_arg(size_t, max, 11);
+  solution(solve_037(max));
 }
 
 const char *solve038(map_t *data) {
-  sprintf(result, "%llu", solve_038(11));
-  return result;
+  solution(solve_038());
 }
 
 const char *solve039(map_t *data) {
-  sprintf(result, "%u", solve_039(1000));
-  return result;
+  default_arg(uint32_t, max, 1000);
+  solution(solve_039(max));
 }
 
 const char *solve040(map_t *data) {
-  sprintf(result, "%i", solve_040());
-  return result;
+  solution(solve_040());
 }
 
 const char *solve041(map_t *data) {
-  sprintf(result, "%i", solve_041(9));
-  return result;
+  default_arg(uint8_t, max, 9);
+  solution(solve_041(max));
 }
 
 const char *solve042(map_t *data) {
@@ -397,52 +390,51 @@ const char *solve042(map_t *data) {
   return "FIXME";}
 
 const char *solve043(map_t *data) {
-  sprintf(result, "%llu", solve_043());
-  return result;
+  solution(solve_043());
 }
 
 const char *solve044(map_t *data) {
-  sprintf(result, "%llu", solve_044());
-  return result;
+  solution(solve_044());
 }
 
 const char *solve045(map_t *data) {
-  sprintf(result, "%llu", solve_045(285, 165, 143));
-  return result;
+  default_arg(uint32_t, t, 285);
+  default_arg(uint32_t, p, 165);
+  default_arg(uint32_t, h, 143);
+  solution(solve_045(t, p, h));
 }
 
 const char *solve046(map_t *data) {
-  sprintf(result, "%llu", solve_046());
-  return result;
+  solution(solve_046());
 }
 
 const char *solve047(map_t *data) {
-  sprintf(result, "%llu", solve_047(4));
-  return result;
+  default_arg(uint8_t, count, 4);
+  solution(solve_047(count));
 }
 
 const char *solve048(map_t *data) {
-  sprintf(result, "%llu", solve_048(1000, 10));
-  return result;
+  default_arg(uint64_t, max, 1000);
+  default_arg(uint64_t, digits, 10);
+  solution(solve_048(max, digits));
 }
 
 const char *solve049(map_t *data) {
-  sprintf(result, "%llu", solve_049(1487));
-  return result;
+  default_arg(uint32_t, avoid, 1487);
+  solution(solve_049(avoid));
 }
 
 const char *solve050(map_t *data) {
-  sprintf(result, "%llu", solve_050(1000000));
-  return result;
+  default_arg(uint64_t, max, 1000000);
+  solution(solve_050(max));
 }
 
 const char *solve052(map_t *data) {
-  sprintf(result, "%llu", solve_052());
-  return result;
+  solution(solve_052());
 }
 
 struct solve_s solve[] = {
-  [  0] = {0, 0},
+  [  0] = {NULL, NULL},
   [  1] = {
     solve001,
     "solves the multiples of 3 and 5.\n"
@@ -607,3 +599,5 @@ struct solve_s solve[] = {
     NULL,
     NULL},
 };
+
+size_t solve_max = sizeof(solve);

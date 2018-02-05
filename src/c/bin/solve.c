@@ -4,6 +4,7 @@
 #include "solve.h"
 
 void show_help(const char *prog);
+void error(const char *mesg);
 
 int main(int argc, char *argv[])
 {
@@ -13,16 +14,20 @@ int main(int argc, char *argv[])
   }
 
   size_t problem = atoi(argv[1]);
+  if(problem >= solve_max || solve[problem].func == NULL) {
+    error("the requested problem isn't implemented.");
+    return 1;
+  }
 
-  const char *res = solve[problem].func(NULL);
-
-  // keep function pointers and pointers to help text together in an array?
-
-  printf("%s\n", res);
+  printf("%s\n", solve[problem].func(NULL));
 
   return 0;
 }
 
 void show_help(const char *prog) {
   fprintf(stderr, "Usage: %s NUM [OPTIONS]\n", prog);
+}
+
+void error(const char *mesg) {
+  fprintf(stderr, "Error: %s\n", mesg);
 }
