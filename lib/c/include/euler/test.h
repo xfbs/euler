@@ -3,6 +3,7 @@
 //! @brief tiny C unit testing helpers
 #include <assert.h>
 #include <stdio.h>
+#include <string.h>
 
 //! @defgroup test test
 //! @brief tiny C unit testing helpers
@@ -55,6 +56,13 @@
   printf("  - %s: ", #t);                                                      \
   t();                                                                         \
   printf("success.\n")
+
+//! Checks if two strings are equal.
+//!
+//! @param lhr
+//! @param rhs
+//! @todo make generic so it also works for other data types
+#define assert_eq(lhs, rhs) assert(lhs && rhs && 0 == strcmp(lhs, rhs))
 
 void _tests();
 const char *_get_file_name();

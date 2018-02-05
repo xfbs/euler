@@ -4,6 +4,7 @@
 // this script assumes it's begin ran from within the test/ directory
 #include <euler/collatz.h>
 #include <euler/common.h>
+#include <euler/map.h>
 #include <euler/math.h>
 #include <euler/modular_arithmetic.h>
 #include <euler/prime.h>
@@ -17,6 +18,84 @@
 #include <euler/vecp.h>
 #include <stdlib.h>
 #include <string.h>
+
+void doctest_map_new() {
+  // make new hashmap
+  map_t hm = map_new();
+
+  // release
+  map_free(&hm);
+}
+
+void doctest_map_hash_str() {
+  assert(map_hash_str("abc") == map_hash_str("abc"));
+  assert(map_hash_str("some") != map_hash_str("other"));
+}
+
+void doctest_map_get() {
+  // new hash map
+  map_t hm = map_new();
+
+  // check if string exists
+  assert(map_get(&hm, "key") == NULL);
+
+  // release
+  map_free(&hm);
+}
+
+void doctest_map_add() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // adds an element
+  assert(map_add(&hm, "key", "value"));
+
+  // checks that we can't add anything under the same key
+  assert(!map_add(&hm, "key", "other"));
+
+  // checks that our mapping exists
+  assert(0 == strcmp("value", map_get(&hm, "key")));
+
+  // release hashmap
+  map_free(&hm);
+}
+
+void doctest_map_set() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // adds an element
+  assert(true == map_add(&hm, "key", "value"));
+
+  // checks that the mapping exists
+  assert_eq("value", map_get(&hm, "key"));
+
+  // overwrites mapping
+  assert(map_set(&hm, "key", "other"));
+
+  // checks if overwriting worked
+  assert_eq("other", map_get(&hm, "key"));
+
+  // release hashmap
+  map_free(&hm);
+}
+
+void doctest_map_has() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // nothing in there - yet
+  assert(!map_has(&hm, "key"));
+
+  // add something
+  assert(map_add(&hm, "key", "value"));
+
+  // now it exists
+  assert(map_has(&hm, "key"));
+
+  // release
+  map_free(&hm);
+}
 
 void doctest_math_lcm() {
   assert(lcm(10, 5) == 10);

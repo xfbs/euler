@@ -6,6 +6,12 @@
 #include <euler/test.h>
 
 void test_collatz();
+void doctest_map_new();
+void doctest_map_hash_str();
+void doctest_map_get();
+void doctest_map_add();
+void doctest_map_set();
+void doctest_map_has();
 void doctest_math_lcm();
 void doctest_math_gcd();
 void doctest_math_factorial();
@@ -173,6 +179,12 @@ void test_vecp_len_generic();
 
 TESTS() {
   RUN(test_collatz);
+  RUN(doctest_map_new);
+  RUN(doctest_map_hash_str);
+  RUN(doctest_map_get);
+  RUN(doctest_map_add);
+  RUN(doctest_map_set);
+  RUN(doctest_map_has);
   RUN(doctest_math_lcm);
   RUN(doctest_math_gcd);
   RUN(doctest_math_factorial);
