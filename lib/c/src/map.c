@@ -2,8 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+// How many items must be in a bin to force an expansion?
 static const size_t THRESHOLD = 5;
+
+// How many bins should the hashmap have initially?
 static const size_t INITIAL_BIN_COUNT = 1;
+
+// Which seed should the murmur hash use as seed?
 static const uint64_t SEED = 0x23948AB42905FF0A;
 
 // source: https://primes.utm.edu/lists/2small/0bit.html
@@ -44,6 +49,12 @@ map_t map_new() {
   return hm;
 }
 
+// check if a uint64_t contains a zero byte, taken from
+// https://jameshfisher.com/2017/01/24/bitwise-check-for-zero-byte.html
+bool contains_zero_byte(uint64_t v) {
+  return (v - UINT64_C(0x0101010101010101)) & ~(v) & UINT64_C(0x8080808080808080);
+}
+
 // Austin Appleby's MurmurHash, adapted from
 // https://github.com/aappleby/smhasher
 static uint64_t murmur_hash_64a(const void * key, int len, uint64_t seed) {
@@ -55,6 +66,7 @@ static uint64_t murmur_hash_64a(const void * key, int len, uint64_t seed) {
   const uint64_t * data = (const uint64_t *)key;
   const uint64_t * end = data + (len/8);
 
+  // FIXME use contains_zero_byte
   while(data != end)
   {
     uint64_t k = *data++;
@@ -123,7 +135,7 @@ void map_free(map_t *hm) {
 
 void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val) {
   hm->free_key = free_key;
-  hm->free_key = free_val;
+  hm->free_val = free_val;
 }
 
 void map_set_hash(map_t *hm, map_hash_fn *hash) {

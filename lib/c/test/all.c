@@ -7,6 +7,9 @@
 
 void test_collatz();
 void doctest_map_new();
+void doctest_map_free_1();
+void doctest_map_free_2();
+void doctest_map_set_free();
 void doctest_map_hash_str();
 void doctest_map_get();
 void doctest_map_add();
@@ -183,6 +186,9 @@ void test_vecp_len_generic();
 TESTS() {
   RUN(test_collatz);
   RUN(doctest_map_new);
+  RUN(doctest_map_free_1);
+  RUN(doctest_map_free_2);
+  RUN(doctest_map_set_free);
   RUN(doctest_map_hash_str);
   RUN(doctest_map_get);
   RUN(doctest_map_add);

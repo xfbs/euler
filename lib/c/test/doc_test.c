@@ -23,7 +23,65 @@ void doctest_map_new() {
   // make new hashmap
   map_t hm = map_new();
 
+  // add something to the hashmap
+  assert(map_add(&hm, "key", "val"));
+
+  // check if adding worked
+  assert_eq(map_get(&hm, "key"), "val");
+
   // release
+  map_free(&hm);
+}
+
+void doctest_map_free_1() {
+  // make new hashmap
+  map_t hm = map_new();
+
+  // add something to the hashmap
+  assert(map_add(&hm, "key", "val"));
+
+  // check if adding worked
+  assert_eq(map_get(&hm, "key"), "val");
+
+  // release
+  map_free(&hm);
+}
+
+void doctest_map_free_2() {
+  // make new hashmap
+  map_t hm = map_new();
+
+  // set the freeing function for values to be free()
+  map_set_free(&hm, NULL, &free);
+
+  // add something to the hashmap
+  assert(map_add(&hm, "key1", malloc(50)));
+  assert(map_add(&hm, "key2", malloc(100)));
+
+  // release, calling free() on all values
+  map_free(&hm);
+}
+
+void doctest_map_set_free() {
+  // make new hashmap
+  map_t hm = map_new();
+
+  // set the freeing function for values to be free()
+  map_set_free(&hm, NULL, &vec32_free);
+
+  // add something to the hashmap
+  assert(map_add(&hm, "twos", vec32_alloc(12, 2)));
+  assert(map_add(&hm, "ones", vec32_alloc(10, 1)));
+
+  // overwrite an element of the hashmap. this will call vec32_free on the
+  // previous value.
+  assert(map_set(&hm, "ones", vec32_alloc(12, 1)));
+
+  // check that both elements are correct
+  assert(vec32_len(map_get(&hm, "ones")) == 12);
+  assert(vec32_len(map_get(&hm, "twos")) == 12);
+
+  // release, calling vec32_free on all values
   map_free(&hm);
 }
 
@@ -54,7 +112,7 @@ void doctest_map_add() {
   assert(!map_add(&hm, "key", "other"));
 
   // checks that our mapping exists
-  assert(0 == strcmp("value", map_get(&hm, "key")));
+  assert_eq(map_get(&hm, "key"), "value");
 
   // release hashmap
   map_free(&hm);

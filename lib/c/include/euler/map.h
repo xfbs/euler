@@ -73,6 +73,12 @@ typedef struct {
 //! // make new hashmap
 //! map_t hm = map_new();
 //!
+//! // add something to the hashmap
+//! assert(map_add(&hm, "key", "val"));
+//!
+//! // check if adding worked
+//! assert_eq(map_get(&hm, "key"), "val");
+//!
 //! // release
 //! map_free(&hm);
 //! ```
@@ -84,23 +90,83 @@ map_t map_new();
 //! @param hm The hashmap to operate on.
 //!
 //! ## Examples
+//!
+//! Freeing a normal hashmap
+//!
+//! ```c
+//! // make new hashmap
+//! map_t hm = map_new();
+//!
+//! // add something to the hashmap
+//! assert(map_add(&hm, "key", "val"));
+//!
+//! // check if adding worked
+//! assert_eq(map_get(&hm, "key"), "val");
+//!
+//! // release
+//! map_free(&hm);
+//! ```
+//!
+//! Freeing a hashmap and all of it's keys
+//!
+//! ```c
+//! // make new hashmap
+//! map_t hm = map_new();
+//!
+//! // set the freeing function for values to be free()
+//! map_set_free(&hm, NULL, free);
+//!
+//! // add something to the hashmap
+//! assert(map_add(&hm, "key1", malloc(50)));
+//! assert(map_add(&hm, "key2", malloc(100)));
+//!
+//! // release, calling free() on all values
+//! map_free(&hm);
+//! ```
 void map_free(map_t *hm);
 
 //! Sets custom functions for freeing elements.
 //!
+//! Passing `NULL` as one of `free_key` or `free_val` means that the hashmap
+//! not call `free()` on the respective item when overwriting or `free()`ing.
+//!
 //! @param hm Hashmap to modify.
-//! @param key_free Function to call to free keys
-//! @param vel_free Function to call to free values.
+//! @param free_key Function to call to free keys
+//! @param free_val Function to call to free values.
 //!
 //! ## Examples
+//!
+//! Storing `vec32_t` as values:
+//!
+//! ```c
+//! // make new hashmap
+//! map_t hm = map_new();
+//!
+//! // set the freeing function for values to be free()
+//! map_set_free(&hm, NULL, vec32_free);
+//!
+//! // add something to the hashmap
+//! assert(map_add(&hm, "twos", vec32_alloc(12, 2)));
+//! assert(map_add(&hm, "ones", vec32_alloc(10, 1)));
+//!
+//! // overwrite an element of the hashmap. this will call vec32_free on the
+//! // previous value.
+//! assert(map_set(&hm, "ones", vec32_alloc(12, 1)));
+//!
+//! // check that both elements are correct
+//! assert(vec32_len(map_get(&hm, "ones")) == 12);
+//! assert(vec32_len(map_get(&hm, "twos")) == 12);
+//!
+//! // release, calling vec32_free on all values
+//! map_free(&hm);
+//! ```
 void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val);
 
-//! Sets custom hasing function.
+//! Sets custom hashing function.
 //!
 //! @param hm Hashmap to modify.
 //! @param hash_fun Custom hashing function to use.
-//!
-//! ## Examples
+//! @todo example
 void map_set_hash(map_t *hm, map_hash_fn *hash);
 
 //! Computes the hash of a string.
@@ -159,7 +225,7 @@ void *map_get(const map_t *m, const char *str);
 //! assert(!map_add(&hm, "key", "other"));
 //!
 //! // checks that our mapping exists
-//! assert(0 == strcmp("value", map_get(&hm, "key")));
+//! assert_eq(map_get(&hm, "key"), "value");
 //!
 //! // release hashmap
 //! map_free(&hm);
