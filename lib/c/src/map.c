@@ -112,6 +112,7 @@ void map_set_hash(map_t *hm, map_hash_fn *hash) {
 }
 
 map_hash_t map_hash_str(const char *str) {
+  // FIXME: check data length directly in the hashing function?
   return murmur_hash_64a(str, strlen(str), SEED);
 }
 
@@ -170,6 +171,7 @@ map_item_t *map_item_new(void *key, map_hash_t hash, void *val) {
 
 // expands the number of bins
 void map_bin_expand(map_t *m) {
+  // TODO FIXME
 }
 
 bool map_add(map_t *m, const char *str, void *val) {
@@ -231,5 +233,22 @@ size_t map_len(const map_t *hm) {
 }
 
 bool map_del(map_t *m, const void *key) {
-  return false;
+  map_item_t *item = map_get_item(m, key);
+
+  if(!item) {
+    return false;
+  }
+
+  // TODO: free key and val
+  if(item->next) {
+    map_item_t *next = item->next;
+    *item = *next;
+    free(next);
+  } else {
+    item->hash = 0;
+    item->key = NULL;
+    item->val = NULL;
+  }
+
+  return true;
 }

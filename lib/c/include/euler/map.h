@@ -251,6 +251,37 @@ bool map_has(const map_t *m, const char *key);
 //! ```
 size_t map_len(const map_t *m);
 
+//! Removes an element from the Hashmap.
+//!
+//! Looks up `key` in the hash map. When found, deletes it and the associated
+//! element from the hashmap, returning `true`. When not found, returns `false`.
+//!
+//! @param m Hashmap to mutate
+//! @param key Key to look up and delete.
+//! @return `true` if `key` is a valid key and it was deleted, `false`
+//!   otherwise.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // new hashmap
+//! map_t hm = map_new();
+//!
+//! // try to delete nonexisting element
+//! assert(!map_del(&hm, "key"));
+//!
+//! // add element
+//! assert(map_add(&hm, "key", "value"));
+//!
+//! // delete element
+//! assert(map_del(&hm, "key"));
+//!
+//! // show that element is gone
+//! assert(!map_has(&hm, "key"));
+//!
+//! // release
+//! map_free(&hm);
+//! ```
 bool map_del(map_t *m, const void *key);
 
 //! @}

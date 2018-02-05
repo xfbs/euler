@@ -116,6 +116,26 @@ void doctest_map_len() {
   map_free(&hm);
 }
 
+void doctest_map_del() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // try to delete nonexisting element
+  assert(!map_del(&hm, "key"));
+
+  // add element
+  assert(map_add(&hm, "key", "value"));
+
+  // delete element
+  assert(map_del(&hm, "key"));
+
+  // show that element is gone
+  assert(!map_has(&hm, "key"));
+
+  // release
+  map_free(&hm);
+}
+
 void doctest_math_lcm() {
   assert(lcm(10, 5) == 10);
   assert(lcm(3, 5) == 15);

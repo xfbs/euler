@@ -13,6 +13,7 @@ void doctest_map_add();
 void doctest_map_set();
 void doctest_map_has();
 void doctest_map_len();
+void doctest_map_del();
 void doctest_math_lcm();
 void doctest_math_gcd();
 void doctest_math_factorial();
@@ -187,6 +188,7 @@ TESTS() {
   RUN(doctest_map_set);
   RUN(doctest_map_has);
   RUN(doctest_map_len);
+  RUN(doctest_map_del);
   RUN(doctest_math_lcm);
   RUN(doctest_math_gcd);
   RUN(doctest_math_factorial);
