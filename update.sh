@@ -48,7 +48,7 @@ git add docs/rust
 cd euler/lib/ruby
 make doc
 cd ../../../
-rm -rf docts/ruby
+rm -rf docs/ruby
 cp -r euler/doc/lib/ruby docs/ruby
 git add docs/ruby
 
