@@ -80,6 +80,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga92b55b884ad52335a9aaeec7d087e472"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__test.html#ga92b55b884ad52335a9aaeec7d087e472">RUN</a>(t)</td></tr>
 <tr class="memdesc:ga92b55b884ad52335a9aaeec7d087e472"><td class="mdescLeft">&#160;</td><td class="mdescRight">run a single test function with the provided name  <a href="#ga92b55b884ad52335a9aaeec7d087e472">More...</a><br /></td></tr>
 <tr class="separator:ga92b55b884ad52335a9aaeec7d087e472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b173da63cf8b900c1261c6889a985fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__test.html#ga8b173da63cf8b900c1261c6889a985fb">assert_eq</a>(lhs,  rhs)&#160;&#160;&#160;assert(lhs &amp;&amp; rhs &amp;&amp; 0 == strcmp(lhs, rhs))</td></tr>
+<tr class="memdesc:ga8b173da63cf8b900c1261c6889a985fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two strings are equal.  <a href="#ga8b173da63cf8b900c1261c6889a985fb">More...</a><br /></td></tr>
+<tr class="separator:ga8b173da63cf8b900c1261c6889a985fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -93,6 +96,44 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>_get_file_nam
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>tiny C unit testing helpers </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga8b173da63cf8b900c1261c6889a985fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8b173da63cf8b900c1261c6889a985fb">&#9670;&nbsp;</a></span>assert_eq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define assert_eq</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lhs, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">rhs&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;assert(lhs &amp;&amp; rhs &amp;&amp; 0 == strcmp(lhs, rhs))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if two strings are equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhr</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>make generic so it also works for other data types </dd></dl>
+
+</div>
+</div>
 <a id="ga92b55b884ad52335a9aaeec7d087e472"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga92b55b884ad52335a9aaeec7d087e472">&#9670;&nbsp;</a></span>RUN</h2>
 

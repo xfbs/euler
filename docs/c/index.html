@@ -96,7 +96,9 @@ $(function() {
 </pre><p>And finally the coverage report can be viewed with <code>llvm-cov report</code>. </p><pre class="fragment">llvm-cov report -instr-profile output.cov ./test/all
 </pre><p>There is additionally <code>llvm-cov show</code>, which can be used to view a line-by-line overview over what is touched turing testing and what isn't.</p>
 <h3>Compatibility</h3>
-<p>All code in this library has been developed and tested with <code>clang 5.0.1</code>, and should follow the <code>c11</code> standard. Some features of <code>c11</code> may not work with older compilers — if you get warnings about <code>_Generic</code> not being found, you probably have an outdated or incompatible compiler. </p>
+<p>All code in this library has been developed and tested with <code>clang 5.0.1</code>, and should follow the <code>c11</code> standard. Some features of <code>c11</code> may not work with older compilers — if you get warnings about <code>_Generic</code> not being found, you probably have an outdated or incompatible compiler.</p>
+<h3>Acknowledgements</h3>
+<p>The hashing function used for the Hashmap implementation is the ever-popular <a href="https://github.com/aappleby/smhasher">Murmur64</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

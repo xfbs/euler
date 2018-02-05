@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['primes',['primes',['../structprime__t.html#ab36d8effcfe43a4fd3bd8dbccf4e3ee8',1,'prime_t']]]
+  ['elem_5fcount',['elem_count',['../structmap__t.html#a6f57e4e17ab52a0ba90d938f5df74462',1,'map_t']]]
 ];

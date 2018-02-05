@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['len',['len',['../structvec16__t.html#a05c77ea3da89d18b8b1178c345d93879',1,'vec16_t::len()'],['../structvec32__t.html#ae93526a8ebe08bf5d32d73291dea839b',1,'vec32_t::len()'],['../structvec64__t.html#a92f1289bca63274f5c48abb4410b2c68',1,'vec64_t::len()'],['../structvec8__t.html#a2602b396a631ac35d5d76fb649636548',1,'vec8_t::len()'],['../structvecp__t.html#a9995e8c216e73a5f46f646f440ef60e3',1,'vecp_t::len()']]]
+  ['data',['data',['../structvec16__t.html#ab6d2eb88d67608a633ae266e6583d377',1,'vec16_t::data()'],['../structvec32__t.html#ad9d39821cd0b949586788128964d7fcd',1,'vec32_t::data()'],['../structvec64__t.html#a934bb0a261a546592707dbd9a1ea295b',1,'vec64_t::data()'],['../structvec8__t.html#a18468fc5bd175593383502d1693e0b0d',1,'vec8_t::data()'],['../structvecp__t.html#a47a57ad5f9c31d311cd0000305d187cc',1,'vecp_t::data()']]]
 ];
