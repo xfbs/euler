@@ -284,4 +284,42 @@ size_t map_len(const map_t *m);
 //! ```
 bool map_del(map_t *m, const void *key);
 
+//! For loop over a hashmap.
+//!
+//! Using this macro, it is easy to loop over the items (keys and values) in a
+//! hashmap.
+//!
+//! @param m The hashmap to iterate over.
+//! @param item The name of the variable to hold a `map_item_t *`.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // new hashmap
+//! map_t hm = map_new();
+//!
+//! // add some data to hashmap
+//! assert(map_add(&hm, "one", (void *) 1));
+//! assert(map_add(&hm, "two", (void *) 2));
+//! assert(map_add(&hm, "three", (void *) 3));
+//!
+//! // count and sum up values
+//! size_t count = 0;
+//! size_t sum = 0;
+//! map_foreach(&hm, item) {
+//!   count += 1;
+//!   sum += (size_t) item->val;
+//! }
+//!
+//! // check results
+//! assert(count == 3);
+//! assert(sum == 6);
+//!
+//! // release
+//! map_free(&hm);
+//! ```
+#define map_foreach(m, item)                                                   \
+  for(size_t _bin_pos = 0; _bin_pos < (m)->bin_count; _bin_pos++)                \
+    for(map_item_t *item = &(m)->bins[_bin_pos]; item != NULL; item = item->next)
+
 //! @}

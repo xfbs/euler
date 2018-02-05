@@ -136,6 +136,31 @@ void doctest_map_del() {
   map_free(&hm);
 }
 
+void doctest_map_foreach() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // add some data to hashmap
+  assert(map_add(&hm, "one", (void *) 1));
+  assert(map_add(&hm, "two", (void *) 2));
+  assert(map_add(&hm, "three", (void *) 3));
+
+  // count and sum up values
+  size_t count = 0;
+  size_t sum = 0;
+  map_foreach(&hm, item) {
+    count += 1;
+    sum += (size_t) item->val;
+  }
+
+  // check results
+  assert(count == 3);
+  assert(sum == 6);
+
+  // release
+  map_free(&hm);
+}
+
 void doctest_math_lcm() {
   assert(lcm(10, 5) == 10);
   assert(lcm(3, 5) == 15);

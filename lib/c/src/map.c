@@ -89,17 +89,36 @@ static uint64_t murmur_hash_64a(const void * key, int len, uint64_t seed) {
 }
 
 void map_free(map_t *hm) {
-  if(hm->free_key) {
-    // map_each_key(hm->key_free);
+  for(size_t bin = 0; bin < hm->bin_count; bin++) {
+    map_item_t *items[THRESHOLD];
+    size_t items_len = 0;
+    for(map_item_t *item = &hm->bins[bin]; item != NULL; item = item->next) {
+      // keep pointer to item so we can free it later
+      items[items_len++] = item;
+
+      // call custom free_key
+      if(hm->free_key) {
+        hm->free_key(item->key);
+      }
+
+      // call custom free_val
+      if(hm->free_val) {
+        hm->free_val(item->val);
+      }
+
+      // reset key and val
+      item->key = NULL;
+      item->val = NULL;
+    }
+
+    // don't free the first item — that wasn't individually malloc'ed
+    for(size_t item = 1; item < items_len; item++) {
+      free(items[item]);
+    }
   }
 
-  if(hm->free_val) {
-    // map_each_key(hm->val_free);
-  }
-
-  if(hm->bins) {
-    // delete bins
-  }
+  // free the bins array itself
+  free(hm->bins);
 }
 
 void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val) {
