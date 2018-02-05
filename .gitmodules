@@ -7,6 +7,3 @@
 [submodule "range-v3"]
     path = lib/cpp/range-v3
     url = https://github.com/ericniebler/range-v3
-[submodule "map"]
-    path = lib/c/map
-    url = https://github.com/rxi/map
