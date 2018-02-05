@@ -1,44 +1,65 @@
 #include "solve.h"
 #include "all.h"
+static char result[256];
+
+#define default_arg(type, name, val) type name = val
+
+#define typefmt(t) _Generic(t) \
+  int: "%i", \
+  uint32_t: "%u", \
+  uint64_t: "%llu")
+
+#define solution(val) \
+  sprintf(result, typefmt(val), val) \
+  return result
+
 
 const char *solve001(map_t *data) {
-  uint32_t max = 999;
-  uint32_t div1 = 3;
-  uint32_t div2 = 5;
+  default_arg(uint32_t, max, 999);
+  default_arg(uint32_t, div1, 3);
+  default_arg(uint32_t, div2, 5);
 
-  static char result[256];
+  /*
   sprintf(result, "%i", solve_001(max, div1, div2));
   return result;
+  */
+  solution(solve_001(max, div1, div2));
 }
 
 const char *solve002(map_t *data) {
-  printf("%llu\n", solve_002(4000000));
+  sprintf(result, "%llu", solve_002(4000000));
+  return result;
 }
 
 const char *solve003(map_t *data) {
-  printf("%llu\n", solve_003(600851475143ULL));
+  sprintf(result, "%llu", solve_003(600851475143ULL));
+  return result;
 }
 
 const char *solve004(map_t *data) {
-  printf("%i\n", solve_004(3));
+  sprintf(result, "%i", solve_004(3));
+  return result;
 }
 
 const char *solve005(map_t *data) {
-  printf("%i\n", solve_005(20));
+  sprintf(result, "%i", solve_005(20));
+  return result;
 }
 
 const char *solve006(map_t *data) {
-  printf("%i\n", solve_006(100));
+  sprintf(result, "%i", solve_006(100));
+  return result;
 }
 
 const char *solve007(map_t *data) {
-  printf("%llu\n", solve_007(10001));
+  sprintf(result, "%llu", solve_007(10001));
+  return result;
 }
 
 const char *solve008(map_t *data) {
   /* FIXME
   if (argc < 2) {
-    fprintf(stderr, "no datafile specified\n");
+    fsprintf(result, stderr, "no datafile specified\n");
     return -1;
   }
 
@@ -52,23 +73,27 @@ const char *solve008(map_t *data) {
     vec8_push(&v, c - '0');
   }
 
-  printf("%llu\n", solve_008(&v, 13));
+  sprintf(result, "%llu", solve_008(&v, 13));
 
 
-  */}
+  */
+  return "FIXME";
+}
 
 const char *solve009(map_t *data) {
-  printf("%u\n", solve_009(1000));
+  sprintf(result, "%u", solve_009(1000));
+  return result;
 }
 
 const char *solve010(map_t *data) {
-  printf("%llu\n", solve_010(2000000));
+  sprintf(result, "%llu", solve_010(2000000));
+  return result;
 }
 
 const char *solve011(map_t *data) {
   /* FIXME
   if (argc < 2) {
-    fprintf(stderr, "no datafile specified\n");
+    fsprintf(result, stderr, "no datafile specified\n");
     return -1;
   }
 
@@ -90,20 +115,21 @@ const char *solve011(map_t *data) {
     vec_push(&grid, (void *)vec8_alloc(0, 0));
   }
 
-  printf("%llu\n", solve_011(&grid, 4));
+  sprintf(result, "%llu", solve_011(&grid, 4));
 
   return 0
   */
   return "FIXME";}
 
 const char *solve012(map_t *data) {
-  printf("%i\n", solve_012(500));
+  sprintf(result, "%i", solve_012(500));
+  return result;
 }
 
 const char *solve013(map_t *data) {
   /*
   if (argc < 2) {
-    fprintf(stderr, "no data file specified");
+    fsprintf(result, stderr, "no data file specified");
     return -1;
   }
 
@@ -121,34 +147,39 @@ const char *solve013(map_t *data) {
     }
   }
 
-  printf("%llu\n", solve_013(&v));
+  sprintf(result, "%llu", solve_013(&v));
   vec_free(&v);
 
 
   */
 
-  return "FIXME";}
+  return "FIXME";
+}
 
 const char *solve014(map_t *data) {
-  printf("%i\n", solve_014(1000000));
+  sprintf(result, "%i", solve_014(1000000));
+  return result;
 }
 
 const char *solve015(map_t *data) {
-  printf("%llu\n", solve_015(20, 20));
+  sprintf(result, "%llu", solve_015(20, 20));
+  return result;
 }
 
 const char *solve016(map_t *data) {
-  printf("%llu\n", solve_016(1000));
+  sprintf(result, "%llu", solve_016(1000));
+  return result;
 }
 
 const char *solve017(map_t *data) {
-  printf("%u\n", solve_017(1000));
+  sprintf(result, "%u", solve_017(1000));
+  return result;
 }
 
 const char *solve018(map_t *data) {
   /*
   if (argc < 2) {
-    fprintf(stderr, "no data file specified\n");
+    fsprintf(result, stderr, "no data file specified\n");
     return -1;
   }
 
@@ -187,11 +218,12 @@ const char *solve018(map_t *data) {
   } while (!feof(data_file));
 
   triangle_t t = {buffer, rows};
-  printf("%i\n", solve_018(&t));
+  sprintf(result, "%i", solve_018(&t));
 
 
   */
-  return "FIXME";}
+  return "FIXME";
+}
 
 const char *solve019(map_t *data) {
   date_t start = {MONDAY, 1, JANUARY, 1900};
@@ -204,21 +236,24 @@ const char *solve019(map_t *data) {
   // i guessed the weekday here, but it shouldn't matter anyways.
   date_t end = {MONDAY, 31, DECEMBER, 2000};
 
-  printf("%i\n", solve_019(start, end));
+  sprintf(result, "%i", solve_019(start, end));
+  return result;
 }
 
 const char *solve020(map_t *data) {
-  printf("%llu\n", solve_020(100));
+  sprintf(result, "%llu", solve_020(100));
+  return result;
 }
 
 const char *solve021(map_t *data) {
-  printf("%i\n", solve_021(10000));
+  sprintf(result, "%i", solve_021(10000));
+  return result;
 }
 
 const char *solve022(map_t *data) {
   /*
   if (argc < 2) {
-    fprintf(stderr, "no datafile specified\n");
+    fsprintf(result, stderr, "no datafile specified\n");
     return -1;
   }
 
@@ -236,7 +271,7 @@ const char *solve022(map_t *data) {
     }
   }
 
-  printf("%llu\n", solve_022(&v));
+  sprintf(result, "%llu", solve_022(&v));
   vec_free(&v);
 
 
@@ -244,81 +279,99 @@ const char *solve022(map_t *data) {
   return "FIXME";}
 
 const char *solve023(map_t *data) {
-  printf("%i\n", solve_023(28123));
+  sprintf(result, "%i", solve_023(28123));
+  return result;
 }
 
 const char *solve024(map_t *data) {
-  printf("%llu\n", solve_024(999999));
+  sprintf(result, "%llu", solve_024(999999));
+  return result;
 }
 
 const char *solve025(map_t *data) {
-  printf("%u\n", solve_025(1000));
+  sprintf(result, "%u", solve_025(1000));
+  return result;
 }
 
 const char *solve027(map_t *data) {
-  printf("%i\n", solve_027(1000));
+  sprintf(result, "%i", solve_027(1000));
+  return result;
 }
 
 const char *solve028(map_t *data) {
-  printf("%llu\n", solve_028(1001));
+  sprintf(result, "%llu", solve_028(1001));
+  return result;
 }
 
 const char *solve029(map_t *data) {
-  printf("%u\n", solve_029(100, 100));
+  sprintf(result, "%u", solve_029(100, 100));
+  return result;
 }
 
 const char *solve030(map_t *data) {
-  printf("%i\n", solve_030());
+  sprintf(result, "%i", solve_030());
+  return result;
 }
 
 const char *solve031(map_t *data) {
-  printf("%i\n", solve_031(200));
+  sprintf(result, "%i", solve_031(200));
+  return result;
 }
 
 const char *solve032(map_t *data) {
-  printf("%i\n", solve_032(10));
+  sprintf(result, "%i", solve_032(10));
+  return result;
 }
 
 const char *solve033(map_t *data) {
-  printf("%i\n", solve_033(10));
+  sprintf(result, "%i", solve_033(10));
+  return result;
 }
 
 const char *solve034(map_t *data) {
-  printf("%llu\n", solve_034(2540160));
+  sprintf(result, "%llu", solve_034(2540160));
+  return result;
 }
 
 const char *solve035(map_t *data) {
-  printf("%i\n", solve_035(1000000));
+  sprintf(result, "%i", solve_035(1000000));
+  return result;
 }
 
 const char *solve036(map_t *data) {
-  printf("%i\n", solve_036(1000000));
+  sprintf(result, "%i", solve_036(1000000));
+  return result;
 }
 
 const char *solve037(map_t *data) {
-  printf("%i\n", solve_037(11));
+  sprintf(result, "%i", solve_037(11));
+  return result;
 }
 
 const char *solve038(map_t *data) {
-  printf("%llu\n", solve_038(11));
+  sprintf(result, "%llu", solve_038(11));
+  return result;
 }
 
 const char *solve039(map_t *data) {
-  printf("%u\n", solve_039(1000));
+  sprintf(result, "%u", solve_039(1000));
+  return result;
 }
 
 const char *solve040(map_t *data) {
-  printf("%i\n", solve_040());
+  sprintf(result, "%i", solve_040());
+  return result;
 }
 
 const char *solve041(map_t *data) {
-  printf("%i\n", solve_041(9));
+  sprintf(result, "%i", solve_041(9));
+  return result;
 }
 
 const char *solve042(map_t *data) {
   /*
   if (argc < 2) {
-    fprintf(stderr, "no datafile specified\n");
+    fsprintf(result, stderr, "no datafile specified\n");
     return -1;
   }
 
@@ -336,7 +389,7 @@ const char *solve042(map_t *data) {
     }
   }
 
-  printf("%llu\n", solve_042(&v));
+  sprintf(result, "%llu", solve_042(&v));
   vec_free(&v);
 
 
@@ -344,39 +397,48 @@ const char *solve042(map_t *data) {
   return "FIXME";}
 
 const char *solve043(map_t *data) {
-  printf("%llu\n", solve_043());
+  sprintf(result, "%llu", solve_043());
+  return result;
 }
 
 const char *solve044(map_t *data) {
-  printf("%llu\n", solve_044());
+  sprintf(result, "%llu", solve_044());
+  return result;
 }
 
 const char *solve045(map_t *data) {
-  printf("%llu\n", solve_045(285, 165, 143));
+  sprintf(result, "%llu", solve_045(285, 165, 143));
+  return result;
 }
 
 const char *solve046(map_t *data) {
-  printf("%llu\n", solve_046());
+  sprintf(result, "%llu", solve_046());
+  return result;
 }
 
 const char *solve047(map_t *data) {
-  printf("%llu\n", solve_047(4));
+  sprintf(result, "%llu", solve_047(4));
+  return result;
 }
 
 const char *solve048(map_t *data) {
-  printf("%llu\n", solve_048(1000, 10));
+  sprintf(result, "%llu", solve_048(1000, 10));
+  return result;
 }
 
 const char *solve049(map_t *data) {
-  printf("%llu\n", solve_049(1487));
+  sprintf(result, "%llu", solve_049(1487));
+  return result;
 }
 
 const char *solve050(map_t *data) {
-  printf("%llu\n", solve_050(1000000));
+  sprintf(result, "%llu", solve_050(1000000));
+  return result;
 }
 
 const char *solve052(map_t *data) {
-  printf("%llu\n", solve_052());
+  sprintf(result, "%llu", solve_052());
+  return result;
 }
 
 struct solve_s solve[] = {
