@@ -100,3 +100,8 @@ All code in this library has been developed and tested with `clang 5.0.1`,
 and should follow the `c11` standard. Some features of `c11` may not work with
 older compilers — if you get warnings about `_Generic` not being found, you
 probably have an outdated or incompatible compiler.
+
+### Acknowledgements
+
+The hashing function used for the Hashmap implementation is the ever-popular
+[Murmur64](https://github.com/aappleby/smhasher).

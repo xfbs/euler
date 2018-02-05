@@ -3,6 +3,8 @@
 #include <string.h>
 
 static const size_t THRESHOLD = 5;
+static const size_t INITIAL_BIN_COUNT = 1;
+static const uint64_t SEED = 0x23948AB42905FF0A;
 
 // source: https://primes.utm.edu/lists/2small/0bit.html
 // Below, for each consecutive value of n we give the ten least positive
@@ -31,15 +33,59 @@ const static size_t bits_prime[] = {
 map_t map_new() {
   map_t hm = {
     .elem_count = 0,
-    .bin_count  = 1,
+    .bin_count  = INITIAL_BIN_COUNT,
     .free_key   = NULL,
     .free_val   = NULL,
     .hash       = NULL,
     .cmp        = NULL,
-    .bins       = calloc(1, sizeof(map_item_t))
+    .bins       = calloc(INITIAL_BIN_COUNT, sizeof(map_item_t))
   };
 
   return hm;
+}
+
+// Austin Appleby's MurmurHash, adapted from
+// https://github.com/aappleby/smhasher
+static uint64_t murmur_hash_64a(const void * key, int len, uint64_t seed) {
+  const uint64_t m = 0xc6a4a7935bd1e995LLU;
+  const int r = 47;
+
+  uint64_t h = seed ^ (len * m);
+
+  const uint64_t * data = (const uint64_t *)key;
+  const uint64_t * end = data + (len/8);
+
+  while(data != end)
+  {
+    uint64_t k = *data++;
+
+    k *= m;
+    k ^= k >> r;
+    k *= m;
+
+    h ^= k;
+    h *= m;
+  }
+
+  const uint8_t * data2 = (const uint8_t *) data;
+
+  switch(len & 7)
+  {
+  case 7: h ^= (uint64_t) data2[6] << 48;
+  case 6: h ^= (uint64_t) data2[5] << 40;
+  case 5: h ^= (uint64_t) data2[4] << 32;
+  case 4: h ^= (uint64_t) data2[3] << 24;
+  case 3: h ^= (uint64_t) data2[2] << 16;
+  case 2: h ^= (uint64_t) data2[1] << 8;
+  case 1: h ^= (uint64_t) data2[0];
+          h *= m;
+  };
+
+  h ^= h >> r;
+  h *= m;
+  h ^= h >> r;
+
+  return h;
 }
 
 void map_free(map_t *hm) {
@@ -66,9 +112,7 @@ void map_set_hash(map_t *hm, map_hash_fn *hash) {
 }
 
 map_hash_t map_hash_str(const char *str) {
-  // FIXME TODO
-  uint64_t hash = str[0];
-  return hash;
+  return murmur_hash_64a(str, strlen(str), SEED);
 }
 
 map_item_t *map_get_item(const map_t *m, const char *str) {
