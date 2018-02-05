@@ -97,6 +97,25 @@ void doctest_map_has() {
   map_free(&hm);
 }
 
+void doctest_map_len() {
+  // new hashmap
+  map_t hm = map_new();
+
+  // initially empty
+  assert(map_len(&hm) == 0);
+
+  // add elements and check len
+  assert(map_add(&hm, "key1", "val1"));
+  assert(map_len(&hm) == 1);
+  assert(map_add(&hm, "key2", "val2"));
+  assert(map_len(&hm) == 2);
+  assert(map_add(&hm, "key3", "val3"));
+  assert(map_len(&hm) == 3);
+
+  // release
+  map_free(&hm);
+}
+
 void doctest_math_lcm() {
   assert(lcm(10, 5) == 10);
   assert(lcm(3, 5) == 15);

@@ -56,13 +56,13 @@ void map_free(map_t *hm) {
   }
 }
 
-void map_set_free(map_t *hm, map_free_fun *key_free, map_free_fun *val_free) {
-  hm->free_key = key_free;
-  hm->free_key = val_free;
+void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val) {
+  hm->free_key = free_key;
+  hm->free_key = free_val;
 }
 
-void map_set_hash(map_t *hm, map_hash_fun *hash_fun) {
-  hm->hash = hash_fun;
+void map_set_hash(map_t *hm, map_hash_fn *hash) {
+  hm->hash = hash;
 }
 
 map_hash_t map_hash_str(const char *str) {
@@ -113,7 +113,7 @@ bool map_set(map_t *m, const char *str, void *val) {
   }
 
   // TODO free old key
-  item->key = str;
+  item->key = (void *) str;
   item->val = val;
 
   return true;
@@ -205,5 +205,10 @@ bool map_add(map_t *m, const char *str, void *val) {
     item->next = added;
   }
 
+  m->elem_count += 1;
   return true;
+}
+
+size_t map_len(map_t *hm) {
+  return hm->elem_count;
 }

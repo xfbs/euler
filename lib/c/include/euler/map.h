@@ -14,7 +14,8 @@
 #include <euler/common.h>
 #pragma once
 
-//! @defgroup map map Hashmap
+//! @defgroup map map
+//! @brief A hashmap data type
 //! @{
 
 //! The type that hashes have.
@@ -26,13 +27,13 @@ typedef ptrdiff_t map_int_t;
 //! Custom hashing function to use.
 //!
 //! Hash functions should be implemented in a way to not return 0.
-typedef map_hash_t map_hash_fun(void *key);
+typedef map_hash_t map_hash_fn(void *key);
 
 //! Custom comparison function to use.
-typedef int map_cmp_fun(void *lkey, void *rkey);
+typedef int map_cmp_fn(void *lkey, void *rkey);
 
 //! Custom `free()`ing function for keys or elements.
-typedef void map_free_fun(void *data);
+typedef void map_free_fn(void *data);
 
 // forward declared here so that we can have it as recursive member.
 struct map_item_t;
@@ -54,16 +55,16 @@ typedef struct {
   size_t bin_count;
 
   //! Function to call on a key after `map_del()`.
-  map_free_fun *free_key;
+  map_free_fn *free_key;
 
   //! Function to call on a value after `map_del()`.
-  map_free_fun *free_val;
+  map_free_fn *free_val;
 
   //! Custom hashing function to use.
-  map_hash_fun *hash;
+  map_hash_fn *hash;
 
   //! Custom comparison function to use.
-  map_cmp_fun *cmp;
+  map_cmp_fn *cmp;
 
   //! Bins of the hashmap.
   map_item_t *bins;
@@ -99,7 +100,7 @@ void map_free(map_t *hm);
 //! @param vel_free Function to call to free values.
 //!
 //! ## Examples
-void map_set_free(map_t *hm, map_free_fun *key_free, map_free_fun *val_free);
+void map_set_free(map_t *hm, map_free_fn *free_key, map_free_fn *free_val);
 
 //! Sets custom hasing function.
 //!
@@ -107,7 +108,7 @@ void map_set_free(map_t *hm, map_free_fun *key_free, map_free_fun *val_free);
 //! @param hash_fun Custom hashing function to use.
 //!
 //! ## Examples
-void map_set_hash(map_t *hm, map_hash_fun *hash_fun);
+void map_set_hash(map_t *hm, map_hash_fn *hash);
 
 //! Computes the hash of a string.
 //!
@@ -230,9 +231,34 @@ bool map_set(map_t *m, const char *key, void *val);
 //! ```
 bool map_has(map_t *m, const char *key);
 
+//! Determines the amount of elements in the hashmap.
+//!
+//! @param m Hashmap to return the count of elements from.
+//! @return The amount of elements in `m`.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // new hashmap
+//! map_t hm = map_new();
+//!
+//! // initially empty
+//! assert(map_len(&hm) == 0);
+//!
+//! // add elements and check len
+//! assert(map_add(&hm, "key1", "val1"));
+//! assert(map_len(&hm) == 1);
+//! assert(map_add(&hm, "key2", "val2"));
+//! assert(map_len(&hm) == 2);
+//! assert(map_add(&hm, "key3", "val3"));
+//! assert(map_len(&hm) == 3);
+//!
+//! // release
+//! map_free(&hm);
+//! ```
+size_t map_len(map_t *m);
 
 // rem? del? unset?
 #define map_rem(map, key) 0
-#define map_len(map) 0
 
 //! @}
