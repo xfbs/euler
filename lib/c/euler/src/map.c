@@ -147,6 +147,11 @@ map_hash_t map_hash_str(const char *str) {
   return murmur_hash_64a(str, strlen(str), SEED);
 }
 
+map_hash_t map_hash_ptr(const void *ptr) {
+  // FIXME adapt hashing function for pointer?
+  return murmur_hash_64a(&ptr, sizeof(void *), SEED);
+}
+
 map_item_t *map_get_item(const map_t *m, const char *str) {
   // compute hash of string
   map_hash_t hash = map_hash_str(str);

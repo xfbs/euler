@@ -1,7 +1,7 @@
 #include <euler/math.h>
 #include <euler/test.h>
 
-void test_lcm() {
+void test_math_lcm() {
   // gcd of primes a and b is always a*b
   assert(lcm(3, 5) == 15);
   assert(lcm(5, 13) == 65);
@@ -11,7 +11,7 @@ void test_lcm() {
   assert(lcm(10, 25) == 50);
 }
 
-void test_gcd() {
+void test_math_gcd() {
   assert(gcd(3, 5) == 1);
   assert(gcd(5, 13) == 1);
   assert(gcd(2, 10) == 2);
@@ -19,7 +19,7 @@ void test_gcd() {
   assert(gcd(10, 25) == 5);
 }
 
-void test_factorial() {
+void test_math_factorial() {
   assert(1 == factorial(0));
   assert(1 == factorial(1));
   assert(2 == factorial(2));
@@ -33,19 +33,19 @@ void test_factorial() {
   assert(1307674368000LL == factorial(15));
 }
 
-void test_speed() {
+void test_math_factorial_speed() {
   for (uint32_t i = 0; i < 1000000; i++) {
     assert(factorial(i % 20) <= factorial((i % 20) + 1));
   }
 }
 
-void test_overflow() {
+void test_math_factorial_overflow() {
   assert(factorial(21) == 0);
   assert(factorial(22) == 0);
   assert(factorial(100) == 0);
 }
 
-void test_divisor_sum() {
+void test_math_divisor_sum() {
   assert(divisor_sum(2) == 1);
   assert(divisor_sum(3) == 1);
   assert(divisor_sum(4) == 1 + 2);
@@ -61,7 +61,7 @@ void test_divisor_sum() {
   assert(divisor_sum(284) == 220);
 }
 
-void test_fibos() {
+void test_math_fibonacci() {
   assert(fibonacci(0) == 1);
   assert(fibonacci(1) == 1);
   assert(fibonacci(2) == 2);
@@ -74,7 +74,7 @@ void test_fibos() {
   assert(fibonacci(9) == 55);
 }
 
-void test_nth_pandigital() {
+void test_math_nth_pandigital() {
   assert(1234 == nth_pandigital(4, 0));
   assert(1243 == nth_pandigital(4, 1));
   assert(1324 == nth_pandigital(4, 2));
@@ -104,7 +104,7 @@ void test_nth_pandigital() {
   assert(54321 == nth_pandigital(5, 119));
 }
 
-void test_palin() {
+void test_math_is_palindrome() {
   assert(is_palindrome(101) == true);
   assert(is_palindrome(123) == false);
   assert(is_palindrome(404) == true);

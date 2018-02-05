@@ -192,6 +192,58 @@ void map_set_hash(map_t *hm, map_hash_fn *hash);
 //! ```
 map_hash_t map_hash_str(const char *str);
 
+//! Computes the hash of a pointer.
+//!
+//! This hashing function can be used to hash the pointers themselves. This
+//! requires one to know the exact pointer to access an element.
+//!
+//! @param ptr The pointer to hash.
+//! @return A `map_hash_t` representing the hash of the pointer.
+//!
+//! ## Examples
+//!
+//! FIXME
+//! ```c
+//! assert(map_hash_str("abc") == map_hash_str("abc"));
+//! assert(map_hash_str("some") != map_hash_str("other"));
+//! ```
+map_hash_t map_hash_ptr(const void *ptr);
+
+//! Sets custom comparison function.
+//!
+//! @param hm   Hashmap to modify.
+//! @param hash Custom comparison function to use.
+//! @todo example
+void map_set_cmp(map_t *hm, map_cmp_fn *cmp);
+
+//! Compares two strings.
+//!
+//! Default comparison function used for strings.
+//!
+//! @param lhs String
+//! @param rhs String
+//! @return 0 if `lhs` and `rhs` are equal.
+//!
+//! ## Examples
+//! FIXME
+//! ```c
+//! assert(map_hash_str("abc") == map_hash_str("abc"));
+//! assert(map_hash_str("some") != map_hash_str("other"));
+//! ```
+int map_cmp_str(const void *lhs, const void *rhs);
+
+//! Comparers two pointers for equality.
+//!
+//!
+//! ## Examples
+//!
+//! FIXME
+//! ```c
+//! assert(map_hash_str("abc") == map_hash_str("abc"));
+//! assert(map_hash_str("some") != map_hash_str("other"));
+//! ```
+int map_cmp_ptr(const void *lhs, const void *rhs);
+
 //! Look up a string in the hashmap.
 //!
 //! @param m Hashmap to look string up in.
