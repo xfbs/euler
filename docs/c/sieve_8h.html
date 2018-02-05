@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libeuler: sieve</title>
+<title>libeuler: euler/sieve.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,17 +59,27 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_01f33fccb8849a9336e8482edd395d67.html">euler</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sieve</div>  </div>
+<div class="title">sieve.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for sieving for prime numbers.  
+<p>Functions for sieving for prime numbers, see <a class="el" href="group__sieve.html">sieve</a>.  
 <a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div>
+<p><a href="sieve_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -80,35 +89,35 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga04fbb8b66d9dde7ce16d234585dfb905"><td class="memItemLeft" align="right" valign="top"><a id="ga04fbb8b66d9dde7ce16d234585dfb905"></a>
+<tr class="memitem:ga04fbb8b66d9dde7ce16d234585dfb905"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structsieve__t.html">sieve_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#ga04fbb8b66d9dde7ce16d234585dfb905">sieve_new</a> (size_t size)</td></tr>
 <tr class="memdesc:ga04fbb8b66d9dde7ce16d234585dfb905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a new sieve. <br /></td></tr>
 <tr class="separator:ga04fbb8b66d9dde7ce16d234585dfb905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ee3a7eda2da1569791e418814d85dd7"><td class="memItemLeft" align="right" valign="top"><a id="ga4ee3a7eda2da1569791e418814d85dd7"></a>
+<tr class="memitem:ga4ee3a7eda2da1569791e418814d85dd7"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#ga4ee3a7eda2da1569791e418814d85dd7">sieve_free</a> (<a class="el" href="structsieve__t.html">sieve_t</a> *p)</td></tr>
 <tr class="memdesc:ga4ee3a7eda2da1569791e418814d85dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a sieve instance. <br /></td></tr>
 <tr class="separator:ga4ee3a7eda2da1569791e418814d85dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6bd58f1873f0f3fe76a9a91017f8695b"><td class="memItemLeft" align="right" valign="top"><a id="ga6bd58f1873f0f3fe76a9a91017f8695b"></a>
+<tr class="memitem:ga6bd58f1873f0f3fe76a9a91017f8695b"><td class="memItemLeft" align="right" valign="top">
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#ga6bd58f1873f0f3fe76a9a91017f8695b">sieve_nth</a> (<a class="el" href="structsieve__t.html">sieve_t</a> *p, size_t n)</td></tr>
 <tr class="memdesc:ga6bd58f1873f0f3fe76a9a91017f8695b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the nth prime. <br /></td></tr>
 <tr class="separator:ga6bd58f1873f0f3fe76a9a91017f8695b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga947a16196ad2fb5f852759f7080f58ef"><td class="memItemLeft" align="right" valign="top"><a id="ga947a16196ad2fb5f852759f7080f58ef"></a>
+<tr class="memitem:ga947a16196ad2fb5f852759f7080f58ef"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#ga947a16196ad2fb5f852759f7080f58ef">sieve_which</a> (<a class="el" href="structsieve__t.html">sieve_t</a> *p, uint32_t pr)</td></tr>
 <tr class="memdesc:ga947a16196ad2fb5f852759f7080f58ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">For a given prime, check which index it has. <br /></td></tr>
 <tr class="separator:ga947a16196ad2fb5f852759f7080f58ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaddeb5c8c11d3c5c779a6790a335b6035"><td class="memItemLeft" align="right" valign="top"><a id="gaddeb5c8c11d3c5c779a6790a335b6035"></a>
+<tr class="memitem:gaddeb5c8c11d3c5c779a6790a335b6035"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#gaddeb5c8c11d3c5c779a6790a335b6035">sieve_check</a> (<a class="el" href="structsieve__t.html">sieve_t</a> *p, uint32_t num)</td></tr>
 <tr class="memdesc:gaddeb5c8c11d3c5c779a6790a335b6035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <code>num</code> is prime. <br /></td></tr>
 <tr class="separator:gaddeb5c8c11d3c5c779a6790a335b6035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6d25308ddb33a7df069db6430ac8aad"><td class="memItemLeft" align="right" valign="top"><a id="gad6d25308ddb33a7df069db6430ac8aad"></a>
+<tr class="memitem:gad6d25308ddb33a7df069db6430ac8aad"><td class="memItemLeft" align="right" valign="top">
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sieve.html#gad6d25308ddb33a7df069db6430ac8aad">sieve_below</a> (<a class="el" href="structsieve__t.html">sieve_t</a> *p, uint32_t n)</td></tr>
 <tr class="memdesc:gad6d25308ddb33a7df069db6430ac8aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check how many primes there are below <code>n</code>. <br /></td></tr>
 <tr class="separator:gad6d25308ddb33a7df069db6430ac8aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Functions for sieving for prime numbers. </p>
-<p>These functions provide an easy interface for sieving for prime numbers. </p>
-</div><!-- contents -->
+<div class="textblock"><p>Functions for sieving for prime numbers, see <a class="el" href="group__sieve.html">sieve</a>. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>incorporate into <a class="el" href="prime_8h.html" title="Functions for generating prime numbers, see prime. ">prime.h</a> </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

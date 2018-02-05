@@ -172,7 +172,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> _bin_pos = 0; _bin_pos &lt; (m)-&gt;bin_count; _bin_pos++)                \</div><div class="line">    <span class="keywordflow">for</span>(<a class="code" href="structmap__item__t.html">map_item_t</a> *item = &amp;(m)-&gt;bins[_bin_pos]; item != NULL; item = item-&gt;next)</div><div class="ttc" id="structmap__item__t_html"><div class="ttname"><a href="structmap__item__t.html">map_item_t</a></div><div class="ttdoc">A map item descriptor. </div><div class="ttdef"><b>Definition:</b> map.h:35</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> _bin_pos = 0; _bin_pos &lt; (m)-&gt;bin_count; _bin_pos++)                \</div><div class="line">    <span class="keywordflow">for</span>(<a class="code" href="structmap__item__t.html">map_item_t</a> *item = &amp;(m)-&gt;bins[_bin_pos]; item != NULL; item = item-&gt;<a class="code" href="structmap__item__t.html#a8c2d05a961637513fe067cdd813d190f">next</a>)</div><div class="ttc" id="structmap__item__t_html_a8c2d05a961637513fe067cdd813d190f"><div class="ttname"><a href="structmap__item__t.html#a8c2d05a961637513fe067cdd813d190f">map_item_t::next</a></div><div class="ttdeci">struct map_item_t * next</div><div class="ttdoc">Next item, or NULL if end. </div><div class="ttdef"><b>Definition:</b> map.h:46</div></div>
+<div class="ttc" id="structmap__item__t_html"><div class="ttname"><a href="structmap__item__t.html">map_item_t</a></div><div class="ttdoc">A map item descriptor. </div><div class="ttdef"><b>Definition:</b> map.h:35</div></div>
 </div><!-- fragment -->
 <p>For loop over a hashmap. </p>
 <p>Using this macro, it is easy to loop over the items (keys and values) in a hashmap.</p>
@@ -339,7 +340,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The element that the string points to, or <code>NULL</code> if not found.</dd></dl>
 <h2>Examples</h2>
-<div class="fragment"><div class="line"><span class="comment">// new hash map</span></div><div class="line"><a class="code" href="structmap__t.html">map_t</a> hm = <a class="code" href="group__map.html#gaad87982635013ef186637e190ecfe189">map_new</a>();</div><div class="line"></div><div class="line"><span class="comment">// check if string exists</span></div><div class="line">assert(<a class="code" href="group__map.html#gacb670408efab812020515b30a663c07d">map_get</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>) == NULL);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a">map_free</a>(&amp;hm);</div></div><!-- fragment --> 
+<div class="fragment"><div class="line"><span class="comment">// new hash map</span></div><div class="line"><a class="code" href="structmap__t.html">map_t</a> hm = <a class="code" href="group__map.html#gaad87982635013ef186637e190ecfe189">map_new</a>();</div><div class="line"></div><div class="line"><span class="comment">// check that get will return NULL because the key doesn&#39;t exist.</span></div><div class="line">assert(<a class="code" href="group__map.html#gacb670408efab812020515b30a663c07d">map_get</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>) == NULL);</div><div class="line"></div><div class="line"><span class="comment">// add key to hashmap</span></div><div class="line">assert(<a class="code" href="group__map.html#ga2839977e34a5fbf56f5821a67d962a8c">map_add</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>, (<span class="keywordtype">void</span> *) 0x5656));</div><div class="line">assert(<a class="code" href="group__map.html#gacb670408efab812020515b30a663c07d">map_get</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>) == (<span class="keywordtype">void</span> *) 0x5656);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a">map_free</a>(&amp;hm);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga78ecf4d73ff3123352432f12f56d36e7"></a>
@@ -583,7 +584,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hm</td><td>Hashmap to modify. </td></tr>
-    <tr><td class="paramname">hash_fun</td><td>Custom hashing function to use. </td></tr>
+    <tr><td class="paramname">hash</td><td>Custom hashing function to use. </td></tr>
   </table>
   </dd>
 </dl>

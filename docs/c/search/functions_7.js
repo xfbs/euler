@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pow_5fmod',['pow_mod',['../group__mod.html#gaa75624879aacae8ab8f5e7d5b499e102',1,'pow_mod(uint64_t num, uint64_t exp, uint64_t mod):&#160;modular_arithmetic.c'],['../group__mod.html#gaa75624879aacae8ab8f5e7d5b499e102',1,'pow_mod(uint64_t num, uint64_t exp, uint64_t mod):&#160;modular_arithmetic.c']]],
+  ['pow_5fmod',['pow_mod',['../group__modarith.html#gaa75624879aacae8ab8f5e7d5b499e102',1,'pow_mod(uint64_t num, uint64_t exp, uint64_t mod):&#160;modarith.c'],['../group__modarith.html#gaa75624879aacae8ab8f5e7d5b499e102',1,'pow_mod(uint64_t num, uint64_t exp, uint64_t mod):&#160;modarith.c']]],
   ['prime_5fbelow',['prime_below',['../group__prime.html#ga9454c63e3e43a64bf8c56334754e7f84',1,'prime_below(prime_t *p, uint32_t n):&#160;prime.c'],['../group__prime.html#ga9454c63e3e43a64bf8c56334754e7f84',1,'prime_below(prime_t *p, uint32_t n):&#160;prime.c']]],
   ['prime_5fcheck',['prime_check',['../group__prime.html#ga986407120b8c2ee224c890fff8a93503',1,'prime_check(prime_t *p, uint32_t num):&#160;prime.c'],['../group__prime.html#ga986407120b8c2ee224c890fff8a93503',1,'prime_check(prime_t *p, uint32_t num):&#160;prime.c']]],
   ['prime_5ffree',['prime_free',['../group__prime.html#ga7f8c631442dbc506e47fb9d80f5d82bf',1,'prime_free(prime_t *p):&#160;prime.c'],['../group__prime.html#ga7f8c631442dbc506e47fb9d80f5d82bf',1,'prime_free(prime_t *p):&#160;prime.c']]],

@@ -62,8 +62,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">test</div>  </div>
 </div><!--header-->
@@ -83,15 +82,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ga8b173da63cf8b900c1261c6889a985fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__test.html#ga8b173da63cf8b900c1261c6889a985fb">assert_eq</a>(lhs,  rhs)&#160;&#160;&#160;assert(lhs &amp;&amp; rhs &amp;&amp; 0 == strcmp(lhs, rhs))</td></tr>
 <tr class="memdesc:ga8b173da63cf8b900c1261c6889a985fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two strings are equal.  <a href="#ga8b173da63cf8b900c1261c6889a985fb">More...</a><br /></td></tr>
 <tr class="separator:ga8b173da63cf8b900c1261c6889a985fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga00a5557f619b1f05c79c81957eee44c6"><td class="memItemLeft" align="right" valign="top"><a id="ga00a5557f619b1f05c79c81957eee44c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_tests</b> ()</td></tr>
-<tr class="separator:ga00a5557f619b1f05c79c81957eee44c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13925a545178022f89a9be3239e558ad"><td class="memItemLeft" align="right" valign="top"><a id="ga13925a545178022f89a9be3239e558ad"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>_get_file_name</b> ()</td></tr>
-<tr class="separator:ga13925a545178022f89a9be3239e558ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>tiny C unit testing helpers </p>
@@ -123,14 +113,15 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>_get_file_nam
 </div><div class="memdoc">
 
 <p>Checks if two strings are equal. </p>
+<p>Uses <code>assert()</code> and <code>strcmp()</code> to compare two strings for equality.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lhr</td><td></td></tr>
-    <tr><td class="paramname">rhs</td><td></td></tr>
+    <tr><td class="paramname">lhs</td><td>The left string to check </td></tr>
+    <tr><td class="paramname">rhs</td><td>The right string to check </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>make generic so it also works for other data types </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>make generic so it also works for other data types </dd></dl>
 
 </div>
 </div>
