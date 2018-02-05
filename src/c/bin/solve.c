@@ -1,7 +1,7 @@
 #include <euler/common.h>
-#include "001-multiples-of-3-and-5.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "solve.h"
 
 void show_help(const char *prog);
 
@@ -14,8 +14,9 @@ int main(int argc, char *argv[])
 
   size_t problem = atoi(argv[1]);
 
-  // TODO: parse additional options given
-  const char *res = solve001(NULL);
+  const char *res = solve[problem].func(NULL);
+
+  // keep function pointers and pointers to help text together in an array?
 
   printf("%s\n", res);
 
