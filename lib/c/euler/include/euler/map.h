@@ -202,10 +202,10 @@ map_hash_t map_hash_str(const char *str);
 //!
 //! ## Examples
 //!
-//! FIXME
 //! ```c
-//! assert(map_hash_str("abc") == map_hash_str("abc"));
-//! assert(map_hash_str("some") != map_hash_str("other"));
+//! int a, b;
+//! assert(map_hash_ptr(&a) == map_hash_ptr(&a));
+//! assert(map_hash_ptr(&a) != map_hash_ptr(&b));
 //! ```
 map_hash_t map_hash_ptr(const void *ptr);
 

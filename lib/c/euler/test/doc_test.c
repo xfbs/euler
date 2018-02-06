@@ -90,6 +90,22 @@ void doctest_map_hash_str() {
   assert(map_hash_str("some") != map_hash_str("other"));
 }
 
+void doctest_map_hash_ptr() {
+  int a, b;
+  assert(map_hash_ptr(&a) == map_hash_ptr(&a));
+  assert(map_hash_ptr(&a) != map_hash_ptr(&b));
+}
+
+void doctest_map_cmp_str() {
+  assert(map_hash_str("abc") == map_hash_str("abc"));
+  assert(map_hash_str("some") != map_hash_str("other"));
+}
+
+void doctest_map_cmp_ptr() {
+  assert(map_hash_str("abc") == map_hash_str("abc"));
+  assert(map_hash_str("some") != map_hash_str("other"));
+}
+
 void doctest_map_get() {
   // new hash map
   map_t hm = map_new();

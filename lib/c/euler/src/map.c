@@ -101,6 +101,7 @@ static uint64_t murmur_hash_64a(const void * key, int len, uint64_t seed) {
 }
 
 void map_free(map_t *hm) {
+  // iterate over the bins
   for(size_t bin = 0; bin < hm->bin_count; bin++) {
     map_item_t *items[THRESHOLD];
     size_t items_len = 0;
@@ -152,16 +153,66 @@ map_hash_t map_hash_ptr(const void *ptr) {
   return murmur_hash_64a(&ptr, sizeof(void *), SEED);
 }
 
+map_hash_t map_hash_key(const map_t *hm, const void *key) {
+  // use murmur hash (map_hash_str) by default
+  if(hm->hash) {
+    return hm->hash(key);
+  } else {
+    return map_hash_str(key);
+  }
+}
+
+void map_set_cmp(map_t *hm, map_cmp_fn *cmp) {
+  hm->cmp = cmp;
+}
+
+int map_cmp_str(const void *lhs, const void *rhs) {
+  return strcmp(lhs, rhs);
+}
+
+int map_cmp_ptr(const void *lhs, const void *rhs) {
+  if(lhs == rhs) {
+    return 0;
+  }
+
+  if(lhs < rhs) {
+    return -1;
+  }
+
+  return 1;
+}
+
+bool map_equal_key(const map_t *hm, const void *lhs, const void *rhs) {
+  // use strcmp (map_cmp_str) by default
+  if(hm->cmp) {
+    return 0 == hm->cmp(lhs, rhs);
+  } else {
+    return 0 == map_cmp_str(lhs, rhs);
+  }
+}
+
+void map_free_key(const map_t *hm, void *key) {
+  if(hm->free_key) {
+    hm->free_key(key);
+  }
+}
+
+void map_free_val(const map_t *hm, void *val) {
+  if(hm->free_val) {
+    hm->free_val(val);
+  }
+}
+
 map_item_t *map_get_item(const map_t *m, const char *str) {
   // compute hash of string
-  map_hash_t hash = map_hash_str(str);
+  map_hash_t hash = map_hash_key(m, str);
 
   // map the hash to a bin
   size_t bin = hash % m->bin_count;
 
   // iterate through all items
   for(map_item_t *item = &m->bins[bin]; item != NULL; item = item->next) {
-    if(item->hash == hash && 0 == strcmp(str, item->key)) {
+    if(item->hash == hash && map_equal_key(m, str, item->key)) {
       return item;
     }
   }
@@ -179,16 +230,23 @@ bool map_has(const map_t *m, const char *str) {
   return item ? true : false;
 }
 
-bool map_set(map_t *m, const char *str, void *val) {
-  map_item_t *item = map_get_item(m, str);
+bool map_set(map_t *m, const char *ptr, void *val) {
+  map_item_t *item = map_get_item(m, ptr);
 
   if(!item) {
     return false;
   }
 
-  // TODO free old key
-  item->key = (void *) str;
-  item->val = val;
+  // overwrite key and val with new values if different, free()ing old ones.
+  if(item->key != ptr) {
+    map_free_key(m, item->key);
+    item->key = (void *) ptr;
+  }
+
+  if(item->val != val) {
+    map_free_val(m, item->val);
+    item->val = val;
+  }
 
   return true;
 }
@@ -212,7 +270,7 @@ void map_bin_expand(map_t *m) {
 
 bool map_add(map_t *m, const char *str, void *val) {
   // compute hash of string
-  map_hash_t hash = map_hash_str(str);
+  map_hash_t hash = map_hash_key(m, str);
 
   // map the hash to a bin
   size_t bin = hash % m->bin_count;
@@ -228,7 +286,7 @@ bool map_add(map_t *m, const char *str, void *val) {
       item->val = val;
     } else {
       // when the key already exists in the map, return false.
-      if(item->hash == hash && 0 == strcmp(str, item->key)) {
+      if(item->hash == hash && map_equal_key(m, str, item->key)) {
         return false;
       }
 
@@ -243,7 +301,7 @@ bool map_add(map_t *m, const char *str, void *val) {
       item_list_len += 1;
 
       // when the key already exists, return false.
-      if(cur->hash == hash && 0 == strcmp(str, cur->key)) {
+      if(cur->hash == hash && map_equal_key(m, str, cur->key)) {
         return false;
       }
     }
@@ -275,12 +333,17 @@ bool map_del(map_t *m, const void *key) {
     return false;
   }
 
+  // free key and val
+  map_free_key(m, item->key);
+  map_free_val(m, item->val);
+
   // TODO: free key and val
   if(item->next) {
     map_item_t *next = item->next;
     *item = *next;
     free(next);
   } else {
+    // FIXME free item if it's not in the bin list
     item->hash = 0;
     item->key = NULL;
     item->val = NULL;
