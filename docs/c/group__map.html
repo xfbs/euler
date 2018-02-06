@@ -113,6 +113,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaad87982635013ef186637e190ecfe189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__t.html">map_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__map.html#gaad87982635013ef186637e190ecfe189">map_new</a> ()</td></tr>
 <tr class="memdesc:gaad87982635013ef186637e190ecfe189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new hashmap.  <a href="#gaad87982635013ef186637e190ecfe189">More...</a><br /></td></tr>
 <tr class="separator:gaad87982635013ef186637e190ecfe189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f22faffa1316f06f0c81e4f46dc8d78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmap__t.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__map.html#ga4f22faffa1316f06f0c81e4f46dc8d78">map_alloc</a> ()</td></tr>
+<tr class="memdesc:ga4f22faffa1316f06f0c81e4f46dc8d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new hashmap on the heap.  <a href="#ga4f22faffa1316f06f0c81e4f46dc8d78">More...</a><br /></td></tr>
+<tr class="separator:ga4f22faffa1316f06f0c81e4f46dc8d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga316fe7ee6defa6a4fe2714d50fce875a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a">map_free</a> (<a class="el" href="structmap__t.html">map_t</a> *hm)</td></tr>
 <tr class="memdesc:ga316fe7ee6defa6a4fe2714d50fce875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a hashmap's bins, and depending on the <code>key_free</code> and <code>val_free</code> parameters, also its keys and values.  <a href="#ga316fe7ee6defa6a4fe2714d50fce875a">More...</a><br /></td></tr>
 <tr class="separator:ga316fe7ee6defa6a4fe2714d50fce875a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,6 +248,28 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>false if <code>str</code> is already a key in the Hashmap, true otherwise.</dd></dl>
 <h2>Example</h2>
 <div class="fragment"><div class="line"><span class="comment">// new hashmap</span></div><div class="line"><a class="code" href="structmap__t.html">map_t</a> hm = <a class="code" href="group__map.html#gaad87982635013ef186637e190ecfe189">map_new</a>();</div><div class="line"></div><div class="line"><span class="comment">// adds an element</span></div><div class="line">assert(<a class="code" href="group__map.html#ga2839977e34a5fbf56f5821a67d962a8c">map_add</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>, <span class="stringliteral">&quot;value&quot;</span>));</div><div class="line"></div><div class="line"><span class="comment">// checks that we can&#39;t add anything under the same key</span></div><div class="line">assert(!<a class="code" href="group__map.html#ga2839977e34a5fbf56f5821a67d962a8c">map_add</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>, <span class="stringliteral">&quot;other&quot;</span>));</div><div class="line"></div><div class="line"><span class="comment">// checks that our mapping exists</span></div><div class="line"><a class="code" href="group__test.html#ga8b173da63cf8b900c1261c6889a985fb">assert_eq</a>(<a class="code" href="group__map.html#gacb670408efab812020515b30a663c07d">map_get</a>(&amp;hm, <span class="stringliteral">&quot;key&quot;</span>), <span class="stringliteral">&quot;value&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// release hashmap</span></div><div class="line"><a class="code" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a">map_free</a>(&amp;hm);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="ga4f22faffa1316f06f0c81e4f46dc8d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4f22faffa1316f06f0c81e4f46dc8d78">&#9670;&nbsp;</a></span>map_alloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmap__t.html">map_t</a>* map_alloc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new hashmap on the heap. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new, initialized hashmap on the heap. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>As this hashmap is allocated on the heap, in addition to calling <code><a class="el" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a" title="Frees a hashmap&#39;s bins, and depending on the key_free and val_free parameters, also its keys and valu...">map_free()</a></code>, <code>free()</code> also needs to be called on the pointer itself.</dd></dl>
+<h2>Examples</h2>
+<div class="fragment"><div class="line"><span class="comment">// make new hashmap</span></div><div class="line"><a class="code" href="structmap__t.html">map_t</a> *hm = <a class="code" href="group__map.html#ga4f22faffa1316f06f0c81e4f46dc8d78">map_alloc</a>();</div><div class="line"></div><div class="line"><span class="comment">// add something to the hashmap</span></div><div class="line">assert(<a class="code" href="group__map.html#ga2839977e34a5fbf56f5821a67d962a8c">map_add</a>(hm, <span class="stringliteral">&quot;key&quot;</span>, <span class="stringliteral">&quot;val&quot;</span>));</div><div class="line"></div><div class="line"><span class="comment">// check if adding worked</span></div><div class="line"><a class="code" href="group__test.html#ga8b173da63cf8b900c1261c6889a985fb">assert_eq</a>(<a class="code" href="group__map.html#gacb670408efab812020515b30a663c07d">map_get</a>(hm, <span class="stringliteral">&quot;key&quot;</span>), <span class="stringliteral">&quot;val&quot;</span>);</div><div class="line"></div><div class="line"><span class="comment">// release</span></div><div class="line"><a class="code" href="group__map.html#ga316fe7ee6defa6a4fe2714d50fce875a">map_free</a>(hm);</div><div class="line">free(hm);</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="ga3a34fe6a93edac3effb6dc5df40c00a6"></a>
@@ -491,7 +516,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <code>map_hash_t</code> representing the hash of the pointer.</dd></dl>
 <h2>Examples</h2>
-<p>FIXME </p><div class="fragment"><div class="line">assert(<a class="code" href="group__map.html#gae9008c161311a0559e9f73287162f146">map_hash_str</a>(<span class="stringliteral">&quot;abc&quot;</span>) == <a class="code" href="group__map.html#gae9008c161311a0559e9f73287162f146">map_hash_str</a>(<span class="stringliteral">&quot;abc&quot;</span>));</div><div class="line">assert(<a class="code" href="group__map.html#gae9008c161311a0559e9f73287162f146">map_hash_str</a>(<span class="stringliteral">&quot;some&quot;</span>) != <a class="code" href="group__map.html#gae9008c161311a0559e9f73287162f146">map_hash_str</a>(<span class="stringliteral">&quot;other&quot;</span>));</div></div><!-- fragment --> 
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> a, b;</div><div class="line">assert(<a class="code" href="group__map.html#ga0e29c941bf65e6ec6d125c31a50efcf9">map_hash_ptr</a>(&amp;a) == <a class="code" href="group__map.html#ga0e29c941bf65e6ec6d125c31a50efcf9">map_hash_ptr</a>(&amp;a));</div><div class="line">assert(<a class="code" href="group__map.html#ga0e29c941bf65e6ec6d125c31a50efcf9">map_hash_ptr</a>(&amp;a) != <a class="code" href="group__map.html#ga0e29c941bf65e6ec6d125c31a50efcf9">map_hash_ptr</a>(&amp;b));</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="gae9008c161311a0559e9f73287162f146"></a>
