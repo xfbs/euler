@@ -33,6 +33,21 @@ void doctest_map_new() {
   map_free(&hm);
 }
 
+void doctest_map_alloc() {
+  // make new hashmap
+  map_t *hm = map_alloc();
+
+  // add something to the hashmap
+  assert(map_add(hm, "key", "val"));
+
+  // check if adding worked
+  assert_eq(map_get(hm, "key"), "val");
+
+  // release
+  map_free(hm);
+  free(hm);
+}
+
 void doctest_map_free_1() {
   // make new hashmap
   map_t hm = map_new();

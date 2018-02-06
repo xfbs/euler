@@ -91,6 +91,30 @@ typedef struct {
 //! ```
 map_t map_new();
 
+//! Creates a new hashmap on the heap.
+//!
+//! @return Pointer to a new, initialized hashmap on the heap.
+//! @note As this hashmap is allocated on the heap, in addition to calling
+//! `map_free()`, `free()` also needs to be called on the pointer itself.
+//!
+//! ## Examples
+//!
+//! ```c
+//! // make new hashmap
+//! map_t *hm = map_alloc();
+//!
+//! // add something to the hashmap
+//! assert(map_add(hm, "key", "val"));
+//!
+//! // check if adding worked
+//! assert_eq(map_get(hm, "key"), "val");
+//!
+//! // release
+//! map_free(hm);
+//! free(hm);
+//! ```
+map_t *map_alloc();
+
 //! Frees a hashmap's bins, and depending on the `key_free` and `val_free`
 //! parameters, also its keys and values.
 //!

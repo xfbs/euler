@@ -49,6 +49,12 @@ map_t map_new() {
   return hm;
 }
 
+map_t *map_alloc() {
+  map_t *hm = malloc(sizeof(map_t));
+  *hm = map_new();
+  return hm;
+}
+
 // check if a uint64_t contains a zero byte, taken from
 // https://jameshfisher.com/2017/01/24/bitwise-check-for-zero-byte.html
 bool contains_zero_byte(uint64_t v) {
