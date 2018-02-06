@@ -1,7 +1,7 @@
 LIBDIR   = ../../lib/c/euler
-OPTIMISE = -O3
-CFLAGS 	+= -Iinc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMISE)
-LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMISE)
+OPTIMIZE = -O3
+CFLAGS 	+= -Iinc -I$(LIBDIR)/include -std=c11 -Wall -pedantic $(OPTIMIZE)
+LDFLAGS  = -L$(LIBDIR)/lib -lm -leuler $(OPTIMIZE)
 SOURCES  = $(wildcard src/*.c)
 TESTS    = $(wildcard test/*.c)
 

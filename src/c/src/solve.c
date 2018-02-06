@@ -436,168 +436,167 @@ const char *solve052(map_t *data) {
 struct solve_s solve[] = {
   [  0] = {NULL, NULL},
   [  1] = {
-    solve001,
-    "solves the multiples of 3 and 5.\n"
+    solve001, "Multiples of 3 and 5",
     "  --help   shows this text\n"
     "  --max    sets maximum number\n"
     "  --div1   first divisor\n"
     "  --div2   second divisor"},
   [  2] = {
-    solve002,
+    solve002, "Even Fibonacci numbers"
     "TODO"},
   [  3] = {
-    solve003,
+    solve003, "Largest prime factor",
     "TODO"},
   [  4] = {
-    solve004,
+    solve004, "Largest palindrome product",
     "TODO"},
   [  5] = {
-    solve005,
+    solve005, "Smallest multiple",
     "TODO"},
   [  6] = {
-    solve006,
+    solve006, "Sum square difference",
     "TODO"},
   [  7] = {
-    solve007,
+    solve007, "10001st prime",
     "TODO"},
   [  8] = {
-    solve008,
+    solve008, "Largest product in a series",
     "TODO"},
   [  9] = {
-    solve009,
+    solve009, "Special pythagorean triplet",
     "TODO"},
   [ 10] = {
-    solve010,
+    solve010, "Summation of primes",
     "TODO"},
   [ 11] = {
-    solve011,
+    solve011, "Largest product in a grid",
     "TODO"},
   [ 12] = {
-    solve012,
+    solve012, "Highly divisible triangular number",
     "TODO"},
   [ 13] = {
-    solve013,
+    solve013, "Large sum",
     "TODO"},
   [ 14] = {
-    solve014,
+    solve014, "Longest Collatz sequence",
     "TODO"},
   [ 15] = {
-    solve015,
+    solve015, "Lattice paths",
     "TODO"},
   [ 16] = {
-    solve016,
+    solve016, "Power digit sum",
     "TODO"},
   [ 17] = {
-    solve017,
+    solve017, "Number letter counts",
     "TODO"},
   [ 18] = {
-    solve018,
+    solve018, "Maximum path sum",
     "TODO"},
   [ 19] = {
-    solve019,
+    solve019, "Counting Sundays",
     "TODO"},
   [ 20] = {
-    solve020,
+    solve020, "Factorial digit sum",
     "TODO"},
   [ 21] = {
-    solve021,
+    solve021, "Amicable numbers",
     "TODO"},
   [ 22] = {
-    solve022,
+    solve022, "Names scores",
     "TODO"},
   [ 23] = {
-    solve023,
+    solve023, "Non-abundant sums",
     "TODO"},
   [ 24] = {
-    solve024,
+    solve024, "Lexicographic permutations",
     "TODO"},
   [ 25] = {
-    solve025,
+    solve025, "1000-digit Fibonacci number",
     "TODO"},
   [ 26] = {
-    NULL,
+    NULL, "Reciprocal cycles",
     NULL},
   [ 27] = {
-    solve027,
+    solve027, "Quadratic primes",
     "TODO"},
   [ 28] = {
-    solve028,
+    solve028, "Number spiral diagonals",
     "TODO"},
   [ 29] = {
-    solve029,
+    solve029, "Distinct powers",
     "TODO"},
   [ 30] = {
-    solve030,
+    solve030, "Digit fifth powers",
     "TODO"},
   [ 31] = {
-    solve031,
+    solve031, "Coin sums",
     "TODO"},
   [ 32] = {
-    solve032,
+    solve032, "Pandigital products",
     "TODO"},
   [ 33] = {
-    solve033,
+    solve033, "Digit cancelling fractions",
     "TODO"},
   [ 34] = {
-    solve034,
+    solve034, "Digit factorials",
     "TODO"},
   [ 35] = {
-    solve035,
+    solve035, "Circular primes",
     "TODO"},
   [ 36] = {
-    solve036,
+    solve036, "Double-base palindromes",
     "TODO"},
   [ 37] = {
-    solve037,
+    solve037, "Truncatable primes",
     "TODO"},
   [ 38] = {
-    solve038,
+    solve038, "Pandigital multiples",
     "TODO"},
   [ 39] = {
-    solve039,
+    solve039, "Integer right triangles",
     "TODO"},
   [ 40] = {
-    solve040,
+    solve040, "Champernowne's constant",
     "TODO"},
   [ 41] = {
-    solve041,
+    solve041, "Pandigital prime",
     "TODO"},
   [ 42] = {
-    solve042,
+    solve042, "Coded triangle numbers",
     "TODO"},
   [ 43] = {
-    solve043,
+    solve043, "Sub-string divisibility",
     "TODO"},
   [ 44] = {
-    solve044,
+    solve044, "Pentagon numbers",
     "TODO"},
   [ 45] = {
-    solve045,
+    solve045, "Triangular, pentagonal and hexagonal",
     "TODO"},
   [ 46] = {
-    solve046,
+    solve046, "Goldbach's other conjecture",
     "TODO"},
   [ 47] = {
-    solve047,
+    solve047, "Distinct primes factors",
     "TODO"},
   [ 48] = {
-    solve048,
+    solve048, "Self powers",
     "TODO"},
   [ 49] = {
-    solve049,
+    solve049, "Prime permutations",
     "TODO"},
   [ 50] = {
-    solve050,
+    solve050, "Consecutive prime sum",
     "TODO"},
   [ 51] = {
-    NULL,
+    NULL, "Prime digit replacements",
     NULL},
   [ 52] = {
-    solve052,
+    solve052, "Permuted multiples",
     "TODO"},
   [ 53] = {
-    NULL,
+    NULL, "Combinatoric selection",
     NULL},
 };
 
-size_t solve_max = sizeof(solve);
+size_t solve_max = sizeof(solve) / sizeof(solve[0]);

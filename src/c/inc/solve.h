@@ -5,6 +5,7 @@ typedef const char *solve_func(map_t *data);
 
 struct solve_s {
   solve_func *func;
+  const char *name;
   const char *help;
 };
 
